@@ -6,7 +6,7 @@ const URL = "https://myndlab-production.up.railway.app/api/v1";
 
 const API_CONFIG = {
   PROD: URL,
-  IMAGE: "http://192.168.0.100:3000",
+  IMAGE: "https://myndlab-production.up.railway.app",
 };
 
 export const baseURL = API_CONFIG.PROD;

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 import { mmkvStorage } from "./mmkv";
 
 interface WalletStore {
@@ -11,7 +11,7 @@ interface WalletStore {
 export const useWalletStore = create<WalletStore>()(
   persist(
     (set) => ({
-      balance: 125000,
+      balance: 0,
 
       addBalance: (amount) =>
         set((state) => ({ balance: state.balance + amount })),
