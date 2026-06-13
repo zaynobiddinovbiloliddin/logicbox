@@ -1,0 +1,1366 @@
+{
+  "title": "React Native Иловаси",
+  "auth": {
+    "common": {
+      "errorTitle": "Хатолик",
+      "nameLabel": "ИСМ",
+      "namePlaceholder": "Исмингиз",
+      "usernameLabel": "ФОЙДАЛАНУВЧИ НОМИ",
+      "usernamePlaceholder": "Фойдаланувчи номи",
+      "passwordLabel": "ПАРОЛ",
+      "passwordPlaceholder": "Парол"
+    },
+    "welcome": {
+      "title": "Хуш келибсиз",
+      "titleAccent": "!",
+      "subtitle": "Давом этиш учун тилни танланг",
+      "next": "Давом этиш ->"
+    },
+    "login": {
+      "title": "Кириш",
+      "subtitle": "Давом этиш учун маълумотларингизни киритинг",
+      "cta": "Кириш",
+      "noAccount": "Ҳисобингиз йўқми?",
+      "signUp": "Рўйхатдан ўтиш",
+      "error": "Киришда хатолик юз берди"
+    },
+    "register": {
+      "title": "Рўйхатдан ўтиш",
+      "subtitle": "Бошлаш учун ҳисоб яратинг",
+      "cta": "Рўйхатдан ўтиш",
+      "haveAccount": "Ҳисобингиз борми?",
+      "signIn": "Кириш",
+      "error": "Рўйхатдан ўтишда хатолик юз берди"
+    },
+    "otp": {
+      "title": "Кодни тасдиқлаш",
+      "subtitle": "4 хонали код қуйидаги рақамга юборилди",
+      "verify": "Тасдиқлаш",
+      "resend": "Кодни қайта юбориш"
+    }
+  },
+  "tabs": {
+    "home": {
+      "errorTitle": "Хатолик",
+      "cancel": "Бекор қилиш",
+      "currency": "UZS",
+      "prizePoolLabel": "Умумий мукофот фонди",
+      "halal": "Ҳалол",
+      "openTasks": "Вазифаларга кириш",
+      "gamesShort": "Ўйинлар",
+      "seeAll": "Ҳаммасини кўриш",
+      "participating": "✅ Иштирок этяпман",
+      "entry": "Кириш",
+      "duration": "15 мин",
+      "difficulty": {
+        "medium": "Ўртача"
+      },
+      "task": {
+        "logic": "Мантиқ",
+        "memory": "Хотира",
+        "speed": "Тезлик"
+      },
+      "sections": {
+        "topRatings": "🏆 Топ рейтинглар",
+        "games": "🎮 Ўйинлар",
+        "testCatalog": "📚 Тестлар каталоги"
+      },
+      "challengeBadge": {
+        "default": "⚡ Challenge",
+        "weekly": "📅 Ҳафталик",
+        "monthly": "🔥 Марафон",
+        "daily": "☀️ Кунлик"
+      },
+      "connect": {
+        "title": "Challenge'га уланиш",
+        "message": "Улангандан кейин challenge дарҳол очилади.",
+        "confirm": "Уланиш",
+        "error": "Challenge'га уланиб бўлмади"
+      }
+    },
+    "games": {
+      "errorTitle": "Хатолик",
+      "cancel": "Бекор қилиш",
+      "accessTitle": "Ўйинга кириш",
+      "accessMessage": "Ўйинни очиш учун қисқа рекламани кўринг.",
+      "watchAd": "Реклама кўриш",
+      "skipPaid": "Ўтказиб юбориш (20 сўм)",
+      "reclamUpdateError": "Реклама ҳолатини янгилаб бўлмади",
+      "adScreen": {
+        "badge": "Реклама",
+        "rewardTitle": "Кўриш тугагач ўйин очилади",
+        "rewardText": "Ҳозирча бу видео учун default placeholder экран. Кейин шу жойга AppLovin MAX улаш мумкин бўлади, фойдаланувчи оқими ўзгармайди.",
+        "continue": "Давом этиш",
+        "wait": "{{seconds}} сония кутинг"
+      },
+      "tags": {
+        "math": "🔢 Математика",
+        "geography": "🌍 География",
+        "puzzle": "🧩 Пазл",
+        "language": "🔤 Тил",
+        "space": "🚀 Коинот",
+        "attention": "🎨 Диққат",
+        "timing": "⏱️ Тайминг",
+        "speed": "⌛ Тезлик",
+        "reaction": "🔴 Реакция",
+        "logic": "👁️ Мантиқ",
+        "racing": "🏎️ Пойга",
+        "memory": "🧠 Хотира"
+      }
+    },
+    "exam": {
+      "prizePoolLabel": "Умумий мукофот фонди",
+      "currency": "СЎМ",
+      "aboutTitle": "Мукофот фонди ҳақида",
+      "aboutDesc": "Кунлик тестлар, ҳафталик марафонлар, ойлик синовлар - буларнинг ҳар бири алоҳида мукофот фондига эга. Сиз бир вақтнинг ўзида бир нечтасида иштирок этиб, ҳар биридан алоҳида ғолиб бўлишингиз ва мукофот олишингиз мумкин.",
+      "gotIt": "Тушундим",
+      "infoItems": {
+        "seasonal": "Ҳар мавсумда янги босқич",
+        "morePoints": "Кўпроқ балл = катта мукофот",
+        "fairSystem": "Ҳалол ва шаффоф тизим"
+      },
+      "challengeTitle": {
+        "daily": "Кунлик челлендж",
+        "weekly": "Ҳафталик челлендж",
+        "monthly": "Ойлик марафон"
+      }
+    },
+    "profile": {
+      "guest": "Меҳмон",
+      "boosts": "Boosts",
+      "achievements": "Ютуқлар",
+      "skillsProfile": "🧬 Кўникмалар профили",
+      "iqTotal": "Умумий IQ балл",
+      "logout": "Чиқиш",
+      "logoutTitle": "Чиқиш",
+      "logoutMessage": "Ҳақиқатан ҳам чиқмоқчимисиз?",
+      "yesLogout": "Ҳа, чиқиш",
+      "no": "Йўқ",
+      "stats": {
+        "score": "Балл",
+        "activity": "Фаоллик",
+        "wins": "Ютуқлар"
+      },
+      "skills": {
+        "thinkingSpeed": "Тезкор фикрлаш",
+        "attention": "Диққат",
+        "concentration": "Концентрация",
+        "logic": "Мантиқ",
+        "memory": "Хотира"
+      },
+      "language": "Тилни алмаштириш",
+      "languageTitle": "Тилни танланг",
+      "languageSubtitle": "Илова тилини танланг. Ўзгариш дарҳол қўлланади.",
+      "languageOptions": {
+        "uz": "Ўзбекча (Лотин)",
+        "uzSub": "Стандарт ўзбек лотин ёзуви",
+        "uzCyrl": "Ўзбекча (Кирилл)",
+        "uzCyrlSub": "Ўзбек кирилл ёзуви",
+        "ru": "Русский",
+        "ruSub": "Рус тили"
+      }
+    }
+  },
+  "content": {
+    "task": {
+      "errorTitle": "Хатолик",
+      "loadDayGamesError": "Кун ўйинларини юклаб бўлмади",
+      "back": "Орқага",
+      "title": "🔥 Кунлик Тест",
+      "timeLeft": "⏳ Тугашига қолди:",
+      "progress": "Прогресс",
+      "totalScore": "🏆 Умумий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Кўриш",
+      "dayShort": "кун",
+      "hourShort": "соат",
+      "minuteShort": "дақ",
+      "secondShort": "сек"
+    },
+    "myTests": {
+      "instructionTitle": "Йўриқнома",
+      "instructionMessage": "Тестни бошлаш учун «Бошлаш»ни босинг.\n\nВақт чекловисиз машқ режимида ўтиш учун «Машқ»ни босинг.",
+      "training": "Машқ",
+      "start": "Бошлаш",
+      "close": "Ёпиш",
+      "title": "Менинг тестларим",
+      "dailyTitle": "Кунлик тест",
+      "dailySubtitle": "3 та вазифа: тест, математика, тезлик"
+    },
+    "weekly": {
+      "back": "Орқага",
+      "title": "🔥 Challenge",
+      "progress": "Прогресс",
+      "timeLeft": "⏳ Тугашига қолди:",
+      "totalScore": "🏆 Умумий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Кўриш",
+      "dayShort": "кун",
+      "hourShort": "соат",
+      "minuteShort": "дақ",
+      "secondShort": "сек"
+    },
+    "monthly": {
+      "back": "Орқага",
+      "title": "🔥 Ойлик марафон",
+      "progress": "Прогресс",
+      "timeLeft": "⏳ Тугашига қолди:",
+      "totalScore": "🏆 Умумий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Кўриш",
+      "dayShort": "кун",
+      "hourShort": "соат",
+      "minuteShort": "дақ",
+      "secondShort": "сек"
+    },
+    "topRating": {
+      "label": "Рейтинг",
+      "headerTitle": "Рейтинглар",
+      "allParticipants": "Барча иштирокчилар",
+      "empty": "Ҳали иштирокчилар йўқ",
+      "levelShort": "Lvl."
+    },
+    "boosts": {
+      "currency": "сўм",
+      "back": "Орқага",
+      "headerTitle": "Boosts",
+      "headerSub": "Ақл билан ишлат - тезроқ ют",
+      "tipTitle": "💡 Кучайтиргичлардан қандай фойдаланиш керак?",
+      "tipBlock1Title": "Диққат ва Хотира",
+      "tipBlock1Desc": "Адашиб қолсангиз, ёритиш ёки такрорлаш учун ишлатинг.",
+      "tipBlock2Title": "Мантиқ ва Реакция",
+      "tipBlock2Desc": "Вақтни секинлаштириш ёки қийин дақиқани ўтказиб юборишга ёрдам беради.",
+      "boughtTitle": "Сотиб олинди",
+      "boughtMessage": "{{quantity}} та буст муваффақиятли сотиб олинди!",
+      "errorTitle": "Хатолик",
+      "buyError": "Бустларни сотиб олиб бўлмади.",
+      "totalCost": "Жами: 💰 {{value}} сўм",
+      "notEnoughBalanceWithAmount": "Баланс етарли эмас (💰 {{value}} сўм)",
+      "buyNow": "Сотиб олиш{{countSuffix}}",
+      "notEnoughBalance": "Баланс етарли эмас"
+    },
+    "notifications": {
+      "back": "Орқага",
+      "readAll": "Ҳаммасини ўқиш",
+      "details": "Батафсил",
+      "noNews": "Янгиликлар йўқ",
+      "noNotifications": "Билдиришномалар йўқ",
+      "noNotificationsDesc": "Янги билдиришномалар бу ерда кўринади",
+      "justNow": "Ҳозиргина",
+      "minuteAgo": "дақиқа олдин",
+      "hourAgo": "соат олдин",
+      "dayAgo": "кун олдин",
+      "tabs": {
+        "news": "Янгиликлар",
+        "my": "Менинг"
+      }
+    },
+    "quiz": {
+      "completed": "🎯 Тест якунланди",
+      "score": "Натижа",
+      "restart": "Тестни қайта бошлаш",
+      "title": "Тест"
+    },
+    "testContent": {
+      "errorTitle": "Хатолик",
+      "connectError": "Уланишда хатолик юз берди",
+      "popular": "🔥 Оммабоп",
+      "prizePool": "Мукофот жамғармаси",
+      "currency": "сўм",
+      "period": "Муддат",
+      "descriptionTitle": "Тавсиф",
+      "descriptionBody": "Ақл-заковатингиз имкониятларини синаб кўринг ва тафаккур лигасидаги мақомингизни тасдиқланг. Натижа аниқлик, тезлик ва изчиллик асосида шаклланади. Юқори натижа кўрсатган иштирокчилар платформа томонидан рағбатлантирилади.",
+      "openChallenge": "Challenge'ни очиш",
+      "connect": "Уланиш"
+    },
+    "reclam": {
+      "topPrefix": "Топ",
+      "prizesTitle": "🎁 Сизнинг мукофотларингиз",
+      "claimReward": "🎁 Мукофотни олиш",
+      "chooseReward": "Мукофотни танланг",
+      "shareTitle": "🎉 Ютуқингизни улашинг!",
+      "receivedRewards": "Олинган мукофотлар:",
+      "copyLink": "📋 Ҳаволани нусхалаш",
+      "labels": {
+        "exclusiveFlag": "Эксклюзив байроқ",
+        "powerBoosts": "Кучли бустлар",
+        "powerBoost": "Кучли буст",
+        "diamonds": "Олмослар",
+        "cash": "Пул"
+      },
+      "rating": {
+        "perfect": "Ажойиб!",
+        "excellent": "Зўр!",
+        "good": "Яхши!",
+        "notBad": "Ёмон эмас",
+        "tryAgain": "Яна уриниб кўринг"
+      },
+      "rewardInfo": {
+        "activityTitle": "Фаоллик",
+        "activityDesc": "Топ 1%! Устунлигингизни кўрсатинг",
+        "boostPackTitle": "Бустлар тўплами",
+        "freeBoostTitle": "Бепул буст",
+        "boostPackDesc": "Кейинги ўйинлар учун кучли ёрдам",
+        "freeBoostDesc": "Кейинги сафар натижани яхшиланг",
+        "diamondTitle": "Премиум валюта",
+        "diamondDesc": "Махсус харидлар учун ишлатинг",
+        "cashTitle": "Пул мукофоти",
+        "cashDesc": "Аъло ўйин учун"
+      },
+      "shareSubtitle": {
+        "top1": "Сиз топ 1%дасиз! Бу ақлбовар қилмас!",
+        "top4": "Сиз топ 4%дасиз! Зўр натижа!",
+        "good": "Ажойиб иш!",
+        "poor": "Яхши бошланиш!",
+        "fail": "Машқни давом эттиринг!"
+      },
+      "shareApps": {
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "twitter": "Twitter",
+        "facebook": "Facebook"
+      }
+    },
+    "battle": {
+      "members": "🏆 Аъзолар",
+      "tasks": "🎯 Вазифалар",
+      "start": "🚀 Жангни бошлаш",
+      "viewAll": "🧠 Барча тестларни кўриш"
+    },
+    "editProfile": {
+      "errorTitle": "Хатолик",
+      "updateError": "Профилни янгилашда хатолик юз берди",
+      "title": "Профилни таҳрирлаш",
+      "nameLabel": "ИСМ",
+      "namePlaceholder": "Исмингиз",
+      "phoneLabel": "ТЕЛЕФОН РАҚАМ",
+      "ageLabel": "ЁШ",
+      "agePlaceholder": "Ёшингиз",
+      "save": "Сақлаш"
+    }
+  },
+  "games": {
+    "common": {
+      "congratsTitle": "Табриклаймиз!",
+      "allDayGamesDone": "Сиз куннинг барча ўйинларини якунладингиз!",
+      "challengeTitle": "Challenge",
+      "dayFinished": "Кун якунланди!"
+    },
+    "oneSecond": {
+      "grades": {
+        "legend": {
+          "label": "ЛЕГЕНДА",
+          "title": "ЛЕГЕНДА",
+          "sub": "Сиз одамларнинг топ 0.1%идасиз. Ички соатингиз жуда аниқ."
+        },
+        "master": {
+          "label": "УСТА",
+          "title": "УСТА",
+          "sub": "Вақтни ҳис қилиш даражангиз аъло."
+        },
+        "good": {
+          "label": "ЯХШИ",
+          "title": "ЯХШИ",
+          "sub": "Ўртачадан юқори натижа."
+        },
+        "average": {
+          "label": "ЎРТАЧА",
+          "title": "ЎРТАЧА",
+          "sub": "Оддий натижа. Машқ билан яхшиланади."
+        },
+        "train": {
+          "label": "МАШҚ ҚИЛИНГ",
+          "title": "МАШҚ ҚИЛИНГ",
+          "sub": "Ички вақт ҳисси ҳали суст, лекин яхшилаш мумкин."
+        }
+      },
+      "class": {
+        "perfect": "АЖОЙИБ!",
+        "good": "ЗЎР!",
+        "ok": "ЁМОН ЭМАС",
+        "bad": "НИШОНДАН ТАШҚАРИ"
+      },
+      "phase": {
+        "tapHold": "Босиб туринг",
+        "holding": "Ушлаб туринг...",
+        "points": "+{{points}} очко"
+      },
+      "circle": {
+        "hold": "УШЛА"
+      },
+      "share": {
+        "title": "⏱ 1 СОНИЯ — Ички вақт тести",
+        "offsetLevel": "Оғиш: {{avg}}ms | Даража: {{level}}",
+        "perfectScore": "Идеал уринишлар: {{perfect}}/20 | Ҳисоб: {{score}}",
+        "challenge": "Менинг натижамни янгиланг!"
+      },
+      "start": {
+        "title": "ONE\nSECOND",
+        "subtitle": "Мия ички соати тести",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Тугмани айнан 1 сония босиб туринг ва қўйиб юборинг. 20 уриниш ичида энг кичик ўртача оғишни топинг.",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "tapHoldName": "Босиб туринг",
+          "tapHoldDesc": "Тугмани ушлаб туринг, ҳалқа реал вақтда тўлади.",
+          "releaseName": "1 сонияда қўйинг",
+          "releaseDesc": "Мақсад — айнан 1000 ms.",
+          "roundsName": "20 уриниш",
+          "roundsDesc": "Якуний ўрин ўртача оғиш бўйича аниқланади."
+        },
+        "scoringTitle": "⭐ Очко тизими",
+        "scoring": {
+          "max": "≤20 ms оғиш учун максимал очко",
+          "good": "≤50 ms оғиш учун",
+          "min": ">350 ms оғиш учун минимал очко"
+        },
+        "features": {
+          "accuracy": "Аниқлик",
+          "rounds": "20 раунд",
+          "records": "Рекордлар"
+        },
+        "bestOffset": "Энг яхши оғиш",
+        "bestScore": "Рекорд ҳисоб",
+        "startBtn": "БОШЛАШ"
+      },
+      "game": {
+        "attempt": "Уриниш",
+        "score": "Ҳисоб",
+        "boost": {
+          "active": "×2 фаол",
+          "depleted": "тугаган",
+          "default": "×2 очко"
+        }
+      },
+      "result": {
+        "bestOffset": "ЭНГ ЯХШИ ОҒИШ",
+        "yourOffset": "СИЗНИНГ ОҒИШ",
+        "avgOffset": "1 сониядан ўртача оғиш",
+        "stats": {
+          "score": "Очко",
+          "record": "Рекорд",
+          "perfect": "Идеал",
+          "worst": "Энг ёмон уриниш"
+        },
+        "newRecord": "🏆 ЯНГИ РЕКОРД",
+        "share": "📋 Улашиш",
+        "tryAgain": "Яна уриниш 🔄",
+        "backHome": "← Бош саҳифага"
+      },
+      "units": {
+        "ms": "мс"
+      }
+    },
+    "voltNumbers": {
+      "result": {
+        "tryAgain": "Яна уриниш 🔄",
+        "home": "← Бош саҳифа",
+        "tryAgainTitle": "Яна уриниб кўринг",
+        "mistakes": "{{errors}} та хато",
+        "medalBronze": "Бронза",
+        "soClose": "Сал қолди!",
+        "legend": "ЛЕГЕНДА",
+        "phenomenal": "Ажойиб тезлик!",
+        "medalGold": "Олтин",
+        "excellent": "Зўр!",
+        "amazing": "Ажойиб натижа!",
+        "medalSilver": "Кумуш",
+        "goodJob": "Яхши иш!",
+        "keepPractising": "Машқ қилишда давом этинг!",
+        "bestTime": "ЭНГ ЯХШИ ВАҚТ",
+        "fail": "ЮТҚАЗИЛДИ",
+        "yourTime": "СИЗНИНГ ВАҚТ",
+        "finalTime": "ЯКУНИЙ ВАҚТ",
+        "seconds": "сония",
+        "correct": "Тўғри",
+        "errors": "Хатолар",
+        "rank": "Ўрин",
+        "medal": "Медал",
+        "accuracy": "Аниқлик",
+        "avgPerBall": "Ўрт./Шар",
+        "newRecord": "🏆 Янги рекорд!"
+      },
+      "common": {
+        "leaderboard": "🏆 Рейтинг",
+        "easy": "Осон",
+        "normal": "Ўрта",
+        "hard": "Қийин"
+      },
+      "start": {
+        "logoSub": "NUMBERS · ТАФАККУР ТЕЗЛИГИ",
+        "startBtn": "БОШЛАШ →",
+        "how": {
+          "rememberTitle": "Эслаб қол",
+          "rememberText": "Барча рақамлар қаерда жойлашганини эслаб қолинг",
+          "scatterTitle": "Аралаштир!",
+          "scatterText": "READY ни босинг — шарлар янги жойга учади",
+          "inOrderTitle": "Тартиб билан",
+          "inOrderText": "Рақамларни камайиш тартибида босинг: N→1",
+          "timedTitle": "Вақтга",
+          "timedText": "Тезроқ натижа = рейтингда юқорироқ ўрин!"
+        }
+      },
+      "game": {
+        "time": "ВАҚТ",
+        "left": "ҚОЛДИ",
+        "find": "ТОП",
+        "bannerTitle": "Эслаб қолинг!",
+        "bannerSub": "Жойлашувни эслаб қолинг, кейин аралаштириш учун {{total}} ни босинг",
+        "readyBtn": "ТАЙЁР!",
+        "limitReached": "❌ Лимит тугади!",
+        "mistakes": "Хатолар: {{mistakes}}/3"
+      },
+      "board": {
+        "leaders": "🏆 Лидерлар",
+        "back": "← Орқага",
+        "myPosition": "Менинг ўрним",
+        "you": "(сиз)"
+      }
+    },
+    "voltMemory": {
+      "start": {
+        "infoDesc": "Доираларни босиб яширин эмоджиларни очинг. Бир хил 2 доирани топинг — улар очиқ қолади. 63 сонияда 10 жуфтни топинг!",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "flipTitle": "Оч ва мослаштир",
+          "flipDesc": "Доирани очинг ва унинг жуфтини топинг",
+          "comboTitle": "Комбо кўпайтиргич",
+          "comboDesc": "Кетма-кет тўғри жуфтлар билан ×6 гача",
+          "speedTitle": "Тезлик бонуси",
+          "speedDesc": "Қанча кўп вақт қолса, шунча кўп очко",
+          "limitTitle": "63s лимит",
+          "limitDesc": "Вақт тугаса ўйин дарҳол тугайди"
+        },
+        "scoringTitle": "⭐ Очко тизими",
+        "scoring": {
+          "main": "(50 + тезлик бонуси) × комбо",
+          "speed": "Тезлик бонуси = қолган вақт × 2",
+          "combo": "Комбо кўпайтиргич лимити 6"
+        },
+        "subtitle": "Оч ва мослаштир · Тафаккур тезлиги",
+        "howToPlayTitle": "📋 Қандай ўйналади"
+      },
+      "result": {
+        "titleMaster": "ХОТИРА УСТАСИ!",
+        "titleGreat": "ЗЎР!",
+        "titleGood": "ЯХШИ!",
+        "titleTrain": "МАШҚНИ ДАВОМ ЭТТИРИНГ"
+      },
+      "game": {
+        "score": "ҲИСОБ",
+        "combo": "КОМБО"
+      },
+      "overlay": {
+        "onFire": "ЁНМОҚДА!",
+        "allPairs": "Барча жуфтлар!",
+        "brilliant": "Ажойиб натижа!",
+        "timeUsed": "САРФЛАНГАН ВАҚТ",
+        "resultsBtn": "Натижалар →"
+      }
+    },
+    "voltMatch": {
+      "start": {
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Юқорида мақсад эмоджи кўринади. Вақт тугамасидан жадвалдаги шу эмоджиларни топиб босинг. 12 раунд — 6-раунддан кейин тезлик ошади!",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "findTitle": "Мосини топинг",
+          "findDesc": "5×5 жадвалда 3–4 нусха яширилган",
+          "speedTitle": "Тезлик бонуси",
+          "speedDesc": "Тезроқ босиш = кўпроқ очко",
+          "comboTitle": "Комбо кўпайтиргич",
+          "comboDesc": "Кетма-кет тўғри босишлар ×6 гача",
+          "mistakeTitle": "3 та хато чегараси",
+          "mistakeDesc": "3 марта хато қилсангиз ўйин тугайди"
+        },
+        "scoringTitle": "⭐ Очко тизими",
+        "scoring": {
+          "main": "(15 + тезлик бонуси) × комбо",
+          "speed": "Ҳар босиш учун +20 гача тезлик бонуси",
+          "combo": "Комбо кўпайтиргич лимити"
+        },
+        "subtitle": "Тафаккур тезлиги · Мосини топ",
+        "diffTitle": "ҚИЙИНЛАШУВ",
+        "diffDesc": "6-раунддан кейин вақт қисқаради ва қидирув тезлашади",
+        "features": {
+          "rounds": "12 раунд",
+          "lives": "3 жон",
+          "timer": "Таймер",
+          "combo": "Комбо"
+        },
+        "startBtn": "БОШЛАШ"
+      },
+      "result": {
+        "titleLegend": "ЛЕГЕНДА!",
+        "titleGreat": "ЗЎР!",
+        "titleGood": "ЯХШИ!",
+        "titleTrain": "МАШҚНИ ДАВОМ ЭТТИРИНГ"
+      },
+      "game": {
+        "score": "ҲИСОБ",
+        "round": "РАУНД",
+        "time": "ВАҚТ",
+        "lives": "ЖОНЛАР",
+        "findAll": "ҲАММАСИНИ ТОП",
+        "remaining": "қолди: {{remaining}}",
+        "combo": "комбо",
+        "hardcore": "HARDCORE"
+      },
+      "overlay": {
+        "roundTitle": "{{round}}-раунд!",
+        "timeUp": "Вақт тугади!",
+        "roundSub": "+{{score}} очко · Кейинги раунд",
+        "continuing": "Давом этяпти...",
+        "finish": "Якунлаш 🏆",
+        "next": "Кейинги →"
+      }
+    },
+    "geographyTraining": {
+      "title": "🌍 Билим базаси",
+      "subtitle": "География · {{count}} та савол",
+      "tapToReveal": "Жавобни кўриш учун босинг",
+      "empty": "Саволлар топилмади",
+      "diff": {
+        "easy": "Осон",
+        "medium": "Ўрта",
+        "hard": "Қийин"
+      },
+      "stats": {
+        "total": "Жами",
+        "easy": "Осон",
+        "medium": "Ўрта",
+        "hard": "Қийин"
+      },
+      "categories": {
+        "all": "Барчаси",
+        "capitals": "Пойтахтлар",
+        "flags": "Байроқлар",
+        "continents": "Қитъалар",
+        "oceans": "Океанлар",
+        "countries": "Мамлакатлар",
+        "mountains": "Тоғлар",
+        "rivers": "Дарёлар",
+        "geography": "Аралаш",
+        "food": "Ошхона",
+        "customs": "Урф-одатлар"
+      }
+    },
+    "mathQuiz": {
+      "timeSec": "{{s}}s",
+      "toast": {
+        "timeUp": "⏱️ ВАҚТ!",
+        "doublePoints": "⚡ 2× ОЧКО!",
+        "correct": "✓ ТЎҒРИ!",
+        "wrong": "✗ НОТЎҒРИ"
+      },
+      "start": {
+        "title": "MATH QUIZ",
+        "subtitle": "Математика тести",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Сизга мисол берилади. 4 вариантдан тўғри жавобни вақт тугамасидан танланг. Тез жавоб учун бонус очко берилади.",
+        "levelsTitle": "📊 Қийинлик даражалари",
+        "easyLabel": "Осон · 11 савол",
+        "easyDesc": "Битта амал (+, −, ×, ÷) · 7.5s",
+        "hardLabel": "Қийин · 4 савол",
+        "hardDesc": "Икки амал, амал тартиби · 12.5s",
+        "scoringTitle": "⭐ Очко тизими",
+        "scoreCorrect": "Ҳар тўғри жавоб учун",
+        "scoreSpeed": "Тезлик бонуси (макс +10 очко)",
+        "scoreStreak": "Кетма-кет тўғри жавоблар streak бонус беради",
+        "ops": {
+          "add": "Қўшиш",
+          "sub": "Айириш",
+          "mul": "Кўпайтириш",
+          "div": "Бўлиш"
+        },
+        "startBtn": "ЎЙИННИ БОШЛАШ"
+      },
+      "game": {
+        "scorePrefix": "Ҳисоб: ",
+        "hard": "ҚИЙИН",
+        "easy": "ОСОН",
+        "streak": "Серия:"
+      },
+      "result": {
+        "gradeTrain": "МАШҚ ҚИЛИНГ!",
+        "gradePerfect": "ИДЕАЛ!",
+        "gradeExcellent": "АЪЛО!",
+        "gradeGood": "ЯХШИ!",
+        "gradeNotBad": "ЁМОН ЭМАС",
+        "newRecord": "🏆 ЯНГИ РЕКОРД!",
+        "best": "ЭНГ ЯХШИ",
+        "myBest": "МЕНИНГ РЕКОРДИМ",
+        "current": "ЖОРИЙ",
+        "finalScore": "Якуний ҳисоб",
+        "tryAgain": "Яна уриниш 🔄",
+        "home": "Бош саҳифа",
+        "stats": {
+          "record": "Рекорд",
+          "correct": "Тўғри",
+          "wrong": "Нотўғри",
+          "timeouts": "Вақт тугаган",
+          "bestStreak": "Энг яхши серия",
+          "accuracy": "Аниқлик",
+          "totalTime": "Умумий вақт"
+        }
+      }
+    },
+    "spaceFindNumber": {
+      "title": "🚀 КОСМОС",
+      "radarDepleted": "ТУГАГАН",
+      "radar": "РАДАР",
+      "score": "ОЧКО",
+      "totalTime": "🕒 УМУМИЙ ВАҚТ",
+      "findPlanet": "🔭 ПЛАНЕТАНИ ТОП",
+      "levelWithName": "ДАРАЖА {{level}} — {{name}}",
+      "combo": "{{combo}}× КОМБО!",
+      "totalTimeInline": "🕒 Умумий вақт:",
+      "best": "ЭНГ ЯХШИ",
+      "yourRecord": "СИЗНИНГ РЕКОРД",
+      "levelScore": "Даража {{level}} · Ҳисоб",
+      "home": "Бош саҳифа",
+      "retryShort": "ЯНА",
+      "retry": "Қайта уриниш 🔄",
+      "nextBtn": "КЕЙИНГИ →",
+      "winTitle": "ДАРАЖА\nЎТИЛДИ!",
+      "winSub": "Ажойиб натижа!",
+      "gameOverTitle": "ЎЙИН\nТУГАДИ",
+      "finalTitle": "БУТУН\nГАЛАКТИКА\nЗАБТ ЭТИЛДИ!",
+      "finalSub": "Барча 8 даража ўтилди!",
+      "start": {
+        "title": "SPACE SEARCH",
+        "subtitle": "Рақамларни тартиб билан топинг ва галактикани забт этинг!",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Экранда рақамлар пайдо бўлади. Уларни 1 дан N гача тартиб билан босинг. Барча 8 даражани тугатинг!",
+        "levelsTitle": "🪐 8 даража",
+        "levelsEasy": "1–10 сонлар, осон",
+        "levelsMedium": "1–15 сонлар, тезроқ",
+        "levelsHard": "1–20+ сонлар, жуда тез",
+        "scoringTitle": "⭐ Очко тизими",
+        "scoreCorrect": "Ҳар бир тўғри рақам учун",
+        "scoreCombo": "Хатосиз комбо-серия",
+        "scoreLives": "Бутун ўйин учун 3 жон",
+        "featureLevels": "8 даража",
+        "featureTimer": "Таймер",
+        "featureLives": "3 жон",
+        "featureCombo": "Комбо",
+        "playBtn": "БОШЛАШ"
+      },
+      "planets": {
+        "mercury": "МЕРКУРИЙ",
+        "venus": "ВЕНЕРА",
+        "earth": "ЕР",
+        "mars": "МАРС",
+        "jupiter": "ЮПИТЕР",
+        "saturn": "САТУРН",
+        "uranus": "УРАН",
+        "neptune": "НЕПТУН"
+      }
+    },
+    "shadowGame": {
+      "rank": {
+        "telepath": "👁 ТЕЛЕПАТ",
+        "lightning": "⚡ ЧАҚМОҚ",
+        "reflex": "🔥 РЕФЛЕКС",
+        "shooter": "🎯 МЕРГАН",
+        "newbie": "🌱 ЯНГИ БОШЛАГАН"
+      },
+      "phaseBadge": {
+        "one": "ФАЗА 1 · 1 БЕЛГИ",
+        "two": "ФАЗА 2 · 2 БЕЛГИ",
+        "three": "ФАЗА 3 · 3 БЕЛГИ"
+      },
+      "start": {
+        "title": "SHADOW MATCH",
+        "subtitle": "Белгини оломондан топ",
+        "desc": "Белгини эслаб қолинг — у бир сонияда йўқолади. Уни 36 та ўхшаш орасидан тезда топинг!",
+        "phase1": "Фаза 1 · 1 белги · 8s раунд",
+        "phase2": "Фаза 2 · 2 белги · 9s раунд",
+        "phase3": "Фаза 3 · 3 белги · 10s раунд",
+        "playBtn": "▶ ЎЙНАШ"
+      },
+      "result": {
+        "points": "очко",
+        "newRecord": "🏆 ЯНГИ РЕКОРД!",
+        "best": "ЭНГ ЯХШИ",
+        "myBest": "МЕНИНГ ЭНГ ЯХШИМ",
+        "current": "ЖОРИЙ",
+        "accuracy": "аниқлик",
+        "maxCombo": "макс. комбо",
+        "rounds": "раундлар",
+        "tryAgain": "Яна уриниш 🔄",
+        "menu": "Меню"
+      },
+      "combo": "×{{combo}} КОМБО"
+    },
+    "racing": {
+      "hud": {
+        "score": "ҲИСОБ",
+        "record": "РЕКОРД",
+        "lives": "ЖОНЛАР"
+      },
+      "start": {
+        "subtitle": "Трассада ҳайданг, машина ва тўсиқлардан қочинг!",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Пастдаги тугмалар билан йўлаклар бўйлаб алмашинг. Машина, пиёда ва велосипедчилардан қочинг. Урилиб кетманг — сизда фақат 3 жон бор!",
+        "featuresTitle": "🎮 Ўйин хусусиятлари",
+        "speedUpTitle": "Тезлик ошади",
+        "speedUpDesc": "Қанча узоқ юрсангиз, тезлик шунча ошади",
+        "obstaclesTitle": "Тўсиқлар",
+        "obstaclesDesc": "Йўлда автомобиль, юк машина ва йўлни кесиб ўтувчи одамлар учрайди",
+        "playBtn": "ЎЙНАШ",
+        "featureLives": "3 жон",
+        "featureTurbo": "Турбо",
+        "featureDrift": "Дрифт",
+        "featureRecords": "Рекордлар"
+      },
+      "gameOver": {
+        "title": "ЎЙИН\nТУГАДИ",
+        "best": "ЭНГ ЯХШИ",
+        "yourRecord": "СИЗНИНГ РЕКОРД",
+        "tryAgain": "Яна уриниш 🔄",
+        "backToGames": "ЎЙИНЛАРГА"
+      }
+    },
+    "geographyQuiz": {
+      "categories": {
+        "all": "Барчаси",
+        "capitals": "Пойтахтлар",
+        "flags": "Байроқлар",
+        "continents": "Қитъалар",
+        "oceans": "Океан/Денгизлар",
+        "countries": "Мамлакатлар",
+        "mountains": "Тоғлар",
+        "rivers": "Дарёлар",
+        "geography": "Аралаш",
+        "food": "Ошхона",
+        "customs": "Урф-одатлар"
+      },
+      "catNames": {
+        "capitals": "Пойтахтлар",
+        "flags": "Байроқлар",
+        "continents": "Қитъалар",
+        "oceans": "Океан ва денгизлар",
+        "countries": "Мамлакатлар",
+        "mountains": "Тоғлар",
+        "rivers": "Дарёлар",
+        "geography": "Аралаш",
+        "food": "Жаҳон ошхонаси",
+        "customs": "Урф-одат ва маданият"
+      },
+      "start": {
+        "title": "GEO EXPERT",
+        "subtitle": "Дунё географияси тести",
+        "questionsLabel": "📚 Саволлар:",
+        "bestLabel": "🏆 Энг яхши:",
+        "chooseCategory": "КАТЕГОРИЯНИ ТАНЛАНГ",
+        "questionsShort": "{{count}} сав.",
+        "startBtn": "🚀 ЎЙИННИ БОШЛАШ",
+        "dbBtn": "📚 Саволлар базаси",
+        "trainingBtn": "🎯 Машқ · Билим базаси",
+        "lastResults": "СЎНГГИ НАТИЖАЛАР",
+        "correctOf12": "{{correct}}/12 тўғри",
+        "difficultyLabel": "ҚИЙИНЧИЛИК",
+        "difficulty": {
+          "easy": "Осон",
+          "medium": "Ўрта",
+          "hard": "Қийин"
+        }
+      },
+      "game": {
+        "questionProgress": "Савол {{current}} / 12",
+        "boostDepleted": "ТУГ.",
+        "geography": "География"
+      },
+      "result": {
+        "gradeExcellent": "АЖОЙИБ!",
+        "gradeGood": "ЯХШИ!",
+        "gradeNotBad": "ЁМОН ЭМАС",
+        "gradeTryAgain": "ЯНА УРИНИБ КЎРИНГ",
+        "subExcellent": "Сиз ҳақиқий география билимдонисиз!",
+        "subGood": "Аъло натижа, деярли профессионал!",
+        "subNotBad": "Яхши билим, лекин ўсиш жойи бор.",
+        "subTryAgain": "Географияни яна машқ қилиб қайтинг!",
+        "newRecord": "🏆 ЯНГИ РЕКОРД!",
+        "best": "ЭНГ ЯХШИ",
+        "myBest": "МЕНИНГ ЭНГ ЯХШИМ",
+        "current": "ЖОРИЙ",
+        "pointsScored": "ОЧКО ЙИҒИЛДИ",
+        "correct": "ТЎҒРИ",
+        "wrong": "ХАТО",
+        "total": "ЖАМИ",
+        "reviewTitle": "САВОЛЛАР ТАҲЛИЛИ",
+        "reviewCorrectPrefix": "Тўғри: ",
+        "reviewYourAnswerPrefix": "Сизнинг жавоб: ",
+        "timeOut": "Вақт тугади",
+        "reviewRightAnswerPrefix": "Тўғри жавоб:",
+        "retry": "Яна уриниш 🔄",
+        "home": "🏠 БОШ САҲИФА"
+      },
+      "db": {
+        "title": "Саволлар базаси",
+        "subtitle": "{{count}} та савол мавжуд",
+        "searchPlaceholder": "Саволлар бўйича қидириш...",
+        "limitText": "Дастлабки 100 та натижа кўрсатилди..."
+      }
+    },
+    "udarTiming": {
+      "timeMinSec": "{{m}}m {{sec}}.{{dec}}s",
+      "timeSec": "{{sec}}.{{dec}}s",
+      "shareTitle": "Улашиш",
+      "status": {
+        "tapHit": "УРИБ КЎРИНГ"
+      },
+      "grade": {
+        "s": "ИДЕАЛ!",
+        "a": "АЪЛО!",
+        "b": "ЯХШИ!",
+        "c": "ЁМОН ЭМАС",
+        "d": "ПРОМАХ"
+      },
+      "hitLabel": {
+        "perfect": "🎯 PERFECT",
+        "good": "✅ GOOD",
+        "ok": "👌 OK",
+        "miss": "❌ MISS"
+      },
+      "shareText": "🎯 UDAR — Timing Game\n{{hitStr}}\nҲисоб: {{score}} | Баҳо: {{grade}}\nИдеал: {{perfect}}/{{total}} | Вақт: {{time}}\nМенинг рекордимни янгиланг!",
+      "start": {
+        "title": "PERFECT BEAT",
+        "subtitle": "Timing Is Everything",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "Стрелка айлана бўйлаб ҳаракатланади. Стрелка мақсад зонага кирганда УРАР тугмасини босинг. Сизда {{total}} уриниш бор — имкон қадар аниқ уринг!",
+        "zonesTitle": "🎯 Аниқлик зоналари",
+        "zonePerfect": "Зона маркази · максимал очко",
+        "zoneGood": "Марказга яқин · яхши очко",
+        "zoneOk": "Зона чети · базавий очко",
+        "zoneMiss": "Промах · 0 очко",
+        "scoringTitle": "⭐ Очко",
+        "scorePerfect": "100 очко",
+        "scoreGood": "60 очко",
+        "scoreOk": "30 очко",
+        "scoreCombo": "PERFECT серия = бонус",
+        "featureAttempts": "38 уриниш",
+        "featureRhythm": "Ритм",
+        "featureRecord": "Рекорд",
+        "featureAccuracy": "Аниқлик",
+        "sessionRecord": "СЕССИЯ РЕКОРДИ",
+        "startBtn": "БОШЛАШ"
+      },
+      "result": {
+        "best": "ЭНГ ЯХШИ",
+        "yourRecord": "СИЗНИНГ РЕКОРД",
+        "score": "ҲИСОБ",
+        "maxCombo": "МАКС КОМБО",
+        "perfect": "ИДЕАЛ",
+        "time": "⏱ ВАҚТ",
+        "newRecord": "🏆 ЯНГИ РЕКОРД",
+        "share": "📋 Улашиш",
+        "tryAgain": "Яна уриниш 🔄",
+        "exit": "← Чиқиш"
+      },
+      "game": {
+        "tagline": "КЕРАКЛИ ПАЙТДА БОСИНГ",
+        "points": "ОЧКО",
+        "combo": "КОМБО",
+        "slowActive": "ФАОЛ",
+        "slow": "СЕКИНЛАТИШ",
+        "speed": "ТЕЗЛИК",
+        "tapBtn": "▶ УРАР"
+      }
+    },
+    "redBall": {
+      "combo2": "COMBO x2!",
+      "combo3": "x3 ОЛОВ!",
+      "combo4": "x4 МОНСТР!",
+      "combo5": "x5 ЛЕГЕНДА!",
+      "comboGodlike": "x{{combo}} ИЛОҲИЙ!",
+      "start": {
+        "title": "RED BALL",
+        "subtitle": "Фақат қизил шарни босинг — тез, аниқ, хатосиз!",
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "howToPlayDesc": "5×4 тўрда яшил шарлар ва битта қизил шар бор. Қизил шарни тез топиб босинг. Хато қилманг — сизда фақат 3 жон бор!",
+        "featuresTitle": "🎮 Ўйин хусусиятлари",
+        "speedUpTitle": "Тезлик ошади",
+        "speedUpDesc": "Очко кўпайган сари шарлар тезроқ алмашади",
+        "speedBonusTitle": "Тезлик бонуси",
+        "speedBonusDesc": "Қанча тез боссангиз, шунча кўп очко (20/15/10/7)",
+        "comboTitle": "Комбо x2",
+        "comboDesc": "Кетма-кет 3 та уриниш икки баробар очко беради",
+        "scoringTitle": "⭐ Очко",
+        "scoreFastest": "Жуда тез жавоб (0.5s гача)",
+        "scoreFast": "Тез жавоб (1.5s гача)",
+        "scoreNormal": "Оддий жавоб (3s гача)",
+        "scoreCombo": "3+ серияда комбо бонуси",
+        "featureTime": "55 сек",
+        "featureLives": "3 жон",
+        "featureGrid": "5×4 тўр",
+        "featureCombo": "Комбо",
+        "playBtn": "ЎЙНАШ"
+      },
+      "result": {
+        "titleNotBad": "ЁМОН ЭМАС",
+        "titleLegend": "ЛЕГЕНДА!",
+        "titleLightning": "ЧАҚМОҚ!",
+        "titleSharp": "АНИҚ!",
+        "titleRetry": "ЯНА?",
+        "best": "ЭНГ ЯХШИ",
+        "myBest": "МЕНИНГ ЭНГ ЯХШИМ",
+        "current": "ЖОРИЙ",
+        "newRecord": "🏆 ЯНГИ РЕКОРД!",
+        "points": "ОЧКО",
+        "hits": "УРИШЛАР",
+        "misses": "ХАТОЛАР",
+        "maxCombo": "МАКС. КОМБО",
+        "time": "ВАҚТ",
+        "menu": "🏠 Меню",
+        "tryAgain": "Яна уриниш 🔄"
+      },
+      "hud": {
+        "time": "ВАҚТ",
+        "points": "ОЧКО",
+        "lives": "ЖОНЛАР"
+      }
+    },
+    "barainTraing": {
+      "start": {
+        "subtitle": "Интеллект машқи",
+        "aboutTitle": "📋 Ўйин моҳияти",
+        "aboutDesc": "Юқорида мақсадли сон кўрсатилади. Учар пуфаклар орасидан математик ифодаси шу жавобни берадиганини топиб ёриб юборинг. Сизда атиги 80 сония бор.",
+        "mechanicsTitle": "⏱ Механика",
+        "mechanics": {
+          "searchTitle": "Қидирув учун 8 сония",
+          "searchDesc": "Қизил чизиқ — раунд таймери. Пуфакни топишга улгурмасангиз, раунд жарима билан алмашади.",
+          "errorTitle": "Хато нархи",
+          "errorDesc": "Нотўғри жавобни боссангиз, очколар камаяди ва комбо серияси нолдан бошланади."
+        },
+        "scoringTitle": "⭐ Очко бериш тизими",
+        "scoring": {
+          "correct": "Ҳар бир тўғри жавоб учун",
+          "combo": "Хатосиз кетма-кет тўғри жавоблар учун комбо-бонус",
+          "penalty": "Хато учун жарима (раунд вақти тугаса ҳам -3 очко)"
+        },
+        "ops": {
+          "add": "Қўшиш",
+          "sub": "Айириш",
+          "mul": "Кўпайтириш"
+        },
+        "startBtn": "ЎЙИННИ БОШЛАШ"
+      },
+      "game": {
+        "comboBig": "✦ ×{{count}} комбо",
+        "comboSmall": "× {{count}}",
+        "score": "ҲИСОБ",
+        "find": "ТОП"
+      },
+      "result": {
+        "title": "Ўйин\nякунланди",
+        "best": "ЭНГ ЯХШИ",
+        "yourRecord": "СИЗНИНГ РЕКОРД",
+        "points": "ОЧКО",
+        "correct": "ТЎҒРИ",
+        "errors": "ХАТОЛАР",
+        "combo": "КОМБО",
+        "totalTime": "УМУМИЙ ВАҚТ",
+        "tryAgain": "Яна уриниш 🔄",
+        "menu": "МЕНЮ"
+      }
+    },
+    "findLetter": {
+      "levels": {
+        "easy": "Осон",
+        "medium": "Ўрта",
+        "hard": "Қийин",
+        "expert": "Эксперт",
+        "master": "Уста"
+      },
+      "feedback": {
+        "timeUp": "⏰ Вақт тугади! Жавоб: {{answer}}",
+        "correct": "✅ Тўғри! +{{points}}",
+        "correctStreak": "✅ Тўғри! +{{points}} 🔥 Серия x{{streak}}! +50",
+        "wrong": "❌ Жавоб: {{answer}}"
+      },
+      "start": {
+        "title": "LETTER HUNTER",
+        "subtitle": "Айнан 2 марта учрайдиган ҳарфни топинг",
+        "howTitle": "📋 Қандай ўйналади",
+        "howDesc": "Экранда ҳарфлар тўри бор. Айнан 2 марта учрайдиган барча ҳарфларни топиб босинг. 12 раунд, ҳар раундда қийинлашади!",
+        "difficultyTitle": "📊 Қийинчилик",
+        "difficulty": {
+          "r14": "1–4-раундлар · Осон",
+          "r14Desc": "Йирик ҳарфлар, кўпроқ вақт",
+          "r58": "5–8-раундлар · Ўрта",
+          "r58Desc": "Ҳарфлар кичикроқ, таймер тезроқ",
+          "r912": "9–12-раундлар · Қийин",
+          "r912Desc": "Майда ҳарфлар, кам вақт"
+        },
+        "scoringTitle": "⭐ Очколар",
+        "scoring": {
+          "perLetter": "Ҳар бир топилган ҳарф учун",
+          "speedBonus": "Тезлик бонуси",
+          "livesRule": "3 та жон — хато = 1 жон камаяди"
+        },
+        "features": {
+          "rounds": "12 раунд",
+          "lives": "3 жон",
+          "timer": "Таймер",
+          "difficulty": "Қийинчилик"
+        },
+        "startBtn": "БОШЛАШ"
+      },
+      "game": {
+        "title": "❄️ ҲАРФНИ ТОП",
+        "hintDepleted": "ТУГАГАН",
+        "hint": "ЁРИТИШ",
+        "round": "РАУНД",
+        "correct": "ТЎҒРИ",
+        "lives": "ЖОН",
+        "questionPrefix": "Қайси ҳарф",
+        "questionHighlight": "2 марта",
+        "roundProgress": "Раунд {{current}} / {{total}} — {{level}}"
+      },
+      "result": {
+        "win": "Ғалаба!",
+        "lose": "Ўйин тугади",
+        "best": "ЭНГ ЯХШИ",
+        "score": "ҲИСОБ",
+        "scoreValue": "{{score}} очко",
+        "summary": "Тўғри: {{correct}} / {{round}}\nАниқлик: {{accuracy}}%\nҚолган жонлар: {{lives}}",
+        "tryAgain": "Яна уриниш 🔄",
+        "back": "Орқага 🏠"
+      }
+    },
+    "slidingPuzzle": {
+      "start": {
+        "title": "WORLD PUZZLE",
+        "subtitle": "Бошқотирмани энг кам вақт ва юришларда ечинг",
+        "howTitle": "📋 Қандай ўйналади",
+        "howDesc": "Барча плиткаларни ўз жойига қўйинг. Бўш катакка қўшни плиткани босинг — у силжийди. Бошқотирмани энг кам вақт ва юришларда ечинг!",
+        "controlsTitle": "🎮 Бошқарув",
+        "controls": {
+          "tapTitle": "Босиш",
+          "tapDesc": "Бўш жой ёнидаги плиткани босинг — у силжийди",
+          "goalTitle": "Мақсад",
+          "goalDesc": "1 дан 11 гача сонларни чапдан ўнгга, юқоридан пастга тартибланг",
+          "winTitle": "Ғалаба",
+          "winDesc": "Барча сонлар жойида бўлса = ғалаба!"
+        },
+        "statsTitle": "⭐ Статистика",
+        "stats": {
+          "time": "Ечиш вақти",
+          "moves": "Юришлар сони",
+          "bestSession": "Сессиядаги энг яхши натижа"
+        },
+        "features": {
+          "grid": "3×4 тўр",
+          "timer": "Таймер",
+          "moves": "Юришлар",
+          "record": "Рекорд"
+        },
+        "startBtn": "БОШЛАШ"
+      },
+      "game": {
+        "titlePrefix": "ПУЗЗЛЕ ",
+        "titleAccent": "15",
+        "titleSuffix": "",
+        "time": "ВАҚТ",
+        "moves": "ЮРИШЛАР",
+        "freeze": "МУЗЛАТИШ",
+        "freezeLeft": "{{count}}X",
+        "new": "↺ ЯНГИ"
+      },
+      "result": {
+        "solved": "ЕЧИЛДИ!",
+        "best": "ЭНГ ЯХШИ",
+        "myBest": "МЕНИНГ ЭНГ ЯХШИМ",
+        "current": "ЖОРИЙ",
+        "time": "ВАҚТ",
+        "moves": "ЮРИШ",
+        "newRecord": "🌟 ЯНГИ РЕКОРД!",
+        "recordValue": "Рекорд: {{score}}",
+        "tryAgain": "Яна уриниш 🔄",
+        "home": "Бош саҳифага"
+      }
+    },
+    "stroopColor": {
+      "colors": {
+        "red": "ҚИЗИЛ",
+        "blue": "КЎК",
+        "green": "ЯШИЛ",
+        "yellow": "САРИҚ",
+        "purple": "БИНАФША",
+        "pink": "ПУШТИ",
+        "purpleFull": "БИНАФША",
+        "orange": "ТЎҚ САРИҚ"
+      },
+      "grades": {
+        "S": "ГЕНИЙ!",
+        "A": "АЖОЙИБ!",
+        "B": "ЯХШИ!",
+        "C": "ЁМОН ЭМАС",
+        "D": "МАШҚ ҚИЛ"
+      },
+      "start": {
+        "title": "COLOR STROOP",
+        "subtitle": "Stroop Challenge · Мия реакция тести",
+        "howTitle": "📋 Қандай ўйналади",
+        "howDesc": "Экранда ранг сўзи БОШҚА рангда чиқади. Вазифа — сўз маъносига эмас, матн рангига мос тугмани босиш. Мия адашади — бу нормал!",
+        "demoHint": "↑ ҚИЗИЛ деб ёзилган, лекин қайси рангда?",
+        "rulesTitle": "🧠 Қоидалар",
+        "rules": {
+          "pickColorName": "Матн рангини танла",
+          "pickColorDesc": "Сўз маъносини эътиборсиз қолдир — фақат рангга қаранг",
+          "sixtySecName": "60 сония",
+          "sixtySecDesc": "Иложи борича кўпроқ саволга жавоб беринг",
+          "livesName": "3 жон",
+          "livesDesc": "Нотўғри жавоб ёки timeout — битта жон камаяди"
+        },
+        "scoringTitle": "⭐ Очколар",
+        "scoring": {
+          "perCorrect": "Ҳар бир тўғри жавоб учун",
+          "combo": "Кетма-кет тўғри = комбо кўпайтиргич",
+          "speed": "Тез жавоб учун бонус"
+        },
+        "record": "РЕКОРД",
+        "startBtn": "БОШЛАШ"
+      },
+      "game": {
+        "tapColor": "Матн рангини босинг",
+        "comboToast": "×{{mult}} КОМБО!",
+        "score": "ҲИСОБ",
+        "combo": "КОМБО",
+        "correct": "ТЎҒРИ",
+        "shieldActive": "ФАОЛ",
+        "shieldDepleted": "ТУГАГАН",
+        "shield": "ҚАЛҚОН"
+      },
+      "result": {
+        "best": "ЭНГ ЯХШИ",
+        "yourRecord": "СИЗНИНГ РЕКОРД",
+        "score": "ҲИСОБ",
+        "record": "РЕКОРД",
+        "correct": "ТЎҒРИ",
+        "accuracy": "АНИҚЛИК",
+        "reaction": "РЕАКЦИЯ",
+        "newRecord": "🏆 ЯНГИ РЕКОРД",
+        "share": "Улашиш",
+        "shareBtn": "📋 Улашиш",
+        "tryAgain": "Яна уриниш 🔄",
+        "exit": "← Чиқиш",
+        "shareText": "{{brain}} РАНГ — Stroop Challenge\n{{bar}}\nҲисоб: {{score}} | Баҳо: {{grade}}\nАниқлик: {{acc}}% | Реакция: {{avgMs}}ms\nРекордим: {{best}}\nЕнгиб кўр!"
+      },
+      "units": {
+        "ms": "мс"
+      }
+    }
+  },
+  "components": {
+    "retryBoostButton": {
+      "label": "🔄 Қайта уриниш"
+    },
+    "challengeDayCard": {
+      "status": {
+        "unlocked": "🔓 Очилган",
+        "done": "✅ Бажарилди",
+        "continue": "⏳ Давом этиш",
+        "start": "🚀 Бошлаш",
+        "locked": "🔒 Ёпиқ"
+      },
+      "unlockedBadge": "Очилган",
+      "label": {
+        "day": "Кун",
+        "dayNumber": "{{number}}-кун",
+        "dayTask": "{{day}} - Вазифа {{task}}",
+        "taskWithTitle": "Вазифа {{task}}: {{title}}",
+        "task": "Вазифа {{task}}"
+      }
+    },
+    "homeHeader": {
+      "guest": "Меҳмон",
+      "users": "фойдаланувчи",
+      "online": "онлайн"
+    },
+    "topPlayersList": {
+      "daily": "Энг кучлилар",
+      "weekly": "Энг омадли",
+      "monthly": "Ой топи"
+    },
+    "gameRatingModal": {
+      "title": "Ўйинчилар рейтинги",
+      "subtitle": "Мантиқ усталарининг энг яхшилари",
+      "you": "(сиз)"
+    },
+    "globalBoostsSheet": {
+      "inStock": "Мавжуд:",
+      "stockCount": "{{count}} дона",
+      "ok": "OK",
+      "qtySuffix": " ({{count}} дона)",
+      "boostSuffix": " boost"
+    },
+    "globalDiamondsSheet": {
+      "successTitle": "Муваффақиятли!",
+      "requestSent": "Сўров юборилди!",
+      "ok": "OK",
+      "topupSuccess": "💰 {{amount}} сўм ҳисобингизга қўшилди.",
+      "withdrawSuccess": "💰 {{amount}} сўм карта **** {{last4}} га ўтказилди.",
+      "wallet": "Ҳамён",
+      "topupTab": "💳 Тўлдириш",
+      "withdrawTab": "💰 Ечиб олиш",
+      "availableBalance": "Мавжуд баланс",
+      "minAmountLabel": "Минимал миқдор: {{amount}} сўм",
+      "amountPlaceholder": "Миқдорни киритинг...",
+      "minAmountError": "Минимал миқдор {{amount}} сўм",
+      "paymentMethod": "Тўлов усули",
+      "topupBtn": "💳 Тўлдириш",
+      "withdrawable": "Ечиб олиш мумкин: {{amount}} сўм",
+      "cardNumber": "Карта рақами",
+      "cardNumberError": "Карта рақамини тўлиқ киритинг",
+      "withdrawAmount": "Ечиб олиш миқдори",
+      "minPlaceholder": "Мин. {{amount}} сўм",
+      "maxWithdrawError": "Максимал ечиш: {{amount}} сўм (1 000 сўм резерв қолдирилади)",
+      "cannotWithdraw": "Ечиб бўлмайди — баланс 1 000 сўмдан кам",
+      "feeInfo": "Комиссия йўқ · 1–3 иш куни ичида",
+      "withdrawBtn": "💰 Ечиб олиш"
+    },
+    "taskListSheet": {
+      "title": "Вазифалар рўйхати",
+      "progress": "Прогресс: {{completed}}/{{total}}",
+      "score": "Балл: {{score}}",
+      "activity": "Фаоллик: {{activity}} pts",
+      "done": "Бажарилди",
+      "start": "Бошлаш",
+      "tasks": {
+        "basic": {
+          "title": "Базавий тест",
+          "desc": "Асосий атамалар бўйича билимингизни текширинг."
+        },
+        "choice": {
+          "title": "Жавобни танлаш",
+          "desc": "10 та савол, жавоб вариантлари билан."
+        },
+        "logic": {
+          "title": "Мантиқий вазифа",
+          "desc": "Диққатга оид вазифани ечинг."
+        },
+        "code": {
+          "title": "Код таҳлили",
+          "desc": "Коддаги хатоларни топинг."
+        },
+        "final": {
+          "title": "Якуний имтиҳон",
+          "desc": "Таймер билан якуний тест."
+        }
+      }
+    },
+    "gamePickerSheet": {
+      "title": "Вазифани танланг",
+      "subtitle": "Қайси вазифадан бажаришни бошлайсиз?",
+      "completed": "Бажарилди",
+      "completedDesc": "Ушбу вазифа муваффақиятли якунланди",
+      "reclamDesc": "Ўйинни очиш учун рекламани кўринг"
+    },
+    "sectionHeader": {
+      "seeAll": "Барчаси →"
+    }
+  }
+}

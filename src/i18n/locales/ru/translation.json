@@ -1,0 +1,1366 @@
+{
+  "title": "React Native Приложение",
+  "auth": {
+    "common": {
+      "errorTitle": "Ошибка",
+      "nameLabel": "ИМЯ",
+      "namePlaceholder": "Ваше имя",
+      "usernameLabel": "ИМЯ ПОЛЬЗОВАТЕЛЯ",
+      "usernamePlaceholder": "Имя пользователя",
+      "passwordLabel": "ПАРОЛЬ",
+      "passwordPlaceholder": "Пароль"
+    },
+    "welcome": {
+      "title": "Добро пожаловать",
+      "titleAccent": "!",
+      "subtitle": "Выберите язык, чтобы продолжить",
+      "next": "Продолжить ->"
+    },
+    "login": {
+      "title": "Вход",
+      "subtitle": "Введите данные для продолжения",
+      "cta": "Войти",
+      "noAccount": "Нет аккаунта?",
+      "signUp": "Регистрация",
+      "error": "Произошла ошибка при входе"
+    },
+    "register": {
+      "title": "Регистрация",
+      "subtitle": "Создайте аккаунт, чтобы начать",
+      "cta": "Зарегистрироваться",
+      "haveAccount": "Уже есть аккаунт?",
+      "signIn": "Войти",
+      "error": "Произошла ошибка при регистрации"
+    },
+    "otp": {
+      "title": "Подтверждение кода",
+      "subtitle": "4-значный код отправлен на номер",
+      "verify": "Подтвердить",
+      "resend": "Отправить код повторно"
+    }
+  },
+  "tabs": {
+    "home": {
+      "errorTitle": "Ошибка",
+      "cancel": "Отмена",
+      "currency": "UZS",
+      "prizePoolLabel": "Общий призовой фонд",
+      "halal": "Халал",
+      "openTasks": "Перейти к заданиям",
+      "gamesShort": "Игры",
+      "seeAll": "Смотреть все",
+      "participating": "✅ Участвую",
+      "entry": "Вход",
+      "duration": "15 мин",
+      "difficulty": {
+        "medium": "Средний"
+      },
+      "task": {
+        "logic": "Логика",
+        "memory": "Память",
+        "speed": "Скорость"
+      },
+      "sections": {
+        "topRatings": "🏆 Топ рейтинги",
+        "games": "🎮 Игры",
+        "testCatalog": "📚 Каталог тестов"
+      },
+      "challengeBadge": {
+        "default": "⚡ Челлендж",
+        "weekly": "📅 Еженедельный",
+        "monthly": "🔥 Марафон",
+        "daily": "☀️ Ежедневный"
+      },
+      "connect": {
+        "title": "Подключиться к челленджу",
+        "message": "После подключения челлендж станет доступен сразу.",
+        "confirm": "Подключиться",
+        "error": "Не удалось подключиться к челленджу"
+      }
+    },
+    "games": {
+      "errorTitle": "Ошибка",
+      "cancel": "Отмена",
+      "accessTitle": "Доступ к игре",
+      "accessMessage": "Чтобы открыть игру, посмотрите короткую рекламу.",
+      "watchAd": "Смотреть рекламу",
+      "skipPaid": "Пропустить (20 сум)",
+      "reclamUpdateError": "Не удалось обновить статус рекламы",
+      "adScreen": {
+        "badge": "Реклама",
+        "rewardTitle": "После просмотра откроется игра",
+        "rewardText": "Пока это дефолтный экран-заглушка для видео. Позже сюда можно подключить AppLovin MAX без изменения пользовательского сценария.",
+        "continue": "Продолжить",
+        "wait": "Подождите {{seconds}} сек"
+      },
+      "tags": {
+        "math": "🔢 Математика",
+        "geography": "🌍 География",
+        "puzzle": "🧩 Пазл",
+        "language": "🔤 Язык",
+        "space": "🚀 Космос",
+        "attention": "🎨 Внимание",
+        "timing": "⏱️ Тайминг",
+        "speed": "⌛ Скорость",
+        "reaction": "🔴 Реакция",
+        "logic": "👁️ Логика",
+        "racing": "🏎️ Гонка",
+        "memory": "🧠 Память"
+      }
+    },
+    "exam": {
+      "prizePoolLabel": "Общий призовой фонд",
+      "currency": "СУМ",
+      "aboutTitle": "О призовом фонде",
+      "aboutDesc": "Ежедневные тесты, еженедельные марафоны и ежемесячные испытания - у каждого есть свой отдельный призовой фонд. Вы можете участвовать сразу в нескольких и получать награды в каждом из них.",
+      "gotIt": "Понятно",
+      "infoItems": {
+        "seasonal": "Новый этап каждый сезон",
+        "morePoints": "Больше баллов = больше награда",
+        "fairSystem": "Честная и прозрачная система"
+      },
+      "challengeTitle": {
+        "daily": "Дневной челлендж",
+        "weekly": "Недельный челлендж",
+        "monthly": "Месячный марафон"
+      }
+    },
+    "profile": {
+      "guest": "Гость",
+      "boosts": "Boosts",
+      "achievements": "Достижения",
+      "skillsProfile": "🧬 Профиль навыков",
+      "iqTotal": "Общий IQ балл",
+      "logout": "Выйти",
+      "logoutTitle": "Выход",
+      "logoutMessage": "Вы действительно хотите выйти?",
+      "yesLogout": "Да, выйти",
+      "no": "Нет",
+      "stats": {
+        "score": "Баллы",
+        "activity": "Активность",
+        "wins": "Победы"
+      },
+      "skills": {
+        "thinkingSpeed": "Скорость мышления",
+        "attention": "Внимание",
+        "concentration": "Концентрация",
+        "logic": "Логика",
+        "memory": "Память"
+      },
+      "language": "Сменить язык",
+      "languageTitle": "Выберите язык",
+      "languageSubtitle": "Выберите язык приложения. Изменение применяется сразу.",
+      "languageOptions": {
+        "uz": "Узбекский (Латиница)",
+        "uzSub": "Стандартная узбекская латиница",
+        "uzCyrl": "Узбекский (Кириллица)",
+        "uzCyrlSub": "Узбекская кириллица",
+        "ru": "Русский",
+        "ruSub": "Русский язык"
+      }
+    }
+  },
+  "content": {
+    "task": {
+      "errorTitle": "Ошибка",
+      "loadDayGamesError": "Не удалось загрузить игры дня",
+      "back": "Назад",
+      "title": "🔥 Ежедневный тест",
+      "timeLeft": "⏳ До окончания:",
+      "progress": "Прогресс",
+      "totalScore": "🏆 Общий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Открыть",
+      "dayShort": "д",
+      "hourShort": "ч",
+      "minuteShort": "м",
+      "secondShort": "с"
+    },
+    "myTests": {
+      "instructionTitle": "Инструкция",
+      "instructionMessage": "Чтобы начать тест, нажмите «Старт».\n\nДля прохождения в режиме обучения без ограничения по времени нажмите «Тренировка».",
+      "training": "Тренировка",
+      "start": "Старт",
+      "close": "Закрыть",
+      "title": "Мои тесты",
+      "dailyTitle": "Ежедневный тест",
+      "dailySubtitle": "3 задания: тест, математика, скорость"
+    },
+    "weekly": {
+      "back": "Назад",
+      "title": "🔥 Челлендж",
+      "progress": "Прогресс",
+      "timeLeft": "⏳ До окончания:",
+      "totalScore": "🏆 Общий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Открыть",
+      "dayShort": "д",
+      "hourShort": "ч",
+      "minuteShort": "м",
+      "secondShort": "с"
+    },
+    "monthly": {
+      "back": "Назад",
+      "title": "🔥 Ежемесячный марафон",
+      "progress": "Прогресс",
+      "timeLeft": "⏳ До окончания:",
+      "totalScore": "🏆 Общий балл",
+      "rating": "📊 Рейтинг",
+      "view": "Открыть",
+      "dayShort": "д",
+      "hourShort": "ч",
+      "minuteShort": "м",
+      "secondShort": "с"
+    },
+    "topRating": {
+      "label": "Рейтинг",
+      "headerTitle": "Рейтинги",
+      "allParticipants": "Все участники",
+      "empty": "Пока нет участников",
+      "levelShort": "Ур."
+    },
+    "boosts": {
+      "currency": "сум",
+      "back": "Назад",
+      "headerTitle": "Boosts",
+      "headerSub": "Используй умно - побеждай быстро",
+      "tipTitle": "💡 Как использовать усилители?",
+      "tipBlock1Title": "Внимание и Память",
+      "tipBlock1Desc": "Используйте для подсветок или повтора, когда вы запутались.",
+      "tipBlock2Title": "Логика и Реакция",
+      "tipBlock2Desc": "Помогут замедлить время или пропустить сложный момент.",
+      "boughtTitle": "Куплено",
+      "boughtMessage": "Успешно приобретено бустов: {{quantity}}!",
+      "errorTitle": "Ошибка",
+      "buyError": "Не удалось купить бусты.",
+      "totalCost": "Итого: 💰 {{value}} сум",
+      "notEnoughBalanceWithAmount": "Недостаточно баланса (💰 {{value}} сум)",
+      "buyNow": "Купить{{countSuffix}}",
+      "notEnoughBalance": "Недостаточно баланса"
+    },
+    "notifications": {
+      "back": "Назад",
+      "readAll": "Прочитать все",
+      "details": "Подробнее",
+      "noNews": "Новостей нет",
+      "noNotifications": "Уведомлений нет",
+      "noNotificationsDesc": "Новые уведомления появятся здесь",
+      "justNow": "Только что",
+      "minuteAgo": "мин назад",
+      "hourAgo": "ч назад",
+      "dayAgo": "д назад",
+      "tabs": {
+        "news": "Новости",
+        "my": "Мои"
+      }
+    },
+    "quiz": {
+      "completed": "🎯 Тест завершен",
+      "score": "Результат",
+      "restart": "Начать заново",
+      "title": "Тест"
+    },
+    "testContent": {
+      "errorTitle": "Ошибка",
+      "connectError": "Не удалось подключиться",
+      "popular": "🔥 Популярный",
+      "prizePool": "Призовой фонд",
+      "currency": "сум",
+      "period": "Срок",
+      "descriptionTitle": "Описание",
+      "descriptionBody": "Проверьте возможности своего разума и подтвердите свой статус в лиге интеллекта. Результат формируется по точности, скорости и стабильности. Участники с лучшими показателями получают поощрения от платформы.",
+      "openChallenge": "Открыть челлендж",
+      "connect": "Подключиться"
+    },
+    "reclam": {
+      "topPrefix": "Топ",
+      "prizesTitle": "🎁 Твои награды",
+      "claimReward": "🎁 Забрать награду",
+      "chooseReward": "Выбери награду",
+      "shareTitle": "🎉 Поделись успехом!",
+      "receivedRewards": "Получено наград:",
+      "copyLink": "📋 Скопировать ссылку",
+      "labels": {
+        "exclusiveFlag": "Эксклюзивный флаг",
+        "powerBoosts": "Мощные бусты",
+        "powerBoost": "Мощный буст",
+        "diamonds": "Алмазы",
+        "cash": "Деньги"
+      },
+      "rating": {
+        "perfect": "Идеально!",
+        "excellent": "Отлично!",
+        "good": "Хорошо!",
+        "notBad": "Неплохо",
+        "tryAgain": "Попробуй ещё"
+      },
+      "rewardInfo": {
+        "activityTitle": "Активность",
+        "activityDesc": "Топ 1%! Покажи всем своё превосходство",
+        "boostPackTitle": "Набор бустов",
+        "freeBoostTitle": "Бесплатный буст",
+        "boostPackDesc": "Мощное усиление для будущих игр",
+        "freeBoostDesc": "Улучши результаты в следующий раз",
+        "diamondTitle": "Премиум валюта",
+        "diamondDesc": "Используй для особых покупок",
+        "cashTitle": "Денежная награда",
+        "cashDesc": "За отличное прохождение теста"
+      },
+      "shareSubtitle": {
+        "top1": "Ты в топ 1%! Это невероятно!",
+        "top4": "Ты в топ 4%! Отличный результат!",
+        "good": "Отличная работа!",
+        "poor": "Хороший старт!",
+        "fail": "Продолжай тренироваться!"
+      },
+      "shareApps": {
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "twitter": "Twitter",
+        "facebook": "Facebook"
+      }
+    },
+    "battle": {
+      "members": "🏆 Участники",
+      "tasks": "🎯 Задания",
+      "start": "🚀 Начать битву",
+      "viewAll": "🧠 Смотреть все тесты"
+    },
+    "editProfile": {
+      "errorTitle": "Ошибка",
+      "updateError": "Не удалось обновить профиль",
+      "title": "Редактировать профиль",
+      "nameLabel": "ИМЯ",
+      "namePlaceholder": "Ваше имя",
+      "phoneLabel": "ТЕЛЕФОН",
+      "ageLabel": "ВОЗРАСТ",
+      "agePlaceholder": "Ваш возраст",
+      "save": "Сохранить"
+    }
+  },
+  "games": {
+    "common": {
+      "congratsTitle": "Поздравляем!",
+      "allDayGamesDone": "Вы прошли все игры дня!",
+      "challengeTitle": "Челлендж",
+      "dayFinished": "День завершен!"
+    },
+    "oneSecond": {
+      "grades": {
+        "legend": {
+          "label": "ЛЕГЕНДА",
+          "title": "ЛЕГЕНДА",
+          "sub": "Ты в топ 0.1% людей. Твои внутренние часы — машина."
+        },
+        "master": {
+          "label": "МАСТЕР",
+          "title": "МАСТЕР",
+          "sub": "Феноменальное чувство времени. Профессиональный уровень."
+        },
+        "good": {
+          "label": "ХОРОШО",
+          "title": "ХОРОШО",
+          "sub": "Выше среднего. У большинства людей хуже."
+        },
+        "average": {
+          "label": "СРЕДНЕЕ",
+          "title": "СРЕДНЕЕ",
+          "sub": "Типичный результат. Тренируйся — станет лучше."
+        },
+        "train": {
+          "label": "ТРЕНИРУЙСЯ",
+          "title": "ТРЕНИРУЙСЯ",
+          "sub": "Внутренние часы врут. Но это можно исправить."
+        }
+      },
+      "class": {
+        "perfect": "ИДЕАЛЬНО!",
+        "good": "ОТЛИЧНО!",
+        "ok": "НЕПЛОХО",
+        "bad": "МИМО"
+      },
+      "phase": {
+        "tapHold": "Нажми и держи",
+        "holding": "Держи...",
+        "points": "+{{points}} очков"
+      },
+      "circle": {
+        "hold": "ДЕРЖИ"
+      },
+      "share": {
+        "title": "⏱ 1 СЕКУНДА — Тест внутренних часов",
+        "offsetLevel": "Отклонение: {{avg}}мс | Уровень: {{level}}",
+        "perfectScore": "Идеальных: {{perfect}}/20 | Счёт: {{score}}",
+        "challenge": "Побей мой результат!"
+      },
+      "start": {
+        "title": "ONE\nSECOND",
+        "subtitle": "Тест внутренних часов мозга",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "Нажми и держи кнопку ровно 1 секунду, затем отпусти. Твоя задача — почувствовать время без счёта и подсказок. 20 попыток, побеждает наименьшее среднее отклонение.",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "tapHoldName": "Нажми и держи",
+          "tapHoldDesc": "Удерживай кнопку — кольцо заполняется в реальном времени.",
+          "releaseName": "Отпусти через 1с",
+          "releaseDesc": "Цель — ровно 1000 мс. Чем точнее, тем лучше результат.",
+          "roundsName": "20 попыток",
+          "roundsDesc": "Среднее отклонение по всем попыткам определяет финальный ранг."
+        },
+        "scoringTitle": "⭐ Система очков",
+        "scoring": {
+          "max": "За отклонение ≤20 мс — максимум очков",
+          "good": "За отклонение ≤50 мс",
+          "min": "Минимум очков за отклонение >350 мс"
+        },
+        "features": {
+          "accuracy": "Точность",
+          "rounds": "20 раундов",
+          "records": "Рекорды"
+        },
+        "bestOffset": "Лучшее отклонение",
+        "bestScore": "Рекорд счёт",
+        "startBtn": "НАЧАТЬ"
+      },
+      "game": {
+        "attempt": "Попытка",
+        "score": "Счёт",
+        "boost": {
+          "active": "×2 активен",
+          "depleted": "исчерпан",
+          "default": "×2 очки"
+        }
+      },
+      "result": {
+        "bestOffset": "BEST OFFSET",
+        "yourOffset": "YOUR OFFSET",
+        "avgOffset": "Среднее отклонение от 1 секунды",
+        "stats": {
+          "score": "Очки",
+          "record": "Рекорд",
+          "perfect": "Идеальных",
+          "worst": "Худший удар"
+        },
+        "newRecord": "🏆 НОВЫЙ РЕКОРД",
+        "share": "📋 Поделиться",
+        "tryAgain": "Попробовать ещё 🔄",
+        "backHome": "← На главную"
+      },
+      "units": {
+        "ms": "мс"
+      }
+    },
+    "voltNumbers": {
+      "result": {
+        "tryAgain": "Попробовать ещё 🔄",
+        "home": "← На главную",
+        "tryAgainTitle": "Попробуй ещё",
+        "mistakes": "{{errors}} ошибок",
+        "medalBronze": "Бронза",
+        "soClose": "Почти получилось!",
+        "legend": "ЛЕГЕНДА",
+        "phenomenal": "Феноменальная скорость!",
+        "medalGold": "Золото",
+        "excellent": "Отлично!",
+        "amazing": "Потрясающий результат!",
+        "medalSilver": "Серебро",
+        "goodJob": "Хорошая работа!",
+        "keepPractising": "Продолжай тренироваться!",
+        "bestTime": "ЛУЧШЕЕ ВРЕМЯ",
+        "fail": "ПРОВАЛ",
+        "yourTime": "ТВОЁ ВРЕМЯ",
+        "finalTime": "ИТОГОВОЕ ВРЕМЯ",
+        "seconds": "секунд",
+        "correct": "Верно",
+        "errors": "Ошибки",
+        "rank": "Место",
+        "medal": "Медаль",
+        "accuracy": "Точность",
+        "avgPerBall": "Ср./Шар",
+        "newRecord": "🏆 Новый рекорд!"
+      },
+      "common": {
+        "leaderboard": "🏆 Лидерборд",
+        "easy": "Легко",
+        "normal": "Нормально",
+        "hard": "Сложно"
+      },
+      "start": {
+        "logoSub": "NUMBERS · СКОРОСТЬ МЫШЛЕНИЯ",
+        "startBtn": "СТАРТ →",
+        "how": {
+          "rememberTitle": "Запомни",
+          "rememberText": "Запомни расположение всех чисел",
+          "scatterTitle": "Перемешай!",
+          "scatterText": "Нажми READY — шары разлетятся по новым местам",
+          "inOrderTitle": "По порядку",
+          "inOrderText": "Нажимай числа по убыванию: N→1",
+          "timedTitle": "На время",
+          "timedText": "Быстрее время = выше место в таблице!"
+        }
+      },
+      "game": {
+        "time": "ВРЕМЯ",
+        "left": "ОСТАЛОСЬ",
+        "find": "НАЙДИ",
+        "bannerTitle": "Запомни!",
+        "bannerSub": "Запомни расположение, затем нажми {{total}} для перемешивания",
+        "readyBtn": "ГОТОВО!",
+        "limitReached": "❌ Лимит достигнут!",
+        "mistakes": "Ошибки: {{mistakes}}/3"
+      },
+      "board": {
+        "leaders": "🏆 Лидеры",
+        "back": "← Назад",
+        "myPosition": "Моя позиция",
+        "you": "(ты)"
+      }
+    },
+    "voltMemory": {
+      "start": {
+        "infoDesc": "Нажимай на круги, чтобы открыть скрытые эмодзи. Найди 2 одинаковых круга — они останутся открытыми. Собери все 10 пар за 63 секунды!",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "flipTitle": "Открой и совпади",
+          "flipDesc": "Нажми на круг и найди его пару",
+          "comboTitle": "Комбо-множитель",
+          "comboDesc": "Серия правильных пар до ×6",
+          "speedTitle": "Бонус скорости",
+          "speedDesc": "Чем больше времени осталось, тем больше очков",
+          "limitTitle": "Лимит 63с",
+          "limitDesc": "Если время вышло, игра сразу завершается"
+        },
+        "scoringTitle": "⭐ Система очков",
+        "scoring": {
+          "main": "(50 + бонус скорости) × комбо",
+          "speed": "Бонус скорости = оставшееся время × 2",
+          "combo": "Лимит множителя комбо: 6"
+        },
+        "subtitle": "Открой и совпади · Скорость мышления",
+        "howToPlayTitle": "📋 Как играть"
+      },
+      "result": {
+        "titleMaster": "МАСТЕР ПАМЯТИ!",
+        "titleGreat": "ОТЛИЧНО!",
+        "titleGood": "ХОРОШО!",
+        "titleTrain": "ПРОДОЛЖАЙ ТРЕНИРОВАТЬСЯ"
+      },
+      "game": {
+        "score": "СЧЁТ",
+        "combo": "КОМБО"
+      },
+      "overlay": {
+        "onFire": "ОГОНЬ!",
+        "allPairs": "Все пары!",
+        "brilliant": "Отличный результат!",
+        "timeUsed": "ЗАТРАЧЕНО ВРЕМЕНИ",
+        "resultsBtn": "Результаты →"
+      }
+    },
+    "voltMatch": {
+      "start": {
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "Сверху показан целевой эмодзи. Найди и нажми все такие эмодзи в сетке до конца времени. 12 раундов — после 6-го скорость растёт!",
+        "mechanicsTitle": "🎯 Механика",
+        "mechanics": {
+          "findTitle": "Найди совпадение",
+          "findDesc": "В сетке 5×5 скрыто 3–4 копии",
+          "speedTitle": "Бонус скорости",
+          "speedDesc": "Быстрее нажатия = больше очков",
+          "comboTitle": "Комбо-множитель",
+          "comboDesc": "Серия правильных нажатий до ×6",
+          "mistakeTitle": "Максимум 3 ошибки",
+          "mistakeDesc": "После 3 ошибок игра заканчивается"
+        },
+        "scoringTitle": "⭐ Система очков",
+        "scoring": {
+          "main": "(15 + бонус скорости) × комбо",
+          "speed": "Бонус скорости до +20 за нажатие",
+          "combo": "Лимит множителя комбо"
+        },
+        "subtitle": "Скорость мышления · Найди совпадение",
+        "diffTitle": "УСЛОЖНЕНИЕ",
+        "diffDesc": "После 6-го раунда время сокращается, и поиск ускоряется",
+        "features": {
+          "rounds": "12 раундов",
+          "lives": "3 жизни",
+          "timer": "Таймер",
+          "combo": "Комбо"
+        },
+        "startBtn": "НАЧАТЬ"
+      },
+      "result": {
+        "titleLegend": "ЛЕГЕНДА!",
+        "titleGreat": "ОТЛИЧНО!",
+        "titleGood": "ХОРОШО!",
+        "titleTrain": "ПРОДОЛЖАЙ ТРЕНИРОВАТЬСЯ"
+      },
+      "game": {
+        "score": "СЧЁТ",
+        "round": "РАУНД",
+        "time": "ВРЕМЯ",
+        "lives": "ЖИЗНИ",
+        "findAll": "НАЙДИ ВСЕ",
+        "remaining": "осталось: {{remaining}}",
+        "combo": "комбо",
+        "hardcore": "HARDCORE"
+      },
+      "overlay": {
+        "roundTitle": "Раунд {{round}}!",
+        "timeUp": "Время вышло!",
+        "roundSub": "+{{score}} очков · Следующий раунд",
+        "continuing": "Продолжаем...",
+        "finish": "Финиш 🏆",
+        "next": "Дальше →"
+      }
+    },
+    "geographyTraining": {
+      "title": "🌍 База знаний",
+      "subtitle": "География · {{count}} вопросов",
+      "tapToReveal": "Нажмите, чтобы увидеть ответ",
+      "empty": "Вопросов не найдено",
+      "diff": {
+        "easy": "Легко",
+        "medium": "Средне",
+        "hard": "Сложно"
+      },
+      "stats": {
+        "total": "Всего",
+        "easy": "Лёгких",
+        "medium": "Средних",
+        "hard": "Сложных"
+      },
+      "categories": {
+        "all": "Все",
+        "capitals": "Столицы",
+        "flags": "Флаги",
+        "continents": "Континенты",
+        "oceans": "Океаны",
+        "countries": "Страны",
+        "mountains": "Горы",
+        "rivers": "Реки",
+        "geography": "Разное",
+        "food": "Кухня",
+        "customs": "Обычаи"
+      }
+    },
+    "mathQuiz": {
+      "timeSec": "{{s}}с",
+      "toast": {
+        "timeUp": "⏱️ ВРЕМЯ!",
+        "doublePoints": "⚡ 2× ОЧКИ!",
+        "correct": "✓ ВЕРНО!",
+        "wrong": "✗ НЕВЕРНО"
+      },
+      "start": {
+        "title": "MATH QUIZ",
+        "subtitle": "Тест по математике",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "Тебе будет показан пример. Выбери правильный ответ из 4 вариантов, пока не истекло время. Отвечай быстро — за скорость начисляются бонусные очки.",
+        "levelsTitle": "📊 Уровни сложности",
+        "easyLabel": "Лёгкий · 11 вопросов",
+        "easyDesc": "Одна операция (+, −, ×, ÷) · 7.5 сек",
+        "hardLabel": "Сложный · 4 вопроса",
+        "hardDesc": "Две операции, порядок действий · 12.5 сек",
+        "scoringTitle": "⭐ Система очков",
+        "scoreCorrect": "За каждый правильный ответ",
+        "scoreSpeed": "Бонус за скорость (до +10 очков)",
+        "scoreStreak": "Серия правильных ответов даёт стрик-бонус",
+        "ops": {
+          "add": "Сложение",
+          "sub": "Вычитание",
+          "mul": "Умножение",
+          "div": "Деление"
+        },
+        "startBtn": "НАЧАТЬ ИГРУ"
+      },
+      "game": {
+        "scorePrefix": "Счёт: ",
+        "hard": "СЛОЖНО",
+        "easy": "ЛЕГКО",
+        "streak": "Серия:"
+      },
+      "result": {
+        "gradeTrain": "ТРЕНИРУЙСЯ!",
+        "gradePerfect": "ИДЕАЛЬНО!",
+        "gradeExcellent": "ОТЛИЧНО!",
+        "gradeGood": "ХОРОШО!",
+        "gradeNotBad": "НЕПЛОХО",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД!",
+        "best": "ЛУЧШИЙ",
+        "myBest": "МОЙ ЛУЧШИЙ",
+        "current": "ТЕКУЩИЙ",
+        "finalScore": "Итоговый счёт",
+        "tryAgain": "Попробовать ещё 🔄",
+        "home": "На главную",
+        "stats": {
+          "record": "Рекорд",
+          "correct": "Правильных",
+          "wrong": "Неправильных",
+          "timeouts": "Истекло времени",
+          "bestStreak": "Лучшая серия",
+          "accuracy": "Точность",
+          "totalTime": "Общее время"
+        }
+      }
+    },
+    "spaceFindNumber": {
+      "title": "🚀 КОСМОС",
+      "radarDepleted": "ИСЧЕРПАН",
+      "radar": "РАДАР",
+      "score": "ОЧКИ",
+      "totalTime": "🕒 ОБЩЕЕ ВРЕМЯ",
+      "findPlanet": "🔭 НАЙДИ ПЛАНЕТУ",
+      "levelWithName": "УРОВЕНЬ {{level}} — {{name}}",
+      "combo": "{{combo}}× КОМБО!",
+      "totalTimeInline": "🕒 Общее время:",
+      "best": "ЛУЧШИЙ",
+      "yourRecord": "ТВОЙ РЕКОРД",
+      "levelScore": "Уровень {{level}} · Счёт",
+      "home": "На главную",
+      "retryShort": "ЕЩЁ РАЗ",
+      "retry": "Попробовать ещё 🔄",
+      "nextBtn": "ДАЛЬШЕ →",
+      "winTitle": "УРОВЕНЬ\nПРОЙДЕН!",
+      "winSub": "Отличный результат!",
+      "gameOverTitle": "ИГРА\nОКОНЧЕНА",
+      "finalTitle": "ВСЯ\nГАЛАКТИКА\nПОКОРЕНА!",
+      "finalSub": "Все 8 уровней пройдены!",
+      "start": {
+        "title": "SPACE SEARCH",
+        "subtitle": "Найди числа по порядку и покори галактику!",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "На экране появятся числа. Нажимай их по порядку от 1 до N. Пройди все 8 уровней!",
+        "levelsTitle": "🪐 8 уровней",
+        "levelsEasy": "Числа 1–10, легко",
+        "levelsMedium": "Числа 1–15, быстрее",
+        "levelsHard": "Числа 1–20+, очень быстро",
+        "scoringTitle": "⭐ Система очков",
+        "scoreCorrect": "За каждое правильное число",
+        "scoreCombo": "Комбо-серия без ошибок",
+        "scoreLives": "3 жизни на всю игру",
+        "featureLevels": "8 уровней",
+        "featureTimer": "Таймер",
+        "featureLives": "3 жизни",
+        "featureCombo": "Комбо",
+        "playBtn": "ЗАПУСТИТЬ"
+      },
+      "planets": {
+        "mercury": "МЕРКУРИЙ",
+        "venus": "ВЕНЕРА",
+        "earth": "ЗЕМЛЯ",
+        "mars": "МАРС",
+        "jupiter": "ЮПИТЕР",
+        "saturn": "САТУРН",
+        "uranus": "УРАН",
+        "neptune": "НЕПТУН"
+      }
+    },
+    "shadowGame": {
+      "rank": {
+        "telepath": "👁 ТЕЛЕПАТ",
+        "lightning": "⚡ МОЛНИЯ",
+        "reflex": "🔥 РЕФЛЕКС",
+        "shooter": "🎯 СТРЕЛОК",
+        "newbie": "🌱 НОВИЧОК"
+      },
+      "phaseBadge": {
+        "one": "ФАЗА 1 · 1 СИМВОЛ",
+        "two": "ФАЗА 2 · 2 СИМВОЛА",
+        "three": "ФАЗА 3 · 3 СИМВОЛА"
+      },
+      "start": {
+        "title": "SHADOW MATCH",
+        "subtitle": "Найди символ в толпе",
+        "desc": "Запомни символ — он исчезнет через секунду. Найди его среди 36 похожих как можно быстрее!",
+        "phase1": "Фаза 1 · 1 символ · 8с на раунд",
+        "phase2": "Фаза 2 · 2 символа · 9с на раунд",
+        "phase3": "Фаза 3 · 3 символа · 10с на раунд",
+        "playBtn": "▶ ИГРАТЬ"
+      },
+      "result": {
+        "points": "очков",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД!",
+        "best": "ЛУЧШИЙ",
+        "myBest": "МОЙ ЛУЧШИЙ",
+        "current": "ТЕКУЩИЙ",
+        "accuracy": "точность",
+        "maxCombo": "макс. комбо",
+        "rounds": "раундов",
+        "tryAgain": "Попробовать ещё 🔄",
+        "menu": "Меню"
+      },
+      "combo": "×{{combo}} КОМБО"
+    },
+    "racing": {
+      "hud": {
+        "score": "СЧЁТ",
+        "record": "РЕКОРД",
+        "lives": "ЖИЗНИ"
+      },
+      "start": {
+        "subtitle": "Гоняй по трассе, избегай машин и препятствий!",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "Используй кнопки внизу для перестроения по полосам. Уклоняйся от машин, пешеходов и велосипедистов. Не врезайся — у тебя только 3 жизни!",
+        "featuresTitle": "🎮 Особенности игры",
+        "speedUpTitle": "Скорость нарастает",
+        "speedUpDesc": "Чем дольше едешь, тем выше скорость",
+        "obstaclesTitle": "Препятствия",
+        "obstaclesDesc": "На дороге встречаются автомобили, грузовики и перебегающие дорогу люди",
+        "playBtn": "ИГРАТЬ",
+        "featureLives": "3 жизни",
+        "featureTurbo": "Турбо",
+        "featureDrift": "Дрифт",
+        "featureRecords": "Рекорды"
+      },
+      "gameOver": {
+        "title": "ИГРА\nОКОНЧЕНА",
+        "best": "ЛУЧШИЙ",
+        "yourRecord": "ТВОЙ РЕКОРД",
+        "tryAgain": "Попробовать ещё 🔄",
+        "backToGames": "К ИГРАМ"
+      }
+    },
+    "geographyQuiz": {
+      "categories": {
+        "all": "Все",
+        "capitals": "Столицы",
+        "flags": "Флаги",
+        "continents": "Континенты",
+        "oceans": "Океаны/Моря",
+        "countries": "Страны",
+        "mountains": "Горы",
+        "rivers": "Реки",
+        "geography": "Разное",
+        "food": "Кухня",
+        "customs": "Обычаи"
+      },
+      "catNames": {
+        "capitals": "Столицы",
+        "flags": "Флаги",
+        "continents": "Континенты",
+        "oceans": "Океаны и моря",
+        "countries": "Страны",
+        "mountains": "Горы",
+        "rivers": "Реки",
+        "geography": "Разное",
+        "food": "Кухня мира",
+        "customs": "Обычаи и культура"
+      },
+      "start": {
+        "title": "GEO EXPERT",
+        "subtitle": "Тест по географии мира",
+        "questionsLabel": "📚 Вопросов:",
+        "bestLabel": "🏆 Лучший:",
+        "chooseCategory": "ВЫБЕРИ КАТЕГОРИЮ",
+        "questionsShort": "{{count}} вопр.",
+        "startBtn": "🚀 НАЧАТЬ ИГРУ",
+        "dbBtn": "📚 База вопросов",
+        "trainingBtn": "🎯 Тренировка · База знаний",
+        "lastResults": "ПОСЛЕДНИЕ РЕЗУЛЬТАТЫ",
+        "correctOf12": "{{correct}}/12 верных",
+        "difficultyLabel": "СЛОЖНОСТЬ",
+        "difficulty": {
+          "easy": "Лёгкий",
+          "medium": "Средний",
+          "hard": "Сложный"
+        }
+      },
+      "game": {
+        "questionProgress": "Вопрос {{current}} из 12",
+        "boostDepleted": "ИСЧ.",
+        "geography": "География"
+      },
+      "result": {
+        "gradeExcellent": "ОТЛИЧНО!",
+        "gradeGood": "ХОРОШО!",
+        "gradeNotBad": "НЕПЛОХО",
+        "gradeTryAgain": "ПОПРОБУЙ ЕЩЁ",
+        "subExcellent": "Ты настоящий знаток географии!",
+        "subGood": "Отличный результат, почти профи!",
+        "subNotBad": "Хорошие знания, но есть куда расти.",
+        "subTryAgain": "Подучи географию и возвращайся!",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД!",
+        "best": "ЛУЧШИЙ",
+        "myBest": "МОЙ ЛУЧШИЙ",
+        "current": "ТЕКУЩИЙ",
+        "pointsScored": "ОЧКОВ НАБРАНО",
+        "correct": "ВЕРНО",
+        "wrong": "ОШИБОК",
+        "total": "ВСЕГО",
+        "reviewTitle": "РАЗБОР ВОПРОСОВ",
+        "reviewCorrectPrefix": "Верно: ",
+        "reviewYourAnswerPrefix": "Твой ответ: ",
+        "timeOut": "Время вышло",
+        "reviewRightAnswerPrefix": "Правильно:",
+        "retry": "Попробовать ещё 🔄",
+        "home": "🏠 ГЛАВНАЯ"
+      },
+      "db": {
+        "title": "База вопросов",
+        "subtitle": "{{count}} вопросов доступно",
+        "searchPlaceholder": "Поиск по вопросам...",
+        "limitText": "Показаны первые 100 результатов..."
+      }
+    },
+    "udarTiming": {
+      "timeMinSec": "{{m}}м {{sec}}.{{dec}}с",
+      "timeSec": "{{sec}}.{{dec}}с",
+      "shareTitle": "Поделиться",
+      "status": {
+        "tapHit": "НАЖМИ УДАР"
+      },
+      "grade": {
+        "s": "ИДЕАЛЬНО!",
+        "a": "ОТЛИЧНО!",
+        "b": "ХОРОШО!",
+        "c": "НЕПЛОХО",
+        "d": "ПРОМАХ"
+      },
+      "hitLabel": {
+        "perfect": "🎯 PERFECT",
+        "good": "✅ GOOD",
+        "ok": "👌 OK",
+        "miss": "❌ MISS"
+      },
+      "shareText": "🎯 УДАР — Timing Game\n{{hitStr}}\nСчёт: {{score}} | Оценка: {{grade}}\nИдеальных: {{perfect}}/{{total}} | Время: {{time}}\nПобей мой рекорд!",
+      "start": {
+        "title": "PERFECT BEAT",
+        "subtitle": "Timing Is Everything",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "Стрелка движется по кругу. Нажми УДАР в нужный момент, когда стрелка попадёт в целевую зону. У тебя {{total}} попыток — попади как можно точнее!",
+        "zonesTitle": "🎯 Зоны точности",
+        "zonePerfect": "Центр зоны · максимальные очки",
+        "zoneGood": "Близко к центру · хорошие очки",
+        "zoneOk": "Край зоны · базовые очки",
+        "zoneMiss": "Промах · 0 очков",
+        "scoringTitle": "⭐ Очки",
+        "scorePerfect": "100 очков",
+        "scoreGood": "60 очков",
+        "scoreOk": "30 очков",
+        "scoreCombo": "Серия PERFECT = бонус",
+        "featureAttempts": "38 попыток",
+        "featureRhythm": "Ритм",
+        "featureRecord": "Рекорд",
+        "featureAccuracy": "Точность",
+        "sessionRecord": "РЕКОРД СЕССИИ",
+        "startBtn": "НАЧАТЬ"
+      },
+      "result": {
+        "best": "ЛУЧШИЙ",
+        "yourRecord": "ТВОЙ РЕКОРД",
+        "score": "СЧЁТ",
+        "maxCombo": "МАКС КОМБО",
+        "perfect": "ИДЕАЛЬНЫХ",
+        "time": "⏱ ВРЕМЯ",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД",
+        "share": "📋 Поделиться",
+        "tryAgain": "Попробовать ещё 🔄",
+        "exit": "← Выйти"
+      },
+      "game": {
+        "tagline": "НАЖМИ В НУЖНЫЙ МОМЕНТ",
+        "points": "ОЧКИ",
+        "combo": "КОМБО",
+        "slowActive": "АКТИВЕН",
+        "slow": "ЗАМЕДЛЕНИЕ",
+        "speed": "СКОРОСТЬ",
+        "tapBtn": "▶ УДАР"
+      }
+    },
+    "redBall": {
+      "combo2": "COMBO x2!",
+      "combo3": "x3 ОГОНЬ!",
+      "combo4": "x4 МОНСТР!",
+      "combo5": "x5 ЛЕГЕНДА!",
+      "comboGodlike": "x{{combo}} БОГОПОДОБНЫЙ!",
+      "start": {
+        "title": "RED BALL",
+        "subtitle": "Нажимай только на красный шар — быстро, точно, без ошибок!",
+        "howToPlayTitle": "📋 Как играть",
+        "howToPlayDesc": "В сетке 5×4 расположены зелёные шары и один красный. Найди и нажми на красный шар как можно быстрее. Не ошибись — у тебя только 3 жизни!",
+        "featuresTitle": "🎮 Особенности игры",
+        "speedUpTitle": "Скорость нарастает",
+        "speedUpDesc": "Чем больше очков, тем быстрее меняются шары",
+        "speedBonusTitle": "Бонус за скорость",
+        "speedBonusDesc": "Чем быстрее нажал — тем больше очков (20/15/10/7)",
+        "comboTitle": "Комбо x2",
+        "comboDesc": "3 попадания подряд дают двойные очки",
+        "scoringTitle": "⭐ Очки",
+        "scoreFastest": "Молниеносный ответ (до 0.5с)",
+        "scoreFast": "Быстрый ответ (до 1.5с)",
+        "scoreNormal": "Обычный ответ (до 3с)",
+        "scoreCombo": "Комбо-бонус при серии 3+",
+        "featureTime": "55 сек",
+        "featureLives": "3 жизни",
+        "featureGrid": "5×4 сетка",
+        "featureCombo": "Комбо",
+        "playBtn": "ИГРАТЬ"
+      },
+      "result": {
+        "titleNotBad": "НЕПЛОХО",
+        "titleLegend": "ЛЕГЕНДА!",
+        "titleLightning": "МОЛНИЯ!",
+        "titleSharp": "МЕТКИЙ!",
+        "titleRetry": "ЕЩЁ РАЗ?",
+        "best": "ЛУЧШИЙ",
+        "myBest": "МОЙ ЛУЧШИЙ",
+        "current": "ТЕКУЩИЙ",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД!",
+        "points": "ОЧКИ",
+        "hits": "ПОПАДАНИЙ",
+        "misses": "ПРОМАХОВ",
+        "maxCombo": "МАКС. КОМБО",
+        "time": "ВРЕМЯ",
+        "menu": "🏠 Меню",
+        "tryAgain": "Попробовать ещё 🔄"
+      },
+      "hud": {
+        "time": "ВРЕМЯ",
+        "points": "ОЧКИ",
+        "lives": "ЖИЗНИ"
+      }
+    },
+    "barainTraing": {
+      "start": {
+        "subtitle": "Тренировка интеллекта",
+        "aboutTitle": "📋 Суть игры",
+        "aboutDesc": "Сверху указано целевое число. Найди среди летающих пузырей тот, чьё математическое выражение даёт этот ответ, и лопни его. У тебя всего 80 секунд.",
+        "mechanicsTitle": "⏱ Механика",
+        "mechanics": {
+          "searchTitle": "8 секунд на поиск",
+          "searchDesc": "Красная полоска — таймер раунда. Не успеешь найти пузырь — раунд сменится со штрафом.",
+          "errorTitle": "Цена ошибки",
+          "errorDesc": "Если нажмешь на неверный ответ, потеряешь очки, а серия комбо сбросится до нуля."
+        },
+        "scoringTitle": "⭐ Начисление очков",
+        "scoring": {
+          "correct": "За каждый правильный ответ",
+          "combo": "Комбо-бонус за серию верных ответов без ошибок",
+          "penalty": "Штраф за промах (и -3 очка, если вышло время раунда)"
+        },
+        "ops": {
+          "add": "Сложение",
+          "sub": "Вычитание",
+          "mul": "Умножение"
+        },
+        "startBtn": "НАЧАТЬ ИГРУ"
+      },
+      "game": {
+        "comboBig": "✦ ×{{count}} комбо",
+        "comboSmall": "× {{count}}",
+        "score": "СЧЁТ",
+        "find": "НАЙТИ"
+      },
+      "result": {
+        "title": "Игра\nокончена",
+        "best": "ЛУЧШИЙ",
+        "yourRecord": "ТВОЙ РЕКОРД",
+        "points": "ОЧКОВ",
+        "correct": "ВЕРНЫХ",
+        "errors": "ОШИБОК",
+        "combo": "КОМБО",
+        "totalTime": "ОБЩЕЕ ВРЕМЯ",
+        "tryAgain": "Попробовать ещё 🔄",
+        "menu": "МЕНЮ"
+      }
+    },
+    "findLetter": {
+      "levels": {
+        "easy": "Лёгкий",
+        "medium": "Средний",
+        "hard": "Сложный",
+        "expert": "Эксперт",
+        "master": "Мастер"
+      },
+      "feedback": {
+        "timeUp": "⏰ Время вышло! Ответ: {{answer}}",
+        "correct": "✅ Верно! +{{points}}",
+        "correctStreak": "✅ Верно! +{{points}} 🔥 Серия x{{streak}}! +50",
+        "wrong": "❌ Ответ: {{answer}}"
+      },
+      "start": {
+        "title": "LETTER HUNTER",
+        "subtitle": "Найди букву, которая встречается ровно 2 раза",
+        "howTitle": "📋 Как играть",
+        "howDesc": "На экране — сетка из букв. Найди и нажми все буквы, которые встречаются ровно 2 раза. 12 раундов, с каждым раундом становится сложнее!",
+        "difficultyTitle": "📊 Сложность",
+        "difficulty": {
+          "r14": "Раунды 1–4 · Лёгкий",
+          "r14Desc": "Крупные буквы, много времени",
+          "r58": "Раунды 5–8 · Средний",
+          "r58Desc": "Буквы меньше, таймер быстрее",
+          "r912": "Раунды 9–12 · Сложный",
+          "r912Desc": "Мелкие буквы, мало времени"
+        },
+        "scoringTitle": "⭐ Очки",
+        "scoring": {
+          "perLetter": "За каждую найденную букву",
+          "speedBonus": "Бонус за скорость",
+          "livesRule": "3 жизни — ошибка = минус жизнь"
+        },
+        "features": {
+          "rounds": "12 раундов",
+          "lives": "3 жизни",
+          "timer": "Таймер",
+          "difficulty": "Сложность"
+        },
+        "startBtn": "НАЧАТЬ"
+      },
+      "game": {
+        "title": "❄️ НАЙДИ БУКВУ",
+        "hintDepleted": "ИСЧЕРПАН",
+        "hint": "ПОДСВЕТКА",
+        "round": "РАУНД",
+        "correct": "ВЕРНО",
+        "lives": "ЖИЗНИ",
+        "questionPrefix": "Какая буква написана",
+        "questionHighlight": "2 раза",
+        "roundProgress": "Раунд {{current}} / {{total}} — {{level}}"
+      },
+      "result": {
+        "win": "Победа!",
+        "lose": "Игра окончена",
+        "best": "ЛУЧШИЙ",
+        "score": "СЧЁТ",
+        "scoreValue": "{{score}} очков",
+        "summary": "Правильно: {{correct}} из {{round}}\nТочность: {{accuracy}}%\nЖизней осталось: {{lives}}",
+        "tryAgain": "Попробовать ещё 🔄",
+        "back": "Назад 🏠"
+      }
+    },
+    "slidingPuzzle": {
+      "start": {
+        "title": "WORLD PUZZLE",
+        "subtitle": "Собери головоломку за минимальное время и ходы",
+        "howTitle": "📋 Как играть",
+        "howDesc": "Перемести все плитки на свои места. Нажми на плитку рядом с пустой ячейкой, чтобы сдвинуть её. Реши головоломку за минимальное время и количество ходов!",
+        "controlsTitle": "🎮 Управление",
+        "controls": {
+          "tapTitle": "Нажатие",
+          "tapDesc": "Нажми на плитку рядом с пустым местом — она сдвинется",
+          "goalTitle": "Цель",
+          "goalDesc": "Расставь числа от 1 до 11 по порядку слева направо, сверху вниз",
+          "winTitle": "Победа",
+          "winDesc": "Все числа на месте = победа!"
+        },
+        "statsTitle": "⭐ Статистика",
+        "stats": {
+          "time": "Время прохождения",
+          "moves": "Количество ходов",
+          "bestSession": "Лучший результат сессии"
+        },
+        "features": {
+          "grid": "3×4 сетка",
+          "timer": "Таймер",
+          "moves": "Ходы",
+          "record": "Рекорд"
+        },
+        "startBtn": "НАЧАТЬ"
+      },
+      "game": {
+        "titlePrefix": "ПЯТ",
+        "titleAccent": "НА",
+        "titleSuffix": "ШКИ",
+        "time": "ВРЕМЯ",
+        "moves": "ХОДЫ",
+        "freeze": "ЗАМОРОЗКА",
+        "freezeLeft": "{{count}}Х",
+        "new": "↺ НОВАЯ"
+      },
+      "result": {
+        "solved": "РЕШЕНО!",
+        "best": "ЛУЧШИЙ",
+        "myBest": "МОЙ ЛУЧШИЙ",
+        "current": "ТЕКУЩИЙ",
+        "time": "ВРЕМЯ",
+        "moves": "ХОДОВ",
+        "newRecord": "🌟 НОВЫЙ РЕКОРД!",
+        "recordValue": "Рекорд: {{score}}",
+        "tryAgain": "Попробовать ещё 🔄",
+        "home": "На главную"
+      }
+    },
+    "stroopColor": {
+      "colors": {
+        "red": "КРАСНЫЙ",
+        "blue": "СИНИЙ",
+        "green": "ЗЕЛЁНЫЙ",
+        "yellow": "ЖЁЛТЫЙ",
+        "purple": "ФИОЛЕТ",
+        "pink": "РОЗОВЫЙ",
+        "purpleFull": "ФИОЛЕТОВЫЙ",
+        "orange": "ОРАНЖЕВЫЙ"
+      },
+      "grades": {
+        "S": "ГЕНИЙ!",
+        "A": "ОТЛИЧНО!",
+        "B": "ХОРОШО!",
+        "C": "НЕПЛОХО",
+        "D": "ТРЕНИРУЙСЯ"
+      },
+      "start": {
+        "title": "COLOR STROOP",
+        "subtitle": "Stroop Challenge · Тест реакции мозга",
+        "howTitle": "📋 Как играть",
+        "howDesc": "На экране появится слово-цвет, написанное ДРУГИМ цветом. Твоя задача — нажать на кнопку, которая соответствует цвету текста, а не его значению. Мозг будет путаться — это нормально!",
+        "demoHint": "↑ написано КРАСНЫЙ, но каким цветом?",
+        "rulesTitle": "🧠 Правила",
+        "rules": {
+          "pickColorName": "Выбирай цвет текста",
+          "pickColorDesc": "Игнорируй значение слова — смотри только на цвет",
+          "sixtySecName": "60 секунд",
+          "sixtySecDesc": "Успей ответить на как можно больше вопросов",
+          "livesName": "3 жизни",
+          "livesDesc": "Неверный ответ или таймаут — минус жизнь"
+        },
+        "scoringTitle": "⭐ Очки",
+        "scoring": {
+          "perCorrect": "За каждый правильный ответ",
+          "combo": "Серия правильных = множитель комбо",
+          "speed": "Бонус за быстрый ответ"
+        },
+        "record": "РЕКОРД",
+        "startBtn": "НАЧАТЬ"
+      },
+      "game": {
+        "tapColor": "Нажми цвет текста",
+        "comboToast": "×{{mult}} КОМБО!",
+        "score": "СЧЁТ",
+        "combo": "КОМБО",
+        "correct": "ВЕРНЫХ",
+        "shieldActive": "АКТИВЕН",
+        "shieldDepleted": "ИСЧЕРПАН",
+        "shield": "ЩИТ"
+      },
+      "result": {
+        "best": "ЛУЧШИЙ",
+        "yourRecord": "ТВОЙ РЕКОРД",
+        "score": "СЧЁТ",
+        "record": "РЕКОРД",
+        "correct": "ВЕРНЫХ",
+        "accuracy": "ТОЧНОСТЬ",
+        "reaction": "РЕАКЦИЯ",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД",
+        "share": "Поделиться",
+        "shareBtn": "📋 Поделиться",
+        "tryAgain": "Попробовать ещё 🔄",
+        "exit": "← Выйти",
+        "shareText": "{{brain}} ЦВЕТ — Stroop Challenge\n{{bar}}\nСчёт: {{score}} | Оценка: {{grade}}\nТочность: {{acc}}% | Реакция: {{avgMs}}мс\nМой рекорд: {{best}}\nПобей!"
+      },
+      "units": {
+        "ms": "мс"
+      }
+    }
+  },
+  "components": {
+    "retryBoostButton": {
+      "label": "🔄 Повторить попытку"
+    },
+    "challengeDayCard": {
+      "status": {
+        "unlocked": "🔓 Открыто",
+        "done": "✅ Выполнено",
+        "continue": "⏳ Продолжить",
+        "start": "🚀 Начать",
+        "locked": "🔒 Закрыто"
+      },
+      "unlockedBadge": "Разблокирован",
+      "label": {
+        "day": "День",
+        "dayNumber": "День {{number}}",
+        "dayTask": "{{day}} - Задание {{task}}",
+        "taskWithTitle": "Задание {{task}}: {{title}}",
+        "task": "Задание {{task}}"
+      }
+    },
+    "homeHeader": {
+      "guest": "Гость",
+      "users": "пользователей",
+      "online": "онлайн"
+    },
+    "topPlayersList": {
+      "daily": "Топ сильных",
+      "weekly": "Топ удачливых",
+      "monthly": "Топ месяца"
+    },
+    "gameRatingModal": {
+      "title": "Рейтинг игроков",
+      "subtitle": "Топ лучших мастеров логики",
+      "you": "(Вы)"
+    },
+    "globalBoostsSheet": {
+      "inStock": "В наличии:",
+      "stockCount": "{{count}} шт.",
+      "ok": "OK",
+      "qtySuffix": " ({{count}} шт.)",
+      "boostSuffix": " boost"
+    },
+    "globalDiamondsSheet": {
+      "successTitle": "Успешно!",
+      "requestSent": "Запрос отправлен!",
+      "ok": "OK",
+      "topupSuccess": "💰 {{amount}} сум зачислено на ваш счёт.",
+      "withdrawSuccess": "💰 {{amount}} сум отправлено на карту **** {{last4}}.",
+      "wallet": "Кошелёк",
+      "topupTab": "💳 Пополнить",
+      "withdrawTab": "💰 Вывести",
+      "availableBalance": "Доступный баланс",
+      "minAmountLabel": "Минимальная сумма: {{amount}} сум",
+      "amountPlaceholder": "Введите сумму...",
+      "minAmountError": "Минимальная сумма {{amount}} сум",
+      "paymentMethod": "Способ оплаты",
+      "topupBtn": "💳 Пополнить",
+      "withdrawable": "К выводу доступно: {{amount}} сум",
+      "cardNumber": "Номер карты",
+      "cardNumberError": "Введите номер карты полностью",
+      "withdrawAmount": "Сумма вывода",
+      "minPlaceholder": "Мин. {{amount}} сум",
+      "maxWithdrawError": "Максимум к выводу: {{amount}} сум (1 000 сум остаётся в резерве)",
+      "cannotWithdraw": "Вывод недоступен — баланс меньше 1 000 сум",
+      "feeInfo": "Без комиссии · в течение 1–3 рабочих дней",
+      "withdrawBtn": "💰 Вывести"
+    },
+    "taskListSheet": {
+      "title": "Список заданий",
+      "progress": "Прогресс: {{completed}}/{{total}}",
+      "score": "Бал: {{score}}",
+      "activity": "Активность: {{activity}} pts",
+      "done": "Выполнено",
+      "start": "Начать",
+      "tasks": {
+        "basic": {
+          "title": "Базовый тест",
+          "desc": "Проверьте знание основных терминов."
+        },
+        "choice": {
+          "title": "Выбор ответа",
+          "desc": "10 вопросов с вариантами ответов."
+        },
+        "logic": {
+          "title": "Логическая задача",
+          "desc": "Решите задачу на внимательность."
+        },
+        "code": {
+          "title": "Анализ кода",
+          "desc": "Найдите ошибки в коде."
+        },
+        "final": {
+          "title": "Финальный экзамен",
+          "desc": "Итоговый тест с таймером."
+        }
+      }
+    },
+    "gamePickerSheet": {
+      "title": "Выберите задание",
+      "subtitle": "С какого задания начнёте выполнение?",
+      "completed": "Выполнено",
+      "completedDesc": "Это задание успешно завершено",
+      "reclamDesc": "Посмотрите рекламу, чтобы открыть игру"
+    },
+    "sectionHeader": {
+      "seeAll": "Все →"
+    }
+  }
+}

@@ -1,0 +1,1366 @@
+{
+  "title": "React Native Ilovasi",
+  "auth": {
+    "common": {
+      "errorTitle": "Xatolik",
+      "nameLabel": "ISM",
+      "namePlaceholder": "Ismingiz",
+      "usernameLabel": "FOYDALANUVCHI NOMI",
+      "usernamePlaceholder": "Foydalanuvchi nomi",
+      "passwordLabel": "PAROL",
+      "passwordPlaceholder": "Parol"
+    },
+    "welcome": {
+      "title": "Xush kelibsiz",
+      "titleAccent": "!",
+      "subtitle": "Davom etish uchun tilni tanlang",
+      "next": "Davom etish ->"
+    },
+    "login": {
+      "title": "Kirish",
+      "subtitle": "Davom etish uchun ma'lumotlaringizni kiriting",
+      "cta": "Kirish",
+      "noAccount": "Hisobingiz yo'qmi?",
+      "signUp": "Ro'yxatdan o'tish",
+      "error": "Kirishda xatolik yuz berdi"
+    },
+    "register": {
+      "title": "Ro'yxatdan o'tish",
+      "subtitle": "Boshlash uchun hisob yarating",
+      "cta": "Ro'yxatdan o'tish",
+      "haveAccount": "Hisobingiz bormi?",
+      "signIn": "Kirish",
+      "error": "Ro'yxatdan o'tishda xatolik yuz berdi"
+    },
+    "otp": {
+      "title": "Kod tasdiqlash",
+      "subtitle": "4 xonali kod quyidagi raqamga yuborildi",
+      "verify": "Tasdiqlash",
+      "resend": "Kodni qayta yuborish"
+    }
+  },
+  "tabs": {
+    "home": {
+      "errorTitle": "Xatolik",
+      "cancel": "Bekor qilish",
+      "currency": "UZS",
+      "prizePoolLabel": "Umumiy mukofot fondi",
+      "halal": "Halol",
+      "openTasks": "Vazifalarga kirish",
+      "gamesShort": "O'yinlar",
+      "seeAll": "Hammasini ko'rish",
+      "participating": "✅ Ishtirok etyapman",
+      "entry": "Kirish",
+      "duration": "15 min",
+      "difficulty": {
+        "medium": "O'rtacha"
+      },
+      "task": {
+        "logic": "Mantiq",
+        "memory": "Xotira",
+        "speed": "Tezlik"
+      },
+      "sections": {
+        "topRatings": "🏆 Top reytinglar",
+        "games": "🎮 O'yinlar",
+        "testCatalog": "📚 Testlar katalogi"
+      },
+      "challengeBadge": {
+        "default": "⚡ Challenge",
+        "weekly": "📅 Haftalik",
+        "monthly": "🔥 Marafon",
+        "daily": "☀️ Kunlik"
+      },
+      "connect": {
+        "title": "Challenge'ga ulanish",
+        "message": "Ulangandan keyin challenge darhol ochiladi.",
+        "confirm": "Ulanish",
+        "error": "Challenge'ga ulanib bo'lmadi"
+      }
+    },
+    "games": {
+      "errorTitle": "Xatolik",
+      "cancel": "Bekor qilish",
+      "accessTitle": "O'yinga kirish",
+      "accessMessage": "O'yinni ochish uchun qisqa reklamani ko'ring.",
+      "watchAd": "Reklama ko'rish",
+      "skipPaid": "O'tkazib yuborish (20 so'm)",
+      "reclamUpdateError": "Reklama holatini yangilab bo'lmadi",
+      "adScreen": {
+        "badge": "Reklama",
+        "rewardTitle": "Ko'rish tugagach o'yin ochiladi",
+        "rewardText": "Hozircha bu video uchun default placeholder ekran. Keyin shu joyga AppLovin MAX ulash mumkin bo'ladi, foydalanuvchi oqimi o'zgarmaydi.",
+        "continue": "Davom etish",
+        "wait": "{{seconds}} soniya kuting"
+      },
+      "tags": {
+        "math": "🔢 Matematika",
+        "geography": "🌍 Geografiya",
+        "puzzle": "🧩 Pazl",
+        "language": "🔤 Til",
+        "space": "🚀 Koinot",
+        "attention": "🎨 Diqqat",
+        "timing": "⏱️ Tayming",
+        "speed": "⌛ Tezlik",
+        "reaction": "🔴 Reaksiya",
+        "logic": "👁️ Mantiq",
+        "racing": "🏎️ Poyga",
+        "memory": "🧠 Xotira"
+      }
+    },
+    "exam": {
+      "prizePoolLabel": "Umumiy mukofot fondi",
+      "currency": "SO'M",
+      "aboutTitle": "Mukofot fondi haqida",
+      "aboutDesc": "Kunlik testlar, haftalik marafonlar, oylik sinovlar - bularning har biri alohida mukofot fondiga ega. Siz bir vaqtning o'zida bir nechtasida ishtirok etib, har biridan alohida g'olib bo'lishingiz va mukofot olishingiz mumkin.",
+      "gotIt": "Tushundim",
+      "infoItems": {
+        "seasonal": "Har mavsumda yangi bosqich",
+        "morePoints": "Ko'proq ball = katta mukofot",
+        "fairSystem": "Halol va shaffof tizim"
+      },
+      "challengeTitle": {
+        "daily": "Kunlik challenge",
+        "weekly": "Haftalik challenge",
+        "monthly": "Oylik marafon"
+      }
+    },
+    "profile": {
+      "guest": "Mehmon",
+      "boosts": "Boosts",
+      "achievements": "Yutuqlar",
+      "skillsProfile": "🧬 Ko'nikmalar profili",
+      "iqTotal": "Umumiy IQ ball",
+      "logout": "Chiqish",
+      "logoutTitle": "Chiqish",
+      "logoutMessage": "Haqiqatan ham chiqmoqchimisiz?",
+      "yesLogout": "Ha, chiqish",
+      "no": "Yo'q",
+      "stats": {
+        "score": "Ball",
+        "activity": "Faollik",
+        "wins": "Yutuqlar"
+      },
+      "skills": {
+        "thinkingSpeed": "Tezkor fikrlash",
+        "attention": "Diqqat",
+        "concentration": "Konsentratsiya",
+        "logic": "Mantiq",
+        "memory": "Xotira"
+      },
+      "language": "Tilni almashtirish",
+      "languageTitle": "Tilni tanlang",
+      "languageSubtitle": "Ilova tilini tanlang. O'zgarish darhol qo'llanadi.",
+      "languageOptions": {
+        "uz": "O'zbekcha (Lotin)",
+        "uzSub": "Standart o'zbek lotin yozuvi",
+        "uzCyrl": "O'zbekcha (Kirill)",
+        "uzCyrlSub": "O'zbek kirill yozuvi",
+        "ru": "Русский",
+        "ruSub": "Rus tili"
+      }
+    }
+  },
+  "content": {
+    "task": {
+      "errorTitle": "Xatolik",
+      "loadDayGamesError": "Kun o'yinlarini yuklab bo'lmadi",
+      "back": "Orqaga",
+      "title": "🔥 Kunlik Test",
+      "timeLeft": "⏳ Tugashiga qoldi:",
+      "progress": "Progress",
+      "totalScore": "🏆 Umumiy ball",
+      "rating": "📊 Reyting",
+      "view": "Ko'rish",
+      "dayShort": "kun",
+      "hourShort": "soat",
+      "minuteShort": "daq",
+      "secondShort": "sek"
+    },
+    "myTests": {
+      "instructionTitle": "Yo'riqnoma",
+      "instructionMessage": "Testni boshlash uchun «Boshlash»ni bosing.\n\nVaqt cheklovisiz mashq rejimida o'tish uchun «Mashq»ni bosing.",
+      "training": "Mashq",
+      "start": "Boshlash",
+      "close": "Yopish",
+      "title": "Mening testlarim",
+      "dailyTitle": "Kunlik test",
+      "dailySubtitle": "3 ta vazifa: test, matematika, tezlik"
+    },
+    "weekly": {
+      "back": "Orqaga",
+      "title": "🔥 Challenge",
+      "progress": "Progress",
+      "timeLeft": "⏳ Tugashiga qoldi:",
+      "totalScore": "🏆 Umumiy ball",
+      "rating": "📊 Reyting",
+      "view": "Ko'rish",
+      "dayShort": "kun",
+      "hourShort": "soat",
+      "minuteShort": "daq",
+      "secondShort": "sek"
+    },
+    "monthly": {
+      "back": "Orqaga",
+      "title": "🔥 Oylik marafon",
+      "progress": "Progress",
+      "timeLeft": "⏳ Tugashiga qoldi:",
+      "totalScore": "🏆 Umumiy ball",
+      "rating": "📊 Reyting",
+      "view": "Ko'rish",
+      "dayShort": "kun",
+      "hourShort": "soat",
+      "minuteShort": "daq",
+      "secondShort": "sek"
+    },
+    "topRating": {
+      "label": "Reyting",
+      "headerTitle": "Reytinglar",
+      "allParticipants": "Barcha ishtirokchilar",
+      "empty": "Hali ishtirokchilar yo'q",
+      "levelShort": "Lvl."
+    },
+    "boosts": {
+      "currency": "so'm",
+      "back": "Orqaga",
+      "headerTitle": "Boosts",
+      "headerSub": "Aql bilan ishlat - tezroq yut",
+      "tipTitle": "💡 Kuchaytirgichlardan qanday foydalanish kerak?",
+      "tipBlock1Title": "Diqqat va Xotira",
+      "tipBlock1Desc": "Adashib qolsangiz, yoritish yoki takrorlash uchun ishlating.",
+      "tipBlock2Title": "Mantiq va Reaksiya",
+      "tipBlock2Desc": "Vaqtni sekinlashtirish yoki qiyin daqiqani o'tkazib yuborishga yordam beradi.",
+      "boughtTitle": "Sotib olindi",
+      "boughtMessage": "{{quantity}} ta boost muvaffaqiyatli sotib olindi!",
+      "errorTitle": "Xatolik",
+      "buyError": "Boostlarni sotib olib bo'lmadi.",
+      "totalCost": "Jami: 💰 {{value}} so'm",
+      "notEnoughBalanceWithAmount": "Balans yetarli emas (💰 {{value}} so'm)",
+      "buyNow": "Sotib olish{{countSuffix}}",
+      "notEnoughBalance": "Balans yetarli emas"
+    },
+    "notifications": {
+      "back": "Orqaga",
+      "readAll": "Hammasini o'qish",
+      "details": "Batafsil",
+      "noNews": "Yangiliklar yo'q",
+      "noNotifications": "Bildirishnomalar yo'q",
+      "noNotificationsDesc": "Yangi bildirishnomalar bu yerda ko'rinadi",
+      "justNow": "Hozirgina",
+      "minuteAgo": "daqiqa oldin",
+      "hourAgo": "soat oldin",
+      "dayAgo": "kun oldin",
+      "tabs": {
+        "news": "Yangiliklar",
+        "my": "Mening"
+      }
+    },
+    "quiz": {
+      "completed": "🎯 Test yakunlandi",
+      "score": "Natija",
+      "restart": "Testni qayta boshlash",
+      "title": "Test"
+    },
+    "testContent": {
+      "errorTitle": "Xatolik",
+      "connectError": "Ulanishda xatolik yuz berdi",
+      "popular": "🔥 Ommabop",
+      "prizePool": "Mukofot jamg'armasi",
+      "currency": "so'm",
+      "period": "Muddat",
+      "descriptionTitle": "Tavsif",
+      "descriptionBody": "Aql-zakovatingiz imkoniyatlarini sinab ko'ring va tafakkur ligasidagi maqomingizni tasdiqlang. Natija aniqlik, tezlik va izchillik asosida shakllanadi. Yuqori natija ko'rsatgan ishtirokchilar platforma tomonidan rag'batlantiriladi.",
+      "openChallenge": "Challenge'ni ochish",
+      "connect": "Ulanish"
+    },
+    "reclam": {
+      "topPrefix": "Top",
+      "prizesTitle": "🎁 Sizning mukofotlaringiz",
+      "claimReward": "🎁 Mukofotni olish",
+      "chooseReward": "Mukofotni tanlang",
+      "shareTitle": "🎉 Yutug'ingizni ulashing!",
+      "receivedRewards": "Olingan mukofotlar:",
+      "copyLink": "📋 Havolani nusxalash",
+      "labels": {
+        "exclusiveFlag": "Eksklyuziv bayroq",
+        "powerBoosts": "Kuchli boostlar",
+        "powerBoost": "Kuchli boost",
+        "diamonds": "Olmoslar",
+        "cash": "Pul"
+      },
+      "rating": {
+        "perfect": "Ajoyib!",
+        "excellent": "Zo'r!",
+        "good": "Yaxshi!",
+        "notBad": "Yomon emas",
+        "tryAgain": "Yana urinib ko'ring"
+      },
+      "rewardInfo": {
+        "activityTitle": "Faollik",
+        "activityDesc": "Top 1%! Ustunligingizni ko'rsating",
+        "boostPackTitle": "Boostlar to'plami",
+        "freeBoostTitle": "Bepul boost",
+        "boostPackDesc": "Keyingi o'yinlar uchun kuchli yordam",
+        "freeBoostDesc": "Keyingi safar natijani yaxshilang",
+        "diamondTitle": "Premium valyuta",
+        "diamondDesc": "Maxsus xaridlar uchun ishlating",
+        "cashTitle": "Pul mukofoti",
+        "cashDesc": "A'lo o'yin uchun"
+      },
+      "shareSubtitle": {
+        "top1": "Siz top 1%dasiz! Bu aqlbovar qilmas!",
+        "top4": "Siz top 4%dasiz! Zo'r natija!",
+        "good": "Ajoyib ish!",
+        "poor": "Yaxshi boshlanish!",
+        "fail": "Mashqni davom ettiring!"
+      },
+      "shareApps": {
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "twitter": "Twitter",
+        "facebook": "Facebook"
+      }
+    },
+    "battle": {
+      "members": "🏆 A'zolar",
+      "tasks": "🎯 Vazifalar",
+      "start": "🚀 Jangni boshlash",
+      "viewAll": "🧠 Barcha testlarni ko'rish"
+    },
+    "editProfile": {
+      "errorTitle": "Xatolik",
+      "updateError": "Profilni yangilashda xatolik yuz berdi",
+      "title": "Profilni tahrirlash",
+      "nameLabel": "ISM",
+      "namePlaceholder": "Ismingiz",
+      "phoneLabel": "TELEFON RAQAM",
+      "ageLabel": "YOSH",
+      "agePlaceholder": "Yoshingiz",
+      "save": "Saqlash"
+    }
+  },
+  "games": {
+    "common": {
+      "congratsTitle": "Tabriklaymiz!",
+      "allDayGamesDone": "Siz kunning barcha o'yinlarini yakunladingiz!",
+      "challengeTitle": "Challenge",
+      "dayFinished": "Kun yakunlandi!"
+    },
+    "oneSecond": {
+      "grades": {
+        "legend": {
+          "label": "LEGENDA",
+          "title": "LEGENDA",
+          "sub": "Siz odamlarning top 0.1%idansiz. Ichki soatingiz juda aniq."
+        },
+        "master": {
+          "label": "USTA",
+          "title": "USTA",
+          "sub": "Vaqtni his qilish darajangiz a'lo."
+        },
+        "good": {
+          "label": "YAXSHI",
+          "title": "YAXSHI",
+          "sub": "O'rtachadan yuqori natija."
+        },
+        "average": {
+          "label": "O'RTACHA",
+          "title": "O'RTACHA",
+          "sub": "Oddiy natija. Mashq bilan yaxshilanadi."
+        },
+        "train": {
+          "label": "MASHQ QILING",
+          "title": "MASHQ QILING",
+          "sub": "Ichki vaqt hissi hali sust, lekin yaxshilash mumkin."
+        }
+      },
+      "class": {
+        "perfect": "AJOYIB!",
+        "good": "ZO'R!",
+        "ok": "YOMON EMAS",
+        "bad": "NISHONDAN TASHQARI"
+      },
+      "phase": {
+        "tapHold": "Bosib turing",
+        "holding": "Ushlab turing...",
+        "points": "+{{points}} ochko"
+      },
+      "circle": {
+        "hold": "USHLA"
+      },
+      "share": {
+        "title": "⏱ 1 SONIYA — Ichki vaqt testi",
+        "offsetLevel": "Og'ish: {{avg}}ms | Daraja: {{level}}",
+        "perfectScore": "Ideal urinishlar: {{perfect}}/20 | Hisob: {{score}}",
+        "challenge": "Mening natijamni yangilang!"
+      },
+      "start": {
+        "title": "ONE\nSECOND",
+        "subtitle": "Miya ichki soati testi",
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "Tugmani aynan 1 soniya bosib turing va qo'yib yuboring. 20 urinish ichida eng kichik o'rtacha og'ishni toping.",
+        "mechanicsTitle": "🎯 Mexanika",
+        "mechanics": {
+          "tapHoldName": "Bosib turing",
+          "tapHoldDesc": "Tugmani ushlab turing, halqa real vaqtda to'ladi.",
+          "releaseName": "1 soniyada qo'ying",
+          "releaseDesc": "Maqsad — aynan 1000 ms.",
+          "roundsName": "20 urinish",
+          "roundsDesc": "Yakuniy o'rin o'rtacha og'ish bo'yicha aniqlanadi."
+        },
+        "scoringTitle": "⭐ Ochko tizimi",
+        "scoring": {
+          "max": "≤20 ms og'ish uchun maksimal ochko",
+          "good": "≤50 ms og'ish uchun",
+          "min": ">350 ms og'ish uchun minimal ochko"
+        },
+        "features": {
+          "accuracy": "Aniqlik",
+          "rounds": "20 raund",
+          "records": "Rekordlar"
+        },
+        "bestOffset": "Eng yaxshi og'ish",
+        "bestScore": "Rekord hisob",
+        "startBtn": "BOSHLASH"
+      },
+      "game": {
+        "attempt": "Urinish",
+        "score": "Hisob",
+        "boost": {
+          "active": "×2 faol",
+          "depleted": "tugagan",
+          "default": "×2 ochko"
+        }
+      },
+      "result": {
+        "bestOffset": "ENG YAXSHI OG'ISH",
+        "yourOffset": "SIZNING OG'ISH",
+        "avgOffset": "1 soniyadan o'rtacha og'ish",
+        "stats": {
+          "score": "Ochko",
+          "record": "Rekord",
+          "perfect": "Ideal",
+          "worst": "Eng yomon urinish"
+        },
+        "newRecord": "🏆 YANGI REKORD",
+        "share": "📋 Ulashish",
+        "tryAgain": "Yana urinish 🔄",
+        "backHome": "← Bosh sahifaga"
+      },
+      "units": {
+        "ms": "ms"
+      }
+    },
+    "voltNumbers": {
+      "result": {
+        "tryAgain": "Yana urinish 🔄",
+        "home": "← Bosh sahifa",
+        "tryAgainTitle": "Yana urinib ko'ring",
+        "mistakes": "{{errors}} ta xato",
+        "medalBronze": "Bronza",
+        "soClose": "Sal qoldi!",
+        "legend": "LEGENDA",
+        "phenomenal": "Ajoyib tezlik!",
+        "medalGold": "Oltin",
+        "excellent": "Zo'r!",
+        "amazing": "Ajoyib natija!",
+        "medalSilver": "Kumush",
+        "goodJob": "Yaxshi ish!",
+        "keepPractising": "Mashq qilishda davom eting!",
+        "bestTime": "ENG YAXSHI VAQT",
+        "fail": "YUTQAZILDI",
+        "yourTime": "SIZNING VAQT",
+        "finalTime": "YAKUNIY VAQT",
+        "seconds": "soniya",
+        "correct": "To'g'ri",
+        "errors": "Xatolar",
+        "rank": "O'rin",
+        "medal": "Medal",
+        "accuracy": "Aniqlik",
+        "avgPerBall": "O'rt./Shar",
+        "newRecord": "🏆 Yangi rekord!"
+      },
+      "common": {
+        "leaderboard": "🏆 Reyting",
+        "easy": "Oson",
+        "normal": "O'rta",
+        "hard": "Qiyin"
+      },
+      "start": {
+        "logoSub": "NUMBERS · TAFAKKUR TEZLIGI",
+        "startBtn": "BOSHLASH →",
+        "how": {
+          "rememberTitle": "Eslab qol",
+          "rememberText": "Barcha raqamlar qayerda joylashganini eslab qoling",
+          "scatterTitle": "Aralashtir!",
+          "scatterText": "READY ni bosing — sharlar yangi joyga uchadi",
+          "inOrderTitle": "Tartib bilan",
+          "inOrderText": "Raqamlarni kamayish tartibida bosing: N→1",
+          "timedTitle": "Vaqtga",
+          "timedText": "Tezroq natija = reytingda yuqoriroq o'rin!"
+        }
+      },
+      "game": {
+        "time": "VAQT",
+        "left": "QOLDI",
+        "find": "TOP",
+        "bannerTitle": "Eslab qoling!",
+        "bannerSub": "Joylashuvni eslab qoling, keyin aralashtirish uchun {{total}} ni bosing",
+        "readyBtn": "TAYYOR!",
+        "limitReached": "❌ Limit tugadi!",
+        "mistakes": "Xatolar: {{mistakes}}/3"
+      },
+      "board": {
+        "leaders": "🏆 Liderlar",
+        "back": "← Orqaga",
+        "myPosition": "Mening o'rnim",
+        "you": "(siz)"
+      }
+    },
+    "voltMemory": {
+      "start": {
+        "infoDesc": "Doiralarni bosib yashirin emojilarni oching. Bir xil 2 doirani toping — ular ochiq qoladi. 63 soniyada 10 juftni toping!",
+        "mechanicsTitle": "🎯 Mexanika",
+        "mechanics": {
+          "flipTitle": "Och va moslashtir",
+          "flipDesc": "Doirani oching va uning juftini toping",
+          "comboTitle": "Kombo ko'paytirgich",
+          "comboDesc": "Ketma-ket to'g'ri juftlar bilan ×6 gacha",
+          "speedTitle": "Tezlik bonusi",
+          "speedDesc": "Qancha ko'p vaqt qolsa, shuncha ko'p ochko",
+          "limitTitle": "63s limit",
+          "limitDesc": "Vaqt tugasa o'yin darhol tugaydi"
+        },
+        "scoringTitle": "⭐ Ochko tizimi",
+        "scoring": {
+          "main": "(50 + tezlik bonusi) × kombo",
+          "speed": "Tezlik bonusi = qolgan vaqt × 2",
+          "combo": "Kombo ko'paytirgich limiti 6"
+        },
+        "subtitle": "Och va moslashtir · Tafakkur tezligi",
+        "howToPlayTitle": "📋 Qanday o'ynaladi"
+      },
+      "result": {
+        "titleMaster": "XOTIRA USTASI!",
+        "titleGreat": "ZO'R!",
+        "titleGood": "YAXSHI!",
+        "titleTrain": "MASHQNI DAVOM ETTIRING"
+      },
+      "game": {
+        "score": "HISOB",
+        "combo": "KOMBO"
+      },
+      "overlay": {
+        "onFire": "YONMOQDA!",
+        "allPairs": "Barcha juftlar!",
+        "brilliant": "Ajoyib natija!",
+        "timeUsed": "SARFLANGAN VAQT",
+        "resultsBtn": "Natijalar →"
+      }
+    },
+    "voltMatch": {
+      "start": {
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "Yuqorida maqsad emoji ko'rinadi. Vaqt tugamasidan jadvaldagi shu emojilarni topib bosing. 12 raund — 6-raunddan keyin tezlik oshadi!",
+        "mechanicsTitle": "🎯 Mexanika",
+        "mechanics": {
+          "findTitle": "Mosini toping",
+          "findDesc": "5×5 jadvalda 3–4 nusxa yashirilgan",
+          "speedTitle": "Tezlik bonusi",
+          "speedDesc": "Tezroq bosish = ko'proq ochko",
+          "comboTitle": "Kombo ko'paytirgich",
+          "comboDesc": "Ketma-ket to'g'ri bosishlar ×6 gacha",
+          "mistakeTitle": "3 ta xato chegarasi",
+          "mistakeDesc": "3 marta xato qilsangiz o'yin tugaydi"
+        },
+        "scoringTitle": "⭐ Ochko tizimi",
+        "scoring": {
+          "main": "(15 + tezlik bonusi) × kombo",
+          "speed": "Har bosish uchun +20 gacha tezlik bonusi",
+          "combo": "Kombo ko'paytirgich limiti"
+        },
+        "subtitle": "Tafakkur tezligi · Mosini top",
+        "diffTitle": "QIYINLASHUV",
+        "diffDesc": "6-raunddan keyin vaqt qisqaradi va qidiruv tezlashadi",
+        "features": {
+          "rounds": "12 raund",
+          "lives": "3 jon",
+          "timer": "Taymer",
+          "combo": "Kombo"
+        },
+        "startBtn": "BOSHLASH"
+      },
+      "result": {
+        "titleLegend": "LEGENDA!",
+        "titleGreat": "ZO'R!",
+        "titleGood": "YAXSHI!",
+        "titleTrain": "MASHQNI DAVOM ETTIRING"
+      },
+      "game": {
+        "score": "HISOB",
+        "round": "RAUND",
+        "time": "VAQT",
+        "lives": "JONLAR",
+        "findAll": "HAMMASINI TOP",
+        "remaining": "qoldi: {{remaining}}",
+        "combo": "kombo",
+        "hardcore": "HARDCORE"
+      },
+      "overlay": {
+        "roundTitle": "{{round}}-raund!",
+        "timeUp": "Vaqt tugadi!",
+        "roundSub": "+{{score}} ochko · Keyingi raund",
+        "continuing": "Davom etyapti...",
+        "finish": "Yakunlash 🏆",
+        "next": "Keyingi →"
+      }
+    },
+    "geographyTraining": {
+      "title": "🌍 Bilim bazasi",
+      "subtitle": "Geografiya · {{count}} ta savol",
+      "tapToReveal": "Javobni ko'rish uchun bosing",
+      "empty": "Savollar topilmadi",
+      "diff": {
+        "easy": "Oson",
+        "medium": "O'rta",
+        "hard": "Qiyin"
+      },
+      "stats": {
+        "total": "Jami",
+        "easy": "Oson",
+        "medium": "O'rta",
+        "hard": "Qiyin"
+      },
+      "categories": {
+        "all": "Barchasi",
+        "capitals": "Poytaxtlar",
+        "flags": "Bayroqlar",
+        "continents": "Qit'alar",
+        "oceans": "Okeanlar",
+        "countries": "Mamlakatlar",
+        "mountains": "Tog'lar",
+        "rivers": "Daryolar",
+        "geography": "Aralash",
+        "food": "Oshxona",
+        "customs": "Urf-odatlar"
+      }
+    },
+    "mathQuiz": {
+      "timeSec": "{{s}}s",
+      "toast": {
+        "timeUp": "⏱️ VAQT!",
+        "doublePoints": "⚡ 2× OCHKO!",
+        "correct": "✓ TO'G'RI!",
+        "wrong": "✗ NOTO'G'RI"
+      },
+      "start": {
+        "title": "MATH QUIZ",
+        "subtitle": "Matematika testi",
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "Sizga misol beriladi. 4 variantdan to'g'ri javobni vaqt tugamasidan tanlang. Tez javob uchun bonus ochko beriladi.",
+        "levelsTitle": "📊 Qiyinlik darajalari",
+        "easyLabel": "Oson · 11 savol",
+        "easyDesc": "Bitta amal (+, −, ×, ÷) · 7.5s",
+        "hardLabel": "Qiyin · 4 savol",
+        "hardDesc": "Ikki amal, amal tartibi · 12.5s",
+        "scoringTitle": "⭐ Ochko tizimi",
+        "scoreCorrect": "Har to'g'ri javob uchun",
+        "scoreSpeed": "Tezlik bonusi (maks +10 ochko)",
+        "scoreStreak": "Ketma-ket to'g'ri javoblar streak bonus beradi",
+        "ops": {
+          "add": "Qo'shish",
+          "sub": "Ayirish",
+          "mul": "Ko'paytirish",
+          "div": "Bo'lish"
+        },
+        "startBtn": "O'YINNI BOSHLASH"
+      },
+      "game": {
+        "scorePrefix": "Hisob: ",
+        "hard": "QIYIN",
+        "easy": "OSON",
+        "streak": "Seriya:"
+      },
+      "result": {
+        "gradeTrain": "MASHQ QILING!",
+        "gradePerfect": "IDEAL!",
+        "gradeExcellent": "A'LO!",
+        "gradeGood": "YAXSHI!",
+        "gradeNotBad": "YOMON EMAS",
+        "newRecord": "🏆 YANGI REKORD!",
+        "best": "ENG YAXSHI",
+        "myBest": "MENING REKORDIM",
+        "current": "JORIY",
+        "finalScore": "Yakuniy hisob",
+        "tryAgain": "Yana urinish 🔄",
+        "home": "Bosh sahifa",
+        "stats": {
+          "record": "Rekord",
+          "correct": "To'g'ri",
+          "wrong": "Noto'g'ri",
+          "timeouts": "Vaqt tugagan",
+          "bestStreak": "Eng yaxshi seriya",
+          "accuracy": "Aniqlik",
+          "totalTime": "Umumiy vaqt"
+        }
+      }
+    },
+    "spaceFindNumber": {
+      "title": "🚀 KOSMOS",
+      "radarDepleted": "TUGAGAN",
+      "radar": "RADAR",
+      "score": "OCHKO",
+      "totalTime": "🕒 UMUMIY VAQT",
+      "findPlanet": "🔭 PLANETANI TOP",
+      "levelWithName": "DARAJA {{level}} — {{name}}",
+      "combo": "{{combo}}× KOMBO!",
+      "totalTimeInline": "🕒 Umumiy vaqt:",
+      "best": "ENG YAXSHI",
+      "yourRecord": "SIZNING REKORD",
+      "levelScore": "Daraja {{level}} · Hisob",
+      "home": "Bosh sahifa",
+      "retryShort": "YANA",
+      "retry": "Qayta urinish 🔄",
+      "nextBtn": "KEYINGI →",
+      "winTitle": "DARAJA\nO'TILDI!",
+      "winSub": "Ajoyib natija!",
+      "gameOverTitle": "O'YIN\nTUGADI",
+      "finalTitle": "BUTUN\nGALAKTIKA\nZABT ETILDI!",
+      "finalSub": "Barcha 8 daraja o'tildi!",
+      "start": {
+        "title": "SPACE SEARCH",
+        "subtitle": "Raqamlarni tartib bilan toping va galaktikani zabt eting!",
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "Ekranda raqamlar paydo bo'ladi. Ularni 1 dan N gacha tartib bilan bosing. Barcha 8 darajani tugating!",
+        "levelsTitle": "🪐 8 daraja",
+        "levelsEasy": "1–10 sonlar, oson",
+        "levelsMedium": "1–15 sonlar, tezroq",
+        "levelsHard": "1–20+ sonlar, juda tez",
+        "scoringTitle": "⭐ Ochko tizimi",
+        "scoreCorrect": "Har bir to'g'ri raqam uchun",
+        "scoreCombo": "Xatosiz kombo-seriya",
+        "scoreLives": "Butun o'yin uchun 3 jon",
+        "featureLevels": "8 daraja",
+        "featureTimer": "Taymer",
+        "featureLives": "3 jon",
+        "featureCombo": "Kombo",
+        "playBtn": "BOSHLASH"
+      },
+      "planets": {
+        "mercury": "MERKURIY",
+        "venus": "VENERA",
+        "earth": "YER",
+        "mars": "MARS",
+        "jupiter": "YUPITER",
+        "saturn": "SATURN",
+        "uranus": "URAN",
+        "neptune": "NEPTUN"
+      }
+    },
+    "shadowGame": {
+      "rank": {
+        "telepath": "👁 TELEPAT",
+        "lightning": "⚡ CHAQMOQ",
+        "reflex": "🔥 REFLEKS",
+        "shooter": "🎯 MERGAN",
+        "newbie": "🌱 YANGI BOSHLAGAN"
+      },
+      "phaseBadge": {
+        "one": "FAZA 1 · 1 BELGI",
+        "two": "FAZA 2 · 2 BELGI",
+        "three": "FAZA 3 · 3 BELGI"
+      },
+      "start": {
+        "title": "SHADOW MATCH",
+        "subtitle": "Belgini olomondan top",
+        "desc": "Belgini eslab qoling — u bir soniyada yo‘qoladi. Uni 36 ta o‘xshash orasidan tezda toping!",
+        "phase1": "Faza 1 · 1 belgi · 8s raund",
+        "phase2": "Faza 2 · 2 belgi · 9s raund",
+        "phase3": "Faza 3 · 3 belgi · 10s raund",
+        "playBtn": "▶ O‘YNASH"
+      },
+      "result": {
+        "points": "ochko",
+        "newRecord": "🏆 YANGI REKORD!",
+        "best": "ENG YAXSHI",
+        "myBest": "MENING ENG YAXSHIM",
+        "current": "JORIY",
+        "accuracy": "aniqlik",
+        "maxCombo": "maks. kombo",
+        "rounds": "raundlar",
+        "tryAgain": "Yana urinish 🔄",
+        "menu": "Menyu"
+      },
+      "combo": "×{{combo}} KOMBO"
+    },
+    "racing": {
+      "hud": {
+        "score": "HISOB",
+        "record": "REKORD",
+        "lives": "JONLAR"
+      },
+      "start": {
+        "subtitle": "Trassada haydang, mashina va to‘siqlardan qoching!",
+        "howToPlayTitle": "📋 Qanday o‘ynaladi",
+        "howToPlayDesc": "Pastdagi tugmalar bilan yo‘laklar bo‘ylab almashing. Mashina, piyoda va velosipedchilardan qoching. Urilib ketmang — sizda faqat 3 jon bor!",
+        "featuresTitle": "🎮 O‘yin xususiyatlari",
+        "speedUpTitle": "Tezlik oshadi",
+        "speedUpDesc": "Qancha uzoq yursangiz, tezlik shuncha oshadi",
+        "obstaclesTitle": "To‘siqlar",
+        "obstaclesDesc": "Yo‘lda avtomobil, yuk mashina va yo‘lni kesib o‘tuvchi odamlar uchraydi",
+        "playBtn": "O‘YNASH",
+        "featureLives": "3 jon",
+        "featureTurbo": "Turbo",
+        "featureDrift": "Drift",
+        "featureRecords": "Rekordlar"
+      },
+      "gameOver": {
+        "title": "O‘YIN\nTUGADI",
+        "best": "ENG YAXSHI",
+        "yourRecord": "SIZNING REKORD",
+        "tryAgain": "Yana urinish 🔄",
+        "backToGames": "O‘YINLARGA"
+      }
+    },
+    "geographyQuiz": {
+      "categories": {
+        "all": "Barchasi",
+        "capitals": "Poytaxtlar",
+        "flags": "Bayroqlar",
+        "continents": "Qit'alar",
+        "oceans": "Okean/Dengizlar",
+        "countries": "Mamlakatlar",
+        "mountains": "Tog'lar",
+        "rivers": "Daryolar",
+        "geography": "Aralash",
+        "food": "Oshxona",
+        "customs": "Urf-odatlar"
+      },
+      "catNames": {
+        "capitals": "Poytaxtlar",
+        "flags": "Bayroqlar",
+        "continents": "Qit'alar",
+        "oceans": "Okean va dengizlar",
+        "countries": "Mamlakatlar",
+        "mountains": "Tog'lar",
+        "rivers": "Daryolar",
+        "geography": "Aralash",
+        "food": "Jahon oshxonasi",
+        "customs": "Urf-odat va madaniyat"
+      },
+      "start": {
+        "title": "GEO EXPERT",
+        "subtitle": "Dunyo geografiyasi testi",
+        "questionsLabel": "📚 Savollar:",
+        "bestLabel": "🏆 Eng yaxshi:",
+        "chooseCategory": "KATEGORIYANI TANLANG",
+        "questionsShort": "{{count}} sav.",
+        "startBtn": "🚀 O'YINNI BOSHLASH",
+        "dbBtn": "📚 Savollar bazasi",
+        "trainingBtn": "🎯 Mashq · Bilim bazasi",
+        "lastResults": "SO'NGGI NATIJALAR",
+        "correctOf12": "{{correct}}/12 to'g'ri",
+        "difficultyLabel": "QIYINCHILIK",
+        "difficulty": {
+          "easy": "Oson",
+          "medium": "O'rta",
+          "hard": "Qiyin"
+        }
+      },
+      "game": {
+        "questionProgress": "Savol {{current}} / 12",
+        "boostDepleted": "TUG.",
+        "geography": "Geografiya"
+      },
+      "result": {
+        "gradeExcellent": "AJOYIB!",
+        "gradeGood": "YAXSHI!",
+        "gradeNotBad": "YOMON EMAS",
+        "gradeTryAgain": "YANA URINIB KO'RING",
+        "subExcellent": "Siz haqiqiy geografiya bilimdonisiz!",
+        "subGood": "A'lo natija, deyarli professional!",
+        "subNotBad": "Yaxshi bilim, lekin o'sish joyi bor.",
+        "subTryAgain": "Geografiyani yana mashq qilib qayting!",
+        "newRecord": "🏆 YANGI REKORD!",
+        "best": "ENG YAXSHI",
+        "myBest": "MENING ENG YAXSHIM",
+        "current": "JORIY",
+        "pointsScored": "OCHKO YIG'ILDI",
+        "correct": "TO'G'RI",
+        "wrong": "XATO",
+        "total": "JAMI",
+        "reviewTitle": "SAVOLLAR TAHLILI",
+        "reviewCorrectPrefix": "To'g'ri: ",
+        "reviewYourAnswerPrefix": "Sizning javob: ",
+        "timeOut": "Vaqt tugadi",
+        "reviewRightAnswerPrefix": "To'g'ri javob:",
+        "retry": "Yana urinish 🔄",
+        "home": "🏠 BOSH SAHIFA"
+      },
+      "db": {
+        "title": "Savollar bazasi",
+        "subtitle": "{{count}} ta savol mavjud",
+        "searchPlaceholder": "Savollar bo'yicha qidirish...",
+        "limitText": "Dastlabki 100 ta natija ko'rsatildi..."
+      }
+    },
+    "udarTiming": {
+      "timeMinSec": "{{m}}m {{sec}}.{{dec}}s",
+      "timeSec": "{{sec}}.{{dec}}s",
+      "shareTitle": "Ulashish",
+      "status": {
+        "tapHit": "URIB KO'RING"
+      },
+      "grade": {
+        "s": "IDEAL!",
+        "a": "A'LO!",
+        "b": "YAXSHI!",
+        "c": "YOMON EMAS",
+        "d": "MAVJUD EMAS"
+      },
+      "hitLabel": {
+        "perfect": "🎯 PERFECT",
+        "good": "✅ GOOD",
+        "ok": "👌 OK",
+        "miss": "❌ MISS"
+      },
+      "shareText": "🎯 UDAR — Timing Game\n{{hitStr}}\nHisob: {{score}} | Baho: {{grade}}\nIdeal: {{perfect}}/{{total}} | Vaqt: {{time}}\nMening rekordimni yangilang!",
+      "start": {
+        "title": "PERFECT BEAT",
+        "subtitle": "Timing Is Everything",
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "Strelka aylana bo'ylab harakatlanadi. Strelka maqsad zonaga kirganda URAR tugmasini bosing. Sizda {{total}} urinish bor — imkon qadar aniq uring!",
+        "zonesTitle": "🎯 Aniqlik zonalari",
+        "zonePerfect": "Zona markazi · maksimal ochko",
+        "zoneGood": "Markazga yaqin · yaxshi ochko",
+        "zoneOk": "Zona cheti · bazaviy ochko",
+        "zoneMiss": "Mavjud emas · 0 ochko",
+        "scoringTitle": "⭐ Ochko",
+        "scorePerfect": "100 ochko",
+        "scoreGood": "60 ochko",
+        "scoreOk": "30 ochko",
+        "scoreCombo": "PERFECT seriya = bonus",
+        "featureAttempts": "38 urinish",
+        "featureRhythm": "Ritm",
+        "featureRecord": "Rekord",
+        "featureAccuracy": "Aniqlik",
+        "sessionRecord": "SESSIYA REKORDI",
+        "startBtn": "BOSHLASH"
+      },
+      "result": {
+        "best": "ENG YAXSHI",
+        "yourRecord": "SIZNING REKORD",
+        "score": "HISOB",
+        "maxCombo": "MAKS KOMBO",
+        "perfect": "IDEAL",
+        "time": "⏱ VAQT",
+        "newRecord": "🏆 YANGI REKORD",
+        "share": "📋 Ulashish",
+        "tryAgain": "Yana urinish 🔄",
+        "exit": "← Chiqish"
+      },
+      "game": {
+        "tagline": "KERAKLI PAYTDA BOSING",
+        "points": "OCHKO",
+        "combo": "KOMBO",
+        "slowActive": "FAOL",
+        "slow": "SEKINLATISH",
+        "speed": "TEZLIK",
+        "tapBtn": "▶ URAR"
+      }
+    },
+    "redBall": {
+      "combo2": "COMBO x2!",
+      "combo3": "x3 OLOV!",
+      "combo4": "x4 MONSTR!",
+      "combo5": "x5 LEGENDA!",
+      "comboGodlike": "x{{combo}} ILOHIY!",
+      "start": {
+        "title": "RED BALL",
+        "subtitle": "Faqat qizil sharni bosing — tez, aniq, xatosiz!",
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "howToPlayDesc": "5×4 to'rda yashil sharlar va bitta qizil shar bor. Qizil sharni tez topib bosing. Xato qilmang — sizda faqat 3 jon bor!",
+        "featuresTitle": "🎮 O'yin xususiyatlari",
+        "speedUpTitle": "Tezlik oshadi",
+        "speedUpDesc": "Ochko ko'paygan sari sharlar tezroq almashadi",
+        "speedBonusTitle": "Tezlik bonusi",
+        "speedBonusDesc": "Qanchalik tez bossangiz, shuncha ko'p ochko (20/15/10/7)",
+        "comboTitle": "Kombo x2",
+        "comboDesc": "Ketma-ket 3 ta urinish ikki barobar ochko beradi",
+        "scoringTitle": "⭐ Ochko",
+        "scoreFastest": "Juda tez javob (0.5s gacha)",
+        "scoreFast": "Tez javob (1.5s gacha)",
+        "scoreNormal": "Oddiy javob (3s gacha)",
+        "scoreCombo": "3+ seriyada kombo bonusi",
+        "featureTime": "55 sek",
+        "featureLives": "3 jon",
+        "featureGrid": "5×4 to'r",
+        "featureCombo": "Kombo",
+        "playBtn": "O'YNASH"
+      },
+      "result": {
+        "titleNotBad": "YOMON EMAS",
+        "titleLegend": "LEGENDA!",
+        "titleLightning": "CHAQMOQ!",
+        "titleSharp": "ANIQ!",
+        "titleRetry": "YANA?",
+        "best": "ENG YAXSHI",
+        "myBest": "MENING ENG YAXSHIM",
+        "current": "JORIY",
+        "newRecord": "🏆 YANGI REKORD!",
+        "points": "OCHKO",
+        "hits": "URISHLAR",
+        "misses": "XATOLAR",
+        "maxCombo": "MAKS. KOMBO",
+        "time": "VAQT",
+        "menu": "🏠 Menyu",
+        "tryAgain": "Yana urinish 🔄"
+      },
+      "hud": {
+        "time": "VAQT",
+        "points": "OCHKO",
+        "lives": "JONLAR"
+      }
+    },
+    "barainTraing": {
+      "start": {
+        "subtitle": "Intellekt mashqi",
+        "aboutTitle": "📋 O'yin mohiyati",
+        "aboutDesc": "Yuqorida maqsadli son ko'rsatiladi. Uchar pufaklar orasidan matematik ifodasi shu javobni beradiganini topib yorib yuboring. Sizda atigi 80 soniya bor.",
+        "mechanicsTitle": "⏱ Mexanika",
+        "mechanics": {
+          "searchTitle": "Qidiruv uchun 8 soniya",
+          "searchDesc": "Qizil chiziq — raund taymeri. Pufakni topishga ulgurmasangiz, raund jarima bilan almashadi.",
+          "errorTitle": "Xato narxi",
+          "errorDesc": "Noto'g'ri javobni bossangiz, ochkolar kamayadi va kombo seriyasi noldan boshlanadi."
+        },
+        "scoringTitle": "⭐ Ochko berish tizimi",
+        "scoring": {
+          "correct": "Har bir to'g'ri javob uchun",
+          "combo": "Xatosiz ketma-ket to'g'ri javoblar uchun kombo-bonus",
+          "penalty": "Xato uchun jarima (raund vaqti tugasa ham -3 ochko)"
+        },
+        "ops": {
+          "add": "Qo'shish",
+          "sub": "Ayirish",
+          "mul": "Ko'paytirish"
+        },
+        "startBtn": "O'YINNI BOSHLASH"
+      },
+      "game": {
+        "comboBig": "✦ ×{{count}} kombo",
+        "comboSmall": "× {{count}}",
+        "score": "HISOB",
+        "find": "TOP"
+      },
+      "result": {
+        "title": "O'yin\nyakunlandi",
+        "best": "ENG YAXSHI",
+        "yourRecord": "SIZNING REKORD",
+        "points": "OCHKO",
+        "correct": "TO'G'RI",
+        "errors": "XATOLAR",
+        "combo": "KOMBO",
+        "totalTime": "UMUMIY VAQT",
+        "tryAgain": "Yana urinish 🔄",
+        "menu": "MENYU"
+      }
+    },
+    "findLetter": {
+      "levels": {
+        "easy": "Oson",
+        "medium": "O'rta",
+        "hard": "Qiyin",
+        "expert": "Ekspert",
+        "master": "Usta"
+      },
+      "feedback": {
+        "timeUp": "⏰ Vaqt tugadi! Javob: {{answer}}",
+        "correct": "✅ To'g'ri! +{{points}}",
+        "correctStreak": "✅ To'g'ri! +{{points}} 🔥 Seriya x{{streak}}! +50",
+        "wrong": "❌ Javob: {{answer}}"
+      },
+      "start": {
+        "title": "LETTER HUNTER",
+        "subtitle": "Aynan 2 marta uchraydigan harfni toping",
+        "howTitle": "📋 Qanday o'ynaladi",
+        "howDesc": "Ekranda harflar to'ri bor. Aynan 2 marta uchraydigan barcha harflarni topib bosing. 12 raund, har raundda qiyinlashadi!",
+        "difficultyTitle": "📊 Qiyinchilik",
+        "difficulty": {
+          "r14": "1–4-raundlar · Oson",
+          "r14Desc": "Yirik harflar, ko‘proq vaqt",
+          "r58": "5–8-raundlar · O'rta",
+          "r58Desc": "Harflar kichikroq, taymer tezroq",
+          "r912": "9–12-raundlar · Qiyin",
+          "r912Desc": "Mayda harflar, kam vaqt"
+        },
+        "scoringTitle": "⭐ Ochkolar",
+        "scoring": {
+          "perLetter": "Har bir topilgan harf uchun",
+          "speedBonus": "Tezlik bonusi",
+          "livesRule": "3 ta jon — xato = 1 jon kamayadi"
+        },
+        "features": {
+          "rounds": "12 raund",
+          "lives": "3 jon",
+          "timer": "Taymer",
+          "difficulty": "Qiyinchilik"
+        },
+        "startBtn": "BOSHLASH"
+      },
+      "game": {
+        "title": "❄️ HARFNI TOP",
+        "hintDepleted": "TUGAGAN",
+        "hint": "YORITISH",
+        "round": "RAUND",
+        "correct": "TO'G'RI",
+        "lives": "JON",
+        "questionPrefix": "Qaysi harf",
+        "questionHighlight": "2 marta",
+        "roundProgress": "Raund {{current}} / {{total}} — {{level}}"
+      },
+      "result": {
+        "win": "G'alaba!",
+        "lose": "O'yin tugadi",
+        "best": "ENG YAXSHI",
+        "score": "HISOB",
+        "scoreValue": "{{score}} ochko",
+        "summary": "To'g'ri: {{correct}} / {{round}}\nAniqlik: {{accuracy}}%\nQolgan jonlar: {{lives}}",
+        "tryAgain": "Yana urinish 🔄",
+        "back": "Orqaga 🏠"
+      }
+    },
+    "slidingPuzzle": {
+      "start": {
+        "title": "WORLD PUZZLE",
+        "subtitle": "Boshqotirmani eng kam vaqt va yurishlarda yeching",
+        "howTitle": "📋 Qanday o'ynaladi",
+        "howDesc": "Barcha plitkalarni o'z joyiga qo'ying. Bo'sh katakka qo'shni plitkani bosing — u siljiydi. Boshqotirmani eng kam vaqt va yurishlarda yeching!",
+        "controlsTitle": "🎮 Boshqaruv",
+        "controls": {
+          "tapTitle": "Bosish",
+          "tapDesc": "Bo'sh joy yonidagi plitkani bosing — u siljiydi",
+          "goalTitle": "Maqsad",
+          "goalDesc": "1 dan 11 gacha sonlarni chapdan o'ngga, yuqoridan pastga tartiblang",
+          "winTitle": "G'alaba",
+          "winDesc": "Barcha sonlar joyida bo'lsa = g'alaba!"
+        },
+        "statsTitle": "⭐ Statistika",
+        "stats": {
+          "time": "Yechish vaqti",
+          "moves": "Yurishlar soni",
+          "bestSession": "Sessiyadagi eng yaxshi natija"
+        },
+        "features": {
+          "grid": "3×4 to'r",
+          "timer": "Taymer",
+          "moves": "Yurishlar",
+          "record": "Rekord"
+        },
+        "startBtn": "BOSHLASH"
+      },
+      "game": {
+        "titlePrefix": "PUZZLE ",
+        "titleAccent": "15",
+        "titleSuffix": "",
+        "time": "VAQT",
+        "moves": "YURISHLAR",
+        "freeze": "MUZLATISH",
+        "freezeLeft": "{{count}}X",
+        "new": "↺ YANGI"
+      },
+      "result": {
+        "solved": "YECHILDI!",
+        "best": "ENG YAXSHI",
+        "myBest": "MENING ENG YAXSHIM",
+        "current": "JORIY",
+        "time": "VAQT",
+        "moves": "YURISH",
+        "newRecord": "🌟 YANGI REKORD!",
+        "recordValue": "Rekord: {{score}}",
+        "tryAgain": "Yana urinish 🔄",
+        "home": "Bosh sahifaga"
+      }
+    },
+    "stroopColor": {
+      "colors": {
+        "red": "QIZIL",
+        "blue": "KO'K",
+        "green": "YASHIL",
+        "yellow": "SARIQ",
+        "purple": "BINAFSHA",
+        "pink": "PUSHTI",
+        "purpleFull": "BINAFSHA",
+        "orange": "TO'Q SARIQ"
+      },
+      "grades": {
+        "S": "GENIY!",
+        "A": "AJOYIB!",
+        "B": "YAXSHI!",
+        "C": "YOMON EMAS",
+        "D": "MASHQ QIL"
+      },
+      "start": {
+        "title": "COLOR STROOP",
+        "subtitle": "Stroop Challenge · Miya reaksiya testi",
+        "howTitle": "📋 Qanday o'ynaladi",
+        "howDesc": "Ekranda rang so'zi BOSHQA rangda chiqadi. Vazifa — so'z ma'nosiga emas, matn rangiga mos tugmani bosish. Miya adashadi — bu normal!",
+        "demoHint": "↑ QIZIL deb yozilgan, lekin qaysi rangda?",
+        "rulesTitle": "🧠 Qoidalar",
+        "rules": {
+          "pickColorName": "Matn rangini tanla",
+          "pickColorDesc": "So'z ma'nosini e'tiborsiz qoldir — faqat rangga qarang",
+          "sixtySecName": "60 soniya",
+          "sixtySecDesc": "Iloji boricha ko'proq savolga javob bering",
+          "livesName": "3 jon",
+          "livesDesc": "Noto'g'ri javob yoki timeout — bitta jon kamayadi"
+        },
+        "scoringTitle": "⭐ Ochkolar",
+        "scoring": {
+          "perCorrect": "Har bir to'g'ri javob uchun",
+          "combo": "Ketma-ket to'g'ri = kombo ko'paytirgich",
+          "speed": "Tez javob uchun bonus"
+        },
+        "record": "REKORD",
+        "startBtn": "BOSHLASH"
+      },
+      "game": {
+        "tapColor": "Matn rangini bosing",
+        "comboToast": "×{{mult}} KOMBO!",
+        "score": "HISOB",
+        "combo": "KOMBO",
+        "correct": "TO'G'RI",
+        "shieldActive": "FAOL",
+        "shieldDepleted": "TUGAGAN",
+        "shield": "QALQON"
+      },
+      "result": {
+        "best": "ENG YAXSHI",
+        "yourRecord": "SIZNING REKORD",
+        "score": "HISOB",
+        "record": "REKORD",
+        "correct": "TO'G'RI",
+        "accuracy": "ANIQLIK",
+        "reaction": "REAKSIYA",
+        "newRecord": "🏆 YANGI REKORD",
+        "share": "Ulashish",
+        "shareBtn": "📋 Ulashish",
+        "tryAgain": "Yana urinish 🔄",
+        "exit": "← Chiqish",
+        "shareText": "{{brain}} RANG — Stroop Challenge\n{{bar}}\nHisob: {{score}} | Baho: {{grade}}\nAniqlik: {{acc}}% | Reaksiya: {{avgMs}}ms\nRekordim: {{best}}\nYengib ko'r!"
+      },
+      "units": {
+        "ms": "ms"
+      }
+    }
+  },
+  "components": {
+    "retryBoostButton": {
+      "label": "🔄 Qayta urinish"
+    },
+    "challengeDayCard": {
+      "status": {
+        "unlocked": "🔓 Ochilgan",
+        "done": "✅ Bajarildi",
+        "continue": "⏳ Davom etish",
+        "start": "🚀 Boshlash",
+        "locked": "🔒 Yopiq"
+      },
+      "unlockedBadge": "Ochilgan",
+      "label": {
+        "day": "Kun",
+        "dayNumber": "{{number}}-kun",
+        "dayTask": "{{day}} - Vazifa {{task}}",
+        "taskWithTitle": "Vazifa {{task}}: {{title}}",
+        "task": "Vazifa {{task}}"
+      }
+    },
+    "homeHeader": {
+      "guest": "Mehmon",
+      "users": "foydalanuvchi",
+      "online": "onlayn"
+    },
+    "topPlayersList": {
+      "daily": "Eng kuchlilar",
+      "weekly": "Eng omadli",
+      "monthly": "Oy topi"
+    },
+    "gameRatingModal": {
+      "title": "O'yinchilar reytingi",
+      "subtitle": "Mantiq ustalarining eng yaxshilari",
+      "you": "(siz)"
+    },
+    "globalBoostsSheet": {
+      "inStock": "Mavjud:",
+      "stockCount": "{{count}} dona",
+      "ok": "OK",
+      "qtySuffix": " ({{count}} dona)",
+      "boostSuffix": " boost"
+    },
+    "globalDiamondsSheet": {
+      "successTitle": "Muvaffaqiyatli!",
+      "requestSent": "So'rov yuborildi!",
+      "ok": "OK",
+      "topupSuccess": "💰 {{amount}} so'm hisobingizga qo'shildi.",
+      "withdrawSuccess": "💰 {{amount}} so'm karta **** {{last4}} ga o'tkazildi.",
+      "wallet": "Hamyon",
+      "topupTab": "💳 To'ldirish",
+      "withdrawTab": "💰 Yechib olish",
+      "availableBalance": "Mavjud balans",
+      "minAmountLabel": "Minimal miqdor: {{amount}} so'm",
+      "amountPlaceholder": "Miqdorni kiriting...",
+      "minAmountError": "Minimal miqdor {{amount}} so'm",
+      "paymentMethod": "To'lov usuli",
+      "topupBtn": "💳 To'ldirish",
+      "withdrawable": "Yechib olish mumkin: {{amount}} so'm",
+      "cardNumber": "Karta raqami",
+      "cardNumberError": "Karta raqamini to'liq kiriting",
+      "withdrawAmount": "Yechib olish miqdori",
+      "minPlaceholder": "Min. {{amount}} so'm",
+      "maxWithdrawError": "Maksimal yechish: {{amount}} so'm (1 000 so'm rezerv qoldiriladi)",
+      "cannotWithdraw": "Yechib bo'lmaydi — balans 1 000 so'mdan kam",
+      "feeInfo": "Komissiya yo'q · 1–3 ish kuni ichida",
+      "withdrawBtn": "💰 Yechib olish"
+    },
+    "taskListSheet": {
+      "title": "Vazifalar ro'yxati",
+      "progress": "Progress: {{completed}}/{{total}}",
+      "score": "Ball: {{score}}",
+      "activity": "Faollik: {{activity}} pts",
+      "done": "Bajarildi",
+      "start": "Boshlash",
+      "tasks": {
+        "basic": {
+          "title": "Bazaviy test",
+          "desc": "Asosiy atamalar bo'yicha bilimingizni tekshiring."
+        },
+        "choice": {
+          "title": "Javobni tanlash",
+          "desc": "10 ta savol, javob variantlari bilan."
+        },
+        "logic": {
+          "title": "Mantiqiy vazifa",
+          "desc": "Diqqatga oid vazifani yeching."
+        },
+        "code": {
+          "title": "Kod tahlili",
+          "desc": "Koddagi xatolarni toping."
+        },
+        "final": {
+          "title": "Yakuniy imtihon",
+          "desc": "Taymer bilan yakuniy test."
+        }
+      }
+    },
+    "gamePickerSheet": {
+      "title": "Vazifani tanlang",
+      "subtitle": "Qaysi vazifadan bajarishni boshlaysiz?",
+      "completed": "Bajarildi",
+      "completedDesc": "Ushbu vazifa muvaffaqiyatli yakunlandi",
+      "reclamDesc": "O'yinni ochish uchun reklama ko'ring"
+    },
+    "sectionHeader": {
+      "seeAll": "Barchasi →"
+    }
+  }
+}

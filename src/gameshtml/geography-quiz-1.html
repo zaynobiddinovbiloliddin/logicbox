@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌍 ГЕО МАСТЕР — Тест по географии</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050a14;
+    --card: #0d1826;
+    --card2: #111f33;
+    --blue: #00c8ff;
+    --gold: #ffd700;
+    --green: #00ff88;
+    --red: #ff4466;
+    --purple: #a855f7;
+    --text: #e8f4ff;
+    --muted: #7090b0;
+    --border: rgba(0,200,255,0.15);
+    --glow: 0 0 30px rgba(0,200,255,0.3);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ANIMATED BACKGROUND */
+  .bg-stars {
+    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  }
+  .bg-stars::before, .bg-stars::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 45%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    background-size: 300px 300px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  .bg-stars::after {
+    background-size: 200px 200px;
+    animation-delay: 2s;
+    animation-duration: 6s;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+  }
+
+  .globe-bg {
+    position: fixed;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%,
+      rgba(0,100,200,0.08) 0%,
+      rgba(0,50,100,0.05) 40%,
+      transparent 70%);
+    border: 1px solid rgba(0,200,255,0.06);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: globeSpin 40s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes globeSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* LAYOUT */
+  #app { position: relative; z-index: 1; min-height: 100vh; }
+
+  /* SCREENS */
+  .screen { display: none; min-height: 100vh; }
+  .screen.active { display: flex; flex-direction: column; align-items: center; }
+
+  /* ===== HOME SCREEN ===== */
+  #home-screen {
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .logo-area {
+    text-align: center;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  .globe-icon {
+    font-size: 80px;
+    display: block;
+    filter: drop-shadow(0 0 30px rgba(0,200,255,0.5));
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .game-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 6vw, 56px);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--blue), var(--gold), var(--blue));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .game-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stat-chip span { color: var(--text); font-weight: 700; }
+
+  .menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0066cc, #00aaff);
+    border: none;
+    border-radius: 16px;
+    padding: 18px 30px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(0,150,255,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,150,255,0.5); }
+  .btn-primary:hover::after { opacity: 1; }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 30px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-secondary:hover {
+    background: var(--card);
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  /* CATEGORY CARDS */
+  .category-section {
+    width: 100%;
+    max-width: 500px;
+  }
+  .section-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .cat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .cat-card:hover {
+    border-color: var(--blue);
+    background: var(--card2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,200,255,0.15);
+  }
+  .cat-card.selected {
+    border-color: var(--blue);
+    background: rgba(0,200,255,0.1);
+    box-shadow: 0 0 20px rgba(0,200,255,0.2);
+  }
+  .cat-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+  .cat-name { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .cat-count { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .cat-card.selected .cat-name { color: var(--blue); }
+
+  /* LEADERBOARD */
+  .leaderboard-mini {
+    width: 100%;
+    max-width: 400px;
+  }
+  .lb-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--card);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+  }
+  .lb-rank { font-family: 'Unbounded', sans-serif; font-size: 18px; width: 30px; }
+  .lb-name { flex: 1; font-weight: 700; }
+  .lb-score { font-family: 'Unbounded', sans-serif; font-size: 14px; color: var(--gold); }
+
+  /* ===== QUIZ SCREEN ===== */
+  #quiz-screen {
+    padding: 20px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .quiz-header {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .q-progress-text {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .q-progress-text strong { color: var(--blue); font-size: 18px; }
+
+  .score-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+  }
+  .score-icon { font-size: 20px; }
+  .score-num { color: var(--gold); font-size: 20px; }
+
+  .timer-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .timer-ring {
+    position: relative;
+    width: 44px; height: 44px;
+  }
+  .timer-ring svg { transform: rotate(-90deg); }
+  .timer-ring circle {
+    fill: none;
+    stroke: var(--card2);
+    stroke-width: 3;
+  }
+  .timer-ring .progress-ring {
+    stroke: var(--blue);
+    stroke-linecap: round;
+    stroke-dasharray: 113;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s;
+  }
+  .timer-num {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .progress-bar-wrap {
+    width: 100%;
+    max-width: 700px;
+    height: 6px;
+    background: var(--card2);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(0,200,255,0.4);
+  }
+
+  .question-card {
+    width: 100%;
+    max-width: 700px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 20px;
+    animation: slideUp 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .question-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--gold));
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,200,255,0.1);
+    border: 1px solid rgba(0,200,255,0.2);
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .flag-display {
+    text-align: center;
+    margin: 16px 0;
+    font-size: 80px;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+    animation: flagPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes flagPop {
+    from { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .question-text {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .answers-grid {
+    width: 100%;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (max-width: 500px) {
+    .answers-grid { grid-template-columns: 1fr; }
+  }
+
+  .answer-btn {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    animation: answerIn 0.4s ease both;
+  }
+  .answer-btn:nth-child(1) { animation-delay: 0.05s; }
+  .answer-btn:nth-child(2) { animation-delay: 0.1s; }
+  .answer-btn:nth-child(3) { animation-delay: 0.15s; }
+  .answer-btn:nth-child(4) { animation-delay: 0.2s; }
+  @keyframes answerIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .answer-letter {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: var(--card2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: all 0.25s;
+  }
+
+  .answer-btn:hover:not(:disabled) {
+    border-color: var(--blue);
+    background: rgba(0,200,255,0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,200,255,0.15);
+  }
+  .answer-btn:hover:not(:disabled) .answer-letter {
+    background: var(--blue);
+    color: var(--bg);
+  }
+
+  .answer-btn.correct {
+    border-color: var(--green);
+    background: rgba(0,255,136,0.1);
+    animation: correctPulse 0.5s ease;
+  }
+  .answer-btn.correct .answer-letter {
+    background: var(--green);
+    color: var(--bg);
+  }
+  @keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+
+  .answer-btn.wrong {
+    border-color: var(--red);
+    background: rgba(255,68,102,0.1);
+    animation: shake 0.4s ease;
+  }
+  .answer-btn.wrong .answer-letter {
+    background: var(--red);
+    color: white;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  .answer-btn.reveal-correct {
+    border-color: var(--green);
+    background: rgba(0,255,136,0.06);
+  }
+  .answer-btn.reveal-correct .answer-letter {
+    background: var(--green);
+    color: var(--bg);
+  }
+
+  .answer-btn:disabled { cursor: default; }
+
+  /* FEEDBACK TOAST */
+  .feedback-toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+  }
+  .feedback-toast.show { transform: translateX(-50%) translateY(0); }
+  .feedback-toast.correct-toast {
+    background: linear-gradient(135deg, #00cc66, #00ff88);
+    color: #003322;
+    box-shadow: 0 8px 30px rgba(0,255,136,0.4);
+  }
+  .feedback-toast.wrong-toast {
+    background: linear-gradient(135deg, #cc0033, #ff4466);
+    color: white;
+    box-shadow: 0 8px 30px rgba(255,68,102,0.4);
+  }
+
+  /* STREAK */
+  .streak-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gold);
+  }
+  .streak-num { font-family: 'Unbounded', sans-serif; font-size: 15px; }
+
+  /* ===== RESULTS SCREEN ===== */
+  #results-screen {
+    padding: 20px;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .result-hero {
+    text-align: center;
+    animation: fadeInDown 0.6s ease;
+  }
+
+  .result-emoji {
+    font-size: 80px;
+    display: block;
+    animation: resultBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+  }
+  @keyframes resultBounce {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .result-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 5vw, 38px);
+    font-weight: 900;
+    margin: 12px 0 6px;
+  }
+  .result-title.great { color: var(--gold); }
+  .result-title.good { color: var(--blue); }
+  .result-title.ok { color: var(--purple); }
+  .result-title.bad { color: var(--red); }
+
+  .result-subtitle { color: var(--muted); font-size: 15px; }
+
+  .score-big-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease 0.2s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .big-score-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    text-align: center;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(255,215,0,0.4);
+    animation: scoreCount 1s ease 0.5s both;
+  }
+  @keyframes scoreCount {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .big-score-label { text-align: center; color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+  .stats-grid-result {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .stat-box {
+    background: var(--card2);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .stat-box-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .stat-box-num.green { color: var(--green); }
+  .stat-box-num.red { color: var(--red); }
+  .stat-box-num.blue { color: var(--blue); }
+  .stat-box-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .review-list {
+    width: 100%;
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease 0.4s both;
+  }
+  .review-item {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--green);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .review-item.wrong-item { border-left-color: var(--red); }
+  .review-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .review-q { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .review-a { font-size: 12px; color: var(--muted); }
+  .review-a strong { color: var(--green); }
+  .review-item.wrong-item .review-a strong { color: var(--red); }
+  .review-correct-answer { font-size: 12px; color: var(--green); margin-top: 3px; }
+
+  .result-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease 0.6s both;
+  }
+  .result-buttons .btn-primary { flex: 1; min-width: 140px; }
+
+  /* ===== DATABASE SCREEN ===== */
+  #db-screen {
+    padding: 20px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .db-header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .back-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 16px;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .back-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+  .db-title-area { flex: 1; }
+  .db-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .db-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .search-bar {
+    width: 100%;
+    max-width: 800px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+  }
+  .search-bar input::placeholder { color: var(--muted); }
+  .search-icon { font-size: 18px; color: var(--muted); }
+
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+  }
+  .filter-tab {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 7px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .filter-tab:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-tab.active { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+
+  .db-questions-list {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .db-q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .db-q-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,200,255,0.1);
+  }
+  .db-q-card.open { border-color: var(--blue); background: var(--card2); }
+
+  .db-q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .db-q-badge {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge-capitals { background: rgba(0,200,255,0.15); color: var(--blue); }
+  .badge-flags { background: rgba(255,215,0,0.15); color: var(--gold); }
+  .badge-continents { background: rgba(168,85,247,0.15); color: var(--purple); }
+  .badge-oceans { background: rgba(0,100,200,0.2); color: #60a5fa; }
+  .badge-countries { background: rgba(0,255,136,0.1); color: var(--green); }
+  .badge-geography { background: rgba(255,140,0,0.15); color: #ffaa00; }
+  .badge-rivers { background: rgba(0,200,255,0.1); color: #67e8f9; }
+  .badge-mountains { background: rgba(150,100,50,0.2); color: #c8a87a; }
+  .badge-food { background: rgba(255,140,0,0.18); color: #ff9f40; }
+  .badge-customs { background: rgba(200,80,200,0.15); color: #e879f9; }
+
+  .db-q-text { font-size: 14px; font-weight: 600; flex: 1; line-height: 1.4; }
+
+  .db-q-answers {
+    display: none;
+    margin-top: 14px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .db-q-card.open .db-q-answers { display: grid; }
+
+  .db-answer-item {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .db-answer-item.is-correct {
+    border-color: var(--green);
+    background: rgba(0,255,136,0.07);
+    color: var(--green);
+    font-weight: 700;
+  }
+  .db-answer-letter { font-family: 'Unbounded', sans-serif; font-size: 11px; color: var(--muted); width: 18px; }
+  .db-answer-item.is-correct .db-answer-letter { color: var(--green); }
+
+  /* PARTICLES */
+  .particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    font-size: 24px;
+    animation: particleFly 1s ease-out both;
+  }
+  @keyframes particleFly {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120px) scale(0.3); opacity: 0; }
+  }
+
+  /* BONUS POINTS */
+  .bonus-points {
+    position: fixed;
+    pointer-events: none;
+    z-index: 998;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(255,215,0,0.8);
+    animation: bonusFly 1.2s ease-out both;
+  }
+  @keyframes bonusFly {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    50% { transform: translateY(-60px) scale(1.2); opacity: 1; }
+    100% { transform: translateY(-120px) scale(0.8); opacity: 0; }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .divider { width: 100%; max-width: 500px; height: 1px; background: var(--border); }
+
+  /* CONFETTI */
+  .confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 997;
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    border-radius: 2px;
+    animation: confettiFall linear both;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* DIFFICULTY stars */
+  .difficulty-selector {
+    width: 100%;
+    max-width: 400px;
+  }
+  .diff-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .diff-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .diff-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .diff-btn.active { border-color: var(--gold); background: rgba(255,215,0,0.1); color: var(--gold); }
+  .diff-emoji { font-size: 20px; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="bg-stars"></div>
+<div class="globe-bg"></div>
+
+<div id="app">
+
+  <!-- HOME SCREEN -->
+  <div id="home-screen" class="screen active">
+    <div class="logo-area">
+      <span class="globe-icon">🌍</span>
+      <div class="game-title">ГЕО МАСТЕР</div>
+      <div class="game-subtitle">Тест по географии мира</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-chip">📚 Вопросов: <span id="total-q-count">0</span></div>
+      <div class="stat-chip">🏆 Лучший: <span id="best-score-display">—</span></div>
+      <div class="stat-chip">🎮 Сыграно: <span id="games-played">0</span></div>
+    </div>
+
+    <div class="category-section">
+      <div class="section-label">Выбери категорию (или все)</div>
+      <div class="category-grid">
+        <div class="cat-card selected" data-cat="all" onclick="selectCategory('all')">
+          <span class="cat-emoji">🌐</span>
+          <div class="cat-name">Все</div>
+          <div class="cat-count" id="cnt-all">— вопросов</div>
+        </div>
+        <div class="cat-card" data-cat="capitals" onclick="selectCategory('capitals')">
+          <span class="cat-emoji">🏛️</span>
+          <div class="cat-name">Столицы</div>
+          <div class="cat-count" id="cnt-capitals">—</div>
+        </div>
+        <div class="cat-card" data-cat="flags" onclick="selectCategory('flags')">
+          <span class="cat-emoji">🚩</span>
+          <div class="cat-name">Флаги</div>
+          <div class="cat-count" id="cnt-flags">—</div>
+        </div>
+        <div class="cat-card" data-cat="continents" onclick="selectCategory('continents')">
+          <span class="cat-emoji">🗺️</span>
+          <div class="cat-name">Континенты</div>
+          <div class="cat-count" id="cnt-continents">—</div>
+        </div>
+        <div class="cat-card" data-cat="oceans" onclick="selectCategory('oceans')">
+          <span class="cat-emoji">🌊</span>
+          <div class="cat-name">Океаны/Моря</div>
+          <div class="cat-count" id="cnt-oceans">—</div>
+        </div>
+        <div class="cat-card" data-cat="countries" onclick="selectCategory('countries')">
+          <span class="cat-emoji">🌍</span>
+          <div class="cat-name">Страны</div>
+          <div class="cat-count" id="cnt-countries">—</div>
+        </div>
+        <div class="cat-card" data-cat="mountains" onclick="selectCategory('mountains')">
+          <span class="cat-emoji">⛰️</span>
+          <div class="cat-name">Горы</div>
+          <div class="cat-count" id="cnt-mountains">—</div>
+        </div>
+        <div class="cat-card" data-cat="rivers" onclick="selectCategory('rivers')">
+          <span class="cat-emoji">🏞️</span>
+          <div class="cat-name">Реки</div>
+          <div class="cat-count" id="cnt-rivers">—</div>
+        </div>
+        <div class="cat-card" data-cat="geography" onclick="selectCategory('geography')">
+          <span class="cat-emoji">🧭</span>
+          <div class="cat-name">Разное</div>
+          <div class="cat-count" id="cnt-geography">—</div>
+        </div>
+        <div class="cat-card" data-cat="food" onclick="selectCategory('food')">
+          <span class="cat-emoji">🍜</span>
+          <div class="cat-name">Кухня</div>
+          <div class="cat-count" id="cnt-food">—</div>
+        </div>
+        <div class="cat-card" data-cat="customs" onclick="selectCategory('customs')">
+          <span class="cat-emoji">🎎</span>
+          <div class="cat-name">Обычаи</div>
+          <div class="cat-count" id="cnt-customs">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="difficulty-selector">
+      <div class="section-label">Сложность</div>
+      <div class="diff-row">
+        <div class="diff-btn active" data-diff="easy" onclick="selectDiff('easy')">
+          <span class="diff-emoji">😊</span>Лёгкий
+        </div>
+        <div class="diff-btn" data-diff="medium" onclick="selectDiff('medium')">
+          <span class="diff-emoji">🤔</span>Средний
+        </div>
+        <div class="diff-btn" data-diff="hard" onclick="selectDiff('hard')">
+          <span class="diff-emoji">🔥</span>Сложный
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-buttons">
+      <button class="btn-primary" onclick="startGame()">🚀 НАЧАТЬ ИГРУ</button>
+      <button class="btn-secondary" onclick="showDB()">📚 База вопросов — готовиться</button>
+    </div>
+
+    <div class="leaderboard-mini" id="leaderboard-section" style="display:none;">
+      <div class="section-label">Последние результаты</div>
+      <div id="leaderboard-list"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-screen" class="screen">
+    <div class="quiz-header">
+      <div class="q-progress-text">
+        Вопрос <strong id="q-num">1</strong> из 12
+      </div>
+      <div class="streak-display" id="streak-display" style="display:none;">
+        🔥 <span class="streak-num" id="streak-num">0</span>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer-ring">
+          <svg width="44" height="44" viewBox="0 0 44 44">
+            <circle cx="22" cy="22" r="18"/>
+            <circle class="progress-ring" id="timer-ring" cx="22" cy="22" r="18"/>
+          </svg>
+          <div class="timer-num" id="timer-num">30</div>
+        </div>
+      </div>
+      <div class="score-display">
+        <span class="score-icon">⭐</span>
+        <span class="score-num" id="score-num">0</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+
+    <div class="question-card" id="question-card">
+      <div class="q-category-badge" id="q-cat-badge">🌍 География</div>
+      <div class="flag-display" id="flag-display"></div>
+      <div class="question-text" id="question-text">Загрузка...</div>
+    </div>
+
+    <div class="answers-grid" id="answers-grid"></div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="results-screen" class="screen">
+    <div class="result-hero">
+      <span class="result-emoji" id="result-emoji">🏆</span>
+      <div class="result-title" id="result-title">ОТЛИЧНО!</div>
+      <div class="result-subtitle" id="result-subtitle">Ты настоящий знаток географии!</div>
+    </div>
+
+    <div class="score-big-card">
+      <div class="big-score-num" id="final-score">0</div>
+      <div class="big-score-label">ОЧКОВ НАБРАНО</div>
+      <div class="stats-grid-result">
+        <div class="stat-box">
+          <div class="stat-box-num green" id="res-correct">0</div>
+          <div class="stat-box-label">✅ Верных</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-num red" id="res-wrong">0</div>
+          <div class="stat-box-label">❌ Ошибок</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-num blue" id="res-streak">0</div>
+          <div class="stat-box-label">🔥 Серия</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-list" id="review-list"></div>
+
+    <div class="result-buttons">
+      <button class="btn-primary" onclick="startGame()">🔄 Ещё раз</button>
+      <button class="btn-secondary" onclick="showHome()">🏠 Главная</button>
+    </div>
+  </div>
+
+  <!-- DATABASE SCREEN -->
+  <div id="db-screen" class="screen">
+    <div class="db-header">
+      <button class="back-btn" onclick="showHome()">← Назад</button>
+      <div class="db-title-area">
+        <div class="db-title">📚 База вопросов</div>
+        <div class="db-subtitle" id="db-subtitle">Все вопросы для подготовки</div>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="db-search" placeholder="Поиск по вопросам..." oninput="filterDB()">
+    </div>
+
+    <div class="filter-tabs" id="db-filter-tabs">
+      <div class="filter-tab active" data-cat="all" onclick="filterDBCat('all')">Все</div>
+      <div class="filter-tab" data-cat="capitals" onclick="filterDBCat('capitals')">🏛️ Столицы</div>
+      <div class="filter-tab" data-cat="flags" onclick="filterDBCat('flags')">🚩 Флаги</div>
+      <div class="filter-tab" data-cat="continents" onclick="filterDBCat('continents')">🗺️ Континенты</div>
+      <div class="filter-tab" data-cat="oceans" onclick="filterDBCat('oceans')">🌊 Океаны</div>
+      <div class="filter-tab" data-cat="countries" onclick="filterDBCat('countries')">🌍 Страны</div>
+      <div class="filter-tab" data-cat="mountains" onclick="filterDBCat('mountains')">⛰️ Горы</div>
+      <div class="filter-tab" data-cat="rivers" onclick="filterDBCat('rivers')">🏞️ Реки</div>
+      <div class="filter-tab" data-cat="geography" onclick="filterDBCat('geography')">🧭 Разное</div>
+      <div class="filter-tab" data-cat="food" onclick="filterDBCat('food')">🍜 Кухня</div>
+      <div class="filter-tab" data-cat="customs" onclick="filterDBCat('customs')">🎎 Обычаи</div>
+    </div>
+
+    <div class="db-questions-list" id="db-questions-list"></div>
+  </div>
+
+</div>
+
+<!-- Feedback Toast -->
+<div class="feedback-toast" id="feedback-toast"></div>
+
+<div class="confetti-container" id="confetti-container"></div>
+
+<script>
+// ============================================================
+//  ПОЛНАЯ БАЗА ВОПРОСОВ (250+ вопросов)
+// ============================================================
+const QUESTIONS = [
+  // ──────────── СТОЛИЦЫ ────────────
+  { id:1, cat:'capitals', difficulty:'easy', flag:'🇫🇷', q:'Какой город является столицей Франции?', answers:['Лион','Марсель','Париж','Бордо'], correct:2 },
+  { id:2, cat:'capitals', difficulty:'easy', flag:'🇩🇪', q:'Столица Германии?', answers:['Мюнхен','Берлин','Гамбург','Франкфурт'], correct:1 },
+  { id:3, cat:'capitals', difficulty:'easy', flag:'🇮🇹', q:'Столица Италии?', answers:['Милан','Неаполь','Рим','Венеция'], correct:2 },
+  { id:4, cat:'capitals', difficulty:'easy', flag:'🇪🇸', q:'Столица Испании?', answers:['Барселона','Валенсия','Мадрид','Севилья'], correct:2 },
+  { id:5, cat:'capitals', difficulty:'easy', flag:'🇬🇧', q:'Столица Великобритании?', answers:['Манчестер','Эдинбург','Лондон','Бирмингем'], correct:2 },
+  { id:6, cat:'capitals', difficulty:'easy', flag:'🇯🇵', q:'Столица Японии?', answers:['Осака','Токио','Киото','Хиросима'], correct:1 },
+  { id:7, cat:'capitals', difficulty:'easy', flag:'🇨🇳', q:'Столица Китая?', answers:['Шанхай','Гуанчжоу','Пекин','Сянган'], correct:2 },
+  { id:8, cat:'capitals', difficulty:'easy', flag:'🇺🇸', q:'Столица США?', answers:['Нью-Йорк','Лос-Анджелес','Вашингтон','Чикаго'], correct:2 },
+  { id:9, cat:'capitals', difficulty:'easy', flag:'🇷🇺', q:'Столица России?', answers:['Санкт-Петербург','Новосибирск','Москва','Казань'], correct:2 },
+  { id:10, cat:'capitals', difficulty:'easy', flag:'🇧🇷', q:'Столица Бразилии?', answers:['Рио-де-Жанейро','Сан-Паулу','Бразилиа','Сальвадор'], correct:2 },
+  { id:11, cat:'capitals', difficulty:'medium', flag:'🇦🇺', q:'Столица Австралии?', answers:['Сидней','Мельбурн','Канберра','Брисбен'], correct:2 },
+  { id:12, cat:'capitals', difficulty:'medium', flag:'🇨🇦', q:'Столица Канады?', answers:['Торонто','Ванкувер','Оттава','Монреаль'], correct:2 },
+  { id:13, cat:'capitals', difficulty:'medium', flag:'🇦🇷', q:'Столица Аргентины?', answers:['Буэнос-Айрес','Кордоба','Росарио','Мендоса'], correct:0 },
+  { id:14, cat:'capitals', difficulty:'medium', flag:'🇿🇦', q:'Законодательная столица ЮАР?', answers:['Йоханнесбург','Кейптаун','Претория','Дурбан'], correct:1 },
+  { id:15, cat:'capitals', difficulty:'medium', flag:'🇲🇽', q:'Столица Мексики?', answers:['Гвадалахара','Монтеррей','Мехико','Канкун'], correct:2 },
+  { id:16, cat:'capitals', difficulty:'medium', flag:'🇰🇿', q:'Столица Казахстана?', answers:['Алматы','Астана','Шымкент','Семей'], correct:1 },
+  { id:17, cat:'capitals', difficulty:'medium', flag:'🇳🇬', q:'Столица Нигерии?', answers:['Лагос','Ибадан','Абуджа','Кано'], correct:2 },
+  { id:18, cat:'capitals', difficulty:'medium', flag:'🇵🇰', q:'Столица Пакистана?', answers:['Карачи','Лахор','Исламабад','Пешавар'], correct:2 },
+  { id:19, cat:'capitals', difficulty:'medium', flag:'🇧🇩', q:'Столица Бангладеш?', answers:['Читтагонг','Дакка','Кхулна','Силхет'], correct:1 },
+  { id:20, cat:'capitals', difficulty:'medium', flag:'🇺🇦', q:'Столица Украины?', answers:['Харьков','Одесса','Киев','Львов'], correct:2 },
+  { id:21, cat:'capitals', difficulty:'medium', flag:'🇵🇭', q:'Столица Филиппин?', answers:['Себу','Давао','Манила','Замбоанга'], correct:2 },
+  { id:22, cat:'capitals', difficulty:'medium', flag:'🇰🇷', q:'Столица Южной Кореи?', answers:['Пусан','Инчхон','Сеул','Тэгу'], correct:2 },
+  { id:23, cat:'capitals', difficulty:'hard', flag:'🇲🇲', q:'Столица Мьянмы?', answers:['Янгон','Мандалай','Нейпьидо','Баго'], correct:2 },
+  { id:24, cat:'capitals', difficulty:'hard', flag:'🇸🇷', q:'Столица Суринама?', answers:['Парамарибо','Никерие','Леливдорп','Браам'], correct:0 },
+  { id:25, cat:'capitals', difficulty:'hard', flag:'🇹🇱', q:'Столица Восточного Тимора?', answers:['Баукау','Ди-Ли','Сулос','Айлеу'], correct:1 },
+  { id:26, cat:'capitals', difficulty:'hard', flag:'🇧🇹', q:'Столица Бутана?', answers:['Пунакха','Тхимпху','Пхунцхолинг','Вангди'], correct:1 },
+  { id:27, cat:'capitals', difficulty:'hard', flag:'🇰🇮', q:'Столица Кирибати?', answers:['Тарава','Фунафути','Паликир','Маджуро'], correct:0 },
+  { id:28, cat:'capitals', difficulty:'hard', flag:'🇲🇻', q:'Столица Мальдив?', answers:['Хулхумале','Мале','Адду','Лавиани'], correct:1 },
+  { id:29, cat:'capitals', difficulty:'hard', flag:'🇵🇬', q:'Столица Папуа Новой Гвинеи?', answers:['Лаэ','Порт-Морсби','Маунт-Хаген','Буния'], correct:1 },
+  { id:30, cat:'capitals', difficulty:'hard', flag:'🇻🇺', q:'Столица Вануату?', answers:['Луганвилл','Порт-Вила','Сола','Исангель'], correct:1 },
+
+  // ──────────── ФЛАГИ ────────────
+  { id:31, cat:'flags', difficulty:'easy', flag:'🇷🇺', q:'Чей это флаг? 🇷🇺', answers:['Украина','Нидерланды','Россия','Сербия'], correct:2 },
+  { id:32, cat:'flags', difficulty:'easy', flag:'🇺🇸', q:'Чей это флаг? 🇺🇸', answers:['США','Великобритания','Австралия','Новая Зеландия'], correct:0 },
+  { id:33, cat:'flags', difficulty:'easy', flag:'🇨🇳', q:'Чей это флаг? 🇨🇳', answers:['Вьетнам','Китай','КНДР','Лаос'], correct:1 },
+  { id:34, cat:'flags', difficulty:'easy', flag:'🇧🇷', q:'Чей это флаг? 🇧🇷', answers:['Аргентина','Боливия','Бразилия','Мексика'], correct:2 },
+  { id:35, cat:'flags', difficulty:'easy', flag:'🇩🇪', q:'Чей это флаг? 🇩🇪', answers:['Бельгия','Австрия','Германия','Венгрия'], correct:2 },
+  { id:36, cat:'flags', difficulty:'easy', flag:'🇯🇵', q:'Чей это флаг? 🇯🇵', answers:['Южная Корея','Бангладеш','Япония','Тунис'], correct:2 },
+  { id:37, cat:'flags', difficulty:'medium', flag:'🇨🇦', q:'Чей это флаг? 🇨🇦', answers:['Канада','Швейцария','Дания','Австрия'], correct:0 },
+  { id:38, cat:'flags', difficulty:'medium', flag:'🇮🇳', q:'Чей это флаг? 🇮🇳', answers:['Пакистан','Иран','Индия','Ирак'], correct:2 },
+  { id:39, cat:'flags', difficulty:'medium', flag:'🇦🇺', q:'Чей это флаг? 🇦🇺', answers:['Новая Зеландия','Австралия','Великобритания','Фиджи'], correct:1 },
+  { id:40, cat:'flags', difficulty:'medium', flag:'🇿🇦', q:'Чей это флаг? 🇿🇦', answers:['Зимбабве','Кения','ЮАР','Эфиопия'], correct:2 },
+  { id:41, cat:'flags', difficulty:'medium', flag:'🇳🇿', q:'Чей это флаг? 🇳🇿', answers:['Австралия','Новая Зеландия','Тувалу','Кирибати'], correct:1 },
+  { id:42, cat:'flags', difficulty:'medium', flag:'🇳🇴', q:'Чей это флаг? 🇳🇴', answers:['Швеция','Дания','Норвегия','Финляндия'], correct:2 },
+  { id:43, cat:'flags', difficulty:'medium', flag:'🇸🇪', q:'Чей это флаг? 🇸🇪', answers:['Финляндия','Норвегия','Исландия','Швеция'], correct:3 },
+  { id:44, cat:'flags', difficulty:'medium', flag:'🇵🇹', q:'Чей это флаг? 🇵🇹', answers:['Бразилия','Испания','Португалия','Мексика'], correct:2 },
+  { id:45, cat:'flags', difficulty:'medium', flag:'🇰🇷', q:'Чей этот флаг? 🇰🇷', answers:['Япония','Китай','КНДР','Южная Корея'], correct:3 },
+  { id:46, cat:'flags', difficulty:'hard', flag:'🇳🇵', q:'Чей это флаг? 🇳🇵 (единственный нетрапециевидный флаг страны)', answers:['Бутан','Мьянма','Непал','Шри-Ланка'], correct:2 },
+  { id:47, cat:'flags', difficulty:'hard', flag:'🇲🇨', q:'Чей это флаг? 🇲🇨 (очень похож на флаг Индонезии)', answers:['Польша','Монако','Индонезия','Сингапур'], correct:1 },
+  { id:48, cat:'flags', difficulty:'hard', flag:'🇸🇸', q:'Чей это флаг? 🇸🇸 (самое молодое государство в мире)', answers:['Южный Судан','Эритрея','Зимбабве','Кения'], correct:0 },
+  { id:49, cat:'flags', difficulty:'hard', flag:'🇸🇲', q:'Чей это флаг? 🇸🇲', answers:['Ватикан','Люксембург','Сан-Марино','Лихтенштейн'], correct:2 },
+  { id:50, cat:'flags', difficulty:'hard', flag:'🇵🇼', q:'Чей это флаг? 🇵🇼', answers:['Микронезия','Палау','Маршалловы острова','Тувалу'], correct:1 },
+
+  // ──────────── КОНТИНЕНТЫ ────────────
+  { id:51, cat:'continents', difficulty:'easy', flag:'', q:'Сколько континентов на Земле?', answers:['5','6','7','8'], correct:2 },
+  { id:52, cat:'continents', difficulty:'easy', flag:'', q:'Самый большой континент по площади?', answers:['Африка','Северная Америка','Антарктида','Азия'], correct:3 },
+  { id:53, cat:'continents', difficulty:'easy', flag:'', q:'Самый маленький континент?', answers:['Европа','Австралия','Антарктида','Южная Америка'], correct:1 },
+  { id:54, cat:'continents', difficulty:'easy', flag:'', q:'На каком континенте находится Египет?', answers:['Азия','Европа','Африка','Ближний Восток'], correct:2 },
+  { id:55, cat:'continents', difficulty:'easy', flag:'', q:'На каком континенте находится Бразилия?', answers:['Центральная Америка','Северная Америка','Южная Америка','Антарктида'], correct:2 },
+  { id:56, cat:'continents', difficulty:'medium', flag:'', q:'Самый населённый континент?', answers:['Африка','Европа','Азия','Северная Америка'], correct:2 },
+  { id:57, cat:'continents', difficulty:'medium', flag:'', q:'Единственный необитаемый контinent?', answers:['Арктика','Австралия','Антарктида','Арктический архипелаг'], correct:2 },
+  { id:58, cat:'continents', difficulty:'medium', flag:'', q:'Самый холодный континент?', answers:['Арктика','Северная Америка','Антарктида','Азия'], correct:2 },
+  { id:59, cat:'continents', difficulty:'medium', flag:'', q:'Через какой континент проходит нулевой меридиан?', answers:['Северная Америка','Азия','Европа','Африка (и Европа)'], correct:3 },
+  { id:60, cat:'continents', difficulty:'medium', flag:'', q:'Какой континент полностью находится в Южном полушарии?', answers:['Африка','Австралия','Антарктида','Южная Америка'], correct:1 },
+  { id:61, cat:'continents', difficulty:'medium', flag:'', q:'На каком континенте самая длинная береговая линия?', answers:['Азия','Северная Америка','Африка','Австралия'], correct:1 },
+  { id:62, cat:'continents', difficulty:'hard', flag:'', q:'Какой из континентов считают продолжением Азиатского материка?', answers:['Австралия','Европа','Антарктида','Северная Америка'], correct:1 },
+  { id:63, cat:'continents', difficulty:'hard', flag:'', q:'Площадь Африки в млн км²?', answers:['20,3','24,2','30,3','18,5'], correct:2 },
+  { id:64, cat:'continents', difficulty:'hard', flag:'', q:'Самая высокая точка Австралии?', answers:['Пик Коссюшко','Гора Том Прайс','Гора Барнс','Гора Орд'], correct:0 },
+
+  // ──────────── ОКЕАНЫ И МОРЯ ────────────
+  { id:65, cat:'oceans', difficulty:'easy', flag:'', q:'Самый большой океан на Земле?', answers:['Атлантический','Индийский','Тихий','Северный Ледовитый'], correct:2 },
+  { id:66, cat:'oceans', difficulty:'easy', flag:'', q:'Самый маленький океан?', answers:['Индийский','Северный Ледовитый','Тихий','Атлантический'], correct:1 },
+  { id:67, cat:'oceans', difficulty:'easy', flag:'', q:'Сколько океанов на Земле?', answers:['4','5','6','3'], correct:1 },
+  { id:68, cat:'oceans', difficulty:'easy', flag:'', q:'Самое солёное море в мире?', answers:['Красное','Чёрное','Мёртвое','Каспийское'], correct:2 },
+  { id:69, cat:'oceans', difficulty:'medium', flag:'', q:'Самое большое море в мире?', answers:['Средиземное','Аравийское','Карибское','Коралловое'], correct:1 },
+  { id:70, cat:'oceans', difficulty:'medium', flag:'', q:'Какое море омывает Россию с севера?', answers:['Баренцево','Белое','Карское','Все перечисленные'], correct:3 },
+  { id:71, cat:'oceans', difficulty:'medium', flag:'', q:'Какой океан разделяет Европу и Америку?', answers:['Тихий','Индийский','Атлантический','Южный'], correct:2 },
+  { id:72, cat:'oceans', difficulty:'medium', flag:'', q:'Самая глубокая точка Мирового океана?', answers:['Впадина Челленджер (Марианская)','Желоб Пуэрто-Рико','Зондский желоб','Японский желоб'], correct:0 },
+  { id:73, cat:'oceans', difficulty:'medium', flag:'', q:'Какое море соединяется с Атлантикой через Гибралтар?', answers:['Чёрное','Эгейское','Адриатическое','Средиземное'], correct:3 },
+  { id:74, cat:'oceans', difficulty:'hard', flag:'', q:'Глубина Марианской впадины?', answers:['8 482 м','9 071 м','11 034 м','10 200 м'], correct:2 },
+  { id:75, cat:'oceans', difficulty:'hard', flag:'', q:'Самое тёплое море в мире?', answers:['Персидский залив','Красное','Карибское','Тирренское'], correct:0 },
+  { id:76, cat:'oceans', difficulty:'hard', flag:'', q:'Что такое Саргассово море?', answers:['Море без берегов в Атлантике','Внутреннее море Европы','Самое мелкое море','Замёрзшее море'], correct:0 },
+
+  // ──────────── СТРАНЫ МИРА ────────────
+  { id:77, cat:'countries', difficulty:'easy', flag:'', q:'Самая большая страна в мире по площади?', answers:['США','Китай','Канада','Россия'], correct:3 },
+  { id:78, cat:'countries', difficulty:'easy', flag:'', q:'Самая населённая страна в мире?', answers:['Индия','Китай','США','Индонезия'], correct:0 },
+  { id:79, cat:'countries', difficulty:'easy', flag:'', q:'На каком острове находится Австралия?', answers:['Остров','Полуостров','Континент','Архипелаг'], correct:2 },
+  { id:80, cat:'countries', difficulty:'easy', flag:'', q:'Самая маленькая страна в мире?', answers:['Монако','Сан-Марино','Ватикан','Лихтенштейн'], correct:2 },
+  { id:81, cat:'countries', difficulty:'medium', flag:'', q:'Какая страна занимает весь материк?', answers:['Бразилия','Австралия','Канада','Китай'], correct:1 },
+  { id:82, cat:'countries', difficulty:'medium', flag:'', q:'Сколько стран в мире (по данным ООН)?', answers:['195','187','200','210'], correct:0 },
+  { id:83, cat:'countries', difficulty:'medium', flag:'', q:'Самая длинная граница между двумя странами?', answers:['Россия-Китай','США-Мексика','Канада-США','Бразилия-Аргентина'], correct:2 },
+  { id:84, cat:'countries', difficulty:'medium', flag:'', q:'Какая страна имеет наибольшее количество соседних государств?', answers:['Россия','Китай','Германия','Бразилия'], correct:1 },
+  { id:85, cat:'countries', difficulty:'medium', flag:'', q:'Единственная страна, граничащая только с одним государством?', answers:['Монако','Сан-Марино','Лесото','Ватикан'], correct:2 },
+  { id:86, cat:'countries', difficulty:'medium', flag:'🇮🇩', q:'Сколько островов входит в состав Индонезии?', answers:['около 3 000','около 7 000','около 17 000','около 30 000'], correct:2 },
+  { id:87, cat:'countries', difficulty:'medium', flag:'', q:'Самая длинная страна в мире с севера на юг?', answers:['Бразилия','Аргентина','Чили','Россия'], correct:2 },
+  { id:88, cat:'countries', difficulty:'hard', flag:'', q:'Какой стране принадлежит остров Гренландия?', answers:['Норвегии','Канаде','Дании','Исландии'], correct:2 },
+  { id:89, cat:'countries', difficulty:'hard', flag:'', q:'В каком году Индия и Пакистан стали независимыми?', answers:['1945','1947','1950','1948'], correct:1 },
+  { id:90, cat:'countries', difficulty:'hard', flag:'', q:'Как называется страна, окружённая Италией?', answers:['Ватикан','Андорра','Лихтенштейн','Монако'], correct:0 },
+
+  // ──────────── ГОРЫ ────────────
+  { id:91, cat:'mountains', difficulty:'easy', flag:'', q:'Самая высокая гора в мире?', answers:['К2','Канченджанга','Эверест','Лхоцзе'], correct:2 },
+  { id:92, cat:'mountains', difficulty:'easy', flag:'', q:'На каком континенте находится Эверест?', answers:['Африка','Европа','Азия','Австралия'], correct:2 },
+  { id:93, cat:'mountains', difficulty:'medium', flag:'', q:'Высота Эвереста?', answers:['8 488 м','8 849 м','8 611 м','8 516 м'], correct:1 },
+  { id:94, cat:'mountains', difficulty:'medium', flag:'', q:'Самая высокая гора Африки?', answers:['Кения','Килиманджаро','Рас-Дашен','Маргерита'], correct:1 },
+  { id:95, cat:'mountains', difficulty:'medium', flag:'', q:'Самая высокая гора Европы (включая Кавказ)?', answers:['Монблан','Эльбрус','Монте-Роза','Маттерхорн'], correct:1 },
+  { id:96, cat:'mountains', difficulty:'medium', flag:'', q:'Самая длинная горная система в мире?', answers:['Гималаи','Скалистые горы','Анды','Урал'], correct:2 },
+  { id:97, cat:'mountains', difficulty:'medium', flag:'', q:'Самая высокая гора Северной Америки?', answers:['Логан','Орисаба','Денали','Уитни'], correct:2 },
+  { id:98, cat:'mountains', difficulty:'hard', flag:'', q:'Вторая по высоте гора в мире?', answers:['Лхоцзе','К2','Канченджанга','Макалу'], correct:1 },
+  { id:99, cat:'mountains', difficulty:'hard', flag:'', q:'Самая высокая точка Южной Америки?', answers:['Охос-дель-Саладо','Аконкагуа','Токорпури','Тупунгато'], correct:1 },
+  { id:100, cat:'mountains', difficulty:'hard', flag:'', q:'Горная система, разделяющая Европу и Азию?', answers:['Карпаты','Урал','Кавказ','Алтай'], correct:1 },
+
+  // ──────────── РЕКИ ────────────
+  { id:101, cat:'rivers', difficulty:'easy', flag:'', q:'Самая длинная река в мире?', answers:['Амазонка','Нил','Янцзы','Миссисипи'], correct:1 },
+  { id:102, cat:'rivers', difficulty:'easy', flag:'', q:'Самая полноводная река в мире?', answers:['Нил','Янцзы','Амазонка','Конго'], correct:2 },
+  { id:103, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Европы?', answers:['Дунай','Рейн','Волга','Темза'], correct:2 },
+  { id:104, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Азии?', answers:['Инд','Хуанхэ','Янцзы','Ганг'], correct:2 },
+  { id:105, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Северной Америки?', answers:['Колорадо','Миссури','Миссисипи','Маккензи'], correct:2 },
+  { id:106, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Африки?', answers:['Конго','Нил','Нигер','Замбези'], correct:1 },
+  { id:107, cat:'rivers', difficulty:'hard', flag:'', q:'Длина реки Нил?', answers:['5 500 км','6 853 км','7 100 км','6 400 км'], correct:1 },
+  { id:108, cat:'rivers', difficulty:'hard', flag:'', q:'В каких странах находится исток и устье Амазонки?', answers:['Бразилия и Перу','Перу и Бразилия','Колумбия и Бразилия','Эквадор и Бразилия'], correct:1 },
+  { id:109, cat:'rivers', difficulty:'hard', flag:'', q:'Самая глубокая река в мире?', answers:['Амазонка','Нил','Конго','Янцзы'], correct:2 },
+  { id:110, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река России?', answers:['Волга','Обь','Енисей','Лена'], correct:3 },
+
+  // ──────────── РАЗНОЕ ────────────
+  { id:111, cat:'geography', difficulty:'easy', flag:'', q:'Сколько полюсов на Земле?', answers:['2','4','1','3'], correct:0 },
+  { id:112, cat:'geography', difficulty:'easy', flag:'', q:'Что такое экватор?', answers:['Нулевой меридиан','Линия смены дат','Линия равноудалённая от полюсов','Тропик Рака'], correct:2 },
+  { id:113, cat:'geography', difficulty:'easy', flag:'', q:'Самая большая пустыня в мире?', answers:['Сахара','Аравийская','Антарктическая','Гоби'], correct:2 },
+  { id:114, cat:'geography', difficulty:'easy', flag:'', q:'Самое большое озеро в мире?', answers:['Байкал','Верхнее','Виктория','Каспийское море'], correct:3 },
+  { id:115, cat:'geography', difficulty:'medium', flag:'', q:'Самое глубокое озеро в мире?', answers:['Байкал','Танганьика','Виктория','Гурон'], correct:0 },
+  { id:116, cat:'geography', difficulty:'medium', flag:'', q:'Через какой океан проходит нулевой меридиан?', answers:['Тихий','Индийский','Атлантический','Северный Ледовитый'], correct:2 },
+  { id:117, cat:'geography', difficulty:'medium', flag:'', q:'Самый длинный коралловый риф в мире?', answers:['Флоридский барьерный риф','Большой Барьерный риф','Риф Белиза','Мальдивский риф'], correct:1 },
+  { id:118, cat:'geography', difficulty:'medium', flag:'', q:'На каком материке самый высокий вулкан?', answers:['Азия','Африка','Северная Америка','Южная Америка'], correct:3 },
+  { id:119, cat:'geography', difficulty:'medium', flag:'', q:'Самый большой остров в мире?', answers:['Мадагаскар','Новая Гвинея','Гренландия','Борнео'], correct:2 },
+  { id:120, cat:'geography', difficulty:'medium', flag:'', q:'Что такое меридиан?', answers:['Параллель Земли','Линия восток-запад','Линия север-юг (долгота)','Прибрежная линия'], correct:2 },
+  { id:121, cat:'geography', difficulty:'medium', flag:'', q:'На каком материке нет постоянного населения?', answers:['Арктика','Австралия','Антарктида','Нет такого материка'], correct:2 },
+  { id:122, cat:'geography', difficulty:'hard', flag:'', q:'Глубина озера Байкал?', answers:['1 187 м','1 642 м','1 000 м','2 000 м'], correct:1 },
+  { id:123, cat:'geography', difficulty:'hard', flag:'', q:'Самый длинный горный хребет в мире?', answers:['Гималаи','Анды','Уральские горы','Аппалачи'], correct:1 },
+  { id:124, cat:'geography', difficulty:'hard', flag:'', q:'Самый высокий действующий вулкан в мире?', answers:['Котопахи','Охос-дель-Саладо','Льяймя','Ключевская Сопка'], correct:0 },
+  { id:125, cat:'geography', difficulty:'medium', flag:'', q:'Какой пролив разделяет Азию и Северную Америку?', answers:['Гибралтар','Ла-Манш','Берингов','Малаккский'], correct:2 },
+  { id:126, cat:'geography', difficulty:'medium', flag:'', q:'Линия перемены дат проходит через какой океан?', answers:['Атлантический','Тихий','Индийский','Северный Ледовитый'], correct:1 },
+
+  // ──────────── ДОПОЛНИТЕЛЬНЫЕ ВОПРОСЫ ────────────
+  { id:127, cat:'capitals', difficulty:'easy', flag:'🇵🇱', q:'Столица Польши?', answers:['Краков','Гданьск','Варшава','Познань'], correct:2 },
+  { id:128, cat:'capitals', difficulty:'easy', flag:'🇬🇷', q:'Столица Греции?', answers:['Салоники','Пирей','Афины','Патры'], correct:2 },
+  { id:129, cat:'capitals', difficulty:'easy', flag:'🇹🇷', q:'Столица Турции?', answers:['Стамбул','Измир','Анкара','Бурса'], correct:2 },
+  { id:130, cat:'capitals', difficulty:'easy', flag:'🇸🇦', q:'Столица Саудовской Аравии?', answers:['Джидда','Мекка','Эр-Рияд','Медина'], correct:2 },
+  { id:131, cat:'capitals', difficulty:'medium', flag:'🇪🇬', q:'Столица Египта?', answers:['Александрия','Гиза','Луксор','Каир'], correct:3 },
+  { id:132, cat:'capitals', difficulty:'medium', flag:'🇮🇷', q:'Столица Ирана?', answers:['Исфахан','Мешхед','Тегеран','Тебриз'], correct:2 },
+  { id:133, cat:'capitals', difficulty:'medium', flag:'🇮🇶', q:'Столица Ирака?', answers:['Мосул','Багдад','Басра','Эрбиль'], correct:1 },
+  { id:134, cat:'capitals', difficulty:'medium', flag:'🇦🇫', q:'Столица Афганистана?', answers:['Кандагар','Мазари-Шариф','Кабул','Герат'], correct:2 },
+  { id:135, cat:'capitals', difficulty:'medium', flag:'🇲🇦', q:'Столица Марокко?', answers:['Касабланка','Фес','Рабат','Марракеш'], correct:2 },
+  { id:136, cat:'capitals', difficulty:'medium', flag:'🇰🇪', q:'Столица Кении?', answers:['Момбаса','Найроби','Кисуму','Накуру'], correct:1 },
+  { id:137, cat:'capitals', difficulty:'medium', flag:'🇨🇱', q:'Столица Чили?', answers:['Вальпараисо','Кончепсьон','Сантьяго','Икике'], correct:2 },
+  { id:138, cat:'capitals', difficulty:'medium', flag:'🇵🇪', q:'Столица Перу?', answers:['Арекипа','Трухильо','Куско','Лима'], correct:3 },
+  { id:139, cat:'capitals', difficulty:'medium', flag:'🇨🇴', q:'Столица Колумбии?', answers:['Медельин','Кали','Барранкилья','Богота'], correct:3 },
+  { id:140, cat:'capitals', difficulty:'easy', flag:'🇸🇪', q:'Столица Швеции?', answers:['Гётеборг','Мальмё','Упсала','Стокгольм'], correct:3 },
+  { id:141, cat:'capitals', difficulty:'easy', flag:'🇳🇴', q:'Столица Норвегии?', answers:['Берген','Тронхейм','Осло','Ставангер'], correct:2 },
+  { id:142, cat:'capitals', difficulty:'easy', flag:'🇩🇰', q:'Столица Дании?', answers:['Орхус','Копенгаген','Оденсе','Ольборг'], correct:1 },
+  { id:143, cat:'capitals', difficulty:'easy', flag:'🇫🇮', q:'Столица Финляндии?', answers:['Тампере','Турку','Хельсинки','Эспоо'], correct:2 },
+  { id:144, cat:'capitals', difficulty:'easy', flag:'🇳🇱', q:'Столица Нидерландов?', answers:['Роттердам','Антверпен','Амстердам','Гаага'], correct:2 },
+  { id:145, cat:'capitals', difficulty:'easy', flag:'🇧🇪', q:'Столица Бельгии?', answers:['Антверпен','Льеж','Брюссель','Гент'], correct:2 },
+  { id:146, cat:'capitals', difficulty:'easy', flag:'🇨🇭', q:'Столица Швейцарии?', answers:['Цюрих','Женева','Базель','Берн'], correct:3 },
+  { id:147, cat:'capitals', difficulty:'easy', flag:'🇦🇹', q:'Столица Австрии?', answers:['Зальцбург','Линц','Вена','Грац'], correct:2 },
+  { id:148, cat:'capitals', difficulty:'easy', flag:'🇭🇺', q:'Столица Венгрии?', answers:['Дебрецен','Печ','Будапешт','Мишкольц'], correct:2 },
+  { id:149, cat:'capitals', difficulty:'easy', flag:'🇷🇴', q:'Столица Румынии?', answers:['Клуж-Напока','Тимишоара','Бухарест','Яссы'], correct:2 },
+  { id:150, cat:'capitals', difficulty:'medium', flag:'🇵🇹', q:'Столица Португалии?', answers:['Порту','Брага','Лиссабон','Коимбра'], correct:2 },
+  { id:151, cat:'capitals', difficulty:'medium', flag:'🇮🇱', q:'Столица Израиля?', answers:['Тель-Авив','Хайфа','Иерусалим','Беэр-Шева'], correct:2 },
+  { id:152, cat:'capitals', difficulty:'medium', flag:'🇹🇭', q:'Столица Таиланда?', answers:['Паттайя','Чиангмай','Пхукет','Бангкок'], correct:3 },
+  { id:153, cat:'capitals', difficulty:'medium', flag:'🇻🇳', q:'Столица Вьетнама?', answers:['Хошимин','Дананг','Ханой','Хюэ'], correct:2 },
+  { id:154, cat:'capitals', difficulty:'medium', flag:'🇮🇩', q:'Столица Индонезии?', answers:['Суrabaya','Бандунг','Меданг','Джакарта'], correct:3 },
+  { id:155, cat:'capitals', difficulty:'medium', flag:'🇲🇾', q:'Столица Малайзии?', answers:['Пинанг','Джохор-Бару','Куала-Лумпур','Ипох'], correct:2 },
+  { id:156, cat:'capitals', difficulty:'medium', flag:'🇸🇬', q:'Страна-город-государство в Азии?', answers:['Гонконг','Сингапур','Макао','Бруней'], correct:1 },
+  { id:157, cat:'capitals', difficulty:'easy', flag:'🇮🇳', q:'Столица Индии?', answers:['Мумбаи','Калькутта','Нью-Дели','Ченнаи'], correct:2 },
+  { id:158, cat:'capitals', difficulty:'easy', flag:'🇵🇰', q:'Большой город Пакистана, бывшая столица?', answers:['Исламабад','Карачи','Лахор','Пешавар'], correct:1 },
+  { id:159, cat:'capitals', difficulty:'hard', flag:'🇪🇹', q:'Столица Эфиопии?', answers:['Дыре-Дауа','Аддис-Абеба','Гондэр','Мекеле'], correct:1 },
+  { id:160, cat:'capitals', difficulty:'hard', flag:'🇸🇩', q:'Столица Судана?', answers:['Омдурман','Порт-Судан','Хартум','Вад-Медани'], correct:2 },
+  { id:161, cat:'capitals', difficulty:'hard', flag:'🇹🇿', q:'Столица Танзании?', answers:['Занзибар','Дар-эс-Салам','Додома','Мванза'], correct:2 },
+  { id:162, cat:'capitals', difficulty:'hard', flag:'🇳🇿', q:'Столица Новой Зеландии?', answers:['Окленд','Крайстчерч','Дунедин','Веллингтон'], correct:3 },
+
+  // ──────────── ФЛАГИ дополнительные ────────────
+  { id:163, cat:'flags', difficulty:'easy', flag:'🇮🇹', q:'Чей это флаг? 🇮🇹', answers:['Румыния','Ирландия','Мексика','Италия'], correct:3 },
+  { id:164, cat:'flags', difficulty:'easy', flag:'🇫🇷', q:'Чей это флаг? 🇫🇷', answers:['Нидерланды','Франция','Хорватия','Словакия'], correct:1 },
+  { id:165, cat:'flags', difficulty:'easy', flag:'🇷🇴', q:'Чей это флаг? 🇷🇴 (похож на флаги Чада и Молдовы)', answers:['Венгрия','Молдова','Румыния','Чад'], correct:2 },
+  { id:166, cat:'flags', difficulty:'medium', flag:'🇺🇾', q:'Чей это флаг? 🇺🇾', answers:['Аргентина','Уругвай','Греция','Гондурас'], correct:1 },
+  { id:167, cat:'flags', difficulty:'medium', flag:'🇮🇪', q:'Чей это флаг? 🇮🇪', answers:['Кот-д\'Ивуар','Ирландия','Нигерия','Камерун'], correct:1 },
+  { id:168, cat:'flags', difficulty:'medium', flag:'🇺🇦', q:'Чей это флаг? 🇺🇦', answers:['Швеция','Финляндия','Казахстан','Украина'], correct:3 },
+  { id:169, cat:'flags', difficulty:'medium', flag:'🇵🇱', q:'Чей это флаг? 🇵🇱', answers:['Дания','Польша','Индонезия','Австрия'], correct:1 },
+  { id:170, cat:'flags', difficulty:'medium', flag:'🇸🇾', q:'Чей это флаг? 🇸🇾 (арабские звёзды)', answers:['Иордания','Сирия','Ирак','ОАЭ'], correct:1 },
+  { id:171, cat:'flags', difficulty:'hard', flag:'🇧🇿', q:'Чей это флаг? 🇧🇿 (есть люди на флаге)', answers:['Гаити','Белиз','Эквадор','Сальвадор'], correct:1 },
+  { id:172, cat:'flags', difficulty:'hard', flag:'🇿🇼', q:'Чей это флаг? 🇿🇼 (зимбабвийская птица)', answers:['Зимбабве','Замбия','Мозамбик','Малави'], correct:0 },
+  { id:173, cat:'flags', difficulty:'hard', flag:'🇵🇾', q:'Чей это флаг? 🇵🇾 (разные стороны)', answers:['Боливия','Уругвай','Парагвай','Чили'], correct:2 },
+
+  // ──────────── СТРАНЫ дополнительные ────────────
+  { id:174, cat:'countries', difficulty:'easy', flag:'', q:'В какой стране находится Эйфелева башня?', answers:['Италия','Германия','Франция','Испания'], correct:2 },
+  { id:175, cat:'countries', difficulty:'easy', flag:'', q:'В какой стране находится Великая Китайская стена?', answers:['Япония','Монголия','Китай','Корея'], correct:2 },
+  { id:176, cat:'countries', difficulty:'easy', flag:'', q:'В какой стране находится Колизей?', answers:['Греция','Испания','Италия','Франция'], correct:2 },
+  { id:177, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится Мачу-Пикчу?', answers:['Чили','Боливия','Перу','Аргентина'], correct:2 },
+  { id:178, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится Тадж-Махал?', answers:['Пакистан','Индия','Бангладеш','Иран'], correct:1 },
+  { id:179, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится водопад Анхель?', answers:['Бразилия','Колумбия','Венесуэла','Эквадор'], correct:2 },
+  { id:180, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится пустыня Сахара (большая часть)?', answers:['Египет','Алжир','Ливия','Нигер'], correct:1 },
+  { id:181, cat:'countries', difficulty:'hard', flag:'', q:'Какая страна расположена на двух континентах?', answers:['Россия','Египет','Турция','Все перечисленные'], correct:3 },
+  { id:182, cat:'countries', difficulty:'hard', flag:'', q:'Самая густонаселённая страна по плотности населения?', answers:['Бангладеш','Монако','Сингапур','Нидерланды'], correct:1 },
+  { id:183, cat:'countries', difficulty:'hard', flag:'', q:'Единственная страна без официального столицы?', answers:['Монако','Ватикан','Палау','Науру'], correct:3 },
+  { id:184, cat:'countries', difficulty:'medium', flag:'', q:'Самая длинная страна мира (по протяжённости с севера на юг)?', answers:['Россия','Бразилия','Чили','Китай'], correct:2 },
+  { id:185, cat:'countries', difficulty:'medium', flag:'', q:'Какая страна разделена на 26 кантонов?', answers:['Австрия','Германия','Швейцария','Нидерланды'], correct:2 },
+  { id:186, cat:'countries', difficulty:'easy', flag:'', q:'В каком полушарии находится Австралия?', answers:['Северном','Южном','Западном','Нет однозначного ответа'], correct:1 },
+  { id:187, cat:'geography', difficulty:'medium', flag:'', q:'Самый большой полуостров в мире?', answers:['Скандинавский','Пиренейский','Индостан','Аравийский'], correct:3 },
+  { id:188, cat:'geography', difficulty:'medium', flag:'', q:'Самый большой архипелаг в мире?', answers:['Филиппины','Индонезия','Япония','Малайзия'], correct:1 },
+  { id:189, cat:'geography', difficulty:'hard', flag:'', q:'Как называется самая высокая точка Антарктиды?', answers:['Гора Эребус','Массив Винсон','Гора Сидли','Гора Джексон'], correct:1 },
+  { id:190, cat:'geography', difficulty:'hard', flag:'', q:'Самое солёное озеро в мире?', answers:['Мёртвое море','Озеро Ассаль','Большое Солёное озеро','Элтон'], correct:1 },
+  { id:191, cat:'geography', difficulty:'medium', flag:'', q:'Самый длинный водопад в мире (по ширине)?', answers:['Игуасу','Виктория','Ниагарский','Анхель'], correct:0 },
+  { id:192, cat:'geography', difficulty:'easy', flag:'', q:'Самая большая пустыня жаркого климата?', answers:['Аравийская','Гоби','Сахара','Калахари'], correct:2 },
+  { id:193, cat:'geography', difficulty:'medium', flag:'', q:'Самый маленький океан?', answers:['Индийский','Северный Ледовитый','Южный','Атлантический'], correct:1 },
+  { id:194, cat:'geography', difficulty:'hard', flag:'', q:'Какой горный хребет является границей Европа-Азия на юге?', answers:['Урал','Алтай','Кавказ','Карпаты'], correct:2 },
+  { id:195, cat:'geography', difficulty:'medium', flag:'', q:'Самая большая страна Африки?', answers:['ДРК','Нигерия','Алжир','Судан'], correct:2 },
+  { id:196, cat:'geography', difficulty:'hard', flag:'', q:'Как называется самая большая система пещер в мире?', answers:['Пещеры Луна','Карлсбад','Мамонтова пещера','Пещера Малу'], correct:2 },
+  { id:197, cat:'geography', difficulty:'medium', flag:'', q:'Самая длинная река Южной Америки?', answers:['Ла-Плата','Парагвай','Амазонка','Ориноко'], correct:2 },
+  { id:198, cat:'geography', difficulty:'hard', flag:'', q:'Самая большая дельта в мире?', answers:['Дельта Нила','Дельта Ганга-Брахмапутры','Дельта Амазонки','Дельта Миссисипи'], correct:1 },
+  { id:199, cat:'continents', difficulty:'hard', flag:'', q:'Как называется теория, объясняющая движение континентов?', answers:['Теория относительности','Тектоника плит','Геодинамика','Изостазия'], correct:1 },
+  { id:200, cat:'continents', difficulty:'medium', flag:'', q:'Каков возраст земной коры (материков)?', answers:['4,5 млрд лет','2 млрд лет','1 млрд лет','500 млн лет'], correct:0 },
+
+  // ══ СТОЛИЦЫ доп. 201-280 ══
+  { id:201, cat:'capitals', difficulty:'medium', flag:'🇧🇬', q:'Столица Болгарии?', answers:['Пловдив','Варна','София','Бургас'], correct:2 },
+  { id:202, cat:'capitals', difficulty:'medium', flag:'🇷🇸', q:'Столица Сербии?', answers:['Нови-Сад','Ниш','Белград','Крагуевац'], correct:2 },
+  { id:203, cat:'capitals', difficulty:'medium', flag:'🇭🇷', q:'Столица Хорватии?', answers:['Сплит','Риека','Загреб','Дубровник'], correct:2 },
+  { id:204, cat:'capitals', difficulty:'medium', flag:'🇸🇰', q:'Столица Словакии?', answers:['Кошице','Банска-Бистрица','Братислава','Прешов'], correct:2 },
+  { id:205, cat:'capitals', difficulty:'medium', flag:'🇸🇮', q:'Столица Словении?', answers:['Марибор','Целе','Любляна','Копер'], correct:2 },
+  { id:206, cat:'capitals', difficulty:'medium', flag:'🇧🇦', q:'Столица Боснии и Герцеговины?', answers:['Мостар','Баня-Лука','Сараево','Тузла'], correct:2 },
+  { id:207, cat:'capitals', difficulty:'medium', flag:'🇲🇩', q:'Столица Молдовы?', answers:['Бельцы','Тирасполь','Кишинёв','Оргеев'], correct:2 },
+  { id:208, cat:'capitals', difficulty:'medium', flag:'🇬🇪', q:'Столица Грузии?', answers:['Кутаиси','Батуми','Тбилиси','Рустави'], correct:2 },
+  { id:209, cat:'capitals', difficulty:'medium', flag:'🇦🇲', q:'Столица Армении?', answers:['Гюмри','Ванадзор','Ереван','Абовян'], correct:2 },
+  { id:210, cat:'capitals', difficulty:'medium', flag:'🇦🇿', q:'Столица Азербайджана?', answers:['Гянджа','Сумгаит','Баку','Нахчыван'], correct:2 },
+  { id:211, cat:'capitals', difficulty:'medium', flag:'🇧🇾', q:'Столица Беларуси?', answers:['Гомель','Брест','Минск','Витебск'], correct:2 },
+  { id:212, cat:'capitals', difficulty:'medium', flag:'🇱🇹', q:'Столица Литвы?', answers:['Каунас','Клайпеда','Вильнюс','Шяуляй'], correct:2 },
+  { id:213, cat:'capitals', difficulty:'medium', flag:'🇱🇻', q:'Столица Латвии?', answers:['Даугавпилс','Лиепая','Рига','Елгава'], correct:2 },
+  { id:214, cat:'capitals', difficulty:'medium', flag:'🇪🇪', q:'Столица Эстонии?', answers:['Тарту','Нарва','Таллин','Пярну'], correct:2 },
+  { id:215, cat:'capitals', difficulty:'easy', flag:'🇨🇿', q:'Столица Чехии?', answers:['Брно','Острава','Прага','Пльзень'], correct:2 },
+  { id:216, cat:'capitals', difficulty:'medium', flag:'🇦🇱', q:'Столица Албании?', answers:['Дуррес','Шкодер','Тирана','Влёра'], correct:2 },
+  { id:217, cat:'capitals', difficulty:'medium', flag:'🇲🇰', q:'Столица Северной Македонии?', answers:['Битола','Куманово','Скопье','Охрид'], correct:2 },
+  { id:218, cat:'capitals', difficulty:'medium', flag:'🇲🇪', q:'Столица Черногории?', answers:['Бар','Никшич','Подгорица','Херцег-Нови'], correct:2 },
+  { id:219, cat:'capitals', difficulty:'medium', flag:'🇮🇪', q:'Столица Ирландии?', answers:['Корк','Лимерик','Дублин','Голуэй'], correct:2 },
+  { id:220, cat:'capitals', difficulty:'hard', flag:'🇮🇸', q:'Столица Исландии?', answers:['Акюрейри','Коупавогюр','Рейкьявик','Хабнарфьордюр'], correct:2 },
+  { id:221, cat:'capitals', difficulty:'hard', flag:'🇲🇹', q:'Столица Мальты?', answers:['Слима','Биркиркара','Валлетта','Мсида'], correct:2 },
+  { id:222, cat:'capitals', difficulty:'hard', flag:'🇨🇾', q:'Столица Кипра?', answers:['Лимасол','Ларнака','Никосия','Пафос'], correct:2 },
+  { id:223, cat:'capitals', difficulty:'medium', flag:'🇺🇿', q:'Столица Узбекистана?', answers:['Самарканд','Наманган','Ташкент','Бухара'], correct:2 },
+  { id:224, cat:'capitals', difficulty:'medium', flag:'🇹🇯', q:'Столица Таджикистана?', answers:['Худжанд','Куляб','Душанбе','Бохтар'], correct:2 },
+  { id:225, cat:'capitals', difficulty:'medium', flag:'🇹🇲', q:'Столица Туркменистана?', answers:['Туркменабат','Мары','Ашхабад','Дашогуз'], correct:2 },
+  { id:226, cat:'capitals', difficulty:'medium', flag:'🇰🇬', q:'Столица Кыргызстана?', answers:['Ош','Джалал-Абад','Бишкек','Нарын'], correct:2 },
+  { id:227, cat:'capitals', difficulty:'easy', flag:'🇲🇳', q:'Столица Монголии?', answers:['Дархан','Эрдэнэт','Улан-Батор','Чойбалсан'], correct:2 },
+  { id:228, cat:'capitals', difficulty:'medium', flag:'🇳🇵', q:'Столица Непала?', answers:['Покхара','Биратнагар','Катманду','Лалитпур'], correct:2 },
+  { id:229, cat:'capitals', difficulty:'medium', flag:'🇰🇭', q:'Столица Камбоджи?', answers:['Сиемреап','Баттамбанг','Пномпень','Сиануквиль'], correct:2 },
+  { id:230, cat:'capitals', difficulty:'medium', flag:'🇱🇦', q:'Столица Лаоса?', answers:['Луангпхабанг','Саваннакхет','Вьентьян','Паксе'], correct:2 },
+  { id:231, cat:'capitals', difficulty:'medium', flag:'🇦🇪', q:'Столица ОАЭ?', answers:['Дубай','Шарджа','Абу-Даби','Аджман'], correct:2 },
+  { id:232, cat:'capitals', difficulty:'medium', flag:'🇰🇼', q:'Столица Кувейта?', answers:['Хавалли','Эль-Кувейт','Сура','Манама'], correct:1 },
+  { id:233, cat:'capitals', difficulty:'medium', flag:'🇧🇭', q:'Столица Бахрейна?', answers:['Рифа','Мухаррак','Манама','Ситра'], correct:2 },
+  { id:234, cat:'capitals', difficulty:'medium', flag:'🇶🇦', q:'Столица Катара?', answers:['Эль-Вакра','Эр-Райян','Доха','Умм-Саид'], correct:2 },
+  { id:235, cat:'capitals', difficulty:'medium', flag:'🇴🇲', q:'Столица Омана?', answers:['Низва','Сохар','Салала','Маскат'], correct:3 },
+  { id:236, cat:'capitals', difficulty:'medium', flag:'🇾🇪', q:'Столица Йемена?', answers:['Аден','Таизз','Ходейда','Сана'], correct:3 },
+  { id:237, cat:'capitals', difficulty:'medium', flag:'🇯🇴', q:'Столица Иордании?', answers:['Акаба','Зарка','Ирбид','Амман'], correct:3 },
+  { id:238, cat:'capitals', difficulty:'medium', flag:'🇸🇾', q:'Столица Сирии?', answers:['Алеппо','Хомс','Латакия','Дамаск'], correct:3 },
+  { id:239, cat:'capitals', difficulty:'medium', flag:'🇱🇧', q:'Столица Ливана?', answers:['Триполи','Сайда','Тир','Бейрут'], correct:3 },
+  { id:240, cat:'capitals', difficulty:'medium', flag:'🇺🇬', q:'Столица Уганды?', answers:['Джинджа','Мбале','Кампала','Гулу'], correct:2 },
+  { id:241, cat:'capitals', difficulty:'medium', flag:'🇬🇭', q:'Столица Ганы?', answers:['Кумаси','Тамале','Аккра','Секонди-Такоради'], correct:2 },
+  { id:242, cat:'capitals', difficulty:'medium', flag:'🇸🇳', q:'Столица Сенегала?', answers:['Тиес','Кедугу','Дакар','Зигиншор'], correct:2 },
+  { id:243, cat:'capitals', difficulty:'hard', flag:'🇹🇳', q:'Столица Туниса?', answers:['Сфакс','Сусс','Тунис','Кайруан'], correct:2 },
+  { id:244, cat:'capitals', difficulty:'hard', flag:'🇩🇿', q:'Столица Алжира?', answers:['Оран','Константина','Алжир','Аннаба'], correct:2 },
+  { id:245, cat:'capitals', difficulty:'hard', flag:'🇲🇱', q:'Столица Мали?', answers:['Гао','Тимбукту','Бамако','Сегу'], correct:2 },
+  { id:246, cat:'capitals', difficulty:'hard', flag:'🇧🇫', q:'Столица Буркина-Фасо?', answers:['Бобо-Диуласо','Кудугу','Уагадугу','Дори'], correct:2 },
+  { id:247, cat:'capitals', difficulty:'hard', flag:'🇳🇪', q:'Столица Нигера?', answers:['Зиндер','Маради','Ниамей','Агадес'], correct:2 },
+  { id:248, cat:'capitals', difficulty:'hard', flag:'🇹🇩', q:'Столица Чада?', answers:['Мунду','Абеше','Нджамена','Сарх'], correct:2 },
+  { id:249, cat:'capitals', difficulty:'hard', flag:'🇷🇼', q:'Столица Руанды?', answers:['Гитарама','Бутаре','Кигали','Рухенгери'], correct:2 },
+  { id:250, cat:'capitals', difficulty:'hard', flag:'🇸🇸', q:'Столица Южного Судана?', answers:['Вау','Малакаль','Джуба','Бор'], correct:2 },
+  { id:251, cat:'capitals', difficulty:'hard', flag:'🇱🇾', q:'Столица Ливии?', answers:['Бенгази','Мисурата','Триполи','Сирт'], correct:2 },
+  { id:252, cat:'capitals', difficulty:'hard', flag:'🇲🇷', q:'Столица Мавритании?', answers:['Нуадибу','Кифа','Нуакшот','Зуэрат'], correct:2 },
+  { id:253, cat:'capitals', difficulty:'hard', flag:'🇨🇫', q:'Столица ЦАР?', answers:['Банги','Берберати','Мбаики','Бамбари'], correct:0 },
+  { id:254, cat:'capitals', difficulty:'hard', flag:'🇪🇷', q:'Столица Эритреи?', answers:['Кэрэн','Массауа','Асмэра','Асаб'], correct:2 },
+  { id:255, cat:'capitals', difficulty:'hard', flag:'🇸🇴', q:'Столица Сомали?', answers:['Харгейса','Кисмайо','Могадишо','Байдабо'], correct:2 },
+  { id:256, cat:'capitals', difficulty:'hard', flag:'🇲🇬', q:'Столица Мадагаскара?', answers:['Туамасина','Анцирабе','Антананариву','Фианаранцуа'], correct:2 },
+  { id:257, cat:'capitals', difficulty:'medium', flag:'🇦🇴', q:'Столица Анголы?', answers:['Уамбо','Бенгела','Луанда','Лобиту'], correct:2 },
+  { id:258, cat:'capitals', difficulty:'medium', flag:'🇿🇲', q:'Столица Замбии?', answers:['Ндола','Китве','Лусака','Ливингстон'], correct:2 },
+  { id:259, cat:'capitals', difficulty:'medium', flag:'🇲🇿', q:'Столица Мозамбика?', answers:['Бейра','Нампула','Мапуту','Тете'], correct:2 },
+  { id:260, cat:'capitals', difficulty:'medium', flag:'🇲🇼', q:'Столица Малави?', answers:['Блантайр','Зомба','Лилонгве','Нкхота-Кота'], correct:2 },
+  { id:261, cat:'capitals', difficulty:'hard', flag:'🇸🇿', q:'Столица Эсватини?', answers:['Матсапха','Мбабане','Манзини','Ситоки'], correct:1 },
+  { id:262, cat:'capitals', difficulty:'hard', flag:'🇱🇸', q:'Столица Лесото?', answers:['Масеру','Тейба-Нчу','Маферене','Малоти'], correct:0 },
+  { id:263, cat:'capitals', difficulty:'hard', flag:'🇧🇼', q:'Столица Ботсваны?', answers:['Франсистаун','Мохупе','Габорон','Шошонг'], correct:2 },
+  { id:264, cat:'capitals', difficulty:'hard', flag:'🇳🇦', q:'Столица Намибии?', answers:['Уолфиш-Бей','Рунду','Виндхук','Катима-Мулило'], correct:2 },
+  { id:265, cat:'capitals', difficulty:'hard', flag:'🇬🇦', q:'Столица Габона?', answers:['Порт-Жантиль','Ламбарене','Либревиль','Уэм'], correct:2 },
+  { id:266, cat:'capitals', difficulty:'hard', flag:'🇨🇬', q:'Столица Республики Конго?', answers:['Пуэнт-Нуар','Нкайи','Браззавиль','Лоубомо'], correct:2 },
+  { id:267, cat:'capitals', difficulty:'hard', flag:'🇰🇵', q:'Столица Северной Кореи?', answers:['Хамхын','Чхонджин','Пхеньян','Нампхо'], correct:2 },
+  { id:268, cat:'capitals', difficulty:'medium', flag:'🇹🇼', q:'Столица Тайваня?', answers:['Тайчжун','Гаосюн','Тайнань','Тайбэй'], correct:3 },
+  { id:269, cat:'capitals', difficulty:'hard', flag:'🇸🇻', q:'Столица Сальвадора?', answers:['Санта-Ана','Сан-Мигель','Сан-Сальвадор','Ла-Либертад'], correct:2 },
+  { id:270, cat:'capitals', difficulty:'hard', flag:'🇬🇹', q:'Столица Гватемалы?', answers:['Гватемала-Сити','Антигуа','Кесальтенанго','Пуэрто-Барриос'], correct:0 },
+  { id:271, cat:'capitals', difficulty:'hard', flag:'🇭🇳', q:'Столица Гондураса?', answers:['Сан-Педро-Сула','Ла-Сейба','Тегусигальпа','Чолутека'], correct:2 },
+  { id:272, cat:'capitals', difficulty:'hard', flag:'🇳🇮', q:'Столица Никарагуа?', answers:['Леон','Гранада','Манагуа','Эстели'], correct:2 },
+  { id:273, cat:'capitals', difficulty:'hard', flag:'🇨🇷', q:'Столица Коста-Рики?', answers:['Картаго','Алахуэла','Сан-Хосе','Эредиа'], correct:2 },
+  { id:274, cat:'capitals', difficulty:'hard', flag:'🇵🇦', q:'Столица Панамы?', answers:['Панама-Сити','Колон','Дэвид','Ла-Палма'], correct:0 },
+  { id:275, cat:'capitals', difficulty:'hard', flag:'🇧🇿', q:'Столица Белиза?', answers:['Белиз-Сити','Бельмопан','Ориндж-Уок','Дангрига'], correct:1 },
+  { id:276, cat:'capitals', difficulty:'medium', flag:'🇨🇺', q:'Столица Кубы?', answers:['Гавана','Сантьяго-де-Куба','Камагуэй','Ольгин'], correct:0 },
+  { id:277, cat:'capitals', difficulty:'hard', flag:'🇭🇹', q:'Столица Гаити?', answers:['Кап-Аитьен','Гонаив','Порт-о-Пренс','Жакмель'], correct:2 },
+  { id:278, cat:'capitals', difficulty:'hard', flag:'🇩🇴', q:'Столица Доминиканской Республики?', answers:['Сантьяго','Сан-Педро-де-Макорис','Санто-Доминго','Пуэрто-Плата'], correct:2 },
+  { id:279, cat:'capitals', difficulty:'hard', flag:'🇫🇯', q:'Столица Фиджи?', answers:['Нади','Лаутока','Сува','Насину'], correct:2 },
+  { id:280, cat:'capitals', difficulty:'hard', flag:'🇵🇬', q:'Столица Папуа Новой Гвинеи?', answers:['Лаэ','Порт-Морсби','Маунт-Хаген','Буния'], correct:1 },
+
+  // ══ ФЛАГИ доп. 281-320 ══
+  { id:281, cat:'flags', difficulty:'medium', flag:'🇦🇷', q:'Чей это флаг? 🇦🇷 (небесно-голубые полосы с солнцем)', answers:['Уругвай','Аргентина','Гондурас','Никарагуа'], correct:1 },
+  { id:282, cat:'flags', difficulty:'medium', flag:'🇲🇽', q:'Чей это флаг? 🇲🇽 (орёл со змеёй в центре)', answers:['Бразилия','Перу','Мексика','Колумбия'], correct:2 },
+  { id:283, cat:'flags', difficulty:'medium', flag:'🇨🇭', q:'Чей это флаг? 🇨🇭 (белый крест на красном, квадратный)', answers:['Дания','Австрия','Швейцария','Грузия'], correct:2 },
+  { id:284, cat:'flags', difficulty:'medium', flag:'🇮🇱', q:'Чей это флаг? 🇮🇱 (шестиконечная звезда Давида)', answers:['Иордания','Израиль','Ливан','Сирия'], correct:1 },
+  { id:285, cat:'flags', difficulty:'medium', flag:'🇸🇦', q:'Чей это флаг? 🇸🇦 (зелёный с мечом и арабской надписью)', answers:['Иран','Пакистан','Саудовская Аравия','ОАЭ'], correct:2 },
+  { id:286, cat:'flags', difficulty:'medium', flag:'🇹🇷', q:'Чей это флаг? 🇹🇷 (полумесяц и звезда на красном)', answers:['Марокко','Пакистан','Турция','Алжир'], correct:2 },
+  { id:287, cat:'flags', difficulty:'medium', flag:'🇬🇷', q:'Чей это флаг? 🇬🇷 (синие и белые полосы с крестом в углу)', answers:['Эстония','Финляндия','Греция','Израиль'], correct:2 },
+  { id:288, cat:'flags', difficulty:'medium', flag:'🇰🇿', q:'Чей это флаг? 🇰🇿 (голубой с орлом и национальным орнаментом)', answers:['Монголия','Казахстан','Узбекистан','Туркменистан'], correct:1 },
+  { id:289, cat:'flags', difficulty:'hard', flag:'🇧🇩', q:'Чей это флаг? 🇧🇩 (зелёный с красным кругом)', answers:['Япония','Бангладеш','Пакистан','Нигерия'], correct:1 },
+  { id:290, cat:'flags', difficulty:'hard', flag:'🇸🇬', q:'Чей это флаг? 🇸🇬 (красно-белый с полумесяцем и 5 звёздами)', answers:['Малайзия','Бруней','Сингапур','Мальдивы'], correct:2 },
+  { id:291, cat:'flags', difficulty:'hard', flag:'🇱🇧', q:'Чей это флаг? 🇱🇧 (ливанский кедр на белом в центре)', answers:['Сирия','Ирак','Ливан','Иордания'], correct:2 },
+  { id:292, cat:'flags', difficulty:'hard', flag:'🇵🇰', q:'Чей это флаг? 🇵🇰 (тёмно-зелёный с полумесяцем и белой полосой)', answers:['Алжир','Мавритания','Пакистан','Ливия'], correct:2 },
+  { id:293, cat:'flags', difficulty:'hard', flag:'🇲🇾', q:'Чей это флаг? 🇲🇾 (красно-белые полосы, луна и звезда в синем углу)', answers:['Сингапур','Бруней','Индонезия','Малайзия'], correct:3 },
+  { id:294, cat:'flags', difficulty:'hard', flag:'🇵🇭', q:'Чей это флаг? 🇵🇭 (солнце с 8 лучами и три звезды)', answers:['Тайвань','Вьетнам','Таиланд','Филиппины'], correct:3 },
+  { id:295, cat:'flags', difficulty:'hard', flag:'🇵🇦', q:'Чей это флаг? 🇵🇦 (четыре квадрата: красный, белый, синий, белый)', answers:['Панама','Куба','Пуэрто-Рико','Доминиканская Республика'], correct:0 },
+  { id:296, cat:'flags', difficulty:'hard', flag:'🇻🇪', q:'Чей это флаг? 🇻🇪 (жёлто-сине-красный с дугой из звёзд)', answers:['Колумбия','Венесуэла','Эквадор','Боливия'], correct:1 },
+  { id:297, cat:'flags', difficulty:'hard', flag:'🇨🇴', q:'Чей это флаг? 🇨🇴 (жёлтая широкая, синяя, красная полосы)', answers:['Эквадор','Венесуэла','Колумбия','Бразилия'], correct:2 },
+  { id:298, cat:'flags', difficulty:'hard', flag:'🇧🇴', q:'Чей это флаг? 🇧🇴 (красный, жёлтый, зелёный полосы)', answers:['Эфиопия','Боливия','Гана','Мали'], correct:1 },
+  { id:299, cat:'flags', difficulty:'hard', flag:'🇱🇾', q:'Чей это флаг? 🇱🇾 (зелёный полумесяц и звезда на чёрном)', answers:['Алжир','Марокко','Ливия','Тунис'], correct:2 },
+  { id:300, cat:'flags', difficulty:'hard', flag:'🇬🇭', q:'Чей это флаг? 🇬🇭 (красный, золотой, зелёный с чёрной звездой)', answers:['Камерун','Сенегал','Гана','Гвинея'], correct:2 },
+  { id:301, cat:'flags', difficulty:'hard', flag:'🇰🇪', q:'Чей это флаг? 🇰🇪 (щит масаев и скрещенные копья)', answers:['Танзания','Зимбабве','Кения','Уганда'], correct:2 },
+  { id:302, cat:'flags', difficulty:'hard', flag:'🇳🇬', q:'Чей это флаг? 🇳🇬 (зелёно-белые вертикальные полосы)', answers:['Нигерия','Сьерра-Леоне','Мавритания','Берег Слоновой Кости'], correct:0 },
+  { id:303, cat:'flags', difficulty:'hard', flag:'🇪🇹', q:'Чей это флаг? 🇪🇹 (зелёный, жёлтый, красный с синим кругом)', answers:['Камерун','Сенегал','Боливия','Эфиопия'], correct:3 },
+  { id:304, cat:'flags', difficulty:'hard', flag:'🇰🇵', q:'Чей это флаг? 🇰🇵 (красная звезда в белом круге, красно-синие полосы)', answers:['Китай','Куба','Северная Корея','Вьетнам'], correct:2 },
+  { id:305, cat:'flags', difficulty:'medium', flag:'🇻🇳', q:'Чей это флаг? 🇻🇳 (жёлтая звезда на красном)', answers:['Китай','Северная Корея','Вьетнам','Лаос'], correct:2 },
+  { id:306, cat:'flags', difficulty:'hard', flag:'🇱🇦', q:'Чей это флаг? 🇱🇦 (белый круг на красных и синей полосах)', answers:['Камбоджа','Таиланд','Лаос','Мьянма'], correct:2 },
+  { id:307, cat:'flags', difficulty:'hard', flag:'🇰🇭', q:'Чей это флаг? 🇰🇭 (храм Ангкор-Ват в центре)', answers:['Таиланд','Лаос','Вьетнам','Камбоджа'], correct:3 },
+  { id:308, cat:'flags', difficulty:'hard', flag:'🇧🇧', q:'Чей это флаг? 🇧🇧 (трезубец Нептуна на синем и золотом)', answers:['Тринидад и Тобаго','Барбадос','Ямайка','Багамы'], correct:1 },
+  { id:309, cat:'flags', difficulty:'hard', flag:'🇯🇲', q:'Чей это флаг? 🇯🇲 (жёлтый диагональный крест на зелёном и чёрном)', answers:['Ямайка','Тринидад','Белиз','Гайана'], correct:0 },
+  { id:310, cat:'flags', difficulty:'hard', flag:'🇧🇸', q:'Чей это флаг? 🇧🇸 (чёрный треугольник и голубые полосы)', answers:['Панама','Куба','Багамы','Гаити'], correct:2 },
+  { id:311, cat:'flags', difficulty:'hard', flag:'🇯🇴', q:'Чей это флаг? 🇯🇴 (арабские цвета с белой звездой)', answers:['Ирак','Иордания','Сирия','Палестина'], correct:1 },
+  { id:312, cat:'flags', difficulty:'hard', flag:'🇦🇫', q:'Чей это флаг? 🇦🇫 (три вертикальные полосы с гербом)', answers:['Иран','Афганистан','Кувейт','Ирак'], correct:1 },
+  { id:313, cat:'flags', difficulty:'medium', flag:'🇰🇷', q:'Чей это флаг? 🇰🇷 (триграммы на белом с красно-синим кругом)', answers:['Япония','Китай','КНДР','Южная Корея'], correct:3 },
+  { id:314, cat:'flags', difficulty:'hard', flag:'🇵🇾', q:'Единственный флаг с разными рисунками на двух сторонах?', answers:['Сан-Марино','Парагвай','Оман','Саудовская Аравия'], correct:1 },
+  { id:315, cat:'flags', difficulty:'hard', flag:'🇳🇵', q:'Чей это флаг? 🇳🇵 (единственный нетрапециевидный флаг страны)', answers:['Бутан','Мьянма','Непал','Шри-Ланка'], correct:2 },
+  { id:316, cat:'flags', difficulty:'hard', flag:'🇲🇨', q:'Чей это флаг? 🇲🇨 (красный и белый горизонтальные полосы)', answers:['Польша','Монако','Индонезия','Сингапур'], correct:1 },
+  { id:317, cat:'flags', difficulty:'hard', flag:'🇸🇸', q:'Чей это флаг? 🇸🇸 (флаг самого молодого государства)', answers:['Южный Судан','Эритрея','Зимбабве','Кения'], correct:0 },
+  { id:318, cat:'flags', difficulty:'hard', flag:'🇹🇹', q:'Чей это флаг? 🇹🇹 (чёрная полоса с белой окантовкой)', answers:['Гренада','Тринидад и Тобаго','Суринам','Гайана'], correct:1 },
+  { id:319, cat:'flags', difficulty:'hard', flag:'🇨🇺', q:'Чей это флаг? 🇨🇺 (красный треугольник со звездой слева)', answers:['Пуэрто-Рико','Куба','Чили','Коста-Рика'], correct:1 },
+  { id:320, cat:'flags', difficulty:'hard', flag:'🇦🇺', q:'Флаги Австралии и Новой Зеландии похожи. Что их отличает?', answers:['Цвет фона','Количество звёзд и их цвет','Размер флага','Рисунок в углу'], correct:1 },
+
+  // ══ ГОРЫ доп. 321-340 ══
+  { id:321, cat:'mountains', difficulty:'medium', flag:'', q:'Горный хребет — «хребет Италии»?', answers:['Альпы','Пиренеи','Апеннины','Карпаты'], correct:2 },
+  { id:322, cat:'mountains', difficulty:'medium', flag:'', q:'Самая высокая гора Японии?', answers:['Гора Асо','Гора Хакуба','Фудзияма','Гора Дайсэн'], correct:2 },
+  { id:323, cat:'mountains', difficulty:'hard', flag:'', q:'Третья по высоте гора мира?', answers:['Макалу','Лхоцзе','Канченджанга','Чо-Ойю'], correct:2 },
+  { id:324, cat:'mountains', difficulty:'hard', flag:'', q:'Высота К2 (второй пик мира)?', answers:['8 611 м','8 516 м','8 485 м','8 201 м'], correct:0 },
+  { id:325, cat:'mountains', difficulty:'medium', flag:'', q:'Горная система между Францией и Испанией?', answers:['Альпы','Пиренеи','Апеннины','Вогезы'], correct:1 },
+  { id:326, cat:'mountains', difficulty:'medium', flag:'', q:'Высшая точка Австралии?', answers:['Гора Барнс','Гора Том Прайс','Пик Косцюшко','Гора Тауэр'], correct:2 },
+  { id:327, cat:'mountains', difficulty:'medium', flag:'', q:'Высшая точка Антарктиды?', answers:['Гора Эребус','Массив Винсон','Гора Сидли','Гора Маркхэм'], correct:1 },
+  { id:328, cat:'mountains', difficulty:'hard', flag:'', q:'Гора, наиболее удалённая от центра Земли?', answers:['Эверест','Мауна-Кеа','Чимборасо','К2'], correct:2 },
+  { id:329, cat:'mountains', difficulty:'medium', flag:'', q:'Монблан находится на границе каких стран?', answers:['Германия и Австрия','Франция и Швейцария','Франция и Италия','Италия и Австрия'], correct:2 },
+  { id:330, cat:'mountains', difficulty:'medium', flag:'', q:'На каком материке расположены Анды?', answers:['Северной Америке','Южной Америке','Центральной Азии','Африке'], correct:1 },
+  { id:331, cat:'mountains', difficulty:'medium', flag:'', q:'Килиманджаро — высшая точка Африки — в какой стране?', answers:['Кения','Уганда','Танзания','Эфиопия'], correct:2 },
+  { id:332, cat:'mountains', difficulty:'hard', flag:'', q:'Количество «восьмитысячников» — вершин выше 8000 м?', answers:['8','11','14','17'], correct:2 },
+  { id:333, cat:'mountains', difficulty:'medium', flag:'', q:'В каких странах расположены Гималаи?', answers:['Только в Непале','Только в Индии и Непале','Индия, Непал, Китай, Бутан, Пакистан','Китай и Непал'], correct:2 },
+  { id:334, cat:'mountains', difficulty:'hard', flag:'', q:'Самый длинный горный хребет на дне Мирового океана?', answers:['Срединно-Атлантический хребет','Гавайско-Императорская цепь','Хребет Ломоносова','Восточно-Тихоокеанское поднятие'], correct:0 },
+  { id:335, cat:'mountains', difficulty:'hard', flag:'', q:'Самый высокий действующий вулкан Южной Америки?', answers:['Котопахи','Охос-дель-Саладо','Льяймя','Ключевская Сопка'], correct:0 },
+
+  // ══ РЕКИ доп. 336-360 ══
+  { id:336, cat:'rivers', difficulty:'medium', flag:'', q:'Какая река протекает через Египет?', answers:['Конго','Нигер','Нил','Замбези'], correct:2 },
+  { id:337, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Китая?', answers:['Хуанхэ','Меконг','Янцзы','Амур'], correct:2 },
+  { id:338, cat:'rivers', difficulty:'medium', flag:'', q:'Через сколько стран протекает Дунай?', answers:['7','10','8','5'], correct:1 },
+  { id:339, cat:'rivers', difficulty:'hard', flag:'', q:'Самая длинная река Австралии?', answers:['Муррей','Дарлинг','Купер-Крик','Флиндерс'], correct:0 },
+  { id:340, cat:'rivers', difficulty:'medium', flag:'', q:'Какая река протекает через Берлин?', answers:['Рейн','Эльба','Шпрее','Одер'], correct:2 },
+  { id:341, cat:'rivers', difficulty:'medium', flag:'', q:'Какая река протекает через Рим?', answers:['По','Арно','Тибр','Вольтурно'], correct:2 },
+  { id:342, cat:'rivers', difficulty:'medium', flag:'', q:'Какая река протекает через Париж?', answers:['Луара','Рона','Сена','Марна'], correct:2 },
+  { id:343, cat:'rivers', difficulty:'medium', flag:'', q:'Какая река протекает через Лондон?', answers:['Северн','Авон','Темза','Медуэй'], correct:2 },
+  { id:344, cat:'rivers', difficulty:'medium', flag:'', q:'Водопад Виктория находится на реке?', answers:['Конго','Нигер','Замбези','Лимпопо'], correct:2 },
+  { id:345, cat:'rivers', difficulty:'hard', flag:'', q:'Священная река индуизма?', answers:['Инд','Брахмапутра','Ганг','Ямуна'], correct:2 },
+  { id:346, cat:'rivers', difficulty:'hard', flag:'', q:'Откуда берёт начало Нил?', answers:['Голубой Нил из Эфиопии + Белый Нил из озера Виктория','Сахара','Горы Атлас','Озеро Чад'], correct:0 },
+  { id:347, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река Южной Америки?', answers:['Ла-Плата','Парагвай','Амазонка','Ориноко'], correct:2 },
+  { id:348, cat:'rivers', difficulty:'hard', flag:'', q:'В какое море впадает Волга?', answers:['Чёрное','Азовское','Балтийское','Каспийское'], correct:3 },
+  { id:349, cat:'rivers', difficulty:'hard', flag:'', q:'Самая полноводная река Африки?', answers:['Нил','Нигер','Конго','Замбези'], correct:2 },
+  { id:350, cat:'rivers', difficulty:'medium', flag:'', q:'Самая длинная река России?', answers:['Волга','Обь','Енисей','Лена'], correct:3 },
+
+  // ══ ОКЕАНЫ доп. 351-370 ══
+  { id:351, cat:'oceans', difficulty:'medium', flag:'', q:'Пролив между Испанией и Марокко?', answers:['Дуврский','Ла-Манш','Гибралтарский','Мессинский'], correct:2 },
+  { id:352, cat:'oceans', difficulty:'medium', flag:'', q:'Канал, соединяющий Средиземное и Красное моря?', answers:['Панамский','Суэцкий','Кильский','Коринфский'], correct:1 },
+  { id:353, cat:'oceans', difficulty:'medium', flag:'', q:'Канал, соединяющий Тихий и Атлантический океаны?', answers:['Суэцкий','Кильский','Панамский','Никарагуанский'], correct:2 },
+  { id:354, cat:'oceans', difficulty:'hard', flag:'', q:'В каком океане находится Марианская впадина?', answers:['Атлантическом','Индийском','Тихом','Северном Ледовитом'], correct:2 },
+  { id:355, cat:'oceans', difficulty:'hard', flag:'', q:'Самое мелкое море в мире?', answers:['Азовское','Мёртвое','Белое','Балтийское'], correct:0 },
+  { id:356, cat:'oceans', difficulty:'hard', flag:'', q:'Пролив, соединяющий Чёрное и Мраморное моря?', answers:['Дарданеллы','Босфор','Коринфский','Мессинский'], correct:1 },
+  { id:357, cat:'oceans', difficulty:'medium', flag:'', q:'Мексиканский залив — часть какого океана?', answers:['Тихого','Атлантического','Индийского','Карибского'], correct:1 },
+  { id:358, cat:'oceans', difficulty:'hard', flag:'', q:'Пятый океан, признанный в 2000 году?', answers:['Антарктический (Южный)','Арктический','Северный','Полярный'], correct:0 },
+  { id:359, cat:'oceans', difficulty:'medium', flag:'', q:'Пролив между Азией и Северной Америкой?', answers:['Гибралтарский','Ла-Манш','Берингов','Малаккский'], correct:2 },
+  { id:360, cat:'oceans', difficulty:'hard', flag:'', q:'Саргассово море — особенность?', answers:['Море без берегов в Атлантике','Внутреннее море Европы','Самое мелкое море','Замёрзшее полярное море'], correct:0 },
+  { id:361, cat:'oceans', difficulty:'medium', flag:'', q:'Самое солёное море в мире?', answers:['Красное','Чёрное','Мёртвое (озеро)','Каспийское'], correct:2 },
+  { id:362, cat:'oceans', difficulty:'hard', flag:'', q:'Пролив между Африкой и Аравийским полуостровом?', answers:['Малаккский','Ормузский','Баб-эль-Мандебский','Мозамбикский'], correct:2 },
+  { id:363, cat:'oceans', difficulty:'medium', flag:'', q:'Что такое «атолл»?', answers:['Подводная гора','Кольцеобразный коралловый риф с лагуной','Глубоководный желоб','Морское дно из вулканических пород'], correct:1 },
+  { id:364, cat:'oceans', difficulty:'medium', flag:'', q:'Что такое «фьорд»?', answers:['Горный перевал','Узкий морской залив с высокими скалистыми берегами','Дельта реки','Мелководное болото у моря'], correct:1 },
+  { id:365, cat:'oceans', difficulty:'hard', flag:'', q:'Самое тёплое море в мире?', answers:['Персидский залив','Красное','Карибское','Тирренское'], correct:0 },
+
+  // ══ СТРАНЫ доп. 366-420 ══
+  { id:366, cat:'countries', difficulty:'medium', flag:'', q:'Самая маленькая страна Южной Америки?', answers:['Уругвай','Суринам','Гайана','Эквадор'], correct:1 },
+  { id:367, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится пустыня Атакама?', answers:['Аргентина','Перу','Чили','Боливия'], correct:2 },
+  { id:368, cat:'countries', difficulty:'hard', flag:'', q:'Самая большая страна без выхода к морю по площади?', answers:['Боливия','Казахстан','Монголия','Эфиопия'], correct:1 },
+  { id:369, cat:'countries', difficulty:'hard', flag:'', q:'Сколько часовых поясов в России?', answers:['9','11','12','13'], correct:1 },
+  { id:370, cat:'countries', difficulty:'medium', flag:'', q:'Страна с наибольшим количеством озёр в мире?', answers:['Россия','Финляндия','Канада','Швеция'], correct:2 },
+  { id:371, cat:'countries', difficulty:'medium', flag:'', q:'«Страна восходящего солнца» — это?', answers:['Китай','Южная Корея','Тайвань','Япония'], correct:3 },
+  { id:372, cat:'countries', difficulty:'medium', flag:'', q:'«Страна тюльпанов» — это?', answers:['Бельгия','Дания','Нидерланды','Швейцария'], correct:2 },
+  { id:373, cat:'countries', difficulty:'hard', flag:'', q:'Самая длинная береговая линия в мире?', answers:['Россия','Норвегия','Канада','Австралия'], correct:2 },
+  { id:374, cat:'countries', difficulty:'medium', flag:'', q:'В какой стране находится озеро Байкал?', answers:['Казахстан','Монголия','Россия','Китай'], correct:2 },
+  { id:375, cat:'countries', difficulty:'medium', flag:'', q:'Самый большой город Африки по населению?', answers:['Лагос','Каир','Йоханнесбург','Киншаса'], correct:0 },
+  { id:376, cat:'countries', difficulty:'hard', flag:'', q:'Сколько часовых поясов в Китае (официально)?', answers:['5','3','1','2'], correct:2 },
+  { id:377, cat:'countries', difficulty:'hard', flag:'', q:'Страна с наибольшим числом действующих вулканов?', answers:['Япония','Исландия','Индонезия','Россия'], correct:2 },
+  { id:378, cat:'countries', difficulty:'medium', flag:'', q:'Самый большой штат США?', answers:['Техас','Монтана','Калифорния','Аляска'], correct:3 },
+  { id:379, cat:'countries', difficulty:'medium', flag:'', q:'Самый большой город Латинской Америки?', answers:['Буэнос-Айрес','Мехико','Рио-де-Жанейро','Сан-Паулу'], correct:3 },
+  { id:380, cat:'countries', difficulty:'medium', flag:'', q:'Ниагарский водопад находится на границе?', answers:['Только США','Только Канады','США и Канады','На острове'], correct:2 },
+  { id:381, cat:'countries', difficulty:'hard', flag:'', q:'Самый густонаселённый остров мира?', answers:['Ява','Хонсю','Суматра','Лусон'], correct:0 },
+  { id:382, cat:'countries', difficulty:'medium', flag:'', q:'Крупнейший производитель кофе в мире?', answers:['Колумбия','Вьетнам','Эфиопия','Бразилия'], correct:3 },
+  { id:383, cat:'countries', difficulty:'medium', flag:'', q:'Самая большая страна Африки по площади?', answers:['Судан','ДРК','Нигерия','Алжир'], correct:3 },
+  { id:384, cat:'countries', difficulty:'hard', flag:'', q:'В каком году Гонконг передан Китаю?', answers:['1995','1997','1999','2000'], correct:1 },
+  { id:385, cat:'countries', difficulty:'medium', flag:'', q:'Галапагосские острова принадлежат?', answers:['Перу','Чили','Колумбии','Эквадору'], correct:3 },
+  { id:386, cat:'countries', difficulty:'medium', flag:'', q:'Самая густонаселённая страна Африки?', answers:['Египет','ДРК','Эфиопия','Нигерия'], correct:3 },
+  { id:387, cat:'countries', difficulty:'hard', flag:'', q:'Страна с наибольшим числом объектов ЮНЕСКО?', answers:['Италия','Франция','Китай','Испания'], correct:0 },
+  { id:388, cat:'countries', difficulty:'medium', flag:'', q:'Самый большой город Канады?', answers:['Ванкувер','Монреаль','Оттава','Торонто'], correct:3 },
+  { id:389, cat:'countries', difficulty:'hard', flag:'', q:'Страна без официальной армии?', answers:['Монако','Исландия','Коста-Рика','Лихтенштейн'], correct:2 },
+  { id:390, cat:'countries', difficulty:'medium', flag:'', q:'Пустыня Гоби расположена в?', answers:['Только в Монголии','Только в Китае','В Монголии и Китае','В Казахстане и Монголии'], correct:2 },
+  { id:391, cat:'countries', difficulty:'medium', flag:'', q:'Самая маленькая страна Азии?', answers:['Сингапур','Бахрейн','Мальдивы','Бруней'], correct:2 },
+  { id:392, cat:'countries', difficulty:'hard', flag:'', q:'ЮАР имеет сколько официальных языков?', answers:['5','8','11','14'], correct:2 },
+  { id:393, cat:'countries', difficulty:'medium', flag:'', q:'Самая длинная страна мира (с севера на юг)?', answers:['Россия','Бразилия','Чили','Китай'], correct:2 },
+  { id:394, cat:'countries', difficulty:'hard', flag:'', q:'«Страна белого слона»?', answers:['Камбоджа','Таиланд','Мьянма','Лаос'], correct:1 },
+  { id:395, cat:'countries', difficulty:'hard', flag:'', q:'«Страна гром-дракона»?', answers:['Непал','Бутан','Монголия','Мьянма'], correct:1 },
+  { id:396, cat:'countries', difficulty:'medium', flag:'', q:'Страна, разделённая на 26 кантонов?', answers:['Австрия','Германия','Швейцария','Нидерланды'], correct:2 },
+  { id:397, cat:'countries', difficulty:'hard', flag:'', q:'Страна без постоянных рек (только вади)?', answers:['Катар','Саудовская Аравия','Кувейт','Бахрейн'], correct:1 },
+  { id:398, cat:'countries', difficulty:'medium', flag:'', q:'Страна, расположенная на двух континентах (большей частью в Европе)?', answers:['Египет','Казахстан','Турция','Россия'], correct:3 },
+  { id:399, cat:'countries', difficulty:'hard', flag:'', q:'Страна с наибольшим числом нобелевских лауреатов?', answers:['Великобритания','Германия','США','Франция'], correct:2 },
+  { id:400, cat:'countries', difficulty:'medium', flag:'', q:'Крупнейший экспортёр нефти в мире?', answers:['США','Россия','Саудовская Аравия','Ирак'], correct:2 },
+
+  // ══ КУХНЯ МИРА 401-490 ══
+  { id:401, cat:'food', difficulty:'easy', flag:'🇮🇹', q:'Пицца и паста — традиционные блюда?', answers:['Испании','Италии','Греции','Португалии'], correct:1 },
+  { id:402, cat:'food', difficulty:'easy', flag:'🇯🇵', q:'Суши и сашими — блюда какой кухни?', answers:['Китайской','Корейской','Японской','Вьетнамской'], correct:2 },
+  { id:403, cat:'food', difficulty:'easy', flag:'🇨🇳', q:'Пекинская утка — блюдо какой страны?', answers:['Японии','Кореи','Тайваня','Китая'], correct:3 },
+  { id:404, cat:'food', difficulty:'easy', flag:'🇮🇳', q:'Карри, самосы и чапати — традиционные блюда?', answers:['Пакистана','Бангладеш','Индии','Шри-Ланки'], correct:2 },
+  { id:405, cat:'food', difficulty:'easy', flag:'🇲🇽', q:'Тако, буррито и гуакамоле — блюда?', answers:['Колумбийской','Венесуэльской','Бразильской','Мексиканской кухни'], correct:3 },
+  { id:406, cat:'food', difficulty:'easy', flag:'🇫🇷', q:'Круассаны, багет и луковый суп — блюда?', answers:['Бельгии','Швейцарии','Франции','Люксембурга'], correct:2 },
+  { id:407, cat:'food', difficulty:'medium', flag:'🇬🇷', q:'Мусака и гирос — блюда какой кухни?', answers:['Турецкой','Болгарской','Греческой','Кипрской'], correct:2 },
+  { id:408, cat:'food', difficulty:'medium', flag:'🇹🇷', q:'Шаурма, кебаб и пахлава знамениты в?', answers:['Иране','Израиле','Турции','Ливане'], correct:2 },
+  { id:409, cat:'food', difficulty:'medium', flag:'🇰🇷', q:'Кимчи — традиционное квашеное блюдо?', answers:['Японии','Китая','Вьетнама','Южной Кореи'], correct:3 },
+  { id:410, cat:'food', difficulty:'medium', flag:'🇹🇭', q:'Том ям и пад тай — блюда какой кухни?', answers:['Вьетнамской','Тайской','Камбоджийской','Малайской'], correct:1 },
+  { id:411, cat:'food', difficulty:'medium', flag:'🇪🇸', q:'Паэлья и тапас — традиционные блюда?', answers:['Португалии','Мексики','Испании','Италии'], correct:2 },
+  { id:412, cat:'food', difficulty:'medium', flag:'🇧🇷', q:'Фейжоада — национальное блюдо?', answers:['Аргентины','Португалии','Бразилии','Уругвая'], correct:2 },
+  { id:413, cat:'food', difficulty:'medium', flag:'🇩🇪', q:'Брецель, колбаски и квашеная капуста — символы кухни?', answers:['Австрии','Германии','Швейцарии','Чехии'], correct:1 },
+  { id:414, cat:'food', difficulty:'medium', flag:'🇷🇺', q:'Борщ, щи и пельмени — блюда?', answers:['Польской','Украинской и Российской','Белорусской','Только русской'], correct:1 },
+  { id:415, cat:'food', difficulty:'medium', flag:'🇬🇧', q:'Рыба с жареным картофелем (fish and chips) — символ кухни?', answers:['Австралии','Ирландии','Канады','Великобритании'], correct:3 },
+  { id:416, cat:'food', difficulty:'medium', flag:'🇵🇹', q:'Пастель-де-ната — знаменитая сладость из?', answers:['Испании','Бразилии','Португалии','Марокко'], correct:2 },
+  { id:417, cat:'food', difficulty:'hard', flag:'🇻🇳', q:'Фо — традиционный суп какой страны?', answers:['Таиланда','Лаоса','Вьетнама','Камбоджи'], correct:2 },
+  { id:418, cat:'food', difficulty:'hard', flag:'🇲🇦', q:'Таджин и кускус — блюда?', answers:['Египетской','Марокканской','Алжирской','Тунисской кухни'], correct:1 },
+  { id:419, cat:'food', difficulty:'medium', flag:'🇨🇭', q:'Фондю и раклет — традиционные блюда?', answers:['Австрии','Франции','Германии','Швейцарии'], correct:3 },
+  { id:420, cat:'food', difficulty:'hard', flag:'🇵🇪', q:'Севиче (маринованная рыба в соке лайма) — блюдо?', answers:['Чили','Эквадора','Перу','Мексики'], correct:2 },
+  { id:421, cat:'food', difficulty:'hard', flag:'🇪🇹', q:'Инджера — кислый блин-лаваш из теффа — блюдо?', answers:['Сомали','Судана','Эфиопии','Кении'], correct:2 },
+  { id:422, cat:'food', difficulty:'hard', flag:'🇰🇿', q:'Бешбармак — мясо с широкой лапшой — блюдо?', answers:['Узбекистана','Монголии','Казахстана','Киргизии'], correct:2 },
+  { id:423, cat:'food', difficulty:'medium', flag:'🇮🇷', q:'Хорешт и чело — основа кухни?', answers:['Ирака','Афганистана','Ирана','Азербайджана'], correct:2 },
+  { id:424, cat:'food', difficulty:'medium', flag:'🇮🇩', q:'Наси-горенг и сатай — блюда?', answers:['Малайзии','Сингапура','Таиланда','Индонезии'], correct:3 },
+  { id:425, cat:'food', difficulty:'hard', flag:'🇯🇵', q:'Темпура в Японию пришла от?', answers:['Китайцев','Голландцев','Португальцев','Корейцев'], correct:2 },
+  { id:426, cat:'food', difficulty:'medium', flag:'🇸🇦', q:'Кабса — рис с мясом и пряностями — блюдо?', answers:['Египта','Ирана','Аравийских стран','Ирака'], correct:2 },
+  { id:427, cat:'food', difficulty:'medium', flag:'🇭🇺', q:'Гуляш — традиционное блюдо?', answers:['Австрии','Чехии','Польши','Венгрии'], correct:3 },
+  { id:428, cat:'food', difficulty:'medium', flag:'🇪🇬', q:'Кошари (рис, чечевица, макароны) — блюдо?', answers:['Марокко','Ливии','Египта','Туниса'], correct:2 },
+  { id:429, cat:'food', difficulty:'hard', flag:'🇬🇪', q:'Хачапури (сырный хлеб) и хинкали (суповые пельмени) — блюда?', answers:['Армении','Азербайджана','Грузии','Турции'], correct:2 },
+  { id:430, cat:'food', difficulty:'medium', flag:'🇺🇦', q:'Вареники с начинкой и борщ — символы кухни?', answers:['России','Польши','Беларуси','Украины'], correct:3 },
+  { id:431, cat:'food', difficulty:'medium', flag:'🇺🇿', q:'Самса, лагман и манты — блюда?', answers:['Только Узбекистана','Центральноазиатской кухни','Китайской','Монгольской'], correct:1 },
+  { id:432, cat:'food', difficulty:'hard', flag:'🇵🇭', q:'Адобо — мясо в уксусно-соевом маринаде — блюдо?', answers:['Индонезии','Малайзии','Вьетнама','Филиппин'], correct:3 },
+  { id:433, cat:'food', difficulty:'hard', flag:'🇳🇵', q:'Момо — паровые пельмени с начинкой — блюдо из?', answers:['Непала и Тибета','Монголии','Китая','Бутана'], correct:0 },
+  { id:434, cat:'food', difficulty:'medium', flag:'🇰🇿', q:'Кумыс изготавливается из?', answers:['Коровьего молока','Ферментированного кобыльего молока','Верблюжьего молока','Овечьего молока'], correct:1 },
+  { id:435, cat:'food', difficulty:'hard', flag:'🇮🇸', q:'Хаукарль — деликатес из?', answers:['Сушёной трески','Ферментированной акулы','Копчёного ягнёнка','Варёного кита'], correct:1 },
+  { id:436, cat:'food', difficulty:'hard', flag:'🇸🇪', q:'Сюрстрёмминг — ферментированная?', answers:['Солёная сельдь','Ферментированная балтийская сельдь с резким запахом','Копчёный лосось','Маринованная форель'], correct:1 },
+  { id:437, cat:'food', difficulty:'hard', flag:'🇵🇭', q:'Балут — деликатес из?', answers:['Маринованного краба','Варёного яйца с зародышем утки','Жареных насекомых','Сырой рыбы'], correct:1 },
+  { id:438, cat:'food', difficulty:'medium', flag:'🇲🇾', q:'Наси-лемак — рис на кокосовом молоке — блюдо?', answers:['Сингапура','Индонезии','Брунея','Малайзии'], correct:3 },
+  { id:439, cat:'food', difficulty:'hard', flag:'🇯🇵', q:'Умами — это?', answers:['Японский зелёный чай','Пятый вкус (сладкий, кислый, солёный, горький + умами)','Рисовый пирог','Соус для суши'], correct:1 },
+  { id:440, cat:'food', difficulty:'medium', flag:'🇮🇹', q:'Пицца «маргарита» родом из?', answers:['Рима','Милана','Флоренции','Неаполя'], correct:3 },
+  { id:441, cat:'food', difficulty:'medium', flag:'🇫🇷', q:'Регион Франции, знаменитый вином «Бордо»?', answers:['Бургундия','Шампань','Долина Луары','Аквитания (регион Бордо)'], correct:3 },
+  { id:442, cat:'food', difficulty:'medium', flag:'🇮🇳', q:'«Масала-чай» — чай со специями — характерен для?', answers:['Шри-Ланки','Бангладеш','Пакистана','Индии'], correct:3 },
+  { id:443, cat:'food', difficulty:'hard', flag:'🇻🇳', q:'Баньми — вьетнамский бутерброд — несёт влияние?', answers:['Китая','Франции','США','Японии'], correct:1 },
+  { id:444, cat:'food', difficulty:'medium', flag:'🇨🇦', q:'Путин — картофель с подливой и сыром — блюдо из?', answers:['США','Великобритании','Канады','Австралии'], correct:2 },
+  { id:445, cat:'food', difficulty:'hard', flag:'🇦🇺', q:'Вегемайт — тёмная дрожжевая паста — характерна для?', answers:['Новой Зеландии','Великобритании','Австралии','Ирландии'], correct:2 },
+  { id:446, cat:'food', difficulty:'medium', flag:'🇸🇪', q:'«Шведский стол» (буфет) — традиция из?', answers:['Дании','Норвегии','Финляндии','Швеции'], correct:3 },
+  { id:447, cat:'food', difficulty:'medium', flag:'🇬🇷', q:'Мусака готовится из?', answers:['Баклажанов, фарша, соуса бешамель','Риса, мяса, томатов','Картофеля, сыра, яиц','Кабачков, феты, оливок'], correct:0 },
+  { id:448, cat:'food', difficulty:'medium', flag:'🇵🇱', q:'Бигос — капуста с мясом — блюдо?', answers:['Чехии','Польши','Венгрии','Словакии'], correct:1 },
+  { id:449, cat:'food', difficulty:'hard', flag:'🇲🇽', q:'Моле — мексиканский соус — содержит?', answers:['Сливки и чеснок','Шоколад, чили и специи','Томаты и авокадо','Кукурузу и перец'], correct:1 },
+  { id:450, cat:'food', difficulty:'medium', flag:'🇰🇷', q:'Кимчи — это?', answers:['Корейский суп из водорослей','Маринованная капуста с острыми специями','Жареный рис с яйцом','Корейское барбекю'], correct:1 },
+  { id:451, cat:'food', difficulty:'medium', flag:'🇨🇳', q:'Димсам — традиционные закуски — из?', answers:['Японии','Вьетнама','Китая (кантонская кухня)','Кореи'], correct:2 },
+  { id:452, cat:'food', difficulty:'medium', flag:'🇿🇦', q:'Брай (brai) — традиционный барбекю — из культуры?', answers:['Намибии','Ботсваны','ЮАР','Зимбабве'], correct:2 },
+  { id:453, cat:'food', difficulty:'hard', flag:'🇸🇳', q:'Тьебудьен — рыба с рисом и овощами — блюдо?', answers:['Гамбии','Гвинеи','Сенегала','Буркина-Фасо'], correct:2 },
+  { id:454, cat:'food', difficulty:'hard', flag:'🇧🇪', q:'Какая страна первой начала промышленное производство шоколада?', answers:['Швейцария','Нидерланды','Бельгия','Франция'], correct:1 },
+  { id:455, cat:'food', difficulty:'medium', flag:'🇦🇷', q:'Асадо — барбекю на дровах — символ кухни?', answers:['Бразилии','Чили','Аргентины и Уругвая','Перу'], correct:2 },
+  { id:456, cat:'food', difficulty:'hard', flag:'🇨🇴', q:'Бандеха пайса — традиционное блюдо?', answers:['Венесуэлы','Перу','Эквадора','Колумбии'], correct:3 },
+  { id:457, cat:'food', difficulty:'hard', flag:'🇯🇵', q:'Моти — японское лакомство — из?', answers:['Пшеничной муки','Клейкого риса','Соевой пасты','Гречневой муки'], correct:1 },
+  { id:458, cat:'food', difficulty:'medium', flag:'🇺🇦', q:'Борщ — суп из свёклы — считается национальным блюдом?', answers:['России','Польши','Беларуси','Украины'], correct:3 },
+  { id:459, cat:'food', difficulty:'medium', flag:'🇮🇩', q:'Темпе — ферментированные соевые бобы — характерны для?', answers:['Малайзии','Таиланда','Индонезии','Вьетнама'], correct:2 },
+  { id:460, cat:'food', difficulty:'medium', flag:'🇨🇳', q:'Что такое «вок»?', answers:['Блюдо из риса','Глубокая круглая сковорода для жарки','Вид лапши','Соус к мясу'], correct:1 },
+  { id:461, cat:'food', difficulty:'hard', flag:'🇯🇵', q:'Из чего делают соус мисо?', answers:['Рыбы','Ферментированной соевой пасты','Рисового уксуса','Кунжута'], correct:1 },
+  { id:462, cat:'food', difficulty:'medium', flag:'🇮🇹', q:'Настоящий пармезан (Parmigiano-Reggiano) производится только в?', answers:['Тоскане','Ломбардии','Эмилии-Романье','Сицилии'], correct:2 },
+  { id:463, cat:'food', difficulty:'hard', flag:'🇫🇷', q:'Что такое «крем брюле»?', answers:['Мороженое с ягодами','Запечённый крем с корочкой из карамелизированного сахара','Шоколадный мусс','Слоёное тесто с кремом'], correct:1 },
+  { id:464, cat:'food', difficulty:'medium', flag:'🇨🇳', q:'Из чего состоит традиционный «утиный соус» в Китае?', answers:['Соевого соуса и имбиря','Сливовый или абрикосовый джем со специями','Рисового уксуса и чили','Кунжутного масла и лука'], correct:1 },
+  { id:465, cat:'food', difficulty:'hard', flag:'🇮🇳', q:'Что такое «дал»?', answers:['Индийский хлеб','Суп из чечевицы или бобовых','Рисовый плов','Острый соус'], correct:1 },
+  { id:466, cat:'food', difficulty:'medium', flag:'🇮🇩', q:'Из чего готовится «рендан» (рендан Минанг)?', answers:['Рыбы с кокосом','Говядины с кокосовым молоком и специями до сухого состояния','Тофу с овощами','Курицы с арахисом'], correct:1 },
+  { id:467, cat:'food', difficulty:'medium', flag:'🇲🇽', q:'Чилакилес — мексиканское блюдо из?', answers:['Кукурузных тортилья с соусом','Варёной фасоли','Тушёного мяса','Рыбы с авокадо'], correct:0 },
+  { id:468, cat:'food', difficulty:'hard', flag:'🇺🇸', q:'Клэм-чаудер — суп, родом из региона?', answers:['Техас','Нью-Йорк','Новая Англия (Массачусетс)','Флорида'], correct:2 },
+  { id:469, cat:'food', difficulty:'hard', flag:'🇬🇷', q:'Что такое «узо» в Греции?', answers:['Блюдо из морепродуктов','Традиционный анисовый аперитив','Греческий йогурт','Оливковое масло первого отжима'], correct:1 },
+  { id:470, cat:'food', difficulty:'medium', flag:'🇪🇸', q:'Из чего готовится испанский гаспачо?', answers:['Варёных овощей','Холодного супа из сырых томатов и овощей','Рыбного бульона','Картофеля и лука'], correct:1 },
+
+  // ══ ОБЫЧАИ И КУЛЬТУРА 471-560 ══
+  { id:471, cat:'customs', difficulty:'easy', flag:'🇯🇵', q:'В Японии снимают обувь перед входом в дом. Это?', answers:['Только в деревнях','Повсеместная традиция в Японии','Только в храмах','Только в ресторанах'], correct:1 },
+  { id:472, cat:'customs', difficulty:'easy', flag:'🇮🇳', q:'Жест «Намасте» — сложенные ладони — происходит из?', answers:['Китая','Индии','Таиланда','Японии'], correct:1 },
+  { id:473, cat:'customs', difficulty:'medium', flag:'🇧🇷', q:'Карнавал в Рио-де-Жанейро проводится?', answers:['В декабре','В июле','В феврале-марте (перед Великим постом)','В октябре'], correct:2 },
+  { id:474, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'Китайский Новый год отмечается по?', answers:['Григорианскому (1 января)','Лунному календарю','Юлианскому','Исламскому'], correct:1 },
+  { id:475, cat:'customs', difficulty:'medium', flag:'🇮🇳', q:'Дивали — праздник огней в Индии — символизирует?', answers:['Рождение Шивы','Новый год в исламе','Победу света над тьмой','День урожая'], correct:2 },
+  { id:476, cat:'customs', difficulty:'medium', flag:'🇯🇵', q:'Ханами — японская традиция?', answers:['Чайной церемонии','Любования цветущей сакурой','Праздника рыбы','Медитации в садах'], correct:1 },
+  { id:477, cat:'customs', difficulty:'medium', flag:'🇲🇽', q:'День мёртвых (Día de los Muertos) в Мексике — это?', answers:['Траурный день','Праздник воссоединения с душами умерших родных','День поминовения погибших на войне','Религиозный пост'], correct:1 },
+  { id:478, cat:'customs', difficulty:'medium', flag:'🇹🇭', q:'В Таиланде жест «вай» (поклон со сложенными руками): чем выше руки, тем?', answers:['Меньше уважения','Больше уважения','Символ богатства','Признак страха'], correct:1 },
+  { id:479, cat:'customs', difficulty:'hard', flag:'🇧🇬', q:'В Болгарии кивок головы означает?', answers:['Да','Нет','Может быть','Не понимаю'], correct:1 },
+  { id:480, cat:'customs', difficulty:'hard', flag:'🇮🇳', q:'В Индии покачивание головой из стороны в сторону обычно означает?', answers:['Нет','Да или Согласен','Я не знаю','Уходите'], correct:1 },
+  { id:481, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'Дарить часы на день рождения в Китае считается?', answers:['Знаком уважения','Плохой приметой (символ смерти)','Традиционным подарком','Символом богатства'], correct:1 },
+  { id:482, cat:'customs', difficulty:'medium', flag:'🇯🇵', q:'Чаевые в Японии?', answers:['Обязательны','Считаются оскорбительными','Символ уважения','Только в дорогих ресторанах'], correct:1 },
+  { id:483, cat:'customs', difficulty:'medium', flag:'🇺🇸', q:'В каких странах чаевые являются обязательной частью культуры (15-20%)?', answers:['Великобритания и Австралия','США и Канада','Весь западный мир','США, Канада и Мексика'], correct:1 },
+  { id:484, cat:'customs', difficulty:'medium', flag:'🇷🇺', q:'Хлеб и соль при встрече гостей в России символизируют?', answers:['Богатство дома','Гостеприимство и пожелание благополучия','Приглашение к трапезе','Уважение к старшим'], correct:1 },
+  { id:485, cat:'customs', difficulty:'medium', flag:'🇳🇿', q:'Хака — ритуальный танец народа маори — исполняется в?', answers:['Австралии','Фиджи','Новой Зеландии','Самоа'], correct:2 },
+  { id:486, cat:'customs', difficulty:'medium', flag:'🇮🇩', q:'Балийский «Ньепи» — день тишины. В этот день?', answers:['Уличные гуляния','Полная тишина: нет огня, работы и шума','Морские фестивали','Религиозные шествия'], correct:1 },
+  { id:487, cat:'customs', difficulty:'medium', flag:'🇷🇺', q:'«Масленица» в России — праздник знаменует?', answers:['Конец зимы и начало весны','Православное Рождество','Начало нового года','Победу в войне'], correct:0 },
+  { id:488, cat:'customs', difficulty:'medium', flag:'🇩🇪', q:'Октоберфест — пивной фестиваль — проводится в?', answers:['Берлине','Гамбурге','Дюссельдорфе','Мюнхене'], correct:3 },
+  { id:489, cat:'customs', difficulty:'hard', flag:'🇲🇳', q:'Традиционное жилище монголов?', answers:['Яранга','Иглу','Юрта','Вигвам'], correct:2 },
+  { id:490, cat:'customs', difficulty:'medium', flag:'🇧🇷', q:'Капоэйра сочетает элементы?', answers:['Борьбы и музыки','Танца, акробатики и боевого искусства','Гимнастики и театра','Йоги и медитации'], correct:1 },
+  { id:491, cat:'customs', difficulty:'medium', flag:'🇯🇵', q:'Чайная церемония в Японии?', answers:['Икебана','Кабуки','Чадо (тяною)','Генко'], correct:2 },
+  { id:492, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'Красный цвет в китайской культуре символизирует?', answers:['Траур','Удачу, счастье и процветание','Чистоту','Военную силу'], correct:1 },
+  { id:493, cat:'customs', difficulty:'medium', flag:'🇯🇵', q:'Белый цвет в Японии традиционно ассоциируется с?', answers:['Чистотой','Радостью','Смертью и трауром','Духовностью'], correct:2 },
+  { id:494, cat:'customs', difficulty:'medium', flag:'🇮🇳', q:'Праздник Холи в Индии — это?', answers:['Новый год по индийскому календарю','Праздник красок и весны','День бога Ганеши','Фестиваль огней'], correct:1 },
+  { id:495, cat:'customs', difficulty:'medium', flag:'🇮🇷', q:'Новруз — Новый год — отмечается?', answers:['1 января','21 марта (весеннее равноденствие)','22 апреля','Первое новолуние весны'], correct:1 },
+  { id:496, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'В китайские красные конверты («хунбао») на Новый год кладут?', answers:['Письма с пожеланиями','Деньги','Золотые украшения','Сладости'], correct:1 },
+  { id:497, cat:'customs', difficulty:'medium', flag:'🇸🇦', q:'Пятница в исламских странах — это?', answers:['Рабочий день','День молитвы и отдыха','День рынка','День поста'], correct:1 },
+  { id:498, cat:'customs', difficulty:'medium', flag:'🇮🇳', q:'Корова в Индии у индуистов?', answers:['Пища в особых случаях','Священное животное, не употребляемое в пищу','Рабочее животное без религиозного статуса','Охраняемый редкий вид'], correct:1 },
+  { id:499, cat:'customs', difficulty:'hard', flag:'🇧🇹', q:'Бутан использует показатель «ВНС» вместо ВВП. «ВНС» означает?', answers:['Внутренний натуральный сбор','Валовое национальное счастье','Внутренний народный стандарт','Всеобщий нормативный стандарт'], correct:1 },
+  { id:500, cat:'customs', difficulty:'medium', flag:'🇺🇸', q:'День Благодарения в США отмечается?', answers:['25 ноября','В 4-й четверг ноября','1 декабря','В первую пятницу ноября'], correct:1 },
+  { id:501, cat:'customs', difficulty:'medium', flag:'🇦🇺', q:'День Австралии отмечается?', answers:['1 января','25 апреля','26 января','1 июля'], correct:2 },
+  { id:502, cat:'customs', difficulty:'medium', flag:'🇮🇳', q:'Ранголи — традиционные узоры у порога дома — символизируют?', answers:['Знак приветствия','Благополучие и защиту от злых духов','Маркировку территории','Религиозный запрет'], correct:1 },
+  { id:503, cat:'customs', difficulty:'medium', flag:'🇩🇪', q:'Откуда родом традиция рождественских ярмарок?', answers:['Австрии','Германии и Австрии','Швейцарии','Нидерландов'], correct:1 },
+  { id:504, cat:'customs', difficulty:'medium', flag:'🇲🇽', q:'«Quinceañera» в латиноамериканской традиции — это?', answers:['Религиозный праздник','Праздник 15-летия девушки','Свадебный ритуал','День рождения мальчика'], correct:1 },
+  { id:505, cat:'customs', difficulty:'medium', flag:'🇫🇮', q:'Сауна — неотъемлемая часть культуры?', answers:['Дании','Швеции','Финляндии','Норвегии'], correct:2 },
+  { id:506, cat:'customs', difficulty:'hard', flag:'🇬🇭', q:'Ткань «кенте» — полосатая ткань ручной работы — из?', answers:['Нигерии','Кот-д\'Ивуара','Ганы (народ ашанти)','Того'], correct:2 },
+  { id:507, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'Фестиваль лодок-драконов связан с поэтом?', answers:['Конфуцием','Цюй Юань','Лао-цзы','Мэн-цзы'], correct:1 },
+  { id:508, cat:'customs', difficulty:'medium', flag:'🇮🇪', q:'День Святого Патрика отмечается?', answers:['17 марта','1 апреля','25 января','4 июля'], correct:0 },
+  { id:509, cat:'customs', difficulty:'hard', flag:'🇳🇿', q:'«Мана» на языке маори означает?', answers:['Духовная сила и авторитет','Традиционная еда','Племенной вождь','Ритуальный танец'], correct:0 },
+  { id:510, cat:'customs', difficulty:'hard', flag:'🇰🇬', q:'«Ала-качуу» в Кыргызстане — это?', answers:['Свадебный ритуал','Традиция похищения невесты (формально запрещена)','Погребальные гонки','Охотничий ритуал'], correct:1 },
+  { id:511, cat:'customs', difficulty:'hard', flag:'🇲🇳', q:'Наадам — монгольский фестиваль включает?', answers:['Только конные скачки','Борьбу, скачки и стрельбу из лука','Танцы и музыку','Шахматы и борьбу'], correct:1 },
+  { id:512, cat:'customs', difficulty:'medium', flag:'🇪🇸', q:'Сиеста — послеполуденный отдых — распространена в?', answers:['Только в Испании','Испании, Италии, Греции и Латинской Америке','Только средиземноморских странах','Южной Европе и Латинской Америке'], correct:3 },
+  { id:513, cat:'customs', difficulty:'hard', flag:'🇰🇷', q:'Чесокку — корейский праздник урожая — отмечается в?', answers:['Начале лета','Середине осени (по лунному календарю)','Конце зимы','Начале весны'], correct:1 },
+  { id:514, cat:'customs', difficulty:'medium', flag:'🇷🇺', q:'На Масленицу в России символом является?', answers:['Пирог','Блин','Каравай','Кулич'], correct:1 },
+  { id:515, cat:'customs', difficulty:'hard', flag:'🇫🇯', q:'Традиционный напиток «кава» на Фиджи делается из?', answers:['Кокосового молока','Корня растения пиперметистикум','Ферментированного сока','Настойки морских водорослей'], correct:1 },
+  { id:516, cat:'customs', difficulty:'medium', flag:'🇺🇿', q:'В Узбекистане традиция «хашар» означает?', answers:['Свадьбу','Коллективный бесплатный труд для общей пользы','Ритуальный пост','Праздник урожая'], correct:1 },
+  { id:517, cat:'customs', difficulty:'hard', flag:'🇵🇬', q:'В Папуа Новой Гвинее говорят примерно на скольких языках?', answers:['Около 50','Около 200','Более 800','Около 400'], correct:2 },
+  { id:518, cat:'customs', difficulty:'medium', flag:'🇨🇳', q:'На китайских похоронах белый цвет означает?', answers:['Чистоту','Траур и скорбь','Уважение','Духовность'], correct:1 },
+  { id:519, cat:'customs', difficulty:'hard', flag:'🇯🇵', q:'Гамбару (頑張る) — японская концепция, означает?', answers:['Бездействие','Упорство и настойчивость до победы','Принятие судьбы','Коллективное решение'], correct:1 },
+  { id:520, cat:'customs', difficulty:'medium', flag:'🇮🇳', q:'Праздник Лохри в Индии отмечается как?', answers:['Новый год','День окончания зимы и сбора урожая','Праздник воды','День бога солнца'], correct:1 },
+
+  // ══ РАЗНОЕ (вокруг света) 521-570 ══
+  { id:521, cat:'geography', difficulty:'easy', flag:'', q:'В какой стране находится Сиднейский оперный театр?', answers:['Новая Зеландия','Австралия','Великобритания','США'], correct:1 },
+  { id:522, cat:'geography', difficulty:'easy', flag:'', q:'В какой стране находятся пирамиды Гизы?', answers:['Ирак','Судан','Марокко','Египет'], correct:3 },
+  { id:523, cat:'geography', difficulty:'easy', flag:'', q:'Статуя Свободы находится в городе?', answers:['Лос-Анджелес','Вашингтон','Нью-Йорк','Бостон'], correct:2 },
+  { id:524, cat:'geography', difficulty:'easy', flag:'', q:'Стоунхендж находится в?', answers:['Ирландии','Шотландии','Франции','Великобритании'], correct:3 },
+  { id:525, cat:'geography', difficulty:'medium', flag:'', q:'Ангкор-Ват — крупнейший храмовый комплекс — в?', answers:['Таиланде','Мьянме','Камбодже','Индонезии'], correct:2 },
+  { id:526, cat:'geography', difficulty:'medium', flag:'', q:'Петра — древний город из розового камня — в?', answers:['Израиле','Иордании','Саудовской Аравии','Иране'], correct:1 },
+  { id:527, cat:'geography', difficulty:'medium', flag:'', q:'Водопад Виктория — граница каких стран?', answers:['Кения и Танзания','Замбия и Зимбабве','ДРК и Ангола','Мозамбик и Малави'], correct:1 },
+  { id:528, cat:'geography', difficulty:'medium', flag:'', q:'Боробудур — буддийский храм — в?', answers:['Таиланде','Индии','Непале','Индонезии'], correct:3 },
+  { id:529, cat:'geography', difficulty:'medium', flag:'', q:'Акрополь находится в?', answers:['Италии','Турции','Греции','Кипре'], correct:2 },
+  { id:530, cat:'geography', difficulty:'medium', flag:'', q:'Мачу-Пикчу находится в?', answers:['Боливии','Чили','Эквадоре','Перу'], correct:3 },
+  { id:531, cat:'geography', difficulty:'medium', flag:'', q:'Тадж-Махал расположен в городе?', answers:['Дели','Мумбаи','Агра','Джайпур'], correct:2 },
+  { id:532, cat:'geography', difficulty:'medium', flag:'', q:'Где находится остров Бали?', answers:['Филиппинах','Малайзии','Таиланде','Индонезии'], correct:3 },
+  { id:533, cat:'geography', difficulty:'hard', flag:'', q:'Загадочные линии Наска находятся в?', answers:['Мексике','Боливии','Перу','Бразилии'], correct:2 },
+  { id:534, cat:'geography', difficulty:'hard', flag:'', q:'Легендарная Троя находилась на территории современной?', answers:['Греции','Турции','Сирии','Кипра'], correct:1 },
+  { id:535, cat:'geography', difficulty:'medium', flag:'', q:'Помпеи — погибший город — находятся в?', answers:['Греции','Испании','Хорватии','Италии'], correct:3 },
+  { id:536, cat:'geography', difficulty:'medium', flag:'', q:'Какой город называют «Северной Венецией»?', answers:['Стокгольм','Амстердам','Гамбург','Санкт-Петербург'], correct:1 },
+  { id:537, cat:'geography', difficulty:'hard', flag:'', q:'Вулкан Везувий стоит рядом с?', answers:['Римом','Неаполем','Палермо','Флоренцией'], correct:1 },
+  { id:538, cat:'geography', difficulty:'medium', flag:'', q:'Самое глубокое озеро в мире?', answers:['Байкал','Танганьика','Виктория','Гурон'], correct:0 },
+  { id:539, cat:'geography', difficulty:'medium', flag:'', q:'Самое большое озеро в мире?', answers:['Байкал','Верхнее','Виктория','Каспийское'], correct:3 },
+  { id:540, cat:'geography', difficulty:'hard', flag:'', q:'Что такое «Огненное кольцо»?', answers:['Вулканы вдоль Тихоокеанского побережья','Пустыни вокруг экватора','Полярные сияния','Горы вдоль Атлантики'], correct:0 },
+  { id:541, cat:'geography', difficulty:'medium', flag:'', q:'Самая низкая точка суши в мире?', answers:['Долина Смерти','Берег Мёртвого моря','Озеро Ассаль','Впадина Каттара'], correct:1 },
+  { id:542, cat:'geography', difficulty:'medium', flag:'', q:'Что такое «муссон»?', answers:['Постоянный ветер у экватора','Сезонный ветер, меняющий направление дважды в год','Горный ветер','Ветер вдоль побережья'], correct:1 },
+  { id:543, cat:'geography', difficulty:'hard', flag:'', q:'«Эль-Ниньо» — это?', answers:['Тропический шторм','Периодическое потепление воды в Тихом океане','Муссон в Азии','Ледниковый ветер'], correct:1 },
+  { id:544, cat:'geography', difficulty:'hard', flag:'', q:'Что такое «изобара»?', answers:['Линия одинаковой температуры','Линия одинакового атмосферного давления','Линия одинаковой высоты','Линия равного осадка'], correct:1 },
+  { id:545, cat:'geography', difficulty:'medium', flag:'', q:'Что такое «тундра»?', answers:['Лесная зона Сибири','Безлесная зона в субарктическом поясе','Влажные тропики','Высокогорное плато'], correct:1 },
+  { id:546, cat:'geography', difficulty:'medium', flag:'', q:'Что такое «перешеек»?', answers:['Широкий залив','Узкая полоска суши, соединяющая два материка','Горный перевал','Водный пролив'], correct:1 },
+  { id:547, cat:'geography', difficulty:'medium', flag:'', q:'Что такое «дельта реки»?', answers:['Исток реки в горах','Разветвлённое устье реки','Наиболее широкое место','Водопад в нижнем течении'], correct:1 },
+  { id:548, cat:'geography', difficulty:'hard', flag:'', q:'Древний суперконтинент, существовавший 300 млн лет назад?', answers:['Лавразия','Гондвана','Пангея','Родиния'], correct:2 },
+  { id:549, cat:'geography', difficulty:'hard', flag:'', q:'Антарктида была открыта в?', answers:['1770 г.','1820 г.','1899 г.','1950 г.'], correct:1 },
+  { id:550, cat:'geography', difficulty:'hard', flag:'', q:'Самая большая пустыня мира (включая холодные)?', answers:['Сахара','Аравийская','Антарктическая','Гоби'], correct:2 },
+  { id:551, cat:'geography', difficulty:'medium', flag:'', q:'В каком городе находится Биг-Бен?', answers:['Манчестер','Эдинбург','Лондон','Дублин'], correct:2 },
+  { id:552, cat:'geography', difficulty:'medium', flag:'', q:'В каком городе находится Эйфелева башня?', answers:['Лион','Марсель','Ницца','Париж'], correct:3 },
+  { id:553, cat:'geography', difficulty:'medium', flag:'', q:'В каком городе находится Колизей?', answers:['Милан','Неаполь','Рим','Флоренция'], correct:2 },
+  { id:554, cat:'geography', difficulty:'medium', flag:'', q:'В каком городе находится Саграда-Фамилья?', answers:['Мадрид','Валенсия','Севилья','Барселона'], correct:3 },
+  { id:555, cat:'geography', difficulty:'medium', flag:'', q:'Самая большая природная зона России?', answers:['Тундра','Степь','Тайга','Пустыня'], correct:2 },
+  { id:556, cat:'geography', difficulty:'hard', flag:'', q:'Что такое «литосфера»?', answers:['Водная оболочка Земли','Воздушная оболочка','Твёрдая каменная оболочка Земли','Живая оболочка'], correct:2 },
+  { id:557, cat:'geography', difficulty:'hard', flag:'', q:'Что такое «гидросфера»?', answers:['Твёрдая оболочка','Совокупность всех вод Земли','Воздушная оболочка','Органическая оболочка'], correct:1 },
+  { id:558, cat:'geography', difficulty:'medium', flag:'', q:'Нулевой меридиан (Гринвич) проходит через?', answers:['Лондон','Париж','Мадрид','Дублин'], correct:0 },
+  { id:559, cat:'geography', difficulty:'medium', flag:'', q:'Самый высокий водопад в мире?', answers:['Ниагарский','Игуасу','Анхель','Виктория'], correct:2 },
+  { id:560, cat:'geography', difficulty:'hard', flag:'', q:'На высоте около 3 800 м расположено озеро?', answers:['Байкал','Танганьика','Виктория','Титикака'], correct:3 },
+  { id:561, cat:'geography', difficulty:'medium', flag:'', q:'Самое большое государство-архипелаг?', answers:['Индонезия','Филиппины','Великобритания','Япония'], correct:0 },
+  { id:562, cat:'geography', difficulty:'hard', flag:'', q:'Что называют «Крышей мира»?', answers:['Анды','Гималаи','Тибетское нагорье','Памир'], correct:2 },
+  { id:563, cat:'geography', difficulty:'medium', flag:'', q:'Самый длинный коралловый риф — Большой Барьерный — в?', answers:['Индонезии','Австралии','Филиппинах','Кубе'], correct:1 },
+  { id:564, cat:'geography', difficulty:'hard', flag:'', q:'Длина Транссибирской магистрали?', answers:['5 772 км','9 289 км','7 100 км','11 000 км'], correct:1 },
+  { id:565, cat:'geography', difficulty:'medium', flag:'', q:'Панамский перешеек соединяет?', answers:['Северную и Южную Америку','Центральную и Северную Америку','Южную Америку и Антарктиду','Мексику и Гватемалу'], correct:0 },
+  { id:566, cat:'geography', difficulty:'medium', flag:'', q:'Какой пролив отделяет Великобританию от Франции?', answers:['Па-де-Кале (Дуврский)','Ла-Манш (Английский канал)','Северный','Скагеррак'], correct:0 },
+  { id:567, cat:'geography', difficulty:'hard', flag:'', q:'Сколько государств входят в Евросоюз (2024)?', answers:['25','27','28','30'], correct:1 },
+  { id:568, cat:'geography', difficulty:'medium', flag:'', q:'Самый маленький континент по населению (кроме Антарктиды)?', answers:['Европа','Южная Америка','Австралия','Северная Америка'], correct:2 },
+  { id:569, cat:'geography', difficulty:'hard', flag:'', q:'Что такое «демографический переход»?', answers:['Переезд населения','Переход от высокой рождаемости к низкой','Смена состава из-за миграции','Быстрый рост городов'], correct:1 },
+  { id:570, cat:'geography', difficulty:'hard', flag:'', q:'Термин «мегалополис» означает?', answers:['Крупный город более 1 млн','Слияние нескольких мегаполисов в один коридор','Город-государство','Укреплённый средневековый город'], correct:1 },
+];
+
+// ============================================================
+//  GAME STATE
+// ============================================================
+let selectedCategory = 'all';
+let selectedDifficulty = 'easy';
+let currentQuestions = [];
+let currentQ = 0;
+let score = 0;
+let streak = 0;
+let maxStreak = 0;
+let correct = 0;
+let wrong = 0;
+let timer = null;
+let timeLeft = 30;
+let timerMax = 30;
+let answered = false;
+let history = [];
+let gamesPlayed = 0;
+let bestScore = 0;
+let dbFilterCat = 'all';
+let dbSearchText = '';
+
+const LETTERS = ['A','B','C','D'];
+const CATNAMES = {
+  capitals:'Столицы', flags:'Флаги', continents:'Континенты',
+  oceans:'Океаны и моря', countries:'Страны', mountains:'Горы',
+  rivers:'Реки', geography:'Разное', food:'Кухня мира', customs:'Обычаи и культура'
+};
+const CATBADGE = {
+  capitals:'badge-capitals', flags:'badge-flags', continents:'badge-continents',
+  oceans:'badge-oceans', countries:'badge-countries', mountains:'badge-mountains',
+  rivers:'badge-rivers', geography:'badge-geography', food:'badge-food', customs:'badge-customs'
+};
+
+// ============================================================
+//  INIT
+// ============================================================
+window.onload = () => {
+  updateCounts();
+  loadStorage();
+  updateHomeStats();
+};
+
+function loadStorage() {
+  try {
+    const s = JSON.parse(localStorage.getItem('geoMasterData') || '{}');
+    gamesPlayed = s.gamesPlayed || 0;
+    bestScore = s.bestScore || 0;
+    history = s.history || [];
+  } catch(e) {}
+}
+
+function saveStorage() {
+  try {
+    localStorage.setItem('geoMasterData', JSON.stringify({ gamesPlayed, bestScore, history }));
+  } catch(e) {}
+}
+
+function updateCounts() {
+  const cats = ['capitals','flags','continents','oceans','countries','mountains','rivers','geography','food','customs'];
+  let total = 0;
+  cats.forEach(c => {
+    const n = QUESTIONS.filter(q => q.cat === c).length;
+    total += n;
+    const el = document.getElementById('cnt-' + c);
+    if(el) el.textContent = n + ' вопр.';
+  });
+  const allEl = document.getElementById('cnt-all');
+  if(allEl) allEl.textContent = total + ' вопросов';
+}
+
+function updateHomeStats() {
+  document.getElementById('total-q-count').textContent = QUESTIONS.length;
+  document.getElementById('best-score-display').textContent = bestScore > 0 ? bestScore : '—';
+  document.getElementById('games-played').textContent = gamesPlayed;
+
+  const lbList = document.getElementById('leaderboard-list');
+  if(history.length > 0) {
+    document.getElementById('leaderboard-section').style.display = 'block';
+    const sorted = [...history].sort((a,b) => b.score - a.score).slice(0, 3);
+    const medals = ['🥇','🥈','🥉'];
+    lbList.innerHTML = sorted.map((h,i) => `
+      <div class="lb-entry">
+        <div class="lb-rank">${medals[i]||'#'+(i+1)}</div>
+        <div class="lb-name">${h.correct}/12 верных</div>
+        <div class="lb-score">${h.score} ★</div>
+      </div>
+    `).join('');
+  }
+}
+
+// ============================================================
+//  SELECTION
+// ============================================================
+function selectCategory(cat) {
+  selectedCategory = cat;
+  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('selected'));
+  document.querySelector(`[data-cat="${cat}"]`).classList.add('selected');
+}
+
+function selectDiff(d) {
+  selectedDifficulty = d;
+  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-diff="${d}"]`).classList.add('active');
+}
+
+// ============================================================
+//  GAME START
+// ============================================================
+function startGame() {
+  let pool = QUESTIONS;
+  if(selectedCategory !== 'all') pool = pool.filter(q => q.cat === selectedCategory);
+  if(pool.length < 12) pool = QUESTIONS; // fallback
+
+  // Shuffle
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  currentQuestions = shuffled.slice(0, 12);
+
+  currentQ = 0;
+  score = 0;
+  streak = 0;
+  maxStreak = 0;
+  correct = 0;
+  wrong = 0;
+  answered = false;
+
+  showScreen('quiz-screen');
+  loadQuestion();
+}
+
+// ============================================================
+//  QUESTION LOADING
+// ============================================================
+function loadQuestion() {
+  if(currentQ >= 12) { endGame(); return; }
+  answered = false;
+  const q = currentQuestions[currentQ];
+  const progressPct = (currentQ / 12) * 100;
+
+  // Header
+  document.getElementById('q-num').textContent = currentQ + 1;
+  document.getElementById('score-num').textContent = score;
+  document.getElementById('progress-bar').style.width = progressPct + '%';
+
+  // Streak
+  if(streak >= 2) {
+    document.getElementById('streak-display').style.display = 'flex';
+    document.getElementById('streak-num').textContent = streak;
+  } else {
+    document.getElementById('streak-display').style.display = 'none';
+  }
+
+  // Badge
+  const badge = document.getElementById('q-cat-badge');
+  badge.textContent = (q.flag ? q.flag + ' ' : '') + (CATNAMES[q.cat] || 'Geography');
+  badge.className = 'q-category-badge';
+
+  // Flag
+  const flagEl = document.getElementById('flag-display');
+  if(q.cat === 'flags' && q.flag) {
+    flagEl.textContent = q.flag;
+    flagEl.style.display = 'block';
+  } else {
+    flagEl.style.display = 'none';
+  }
+
+  // Question
+  document.getElementById('question-text').textContent = q.q;
+
+  // Animate card
+  const card = document.getElementById('question-card');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'slideUp 0.4s ease';
+
+  // Answers
+  const grid = document.getElementById('answers-grid');
+  grid.innerHTML = '';
+  const shuffledAnswers = q.answers.map((a,i) => ({ text:a, origIdx:i })).sort(() => Math.random() - 0.5);
+
+  shuffledAnswers.forEach((ans, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'answer-btn';
+    btn.dataset.origIdx = ans.origIdx;
+    btn.innerHTML = `<div class="answer-letter">${LETTERS[i]}</div><span>${ans.text}</span>`;
+    btn.onclick = () => selectAnswer(btn, ans.origIdx, q.correct);
+    grid.appendChild(btn);
+  });
+
+  // Timer
+  startTimer(q.difficulty);
+}
+
+// ============================================================
+//  TIMER
+// ============================================================
+function startTimer(difficulty) {
+  clearInterval(timer);
+  timerMax = difficulty === 'hard' ? 20 : difficulty === 'medium' ? 25 : 30;
+  timeLeft = timerMax;
+  updateTimerUI();
+
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimerUI();
+    if(timeLeft <= 0) {
+      clearInterval(timer);
+      if(!answered) timeOut();
+    }
+  }, 1000);
+}
+
+function updateTimerUI() {
+  const el = document.getElementById('timer-num');
+  const ring = document.getElementById('timer-ring');
+  const circumference = 113;
+  el.textContent = timeLeft;
+  const offset = circumference - (timeLeft / timerMax) * circumference;
+  ring.style.strokeDashoffset = offset;
+
+  if(timeLeft <= 5) {
+    ring.style.stroke = '#ff4466';
+    el.style.color = '#ff4466';
+  } else if(timeLeft <= 10) {
+    ring.style.stroke = '#ffd700';
+    el.style.color = '#ffd700';
+  } else {
+    ring.style.stroke = '#00c8ff';
+    el.style.color = '#e8f4ff';
+  }
+}
+
+function timeOut() {
+  answered = true;
+  streak = 0;
+  wrong++;
+  showFeedback('⏰ Время вышло!', false);
+  revealCorrect();
+  setTimeout(nextQuestion, 2000);
+}
+
+// ============================================================
+//  ANSWER SELECTION
+// ============================================================
+function selectAnswer(btn, selectedIdx, correctIdx) {
+  if(answered) return;
+  answered = true;
+  clearInterval(timer);
+
+  const isCorrect = selectedIdx === correctIdx;
+  const allBtns = document.querySelectorAll('.answer-btn');
+
+  allBtns.forEach(b => b.disabled = true);
+
+  if(isCorrect) {
+    btn.classList.add('correct');
+    const timeBonus = Math.floor(timeLeft * 3);
+    const streakBonus = streak >= 2 ? streak * 10 : 0;
+    const points = 100 + timeBonus + streakBonus;
+    score += points;
+    streak++;
+    maxStreak = Math.max(maxStreak, streak);
+    correct++;
+    document.getElementById('score-num').textContent = score;
+    showFeedback('✅ Верно! +' + points, true);
+    showBonusPoints('+' + points);
+    spawnParticles(btn, ['⭐','✨','🎉','🌟']);
+    if(streak >= 3) spawnParticles(btn, ['🔥','💥']);
+  } else {
+    btn.classList.add('wrong');
+    streak = 0;
+    wrong++;
+    showFeedback('❌ Неверно!', false);
+    revealCorrect(correctIdx);
+  }
+
+  // Track for review
+  currentQuestions[currentQ]._userAnswer = selectedIdx;
+  currentQuestions[currentQ]._isCorrect = isCorrect;
+
+  setTimeout(nextQuestion, isCorrect ? 1500 : 2200);
+}
+
+function revealCorrect(correctIdx) {
+  const allBtns = document.querySelectorAll('.answer-btn');
+  allBtns.forEach(btn => {
+    if(parseInt(btn.dataset.origIdx) === (correctIdx !== undefined ? correctIdx : currentQuestions[currentQ].correct)) {
+      btn.classList.add('reveal-correct');
+    }
+  });
+}
+
+function nextQuestion() {
+  currentQ++;
+  loadQuestion();
+}
+
+// ============================================================
+//  FEEDBACK & EFFECTS
+// ============================================================
+function showFeedback(text, isCorrect) {
+  const toast = document.getElementById('feedback-toast');
+  toast.textContent = text;
+  toast.className = 'feedback-toast ' + (isCorrect ? 'correct-toast' : 'wrong-toast') + ' show';
+  setTimeout(() => toast.classList.remove('show'), 1200);
+}
+
+function showBonusPoints(text) {
+  const el = document.createElement('div');
+  el.className = 'bonus-points';
+  el.textContent = text;
+  el.style.left = (Math.random() * 60 + 20) + '%';
+  el.style.top = '30%';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1200);
+}
+
+function spawnParticles(btn, emojis) {
+  const rect = btn.getBoundingClientRect();
+  for(let i=0; i<5; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    p.style.left = (rect.left + Math.random() * rect.width) + 'px';
+    p.style.top = rect.top + 'px';
+    p.style.animationDuration = (0.8 + Math.random() * 0.4) + 's';
+    p.style.animationDelay = (Math.random() * 0.2) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 1200);
+  }
+}
+
+function launchConfetti() {
+  const container = document.getElementById('confetti-container');
+  const colors = ['#00c8ff','#ffd700','#ff4466','#00ff88','#a855f7','#ff8c00'];
+  for(let i=0; i<80; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.left = Math.random()*100 + '%';
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    p.style.width = (6 + Math.random()*8) + 'px';
+    p.style.height = (6 + Math.random()*8) + 'px';
+    p.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    const dur = 2 + Math.random()*2;
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = (Math.random() * 0.5) + 's';
+    container.appendChild(p);
+    setTimeout(() => p.remove(), (dur + 0.5) * 1000);
+  }
+}
+
+// ============================================================
+//  END GAME
+// ============================================================
+function endGame() {
+  clearInterval(timer);
+  gamesPlayed++;
+  if(score > bestScore) bestScore = score;
+
+  const record = { score, correct, wrong, streak: maxStreak, date: Date.now() };
+  history.unshift(record);
+  if(history.length > 10) history = history.slice(0, 10);
+  saveStorage();
+
+  showScreen('results-screen');
+
+  // Result
+  const pct = correct / 12;
+  let emoji, title, subtitle, titleClass;
+  if(pct >= 0.92) {
+    emoji = '🏆'; title = 'ЛЕГЕНДА!'; titleClass = 'great';
+    subtitle = 'Ты настоящий гений географии! Феноменальный результат!';
+    launchConfetti();
+  } else if(pct >= 0.75) {
+    emoji = '🌟'; title = 'ОТЛИЧНО!'; titleClass = 'great';
+    subtitle = 'Великолепный результат! Ты отлично знаешь географию!';
+    launchConfetti();
+  } else if(pct >= 0.58) {
+    emoji = '👍'; title = 'ХОРОШО!'; titleClass = 'good';
+    subtitle = 'Неплохой результат! Ещё немного практики — и ты эксперт!';
+  } else if(pct >= 0.42) {
+    emoji = '🤔'; title = 'НЕПЛОХО'; titleClass = 'ok';
+    subtitle = 'Есть над чем поработать! Используй базу вопросов для подготовки.';
+  } else {
+    emoji = '📚'; title = 'УЧИСЬ!'; titleClass = 'bad';
+    subtitle = 'Почитай базу вопросов и попробуй снова!';
+  }
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-title').className = 'result-title ' + titleClass;
+  document.getElementById('result-subtitle').textContent = subtitle;
+  document.getElementById('final-score').textContent = score;
+  document.getElementById('res-correct').textContent = correct;
+  document.getElementById('res-wrong').textContent = wrong;
+  document.getElementById('res-streak').textContent = maxStreak;
+
+  // Review
+  const reviewList = document.getElementById('review-list');
+  reviewList.innerHTML = '<div class="section-label" style="margin-bottom:12px;">Разбор ошибок</div>';
+  currentQuestions.forEach((q, i) => {
+    const isC = q._isCorrect;
+    const div = document.createElement('div');
+    div.className = 'review-item' + (isC ? '' : ' wrong-item');
+    const userAns = q.answers[q._userAnswer] || '(время вышло)';
+    const correctAns = q.answers[q.correct];
+    div.innerHTML = `
+      <div class="review-icon">${isC ? '✅' : '❌'}</div>
+      <div>
+        <div class="review-q">${i+1}. ${q.q}</div>
+        <div class="review-a">Ваш ответ: <strong>${userAns}</strong></div>
+        ${!isC ? `<div class="review-correct-answer">Правильно: ${correctAns}</div>` : ''}
+      </div>
+    `;
+    reviewList.appendChild(div);
+  });
+
+  updateHomeStats();
+}
+
+// ============================================================
+//  DATABASE SCREEN
+// ============================================================
+function showDB() {
+  showScreen('db-screen');
+  renderDB();
+}
+
+function renderDB() {
+  const list = document.getElementById('db-questions-list');
+  let filtered = QUESTIONS;
+  if(dbFilterCat !== 'all') filtered = filtered.filter(q => q.cat === dbFilterCat);
+  if(dbSearchText) {
+    const s = dbSearchText.toLowerCase();
+    filtered = filtered.filter(q =>
+      q.q.toLowerCase().includes(s) ||
+      q.answers.some(a => a.toLowerCase().includes(s))
+    );
+  }
+
+  document.getElementById('db-subtitle').textContent = `Найдено: ${filtered.length} из ${QUESTIONS.length} вопросов`;
+
+  list.innerHTML = filtered.map(q => `
+    <div class="db-q-card" id="dbq-${q.id}" onclick="toggleDBQ(${q.id})">
+      <div class="db-q-header">
+        <span class="db-q-badge ${CATBADGE[q.cat]||''}">${CATNAMES[q.cat]||q.cat}</span>
+        <div class="db-q-text">${q.flag ? q.flag + ' ' : ''}${q.q}</div>
+      </div>
+      <div class="db-q-answers">
+        ${q.answers.map((a,i) => `
+          <div class="db-answer-item ${i===q.correct?'is-correct':''}">
+            <span class="db-answer-letter">${LETTERS[i]}</span>
+            ${i===q.correct?'✓ ':''}${a}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleDBQ(id) {
+  const el = document.getElementById('dbq-' + id);
+  el.classList.toggle('open');
+}
+
+function filterDB() {
+  dbSearchText = document.getElementById('db-search').value;
+  renderDB();
+}
+
+function filterDBCat(cat) {
+  dbFilterCat = cat;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
+  renderDB();
+}
+
+// ============================================================
+//  NAVIGATION
+// ============================================================
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showHome() {
+  clearInterval(timer);
+  showScreen('home-screen');
+  updateHomeStats();
+}
+</script>
+</body>
+</html>

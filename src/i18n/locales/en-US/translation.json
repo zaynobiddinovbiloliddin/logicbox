@@ -1,0 +1,172 @@
+{
+  "title": "React Native App",
+  "games": {
+    "voltMatch": {
+      "start": {
+        "diffTitle": "DIFFICULTY",
+        "diffDesc": "After round 6, time gets shorter and search speed increases",
+        "features": {
+          "rounds": "12 rounds",
+          "lives": "3 lives",
+          "timer": "Timer",
+          "combo": "Combo"
+        },
+        "startBtn": "START"
+      }
+    }
+  },
+  "tabs": {
+    "games": {
+      "errorTitle": "Error",
+      "cancel": "Cancel",
+      "accessTitle": "Game access",
+      "accessMessage": "Watch a short ad to unlock the game.",
+      "watchAd": "Watch ad",
+      "skipPaid": "Skip (20 UZS)",
+      "reclamUpdateError": "Failed to update ad status",
+      "adScreen": {
+        "badge": "Advertisement",
+        "rewardTitle": "The game will open after the video",
+        "rewardText": "This is a default placeholder video screen for now. Later you can plug in AppLovin MAX here without changing the user flow.",
+        "continue": "Continue",
+        "wait": "Please wait {{seconds}} sec"
+      },
+      "tags": {
+        "math": "🔢 Math",
+        "geography": "🌍 Geography",
+        "puzzle": "🧩 Puzzle",
+        "language": "🔤 Language",
+        "space": "🚀 Space",
+        "attention": "🎨 Attention",
+        "timing": "⏱️ Timing",
+        "speed": "⌛ Speed",
+        "reaction": "🔴 Reaction",
+        "logic": "👁️ Logic",
+        "racing": "🏎️ Racing",
+        "memory": "🧠 Memory"
+      }
+    },
+    "profile": {
+      "language": "Change language",
+      "languageTitle": "Choose language",
+      "languageSubtitle": "Select app language. Changes apply immediately.",
+      "languageOptions": {
+        "uz": "Uzbek (Latin)",
+        "uzSub": "Standard Uzbek Latin script",
+        "uzCyrl": "Uzbek (Cyrillic)",
+        "uzCyrlSub": "Uzbek Cyrillic script",
+        "ru": "Russian",
+        "ruSub": "Russian language"
+      }
+    }
+  },
+  "components": {
+    "retryBoostButton": {
+      "label": "🔄 Retry"
+    },
+    "challengeDayCard": {
+      "status": {
+        "unlocked": "🔓 Unlocked",
+        "done": "✅ Completed",
+        "continue": "⏳ Continue",
+        "start": "🚀 Start",
+        "locked": "🔒 Locked"
+      },
+      "unlockedBadge": "Unlocked",
+      "label": {
+        "day": "Day",
+        "dayNumber": "Day {{number}}",
+        "dayTask": "{{day}} - Task {{task}}",
+        "taskWithTitle": "Task {{task}}: {{title}}",
+        "task": "Task {{task}}"
+      }
+    },
+    "homeHeader": {
+      "guest": "Guest",
+      "users": "users",
+      "online": "online"
+    },
+    "topPlayersList": {
+      "daily": "Top Strong",
+      "weekly": "Top Lucky",
+      "monthly": "Top of Month"
+    },
+    "gameRatingModal": {
+      "title": "Players rating",
+      "subtitle": "Top best logic masters",
+      "you": "(You)"
+    },
+    "globalBoostsSheet": {
+      "inStock": "In stock:",
+      "stockCount": "{{count}} pcs.",
+      "ok": "OK",
+      "qtySuffix": " ({{count}} pcs.)",
+      "boostSuffix": " boost"
+    },
+    "globalDiamondsSheet": {
+      "successTitle": "Success!",
+      "requestSent": "Request sent!",
+      "ok": "OK",
+      "topupSuccess": "💰 {{amount}} UZS has been added to your balance.",
+      "withdrawSuccess": "💰 {{amount}} UZS was sent to card **** {{last4}}.",
+      "wallet": "Wallet",
+      "topupTab": "💳 Top up",
+      "withdrawTab": "💰 Withdraw",
+      "availableBalance": "Available balance",
+      "minAmountLabel": "Minimum amount: {{amount}} UZS",
+      "amountPlaceholder": "Enter amount...",
+      "minAmountError": "Minimum amount is {{amount}} UZS",
+      "paymentMethod": "Payment method",
+      "topupBtn": "💳 Top up",
+      "withdrawable": "Available to withdraw: {{amount}} UZS",
+      "cardNumber": "Card number",
+      "cardNumberError": "Enter full card number",
+      "withdrawAmount": "Withdrawal amount",
+      "minPlaceholder": "Min. {{amount}} UZS",
+      "maxWithdrawError": "Maximum withdrawal: {{amount}} UZS (1,000 UZS kept in reserve)",
+      "cannotWithdraw": "Cannot withdraw — balance is below 1,000 UZS",
+      "feeInfo": "No commission · within 1–3 business days",
+      "withdrawBtn": "💰 Withdraw"
+    },
+    "taskListSheet": {
+      "title": "Task list",
+      "progress": "Progress: {{completed}}/{{total}}",
+      "score": "Score: {{score}}",
+      "activity": "Activity: {{activity}} pts",
+      "done": "Completed",
+      "start": "Start",
+      "tasks": {
+        "basic": {
+          "title": "Basic test",
+          "desc": "Check your knowledge of core terms."
+        },
+        "choice": {
+          "title": "Multiple choice",
+          "desc": "10 questions with answer options."
+        },
+        "logic": {
+          "title": "Logic task",
+          "desc": "Solve an attention challenge."
+        },
+        "code": {
+          "title": "Code analysis",
+          "desc": "Find bugs in the code."
+        },
+        "final": {
+          "title": "Final exam",
+          "desc": "Final test with timer."
+        }
+      }
+    },
+    "gamePickerSheet": {
+      "title": "Choose a task",
+      "subtitle": "Which task will you start with?",
+      "completed": "Completed",
+      "completedDesc": "This task was successfully completed",
+      "reclamDesc": "Watch an ad to unlock the game"
+    },
+    "sectionHeader": {
+      "seeAll": "See all →"
+    }
+  }
+}
