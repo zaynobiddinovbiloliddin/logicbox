@@ -1,19 +1,20 @@
 import CatalogCard from "@/components/shared/catalog-card";
 import HomeBanner from "@/components/shared/home-banner";
 import HomeHeader from "@/components/shared/home-header";
-import { Period, TopPlayersList } from "@/components/shared/ratings-bunner";
+import LuckyLeaderboard from "@/components/shared/lucky-leaderboard";
 import SectionHeader from "@/components/shared/section-header";
 import Wrapper from "@/components/shared/wrapper";
 import { games } from "@/constants/games";
 import { Test } from "@/constants/test";
 import { getLocalizedTitle } from "@/halpers/challenges";
 import { ChallengesModule } from "@/services/modules/challenges-module";
+import { SettingsModule } from "@/services/modules/settings-module";
 import type { Challenge } from "@/types/challenges";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   ActivityIndicator,
@@ -305,24 +306,33 @@ export default function HomeScreen() {
     }
   };
 
-  function navigateToPages(period: Period) {
-    // If we have challenges, we can pass the ID of the first one that matches the type or just use generic
-    const targetChallenge = challenges.find(
-      (c) =>
-        (period === "weekly" && c.type === "weekly") ||
-        (period === "monthly" && c.type === "monthly"),
-    );
+  const visibleChallenges = useMemo(
+    () => challenges.filter((c) => c.type !== "weekly"),
+    [challenges],
+  );
 
-    router.navigate({
-      pathname: "/content/top-raiting",
-      params: { id: targetChallenge?.id || challenges[0]?.id || "" },
-    });
-  }
-
-  const totalPrizePool = challenges.reduce((acc, curr) => {
+  const fallbackPrizePool = challenges.reduce((acc, curr) => {
     const prize = parseInt(curr.prizeSumma?.replace(/\s/g, "") || "0");
     return acc + prize;
   }, 0);
+
+  const [displayPrizePool, setDisplayPrizePool] = useState(0);
+
+  const fetchPrizePool = useCallback(async () => {
+    try {
+      const { value } = await SettingsModule.getPrizePool();
+      setDisplayPrizePool(value > 0 ? value : fallbackPrizePool);
+    } catch (error) {
+      console.error("Failed to fetch prize pool setting:", error);
+      setDisplayPrizePool(fallbackPrizePool);
+    }
+  }, [fallbackPrizePool]);
+
+  useEffect(() => {
+    fetchPrizePool();
+    const interval = setInterval(fetchPrizePool, 30000);
+    return () => clearInterval(interval);
+  }, [fetchPrizePool]);
 
   const navigateToChallenge = (test: any) => {
     let pathname = "/modals/test-content";
@@ -393,8 +403,7 @@ export default function HomeScreen() {
         </View>
       )}
       <View style={styles.container}>
-        <SectionHeader title={t("tabs.home.sections.topRatings")} />
-        <TopPlayersList onPress={navigateToPages} />
+        <LuckyLeaderboard />
 
         <SectionHeader title={t("tabs.home.sections.games")} />
 
@@ -453,7 +462,7 @@ export default function HomeScreen() {
             </View>
           </TouchableOpacity>
 
-          <PrizeCard totalPrize={totalPrizePool} />
+          <PrizeCard totalPrize={displayPrizePool} />
         </View>
 
         <HomeBanner />
@@ -464,7 +473,7 @@ export default function HomeScreen() {
         />
 
         <View style={styles.catalogGrid}>
-          {challenges.map((test) => (
+          {visibleChallenges.map((test) => (
             <CatalogCard
               key={test.id}
               icon={test.icon || require("@/assets/images/icons/geography.png")}

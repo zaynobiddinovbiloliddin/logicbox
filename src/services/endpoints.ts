@@ -5,6 +5,7 @@ const authEndpoints = {
 };
 const usersEndpoints = {
   stats: "/users/stats",
+  luckyLeaderboard: "/users/leaderboard/lucky",
   edite: (id: string) => `/users/${id}/info`,
   notifications: "/users/me/notifications",
   unreadCount: "/users/me/notifications/unread-count",
@@ -19,6 +20,10 @@ const gamesEndpoints = {
 
 const reaclamsEndpoints = {
   reaclams: "/reaclams",
+};
+
+const settingsEndpoints = {
+  prizePool: "/settings/prize-pool",
 };
 
 const boostsEndpoints = {
@@ -54,5 +59,6 @@ export {
   challengesEndpoints,
   gamesEndpoints,
   reaclamsEndpoints,
+  settingsEndpoints,
   usersEndpoints,
 };

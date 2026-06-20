@@ -1,6 +1,5 @@
 import { UsersModule } from "@/services/modules/users-module";
 import { useAuthStore } from "@/store/auth";
-import { useBoostsInventory } from "@/store/boosts-inventory";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -13,11 +12,6 @@ import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
 export default function HomeHeader() {
   const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
-  const inventory = useBoostsInventory((s) => s.inventory);
-  const boosts = Object.values(inventory).reduce(
-    (sum: number, n: number) => sum + n,
-    0,
-  );
 
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [onlineUsersCount, setOnlineUsersCount] = useState<number>(0);
@@ -58,10 +52,6 @@ export default function HomeHeader() {
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"],
   });
-
-  function navigateToBoosts() {
-    router.navigate("/(app)/content/boosts");
-  }
 
   return (
     <View style={headerStyles.wrap}>
@@ -119,17 +109,6 @@ export default function HomeHeader() {
 
       {/* RIGHT */}
       <View style={headerStyles.right}>
-        <Pressable onPress={navigateToBoosts}>
-          <View style={headerStyles.boostBtn}>
-            <Text style={headerStyles.boostIcon}>⚡</Text>
-            {boosts > 0 && (
-              <View style={headerStyles.boostBadge}>
-                <Text style={headerStyles.boostBadgeText}>{boosts}</Text>
-              </View>
-            )}
-          </View>
-        </Pressable>
-
         <Pressable
           onPress={() => router.navigate("/content/notification")}
           style={headerStyles.notifBtn}
@@ -249,33 +228,6 @@ const headerStyles = StyleSheet.create({
     gap: 6,
     flexShrink: 0,
   },
-  boostBtn: {
-    width: 32,
-    height: 32,
-    borderRadius: 10,
-    backgroundColor: "rgba(255,215,61,0.15)",
-    borderWidth: 1,
-    borderColor: "rgba(255,215,61,0.3)",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "relative",
-  },
-  boostIcon: { fontSize: 16 },
-  boostBadge: {
-    position: "absolute",
-    top: -4,
-    right: -4,
-    minWidth: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: "#FFD93D",
-    borderWidth: 1.5,
-    borderColor: "#0A0A14",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 4,
-  },
-  boostBadgeText: { color: "#0A0A14", fontSize: 9, fontWeight: "800" },
   notifBtn: {
     width: 32,
     height: 32,

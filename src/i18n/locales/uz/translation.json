@@ -8,7 +8,8 @@
       "usernameLabel": "FOYDALANUVCHI NOMI",
       "usernamePlaceholder": "Foydalanuvchi nomi",
       "passwordLabel": "PAROL",
-      "passwordPlaceholder": "Parol"
+      "passwordPlaceholder": "Parol",
+      "accountBlocked": "Hisobingiz administrator tomonidan bloklangan"
     },
     "welcome": {
       "title": "Xush kelibsiz",
@@ -63,7 +64,7 @@
       "sections": {
         "topRatings": "🏆 Top reytinglar",
         "games": "🎮 O'yinlar",
-        "testCatalog": "📚 Testlar katalogi"
+        "testCatalog": "✅ Kunlik vazifalar"
       },
       "challengeBadge": {
         "default": "⚡ Challenge",
@@ -175,7 +176,16 @@
       "dayShort": "kun",
       "hourShort": "soat",
       "minuteShort": "daq",
-      "secondShort": "sek"
+      "secondShort": "sek",
+      "todaysGames": "🎮 Bugungi o'yinlar",
+      "unlockInHours": "🔒 {{hours}}soat {{minutes}}daqdan keyin ochiladi",
+      "unlockInMinutes": "🔒 {{minutes}}daqdan keyin ochiladi",
+      "startNow": "Hozir boshlash",
+      "infoModal": {
+        "title": "🔥 Kunlik chellenj",
+        "body": "Har kuni kunlik challengedagi vazifalarni bajaring (6 ta o'yin) va kunlik sovrin jamg'armasi ishtirokchisiga aylaning.\n\nG'olib kunlik challengeni to'liq bajargan barcha ishtirokchilar orasidan tasodifiy tanlanadi.\n\nVazifalarni har kuni uzluksiz bajarib, haftalik va oylik sovrin jamg'armalariga kirish imkoniyatini ochasiz.\n\nBarcha sovrinlardan foydalanish imkoniyatini saqlab qolish uchun biror kunni o'tkazib yubormang.",
+        "ok": "OK"
+      }
     },
     "myTests": {
       "instructionTitle": "Yo'riqnoma",
@@ -336,6 +346,10 @@
       "phoneLabel": "TELEFON RAQAM",
       "ageLabel": "YOSH",
       "agePlaceholder": "Yoshingiz",
+      "telegramLabel": "TELEGRAM",
+      "telegramPlaceholder": "username",
+      "photoHint": "O'zgartirish uchun bosing",
+      "photoPermissionError": "Galereyaga ruxsat kerak",
       "save": "Saqlash",
       "nameRequired": "Ismni kiriting",
       "phoneInvalid": "Telefon raqami noto'g'ri"
@@ -1385,6 +1399,10 @@
     },
     "sectionHeader": {
       "seeAll": "Barchasi →"
+    },
+    "luckyLeaderboard": {
+      "title": "Eng omadlilar",
+      "anonymous": "O'yinchi"
     },
     "rewardChest": {
       "title": "Mukofotlar sandig'i",

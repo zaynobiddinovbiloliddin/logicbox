@@ -8,7 +8,8 @@
       "usernameLabel": "ФОЙДАЛАНУВЧИ НОМИ",
       "usernamePlaceholder": "Фойдаланувчи номи",
       "passwordLabel": "ПАРОЛ",
-      "passwordPlaceholder": "Парол"
+      "passwordPlaceholder": "Парол",
+      "accountBlocked": "Ҳисобингиз администратор томонидан блокланган"
     },
     "welcome": {
       "title": "Хуш келибсиз",
@@ -63,7 +64,7 @@
       "sections": {
         "topRatings": "🏆 Топ рейтинглар",
         "games": "🎮 Ўйинлар",
-        "testCatalog": "📚 Тестлар каталоги"
+        "testCatalog": "✅ Кунлик вазифалар"
       },
       "challengeBadge": {
         "default": "⚡ Challenge",
@@ -175,7 +176,16 @@
       "dayShort": "кун",
       "hourShort": "соат",
       "minuteShort": "дақ",
-      "secondShort": "сек"
+      "secondShort": "сек",
+      "todaysGames": "🎮 Бугунги ўйинлар",
+      "unlockInHours": "🔒 {{hours}}соат {{minutes}}дақдан кейин очилади",
+      "unlockInMinutes": "🔒 {{minutes}}дақдан кейин очилади",
+      "startNow": "Ҳозир бошлаш",
+      "infoModal": {
+        "title": "🔥 Кунлик чаллендж",
+        "body": "Ҳар куни кунлик чаллендждаги вазифаларни бажаринг (6 та ўйин) ва кунлик соврин жамғармаси иштирокчисига айланинг.\n\nҒолиб кунлик чаллендждаги вазифаларни тўлиқ бажарган барча иштирокчилар орасидан тасодифий танланади.\n\nВазифаларни ҳар куни узлуксиз бажариб, ҳафталик ва ойлик соврин жамғармаларига кириш имкониятини очасиз.\n\nБарча совринлардан фойдаланиш имкониятини сақлаб қолиш учун бирор кунни ўтказиб юборманг.",
+        "ok": "OK"
+      }
     },
     "myTests": {
       "instructionTitle": "Йўриқнома",
@@ -336,6 +346,10 @@
       "phoneLabel": "ТЕЛЕФОН РАҚАМ",
       "ageLabel": "ЁШ",
       "agePlaceholder": "Ёшингиз",
+      "telegramLabel": "TELEGRAM",
+      "telegramPlaceholder": "username",
+      "photoHint": "Ўзгартириш учун босинг",
+      "photoPermissionError": "Галереяга рухсат керак",
       "save": "Сақлаш",
       "nameRequired": "Исмни киритинг",
       "phoneInvalid": "Телефон рақами нотўғри"
@@ -1385,6 +1399,10 @@
     },
     "sectionHeader": {
       "seeAll": "Барчаси →"
+    },
+    "luckyLeaderboard": {
+      "title": "Энг омадлилар",
+      "anonymous": "Ўйинчи"
     },
     "rewardChest": {
       "title": "Мукофотлар сандиғи",

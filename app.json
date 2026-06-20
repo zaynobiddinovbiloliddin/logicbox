@@ -40,11 +40,24 @@
       "expo-localization",
       "expo-font",
       "expo-image",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Profil rasmini tanlash uchun galeriyaga ruxsat kerak."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "93bd8b9f-7992-4bb3-9a4c-7372b9cd9697"
+      }
+    },
+    "owner": "biloliddindev1008"
   }
 }

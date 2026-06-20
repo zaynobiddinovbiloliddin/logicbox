@@ -24,7 +24,7 @@ const BANNER_PADDING = 16;
 const BANNER_GAP = 12;
 const SIDE_PREVIEW = 32;
 const BANNER_WIDTH = SCREEN_WIDTH - BANNER_PADDING * 2 - SIDE_PREVIEW * 2;
-const AUTO_SCROLL_DELAY = 5000;
+const AUTO_SCROLL_DELAY = 3000;
 
 type BannerData = {
   id: number | string;

@@ -11,6 +11,7 @@ const AuthModule = {
     username: string;
     password: string;
     name: string;
+    deviceId?: string;
   }) {
     const { data } = await instance.post(authEndpoints.authRegister, obj);
     return data;

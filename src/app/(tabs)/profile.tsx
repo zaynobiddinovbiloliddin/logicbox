@@ -1,8 +1,6 @@
 import Wrapper from "@/components/shared/wrapper";
-import { getAchievementTitle } from "@/halpers/localization";
-import { useBoostsInventory } from "@/store/boosts-inventory";
-import { useBoostsSheetStore } from "@/store/boosts-sheet";
 import { useAuthStore } from "@/store/auth";
+import { useProfileLocal } from "@/store/profile-local";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -110,53 +108,11 @@ function SkillBar({
 
 export default function TabTwoScreen() {
   const insets = useSafeAreaInsets();
-  const { t, i18n } = useTranslation();
-  const openBoosts = useBoostsSheetStore((s) => s.open);
-  const inventory = useBoostsInventory((s) => s.inventory);
-  const totalBoosts = Object.values(inventory).reduce(
-    (sum: number, n: number) => sum + n,
-    0,
-  );
+  const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
   const logout = useAuthStore((s) => s.logout);
-
-  const getAchievementStyle = (title: string, index: number) => {
-    const lowerTitle = title.toLowerCase();
-    if (
-      lowerTitle.includes("призёр") ||
-      lowerTitle.includes("призер") ||
-      lowerTitle.includes("prizyor")
-    )
-      return { icon: "🏅", color: "#FF6B35" };
-    if (lowerTitle.includes("удачливый") || lowerTitle.includes("udachliviy"))
-      return { icon: "🍀", color: "#6BCB77" };
-    if (lowerTitle.includes("спонсор") || lowerTitle.includes("sponsor"))
-      return { icon: "💰", color: "#4D96FF" };
-    if (lowerTitle.includes("чемпион") || lowerTitle.includes("champion"))
-      return { icon: "🏆", color: "#FFD93D" };
-
-    const defaultStyles = [
-      { icon: "🏆", color: "#FFD93D" },
-      { icon: "🏅", color: "#FF6B35" },
-      { icon: "🍀", color: "#6BCB77" },
-      { icon: "💰", color: "#4D96FF" },
-    ];
-    return defaultStyles[index % defaultStyles.length];
-  };
-
-  const userAchivments = user?.achievements?.map((ites, index) => {
-    const localizedAchievementTitle = getAchievementTitle(
-      ites.achievement,
-      i18n.language,
-    );
-    const style = getAchievementStyle(localizedAchievementTitle, index);
-    return {
-      icon: style.icon,
-      label: localizedAchievementTitle,
-      color: style.color,
-      achivmentCount: ites.count,
-    };
-  });
+  const avatarUri = useProfileLocal((s) => s.avatarUri);
+  const telegramUsername = useProfileLocal((s) => s.telegramUsername);
 
   const handleLogout = () => {
     Alert.alert(t("tabs.profile.logoutTitle"), t("tabs.profile.logoutMessage"), [
@@ -180,7 +136,7 @@ export default function TabTwoScreen() {
             {/* Avatar */}
             <View style={styles.avatarWrap}>
               <Image
-                source={{ uri: "https://i.pravatar.cc/150" }}
+                source={{ uri: avatarUri ?? "https://i.pravatar.cc/150" }}
                 style={styles.avatar}
               />
               <LinearGradient
@@ -204,69 +160,13 @@ export default function TabTwoScreen() {
               {!!user?.info?.phoneNumber && (
                 <Text style={styles.phone}>{user.info.phoneNumber}</Text>
               )}
-
-              {/* Boosts */}
-              <View style={styles.resourceRow}>
-                <View style={{ position: "relative" }}>
-                  <TouchableOpacity
-                    onPress={openBoosts}
-                    activeOpacity={0.75}
-                    style={styles.resourceChip}
-                  >
-                    <LinearGradient
-                      colors={[
-                        "rgba(199,125,255,0.12)",
-                        "rgba(77,150,255,0.08)",
-                      ]}
-                      style={StyleSheet.absoluteFill}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 1 }}
-                    />
-                    <View
-                      style={[
-                        styles.resourceChipBorder,
-                        { borderColor: "rgba(199,125,255,0.25)" },
-                      ]}
-                    />
-                    <View style={styles.boostIconWrap}>
-                      <LinearGradient
-                        colors={["#FFD93D33", "#FF950022"]}
-                        style={StyleSheet.absoluteFill}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                      />
-                      <View style={styles.boostIconBorder} />
-                      <Text style={styles.boostEmoji}>⚡</Text>
-                    </View>
-                    <Text style={styles.resourceChipLabel}>
-                      {t("tabs.profile.boosts")}
-                    </Text>
-                  </TouchableOpacity>
-                  {totalBoosts > 0 && (
-                    <View style={styles.boostCountBadge}>
-                      <Text style={styles.boostCountBadgeText}>
-                        {totalBoosts}
-                      </Text>
-                    </View>
-                  )}
-                </View>
-              </View>
+              {!!telegramUsername && (
+                <Text style={styles.telegram}>@{telegramUsername}</Text>
+              )}
             </View>
           </View>
           <View style={styles.statsRow}>
             {[
-              {
-                label: t("tabs.profile.stats.score"),
-                value: user?.info?.score?.toLocaleString() ?? "0",
-                icon: "⭐",
-                color: "#4D96FF",
-              },
-              {
-                label: t("tabs.profile.stats.activity"),
-                value: `+${user?.info?.activity ?? 0}`,
-                icon: "🔥",
-                color: "#FF6B35",
-              },
               {
                 label: t("tabs.profile.stats.wins"),
                 value: `${user?.info?.wonCount ?? 0}`,
@@ -289,30 +189,6 @@ export default function TabTwoScreen() {
         </>
       }
     >
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t("tabs.profile.achievements")}</Text>
-        <View style={styles.achRow}>
-          {userAchivments?.map((a, i) => (
-            <View key={i} style={styles.achItem}>
-              <View
-                style={[
-                  styles.achIcon,
-                  {
-                    backgroundColor: a.color + "22",
-                    borderColor: a.color + "44",
-                  },
-                ]}
-              >
-                <Text style={{ fontSize: 22 }}>{a.icon}</Text>
-              </View>
-              <Text style={styles.achLabel}>
-                {a.label + " " + a.achivmentCount}
-              </Text>
-            </View>
-          ))}
-        </View>
-      </View>
-
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>{t("tabs.profile.skillsProfile")}</Text>
         {SKILLS_CONFIG.map((s, i) => {
@@ -516,22 +392,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "800",
     marginBottom: 16,
-  },
-  achRow: { flexDirection: "row", gap: 10 },
-  achItem: { flex: 1, alignItems: "center" },
-  achIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 14,
-    borderWidth: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 6,
-  },
-  achLabel: {
-    color: "rgba(255,255,255,0.45)",
-    fontSize: 10,
-    textAlign: "center",
   },
 
   // Tab bar
@@ -874,6 +734,11 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,0.35)",
     marginTop: -2,
   },
+  telegram: {
+    fontSize: 12,
+    color: "#4D96FF",
+    marginTop: -2,
+  },
   badgeRow: {
     flexDirection: "row",
     gap: 6,
@@ -889,70 +754,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "700",
   },
-  resourceRow: {
-    flexDirection: "row",
-    gap: 8,
-  },
-  resourceChip: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 10,
-    overflow: "hidden",
-  },
-  resourceChipBorder: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "rgba(77,150,255,0.25)",
-  },
-  resourceChipIcon: { fontSize: 13 },
-  resourceChipValue: {
-    color: "#4D96FF",
-    fontSize: 13,
-    fontWeight: "800",
-  },
-  resourceChipLabel: {
-    color: "rgba(255,255,255,0.3)",
-    fontSize: 11,
-    fontWeight: "600",
-  },
-
-  boostIconWrap: {
-    width: 26,
-    height: 26,
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  boostIconBorder: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "rgba(255,217,61,0.3)",
-  },
-  boostEmoji: {
-    fontSize: 10,
-  },
-  boostCountBadge: {
-    position: "absolute",
-    top: -4,
-    right: -4,
-    minWidth: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: "#FFD93D",
-    borderWidth: 1.5,
-    borderColor: "#0A0A14",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 3,
-  },
-  boostCountBadgeText: { color: "#0A0A14", fontSize: 9, fontWeight: "800" },
-
   languageBtn: {
     marginTop: 8,
     borderRadius: 16,

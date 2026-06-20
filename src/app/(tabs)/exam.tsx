@@ -215,7 +215,7 @@ export default function TabTwoScreen() {
           type: item.type,
         };
       });
-      setChallenges(mapped);
+      setChallenges(mapped.filter((c) => c.type !== "weekly"));
 
     } catch (error) {
       console.error("Failed to fetch challenges:", error);

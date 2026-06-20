@@ -12,9 +12,12 @@ const API_CONFIG = {
 export const baseURL = API_CONFIG.PROD;
 export const imageURL = API_CONFIG.IMAGE;
 
+const REQUEST_TIMEOUT_MS = 15000;
+
 const createInstance = (config: AxiosRequestConfig) => {
   const instance = axios.create({
     baseURL,
+    timeout: REQUEST_TIMEOUT_MS,
 
     paramsSerializer: {
       encode: (params) => Qs.stringify(params, { arrayFormat: "brackets" }),
@@ -40,6 +43,26 @@ const createInstance = (config: AxiosRequestConfig) => {
       return requestConfig;
     }
   });
+
+  instance.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error?.response?.data?.message === "ACCOUNT_BLOCKED") {
+        // Lazy require avoids a circular import (store/auth -> auth-module -> this file).
+        const { useAuthStore } = require("@/store/auth");
+        const { router } = require("expo-router");
+        const { Alert } = require("react-native");
+        const i18n = require("@/i18n").default;
+        useAuthStore.getState().logout();
+        router.replace("/(auth)/login");
+        Alert.alert(
+          i18n.t("auth.common.errorTitle"),
+          i18n.t("auth.common.accountBlocked"),
+        );
+      }
+      return Promise.reject(error);
+    },
+  );
 
   return instance;
 };

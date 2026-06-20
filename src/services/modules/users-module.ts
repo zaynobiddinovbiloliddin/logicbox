@@ -7,6 +7,11 @@ const UsersModule = {
     return data;
   },
 
+  async getLuckyLeaderboard() {
+    const { data } = await instance.get(usersEndpoints.luckyLeaderboard);
+    return data;
+  },
+
   async editProfile(
     id: string,
     obj: { name: string; phoneNumber?: string; age?: number }

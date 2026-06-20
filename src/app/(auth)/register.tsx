@@ -1,4 +1,5 @@
 import Wrapper from "@/components/shared/wrapper";
+import { getDeviceId } from "@/halpers/device-id";
 import { AuthModule } from "@/services/modules/auth-module";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -34,6 +35,7 @@ export default function RegisterScreen() {
         name: name.trim(),
         username: username.trim(),
         password,
+        deviceId: getDeviceId(),
       });
       router.replace("/(auth)/login");
     } catch (error: any) {

@@ -8,7 +8,8 @@
       "usernameLabel": "ИМЯ ПОЛЬЗОВАТЕЛЯ",
       "usernamePlaceholder": "Имя пользователя",
       "passwordLabel": "ПАРОЛЬ",
-      "passwordPlaceholder": "Пароль"
+      "passwordPlaceholder": "Пароль",
+      "accountBlocked": "Ваш аккаунт заблокирован администратором"
     },
     "welcome": {
       "title": "Добро пожаловать",
@@ -63,7 +64,7 @@
       "sections": {
         "topRatings": "🏆 Топ рейтинги",
         "games": "🎮 Игры",
-        "testCatalog": "📚 Каталог тестов"
+        "testCatalog": "✅ Ежедневные задания"
       },
       "challengeBadge": {
         "default": "⚡ Челлендж",
@@ -175,7 +176,16 @@
       "dayShort": "д",
       "hourShort": "ч",
       "minuteShort": "м",
-      "secondShort": "с"
+      "secondShort": "с",
+      "todaysGames": "🎮 Игры на сегодня",
+      "unlockInHours": "🔒 Откроется через {{hours}}ч {{minutes}}м",
+      "unlockInMinutes": "🔒 Откроется через {{minutes}}м",
+      "startNow": "Начать сейчас",
+      "infoModal": {
+        "title": "🔥 Ежедневный челлендж",
+        "body": "Каждый день выполняйте задания ежедневного челленджа (6 игр) и становитесь участником розыгрыша ежедневного призового фонда.\n\nПобедитель выбирается случайным образом среди всех участников, полностью выполнивших ежедневный челлендж.\n\nВыполняя задания каждый день без перерыва, вы открываете доступ к еженедельным и ежемесячным призовым фондам.\n\nНе пропускайте ни одного дня, чтобы сохранить возможность участвовать во всех призах.",
+        "ok": "OK"
+      }
     },
     "myTests": {
       "instructionTitle": "Инструкция",
@@ -336,6 +346,10 @@
       "phoneLabel": "ТЕЛЕФОН",
       "ageLabel": "ВОЗРАСТ",
       "agePlaceholder": "Ваш возраст",
+      "telegramLabel": "TELEGRAM",
+      "telegramPlaceholder": "username",
+      "photoHint": "Нажмите, чтобы изменить фото",
+      "photoPermissionError": "Нужен доступ к галерее",
       "save": "Сохранить",
       "nameRequired": "Введите имя",
       "phoneInvalid": "Неверный номер телефона"
@@ -1385,6 +1399,10 @@
     },
     "sectionHeader": {
       "seeAll": "Все →"
+    },
+    "luckyLeaderboard": {
+      "title": "Самые везучие",
+      "anonymous": "Игрок"
     },
     "rewardChest": {
       "title": "Сундук наград",
