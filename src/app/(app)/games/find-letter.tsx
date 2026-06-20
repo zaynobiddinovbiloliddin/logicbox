@@ -450,8 +450,22 @@ export default function FindTheLetter() {
               activeOpacity={0.7}
             >
               <Ionicons name="chevron-back" color="#38bdf8" size={20} />
+              <Text style={{ color: "#38bdf8", fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+                {t("common.back")}
+              </Text>
             </TouchableOpacity>
           </>
+        }
+        footer={
+          <View style={start_styles.footerWrap}>
+            <TouchableOpacity
+              style={start_styles.startBtn}
+              onPress={startGame}
+              activeOpacity={0.85}
+            >
+              <Text style={start_styles.startBtnText}>{t("games.findLetter.start.startBtn")}</Text>
+            </TouchableOpacity>
+          </View>
         }
       >
         <StatusBar barStyle="light-content" />
@@ -605,16 +619,6 @@ export default function FindTheLetter() {
             ))}
           </View>
 
-          {/* Start button */}
-          <TouchableOpacity
-            style={start_styles.startBtn}
-            onPress={startGame}
-            activeOpacity={0.85}
-          >
-            <Text style={start_styles.startBtnText}>{t("games.findLetter.start.startBtn")}</Text>
-          </TouchableOpacity>
-
-          <View style={{ height: 40 }} />
         </View>
       </SafeAreaWrapper>
     );
@@ -859,10 +863,14 @@ export default function FindTheLetter() {
 
 // ─── Start Screen Styles ──────────────────────────────────────────────────────
 const start_styles = StyleSheet.create({
+  footerWrap: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+  },
   backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -872,6 +880,7 @@ const start_styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 100,
+    flexDirection: "row",
   },
   scrollContent: {
     paddingHorizontal: 20,

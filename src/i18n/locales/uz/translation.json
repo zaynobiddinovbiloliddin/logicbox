@@ -336,7 +336,9 @@
       "phoneLabel": "TELEFON RAQAM",
       "ageLabel": "YOSH",
       "agePlaceholder": "Yoshingiz",
-      "save": "Saqlash"
+      "save": "Saqlash",
+      "nameRequired": "Ismni kiriting",
+      "phoneInvalid": "Telefon raqami noto'g'ri"
     }
   },
   "games": {
@@ -538,13 +540,33 @@
           "combo": "Kombo ko'paytirgich limiti 6"
         },
         "subtitle": "Och va moslashtir · Tafakkur tezligi",
-        "howToPlayTitle": "📋 Qanday o'ynaladi"
+        "howToPlayTitle": "📋 Qanday o'ynaladi",
+        "diffTitle": "⚡ Qiyinlik",
+        "diffDesc": "Vaqt o'tishi bilan oshadi",
+        "features": {
+          "pairs": "10 juft",
+          "timer": "Taymer",
+          "combo": "Kombo",
+          "speedBonus": "Tezlik bonusi"
+        },
+        "startBtn": "O'YINNI BOSHLASH"
       },
       "result": {
         "titleMaster": "XOTIRA USTASI!",
         "titleGreat": "ZO'R!",
         "titleGood": "YAXSHI!",
-        "titleTrain": "MASHQNI DAVOM ETTIRING"
+        "titleTrain": "MASHQNI DAVOM ETTIRING",
+        "back": "Orqaga",
+        "best": "Eng yaxshi",
+        "yourRecord": "Joriy",
+        "finalScore": "YAKUNIY NATIJA",
+        "correct": "To'g'ri",
+        "maxCombo": "Maks. kombo",
+        "moves": "Harakatlar",
+        "pairs": "Juftliklar",
+        "totalTime": "Umumiy vaqt",
+        "newRecord": "🏆 YANGI REKORD!",
+        "tryAgain": "QAYTA URINISH"
       },
       "game": {
         "score": "HISOB",
@@ -612,7 +634,9 @@
         "roundSub": "+{{score}} ochko · Keyingi raund",
         "continuing": "Davom etyapti...",
         "finish": "Yakunlash 🏆",
-        "next": "Keyingi →"
+        "next": "Keyingi →",
+        "paused": "TO'XTATILDI",
+        "resume": "Davom etish"
       }
     },
     "geographyTraining": {
@@ -1361,6 +1385,50 @@
     },
     "sectionHeader": {
       "seeAll": "Barchasi →"
+    },
+    "rewardChest": {
+      "title": "Mukofotlar sandig'i",
+      "loading": "Yuklanmoqda...",
+      "loadingRewards": "Mukofotlar yuklanmoqda...",
+      "pressToSpin": "Ochish uchun AYLANTIRISH tugmasini bosing",
+      "spinning": "Aylanmoqda…",
+      "noRewards": "Mavjud mukofotlar yo'q",
+      "networkError": "Tarmoq xatosi",
+      "youGot": "Siz {{reward}} oldingiz!",
+      "reward": "mukofot",
+      "spinBtn": "AYLANTIRISH",
+      "claimBtn": "OLISH",
+      "possibleRewards": "Mumkin bo'lgan mukofotlar"
+    },
+    "homeBanner": {
+      "defaults": [
+        {
+          "icon": "🚀",
+          "title": "Miyangni rivojlantir!",
+          "subtitle": "3 ta test top va\nbonus ball ol",
+          "buttonText": "Boshlash →"
+        },
+        {
+          "icon": "🏆",
+          "title": "Lider bo'l!",
+          "subtitle": "Do'stlar bilan bellash\nva sovrin yutib ol",
+          "buttonText": "O'ynash →"
+        },
+        {
+          "icon": "⚡",
+          "title": "Kunlik challenge!",
+          "subtitle": "Vazifalarni yech va\nballaringni oshir",
+          "buttonText": "Davom →"
+        }
+      ],
+      "weekly": "Haftalik →",
+      "monthly": "Marafon →",
+      "daily": "Kunlik →",
+      "open": "Ochish →"
     }
+  },
+  "common": {
+    "start": "Boshlash",
+    "back": "Orqaga"
   }
 }

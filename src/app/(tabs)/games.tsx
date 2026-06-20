@@ -7,6 +7,7 @@ import { openAdScreen } from "@/halpers/open-ad-screen";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import { router, useFocusEffect } from "expo-router";
+import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from "@gorhom/bottom-sheet";
 import React, { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import {
   Animated,
@@ -15,7 +16,6 @@ import {
   TouchableOpacity,
   View,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { games as localGames, type Game } from "@/constants/games";
 import { GamesModule } from "@/services/modules/games-module";
@@ -29,6 +29,8 @@ export default function GamesScreen() {
   const titleFade = useRef(new Animated.Value(0)).current;
   const [remoteGames, setRemoteGames] = useState<RemoteGame[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const adSheetRef = useRef<BottomSheet>(null);
+  const [pendingGame, setPendingGame] = useState<Game | null>(null);
 
   const fetchGames = useCallback(async () => {
     try {
@@ -57,25 +59,8 @@ export default function GamesScreen() {
 
   const handleGamePress = (game: Game) => {
     if (game.withReclam && !game.reclamSeen) {
-      Alert.alert(
-        t("tabs.games.accessTitle"),
-        t("tabs.games.accessMessage"),
-        [
-          {
-            text: t("tabs.games.watchAd"),
-            onPress: () => {
-              openAdScreen({
-                gameId: game.id,
-                targetPath: String(game.route),
-              });
-            },
-          },
-          {
-            text: t("tabs.games.cancel"),
-            style: "cancel",
-          },
-        ],
-      );
+      setPendingGame(game);
+      adSheetRef.current?.expand();
     } else {
       router.navigate({
         pathname: game.route as any,
@@ -84,8 +69,34 @@ export default function GamesScreen() {
     }
   };
 
+  const handleWatchAd = () => {
+    adSheetRef.current?.close();
+    if (!pendingGame) return;
+    openAdScreen({
+      gameId: pendingGame.id,
+      targetPath: String(pendingGame.route),
+    });
+  };
+
+  const renderAdSheetBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={0}
+        pressBehavior="close"
+      />
+    ),
+    [],
+  );
+
   const mappedGames = useMemo(() => {
-    if (remoteGames.length === 0 && !isLoading) return localGames;
+    if (remoteGames.length === 0 && !isLoading) {
+      return localGames.map((g) => ({
+        ...g,
+        tag: t(`tabs.games.tags.${g.tagKey}`, { defaultValue: g.tag }),
+      }));
+    }
     if (isLoading) return [];
 
     return remoteGames
@@ -101,11 +112,11 @@ export default function GamesScreen() {
           from: local?.from || "#4D96FF",
           to: local?.to || "#C77DFF",
           route: local?.route || "/games/barain-traing",
-          tag:
-            local?.tag ||
-            t(`tabs.games.tags.${String(rg.type || "").toLowerCase()}`, {
-              defaultValue: String(rg.type || ""),
-            }),
+          tag: local?.tagKey
+            ? t(`tabs.games.tags.${local.tagKey}`, { defaultValue: local.tag })
+            : t(`tabs.games.tags.${String(rg.type || "").toLowerCase()}`, {
+                defaultValue: String(rg.type || ""),
+              }),
           withReclam: rg.withReclam,
           reclamSeen: rg.reclamSeen,
         } as Game;
@@ -200,11 +211,86 @@ export default function GamesScreen() {
         )}
       </View>
       <View style={{ height: 90 }} />
+      <BottomSheet
+        ref={adSheetRef}
+        index={-1}
+        snapPoints={["35%"]}
+        enablePanDownToClose
+        backdropComponent={renderAdSheetBackdrop}
+        backgroundStyle={styles.adSheetBg}
+        handleIndicatorStyle={styles.adSheetHandle}
+      >
+        <BottomSheetView style={styles.adSheetContent}>
+          <Text style={styles.adSheetTitle}>{t("tabs.games.accessTitle")}</Text>
+          <Text style={styles.adSheetMessage}>{t("tabs.games.accessMessage")}</Text>
+          <TouchableOpacity
+            style={styles.adSheetPrimaryBtn}
+            onPress={handleWatchAd}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.adSheetPrimaryBtnText}>{t("tabs.games.watchAd")}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.adSheetCancelBtn}
+            onPress={() => adSheetRef.current?.close()}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.adSheetCancelBtnText}>{t("tabs.games.cancel")}</Text>
+          </TouchableOpacity>
+        </BottomSheetView>
+      </BottomSheet>
     </Wrapper>
   );
 }
 
 const styles = StyleSheet.create({
+  adSheetBg: {
+    backgroundColor: "#13131F",
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+  },
+  adSheetHandle: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    width: 40,
+  },
+  adSheetContent: {
+    paddingHorizontal: 24,
+    paddingTop: 8,
+    gap: 12,
+  },
+  adSheetTitle: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "800",
+    textAlign: "center",
+  },
+  adSheetMessage: {
+    color: "rgba(255,255,255,0.6)",
+    fontSize: 14,
+    textAlign: "center",
+    lineHeight: 20,
+    marginBottom: 8,
+  },
+  adSheetPrimaryBtn: {
+    backgroundColor: "#FF6B35",
+    borderRadius: 16,
+    paddingVertical: 16,
+    alignItems: "center",
+  },
+  adSheetPrimaryBtnText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "800",
+  },
+  adSheetCancelBtn: {
+    paddingVertical: 14,
+    alignItems: "center",
+  },
+  adSheetCancelBtnText: {
+    color: "rgba(255,255,255,0.45)",
+    fontSize: 14,
+    fontWeight: "700",
+  },
   loaderWrap: {
     paddingVertical: 100,
     alignItems: "center",

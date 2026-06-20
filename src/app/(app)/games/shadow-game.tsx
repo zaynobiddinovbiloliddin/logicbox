@@ -624,6 +624,9 @@ export default function ShadowGame() {
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" size={20} color={COLORS.neon} />
+          <Text style={{ color: COLORS.neon, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <View style={styles.startContent}>
@@ -958,7 +961,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 38,
+    paddingHorizontal: 10,
     height: 38,
     borderRadius: 12,
     paddingRight: 2,
@@ -967,6 +970,7 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,255,179,0.2)",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
   },
   backBtnText: {
     color: COLORS.neon,

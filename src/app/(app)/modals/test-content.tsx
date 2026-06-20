@@ -7,7 +7,7 @@ import { ThemedView } from "@/components/themed-view";
 import { games } from "@/constants/games";
 import { Spacing } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
-import BottomSheet from "@gorhom/bottom-sheet";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { LinearGradient } from "expo-linear-gradient";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
@@ -35,7 +35,7 @@ export default function TestContent() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(24)).current;
   const buyScaleAnim = useRef(new Animated.Value(1)).current;
-  const gamePickerRef = useRef<BottomSheet>(null);
+  const gamePickerRef = useRef<BottomSheetModal>(null);
   const { id } = useLocalSearchParams();
   const [challenge, setChallenge] = useState<Challenge | null>(null);
   const [loading, setLoading] = useState(true);
@@ -94,7 +94,7 @@ export default function TestContent() {
 
   function buyTest() {
     if (challenge?.isParticipant) {
-      gamePickerRef.current?.expand();
+      gamePickerRef.current?.present();
       return;
     }
     handleConnect();
@@ -105,7 +105,7 @@ export default function TestContent() {
   const localizedDescription = getLocalizedDescription(challenge, i18n.language);
 
   async function handleGameSelect(gameId: GameId, challengeDayGameId?: string | number) {
-    gamePickerRef.current?.close();
+    gamePickerRef.current?.dismiss();
 
     if (!currentDay) return;
 
@@ -150,7 +150,7 @@ export default function TestContent() {
     try {
       await ChallengesModule.connectChallenge(challenge.id);
       await fetchChallengeDetail();
-      gamePickerRef.current?.expand();
+      gamePickerRef.current?.present();
     } catch (error: any) {
       const serverMessage =
         error.response?.data?.message || error.response?.data?.error;
@@ -159,7 +159,7 @@ export default function TestContent() {
         (error.response?.status === 400 && serverMessage?.includes("joined"))
       ) {
         await fetchChallengeDetail();
-        gamePickerRef.current?.expand();
+        gamePickerRef.current?.present();
       } else {
         Alert.alert(
           t("content.testContent.errorTitle"),
@@ -331,7 +331,7 @@ export default function TestContent() {
           challengeDayGameId: dg.challengeDayGameId
         }))}
         onSelect={handleGameSelect}
-        onClose={() => gamePickerRef.current?.close()}
+        onClose={() => gamePickerRef.current?.dismiss()}
       />
     </>
   );
@@ -428,7 +428,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: { fontSize: 15 },
   description: {
-    textAlign: "justify",
+    textAlign: "left",
     opacity: 0.65,
     lineHeight: 20,
   },

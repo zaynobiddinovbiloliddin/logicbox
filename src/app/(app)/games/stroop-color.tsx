@@ -977,6 +977,9 @@ export default function StroopColor() {
             activeOpacity={0.8}
           >
             <Ionicons name="chevron-back" size={22} color="#ef4444" />
+            <Text style={{ color: "#ef4444", fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+              {t("common.back")}
+            </Text>
           </TouchableOpacity>
 
           <ScrollView
@@ -1580,7 +1583,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 42,
+    paddingHorizontal: 10,
     height: 42,
     borderRadius: 12,
     paddingRight: 2,
@@ -1589,6 +1592,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: "rgba(239,68,68,0.2)",
+    flexDirection: "row",
   },
   startNew_scroll: {
     alignItems: "center",

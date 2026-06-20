@@ -30,6 +30,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+import { useTranslation } from "react-i18next";
 
 import {
   RARITY_CONFIG,
@@ -158,6 +159,7 @@ function WheelRow({ item }: { item: RewardConfig }) {
 type Phase = "intro" | "spinning" | "landing" | "complete";
 
 export default function RewardChest({ onClaim }: { onClaim: () => void }) {
+  const { t } = useTranslation();
   const { recordClaim } = useRewardChestStore();
   const { bottom } = useSafeAreaInsets();
   const sheetRef = useRef<BottomSheet>(null);
@@ -221,7 +223,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
 
   const [phase, setPhase] = useState<Phase>("intro");
   const [statusText, setStatusText] = useState(
-    "Нажмите ВРАЩАТЬ, чтобы открыть",
+    t("components.rewardChest.pressToSpin"),
   );
 
   // Anim values
@@ -300,7 +302,11 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
     if (!current) return;
     setRolled(current);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    flashStatus(`Вы получили ${current.reward?.label ?? 'награду'}!`);
+    flashStatus(
+      t("components.rewardChest.youGot", {
+        reward: current.reward?.label ?? t("components.rewardChest.reward"),
+      }),
+    );
 
     glowLoop.current = Animated.loop(
       Animated.sequence([
@@ -401,18 +407,19 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
     rewardTranslateY,
     claimOpacity,
     flashStatus,
+    t,
   ]);
 
   // ── startSpin ────────────────────────────────────────────────
   const startSpin = useCallback(async () => {
     if (phase !== "intro") return;
     if (availableRewards.length === 0) {
-      flashStatus("Нет доступных наград");
+      flashStatus(t("components.rewardChest.noRewards"));
       return;
     }
 
     setPhase("spinning");
-    flashStatus("Крутим…");
+    flashStatus(t("components.rewardChest.spinning"));
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
 
     try {
@@ -442,7 +449,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
     } catch (error) {
       console.error("Spin failed:", error);
       setPhase("intro");
-      flashStatus("Ошибка сети");
+      flashStatus(t("components.rewardChest.networkError"));
     }
   }, [
     phase,
@@ -450,6 +457,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
     scrollOffset,
     onLand,
     flashStatus,
+    t,
   ]);
 
   // ── claim ────────────────────────────────────────────────────
@@ -475,8 +483,8 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
         <SafeAreaView style={s.safe} edges={["top", "bottom"]}>
           <View style={s.header}>
             <Text style={{ fontSize: 38 }}>💰</Text>
-            <Text style={s.title}>Сундук наград</Text>
-            <Text style={s.subtitle}>Загрузка...</Text>
+            <Text style={s.title}>{t("components.rewardChest.title")}</Text>
+            <Text style={s.subtitle}>{t("components.rewardChest.loading")}</Text>
           </View>
           <View style={s.center}>
             <View style={s.drumOuter}>
@@ -492,7 +500,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
                 ]}
               >
                 <Text style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Загрузка наград...
+                  {t("components.rewardChest.loadingRewards")}
                 </Text>
               </View>
             </View>
@@ -536,7 +544,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
         {/* ── Header ──────────────────────────────────────── */}
         <View style={s.header}>
           <Text style={{ fontSize: 38 }}>💰</Text>
-          <Text style={s.title}>Сундук наград</Text>
+          <Text style={s.title}>{t("components.rewardChest.title")}</Text>
           <Animated.Text
             style={[
               s.subtitle,
@@ -661,7 +669,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
                   end={{ x: 1, y: 1 }}
                   style={s.spinGrad}
                 >
-                  <Text style={s.spinText}>ВРАЩАТЬ</Text>
+                  <Text style={s.spinText}>{t("components.rewardChest.spinBtn")}</Text>
                 </LinearGradient>
               </Pressable>
             </Animated.View>
@@ -669,6 +677,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
         </View>
 
         {/* ── Reward card ─────────────────────────────────── */}
+        {rolled && rolled.reward && (
         <Animated.View
           style={[
             s.rewardCard,
@@ -683,8 +692,6 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
             },
           ]}
         >
-          {rolled && rolled.reward && (
-            <>
               <View
                 style={[s.rarityBadge, { borderColor: rarity.borderColor }]}
               >
@@ -740,14 +747,13 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
                   </View>
                 </View>
               </View>
-            </>
-          )}
         </Animated.View>
+        )}
 
         {/* ── Claim button ────────────────────────────────── */}
+        {phase === "complete" && (
         <Animated.View
           style={[s.claimWrap, { opacity: claimOpacity }]}
-          pointerEvents={phase === "complete" ? "auto" : "none"}
         >
           <Pressable
             onPress={handleClaim}
@@ -759,24 +765,27 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
               end={{ x: 1, y: 1 }}
               style={s.claimGrad}
             >
-              <Text style={s.claimText}>ЗАБРАТЬ</Text>
+              <Text style={s.claimText}>{t("components.rewardChest.claimBtn")}</Text>
             </LinearGradient>
           </Pressable>
         </Animated.View>
+        )}
 
         {/* Floating Gifts Button */}
-        <TouchableOpacity
-          style={[s.giftsBtn, { bottom: bottom + 20 }]}
-          onPress={() => sheetRef.current?.snapToIndex(0)}
-          activeOpacity={0.8}
-        >
-          <LinearGradient
-            colors={["rgba(255,255,255,0.12)", "rgba(255,255,255,0.05)"]}
-            style={StyleSheet.absoluteFill}
-          />
-          <Ionicons name="gift" size={26} color="#FFD93D" />
-          <View style={s.giftsBtnBadge} />
-        </TouchableOpacity>
+        {phase !== "complete" && (
+          <TouchableOpacity
+            style={[s.giftsBtn, { bottom: bottom + 20 }]}
+            onPress={() => sheetRef.current?.snapToIndex(0)}
+            activeOpacity={0.8}
+          >
+            <LinearGradient
+              colors={["rgba(255,255,255,0.12)", "rgba(255,255,255,0.05)"]}
+              style={StyleSheet.absoluteFill}
+            />
+            <Ionicons name="gift" size={26} color="#FFD93D" />
+            <View style={s.giftsBtnBadge} />
+          </TouchableOpacity>
+        )}
       </SafeAreaView>
 
       <BottomSheet
@@ -789,7 +798,7 @@ export default function RewardChest({ onClaim }: { onClaim: () => void }) {
         handleIndicatorStyle={s.handle}
       >
         <View style={s.modalHeader}>
-          <Text style={s.modalTitle}>Возможные награды</Text>
+          <Text style={s.modalTitle}>{t("components.rewardChest.possibleRewards")}</Text>
         </View>
 
         <BottomSheetScrollView

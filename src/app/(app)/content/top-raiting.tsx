@@ -187,12 +187,13 @@ export default function TopRatingsPage() {
     try {
       setLoading(true);
       const data = await ChallengesModule.getChallengeLeaderboard(id as string);
-      const mapped: Player[] = data.entries.map((item: any) => ({
-        id: item.userId,
-        rank: item.rank,
+      const entries: any[] = Array.isArray(data) ? data : (data as any)?.entries ?? [];
+      const mapped: Player[] = entries.map((item: any, idx: number) => ({
+        id: item.userId ?? item.id ?? item.user?.id ?? idx,
+        rank: item.rank ?? idx + 1,
         avatar: "👤", // Default emoji
-        name: item.name,
-        score: item.totalScore,
+        name: item.name ?? item.user?.name ?? item.user?.fullName ?? "",
+        score: item.totalScore ?? item.score ?? 0,
         level: 1, // Default
       }));
       setPlayers(mapped);

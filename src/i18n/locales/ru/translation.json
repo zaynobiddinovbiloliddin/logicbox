@@ -336,7 +336,9 @@
       "phoneLabel": "ТЕЛЕФОН",
       "ageLabel": "ВОЗРАСТ",
       "agePlaceholder": "Ваш возраст",
-      "save": "Сохранить"
+      "save": "Сохранить",
+      "nameRequired": "Введите имя",
+      "phoneInvalid": "Неверный номер телефона"
     }
   },
   "games": {
@@ -538,13 +540,33 @@
           "combo": "Лимит множителя комбо: 6"
         },
         "subtitle": "Открой и совпади · Скорость мышления",
-        "howToPlayTitle": "📋 Как играть"
+        "howToPlayTitle": "📋 Как играть",
+        "diffTitle": "⚡ Сложность",
+        "diffDesc": "Растёт со временем",
+        "features": {
+          "pairs": "10 пар",
+          "timer": "Таймер",
+          "combo": "Комбо",
+          "speedBonus": "Бонус скорости"
+        },
+        "startBtn": "НАЧАТЬ ИГРУ"
       },
       "result": {
         "titleMaster": "МАСТЕР ПАМЯТИ!",
         "titleGreat": "ОТЛИЧНО!",
         "titleGood": "ХОРОШО!",
-        "titleTrain": "ПРОДОЛЖАЙ ТРЕНИРОВАТЬСЯ"
+        "titleTrain": "ПРОДОЛЖАЙ ТРЕНИРОВАТЬСЯ",
+        "back": "Назад",
+        "best": "Лучший",
+        "yourRecord": "Текущий",
+        "finalScore": "ИТОГОВЫЙ СЧЁТ",
+        "correct": "Верно",
+        "maxCombo": "Макс. комбо",
+        "moves": "Ходы",
+        "pairs": "Пары",
+        "totalTime": "Общее время",
+        "newRecord": "🏆 НОВЫЙ РЕКОРД!",
+        "tryAgain": "ПОВТОРИТЬ"
       },
       "game": {
         "score": "СЧЁТ",
@@ -612,7 +634,9 @@
         "roundSub": "+{{score}} очков · Следующий раунд",
         "continuing": "Продолжаем...",
         "finish": "Финиш 🏆",
-        "next": "Дальше →"
+        "next": "Дальше →",
+        "paused": "ПАУЗА",
+        "resume": "Продолжить"
       }
     },
     "geographyTraining": {
@@ -1361,6 +1385,50 @@
     },
     "sectionHeader": {
       "seeAll": "Все →"
+    },
+    "rewardChest": {
+      "title": "Сундук наград",
+      "loading": "Загрузка...",
+      "loadingRewards": "Загрузка наград...",
+      "pressToSpin": "Нажмите ВРАЩАТЬ, чтобы открыть",
+      "spinning": "Крутим…",
+      "noRewards": "Нет доступных наград",
+      "networkError": "Ошибка сети",
+      "youGot": "Вы получили {{reward}}!",
+      "reward": "награду",
+      "spinBtn": "ВРАЩАТЬ",
+      "claimBtn": "ЗАБРАТЬ",
+      "possibleRewards": "Возможные награды"
+    },
+    "homeBanner": {
+      "defaults": [
+        {
+          "icon": "🚀",
+          "title": "Прокачай мозг!",
+          "subtitle": "Пройди 3 теста и получи\nбонусные очки",
+          "buttonText": "Начать →"
+        },
+        {
+          "icon": "🏆",
+          "title": "Стань лидером!",
+          "subtitle": "Соревнуйся с друзьями\nи выиграй призы",
+          "buttonText": "Играть →"
+        },
+        {
+          "icon": "⚡",
+          "title": "Ежедневный челлендж!",
+          "subtitle": "Реши задачи и удвой\nсвои очки",
+          "buttonText": "Вперёд →"
+        }
+      ],
+      "weekly": "Недельный →",
+      "monthly": "Марафон →",
+      "daily": "Дневной →",
+      "open": "Открыть →"
     }
+  },
+  "common": {
+    "start": "Начать",
+    "back": "Назад"
   }
 }

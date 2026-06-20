@@ -201,9 +201,9 @@ export default function TabTwoScreen() {
             {/* Name block */}
             <View style={styles.nameBlock}>
               <Text style={styles.name}>{user?.name ?? t("tabs.profile.guest")}</Text>
-              <Text style={styles.phone}>
-                {user?.info?.phoneNumber ?? user?.username ?? ""}
-              </Text>
+              {!!user?.info?.phoneNumber && (
+                <Text style={styles.phone}>{user.info.phoneNumber}</Text>
+              )}
 
               {/* Boosts */}
               <View style={styles.resourceRow}>

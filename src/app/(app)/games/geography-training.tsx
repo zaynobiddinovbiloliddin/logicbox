@@ -162,6 +162,9 @@ export default function GeographyTraining() {
           />
           <View style={s.backBtnBorder} />
           <Ionicons name="chevron-back" size={20} color={C.text} />
+          <Text style={{ color: C.text, fontSize: 12, fontWeight: "700", marginLeft: 2 }}>
+            {t("common.back")}
+          </Text>
         </Pressable>
 
         <View style={s.headerCenter}>
@@ -284,12 +287,14 @@ const s = StyleSheet.create({
     paddingTop: 4,
   },
   backBtn: {
-    width: 38,
+    flexDirection: "row",
+    paddingHorizontal: 10,
     height: 38,
     borderRadius: 12,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
+    gap: 4,
   },
   backBtnBorder: {
     ...StyleSheet.absoluteFill,

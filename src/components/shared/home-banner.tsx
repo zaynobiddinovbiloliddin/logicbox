@@ -38,46 +38,35 @@ type BannerData = {
   isParticipant?: boolean;
 };
 
-const DEFAULT_BANNERS: BannerData[] = [
-  {
-    id: 1,
-    icon: "🚀",
-    title: "Прокачай мозг!",
-    subtitle: "Пройди 3 теста и получи\nбонусные очки",
-    colors: ["#4D96FF", "#C77DFF"],
-    buttonText: "Начать →",
-  },
-  {
-    id: 2,
-    icon: "🏆",
-    title: "Стань лидером!",
-    subtitle: "Соревнуйся с друзьями\nи выиграй призы",
-    colors: ["#FFD93D", "#FF6B35"],
-    buttonText: "Играть →",
-  },
-  {
-    id: 3,
-    icon: "⚡",
-    title: "Ежедневный челлендж!",
-    subtitle: "Реши задачи и удвой\nсвои очки",
-    colors: ["#6BCB77", "#4ECDC4"],
-    buttonText: "Вперед →",
-  },
-];
+function getDefaultBanners(t: (key: string) => string): BannerData[] {
+  const colorSets: [string, string][] = [
+    ["#4D96FF", "#C77DFF"],
+    ["#FFD93D", "#FF6B35"],
+    ["#6BCB77", "#4ECDC4"],
+  ];
+  return [0, 1, 2].map((i) => ({
+    id: i + 1,
+    icon: t(`components.homeBanner.defaults.${i}.icon`),
+    title: t(`components.homeBanner.defaults.${i}.title`),
+    subtitle: t(`components.homeBanner.defaults.${i}.subtitle`),
+    colors: colorSets[i],
+    buttonText: t(`components.homeBanner.defaults.${i}.buttonText`),
+  }));
+}
 
 function xForIndex(index: number) {
   return index * (BANNER_WIDTH + BANNER_GAP);
 }
 
-function getChallengeTheme(type?: string): Pick<
-  BannerData,
-  "icon" | "colors" | "buttonText"
-> {
+function getChallengeTheme(
+  type: string | undefined,
+  t: (key: string) => string,
+): Pick<BannerData, "icon" | "colors" | "buttonText"> {
   if (type === "weekly") {
     return {
       icon: "📅",
       colors: ["#4D96FF", "#6BCB77"],
-      buttonText: "Haftalik →",
+      buttonText: t("components.homeBanner.weekly"),
     };
   }
 
@@ -85,7 +74,7 @@ function getChallengeTheme(type?: string): Pick<
     return {
       icon: "🔥",
       colors: ["#FF6B35", "#FFD93D"],
-      buttonText: "Marafon →",
+      buttonText: t("components.homeBanner.monthly"),
     };
   }
 
@@ -93,14 +82,14 @@ function getChallengeTheme(type?: string): Pick<
     return {
       icon: "⚡",
       colors: ["#6BCB77", "#4ECDC4"],
-      buttonText: "Kunlik →",
+      buttonText: t("components.homeBanner.daily"),
     };
   }
 
   return {
     icon: "🏆",
     colors: ["#4D96FF", "#C77DFF"],
-    buttonText: "Ochish →",
+    buttonText: t("components.homeBanner.open"),
   };
 }
 
@@ -250,7 +239,7 @@ function BannerItem({
           style={StyleSheet.absoluteFill}
         />
         <View style={bannerStyles.textWrap}>
-          <Text style={bannerStyles.title} numberOfLines={1}>
+          <Text style={bannerStyles.title} numberOfLines={2}>
             {banner.icon} {banner.title}
           </Text>
           <Text style={bannerStyles.sub} numberOfLines={2}>
@@ -271,7 +260,7 @@ function BannerItem({
 export default function HomeBanner() {
   const { t, i18n } = useTranslation();
   const scrollRef = useRef<ScrollView>(null);
-  const [banners, setBanners] = useState<BannerData[]>(DEFAULT_BANNERS);
+  const [banners, setBanners] = useState<BannerData[]>(() => getDefaultBanners(t));
   const isScrollingRef = useRef(false);
   const autoTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const hasLoop = banners.length > 1;
@@ -289,7 +278,7 @@ export default function HomeBanner() {
       const topChallenges = challengeList.slice(0, 3);
 
       if (!topChallenges.length) {
-        setBanners(DEFAULT_BANNERS);
+        setBanners(getDefaultBanners(t));
         return;
       }
 
@@ -314,7 +303,7 @@ export default function HomeBanner() {
             }
           }
 
-          const theme = getChallengeTheme(challenge.type);
+          const theme = getChallengeTheme(challenge.type, t);
 
           return {
             id: challenge.id,
@@ -324,7 +313,9 @@ export default function HomeBanner() {
               ? buildChallengeSubtitle(progress, days, t)
               : getLocalizedDescription(challenge, i18n.language),
             colors: theme.colors,
-            buttonText: challenge.isParticipant ? "Ochish →" : theme.buttonText,
+            buttonText: challenge.isParticipant
+              ? t("components.homeBanner.open")
+              : theme.buttonText,
             challengeId: challenge.id,
             challengeType: challenge.type,
             isParticipant: Boolean(challenge.isParticipant),
@@ -335,7 +326,7 @@ export default function HomeBanner() {
       setBanners(nextBanners);
     } catch (error) {
       console.error("Failed to fetch home banner challenges:", error);
-      setBanners(DEFAULT_BANNERS);
+      setBanners(getDefaultBanners(t));
     }
   }, [i18n.language, t]);
 

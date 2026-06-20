@@ -184,7 +184,7 @@ export default function DailyTaskList() {
             <ThemedText style={styles.backText}>{t("content.task.back")}</ThemedText>
           </Pressable>
 
-          <ThemedText type="title">{t("content.task.title")}</ThemedText>
+          <ThemedText type="title" style={{ color: "#fff" }}>{t("content.task.title")}</ThemedText>
 
           {/* Action Loader Overlay */}
           {actionLoading && (

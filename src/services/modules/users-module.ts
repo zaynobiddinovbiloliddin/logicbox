@@ -9,7 +9,7 @@ const UsersModule = {
 
   async editProfile(
     id: string,
-    obj: { name: string; phoneNumber: string; age: number | null }
+    obj: { name: string; phoneNumber?: string; age?: number }
   ) {
     const { data } = await instance.patch(usersEndpoints.edite(id), obj);
     return data;

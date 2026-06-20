@@ -4,18 +4,20 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 export default function SafeAreaWrapper({
   header,
   children,
+  footer,
   scrollable = true,
 }: {
   header?: React.ReactNode;
   children: React.ReactNode;
+  footer?: React.ReactNode;
   scrollable?: boolean;
 }) {
   const inserts = useSafeAreaInsets();
   const padding = Platform.select({
-    ios: { paddingTop: inserts.top, paddingBottom: inserts.bottom },
+    ios: { paddingTop: inserts.top, paddingBottom: footer ? 0 : inserts.bottom },
     android: {
       paddingTop: inserts.top + 15,
-      paddingBottom: inserts.bottom + 10,
+      paddingBottom: footer ? 0 : inserts.bottom + 10,
     },
   });
 
@@ -32,6 +34,9 @@ export default function SafeAreaWrapper({
         </ScrollView>
       ) : (
         <View style={{ flex: 1 }}>{children}</View>
+      )}
+      {footer && (
+        <View style={{ paddingBottom: inserts.bottom + 12 }}>{footer}</View>
       )}
     </View>
   );

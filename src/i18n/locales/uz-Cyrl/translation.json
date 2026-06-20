@@ -336,7 +336,9 @@
       "phoneLabel": "ТЕЛЕФОН РАҚАМ",
       "ageLabel": "ЁШ",
       "agePlaceholder": "Ёшингиз",
-      "save": "Сақлаш"
+      "save": "Сақлаш",
+      "nameRequired": "Исмни киритинг",
+      "phoneInvalid": "Телефон рақами нотўғри"
     }
   },
   "games": {
@@ -538,13 +540,33 @@
           "combo": "Комбо кўпайтиргич лимити 6"
         },
         "subtitle": "Оч ва мослаштир · Тафаккур тезлиги",
-        "howToPlayTitle": "📋 Қандай ўйналади"
+        "howToPlayTitle": "📋 Қандай ўйналади",
+        "diffTitle": "⚡ Қийинлик",
+        "diffDesc": "Вақт ўтиши билан ошади",
+        "features": {
+          "pairs": "10 жуфт",
+          "timer": "Таймер",
+          "combo": "Комбо",
+          "speedBonus": "Тезлик бонуси"
+        },
+        "startBtn": "ЎЙИННИ БОШЛАШ"
       },
       "result": {
         "titleMaster": "ХОТИРА УСТАСИ!",
         "titleGreat": "ЗЎР!",
         "titleGood": "ЯХШИ!",
-        "titleTrain": "МАШҚНИ ДАВОМ ЭТТИРИНГ"
+        "titleTrain": "МАШҚНИ ДАВОМ ЭТТИРИНГ",
+        "back": "Орқага",
+        "best": "Энг яхши",
+        "yourRecord": "Жорий",
+        "finalScore": "ЯКУНИЙ НАТИЖА",
+        "correct": "Тўғри",
+        "maxCombo": "Макс. комбо",
+        "moves": "Ҳаракатлар",
+        "pairs": "Жуфтликлар",
+        "totalTime": "Умумий вақт",
+        "newRecord": "🏆 ЯНГИ РЕКОРД!",
+        "tryAgain": "ҚАЙТА УРИНИШ"
       },
       "game": {
         "score": "ҲИСОБ",
@@ -612,7 +634,9 @@
         "roundSub": "+{{score}} очко · Кейинги раунд",
         "continuing": "Давом этяпти...",
         "finish": "Якунлаш 🏆",
-        "next": "Кейинги →"
+        "next": "Кейинги →",
+        "paused": "ТЎХТАТИЛДИ",
+        "resume": "Давом этиш"
       }
     },
     "geographyTraining": {
@@ -1361,6 +1385,50 @@
     },
     "sectionHeader": {
       "seeAll": "Барчаси →"
+    },
+    "rewardChest": {
+      "title": "Мукофотлар сандиғи",
+      "loading": "Юкланмоқда...",
+      "loadingRewards": "Мукофотлар юкланмоқда...",
+      "pressToSpin": "Очиш учун АЙЛАНТИРИШ тугмасини босинг",
+      "spinning": "Айланмоқда…",
+      "noRewards": "Мавжуд мукофотлар йўқ",
+      "networkError": "Тармоқ хатоси",
+      "youGot": "Сиз {{reward}} олдингиз!",
+      "reward": "мукофот",
+      "spinBtn": "АЙЛАНТИРИШ",
+      "claimBtn": "ОЛИШ",
+      "possibleRewards": "Мумкин бўлган мукофотлар"
+    },
+    "homeBanner": {
+      "defaults": [
+        {
+          "icon": "🚀",
+          "title": "Миянгни ривожлантир!",
+          "subtitle": "3 та тест топ ва\nбонус балл ол",
+          "buttonText": "Бошлаш →"
+        },
+        {
+          "icon": "🏆",
+          "title": "Лидер бўл!",
+          "subtitle": "Дўстлар билан беллаш\nва соврин ютиб ол",
+          "buttonText": "Ўйнаш →"
+        },
+        {
+          "icon": "⚡",
+          "title": "Кунлик чаллендж!",
+          "subtitle": "Вазифаларни еч ва\nбалларингни ошир",
+          "buttonText": "Давом →"
+        }
+      ],
+      "weekly": "Ҳафталик →",
+      "monthly": "Марафон →",
+      "daily": "Кунлик →",
+      "open": "Очиш →"
     }
+  },
+  "common": {
+    "start": "Бошлаш",
+    "back": "Орқага"
   }
 }

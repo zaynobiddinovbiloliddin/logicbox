@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 export default function CatalogCard({
   icon,
@@ -14,6 +15,7 @@ export default function CatalogCard({
   prize,
   onPress,
 }: any) {
+  const { t } = useTranslation();
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -81,7 +83,7 @@ export default function CatalogCard({
                 { backgroundColor: color + '22', borderColor: color + '44' },
               ]}
             >
-              <Text style={[catalogStyles.actionText, { color }]}>Начать</Text>
+              <Text style={[catalogStyles.actionText, { color }]}>{t("common.start")}</Text>
               <Ionicons name="arrow-forward" size={10} color={color} />
             </View>
           </View>

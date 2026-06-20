@@ -865,13 +865,17 @@ export default function RacingGame() {
               onPress={() => router.back()}
             >
               <Ionicons name="chevron-back" size={20} color="#00ff88" />
+              <Text style={{ color: "#00ff88", fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+                {t("common.back")}
+              </Text>
             </TouchableOpacity>
             <ScrollView
+              style={{ flex: 1 }}
               contentContainerStyle={[
                 styles.start_scrollContent,
                 {
                   paddingTop: insets.top + 64,
-                  paddingBottom: insets.bottom + 32,
+                  paddingBottom: 16,
                 },
               ]}
               showsVerticalScrollIndicator={false}
@@ -924,6 +928,14 @@ export default function RacingGame() {
                 ))}
               </View>
 
+            </ScrollView>
+
+            <View
+              style={[
+                styles.start_footer,
+                { paddingBottom: insets.bottom + 16 },
+              ]}
+            >
               <TouchableOpacity
                 style={styles.start_playBtn}
                 onPress={startGame}
@@ -931,7 +943,7 @@ export default function RacingGame() {
               >
                 <Text style={styles.start_playBtnText}>{t("games.racing.start.playBtn")}</Text>
               </TouchableOpacity>
-            </ScrollView>
+            </View>
           </View>
         )}
 
@@ -1482,16 +1494,22 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   start_root: { backgroundColor: "#050a14" },
+  start_footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: "#050a14",
+  },
   start_backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     backgroundColor: "rgba(255,255,255,0.05)",
     alignItems: "center",
     justifyContent: "center",
     zIndex: 10,
+    flexDirection: "row",
   },
   start_scrollContent: {
     paddingHorizontal: 20,

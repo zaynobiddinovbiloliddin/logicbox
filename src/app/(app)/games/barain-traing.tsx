@@ -865,13 +865,16 @@ export default function BrainStorm() {
         onPress={() => router.back()}
       >
         <Ionicons name="chevron-back" size={22} color={COLORS.accent} />
+        <Text style={{ color: COLORS.accent, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+          {t("common.back")}
+        </Text>
       </TouchableOpacity>
 
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={[
           styles.startScrollContent,
-          { paddingTop: insets.top + 64 },
+          { paddingTop: insets.top + 64, paddingBottom: 16 },
         ]}
         showsVerticalScrollIndicator={false}
       >
@@ -980,15 +983,15 @@ export default function BrainStorm() {
           ))}
         </View>
 
-        {/* Кнопка старта */}
+      </ScrollView>
+
+      <View style={[styles.startFooter, { paddingBottom: insets.bottom + 12 }]}>
         <TouchableOpacity style={styles.startPlayBtn} onPress={startGame}>
           <Text style={styles.startPlayBtnText}>
             {t("games.barainTraing.start.startBtn")}
           </Text>
         </TouchableOpacity>
-
-        <View style={{ height: 40 }} />
-      </ScrollView>
+      </View>
     </View>
   );
 
@@ -1426,7 +1429,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 42,
+    paddingHorizontal: 10,
     height: 42,
     paddingRight: 2,
     borderRadius: 12,
@@ -1435,6 +1438,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: `${COLORS.accent}33`,
+    flexDirection: "row",
   },
   startScrollContent: {
     alignItems: "center",
@@ -1442,11 +1446,16 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   startHeroEmoji: { fontSize: 56, marginBottom: 12 },
+  startFooter: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: COLORS.bg,
+  },
   startMainTitle: {
     fontSize: 48,
     fontWeight: "900",
     color: COLORS.accent,
-    letterSpacing: 8,
+    letterSpacing: 2,
     marginBottom: 6,
     textAlign: "center",
   },

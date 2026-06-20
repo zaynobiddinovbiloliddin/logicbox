@@ -384,10 +384,14 @@ export default function GeographyQuiz() {
         onPress={() => router.back()}
       >
         <Ionicons name="chevron-back" size={24} color={C.blue} />
+        <Text style={{ color: C.blue, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+          {t("common.back")}
+        </Text>
       </TouchableOpacity>
 
       <ScrollView
-        contentContainerStyle={styles.scrollContent}
+        style={{ flex: 1 }}
+        contentContainerStyle={[styles.scrollContent, { paddingBottom: 16 }]}
         showsVerticalScrollIndicator={false}
       >
         <View style={[styles.header, { paddingTop: insets.top + 20 }]}>
@@ -480,25 +484,21 @@ export default function GeographyQuiz() {
           </View>
         </View>*/}
 
-        <TouchableOpacity style={styles.startBtn} onPress={startGame}>
-          <LinearGradient
-            colors={["#0066cc", "#00aaff"]}
-            style={styles.startBtnGradient}
+        <View style={styles.linksRow}>
+          <TouchableOpacity
+            style={styles.dbBtn}
+            onPress={() => setScreen("db")}
           >
-            <Text style={styles.startBtnText}>{t("games.geographyQuiz.start.startBtn")}</Text>
-          </LinearGradient>
-        </TouchableOpacity>
+            <Text style={styles.dbBtnText}>{t("games.geographyQuiz.start.dbBtn")}</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.dbBtn} onPress={() => setScreen("db")}>
-          <Text style={styles.dbBtnText}>{t("games.geographyQuiz.start.dbBtn")}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.dbBtn}
-          onPress={() => router.navigate('/games/geography-training')}
-        >
-          <Text style={styles.dbBtnText}>{t("games.geographyQuiz.start.trainingBtn")}</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.dbBtn}
+            onPress={() => router.navigate('/games/geography-training')}
+          >
+            <Text style={styles.dbBtnText}>{t("games.geographyQuiz.start.trainingBtn")}</Text>
+          </TouchableOpacity>
+        </View>
 
         {history.length > 0 && (
           <View style={styles.historySection}>
@@ -515,6 +515,17 @@ export default function GeographyQuiz() {
           </View>
         )}
       </ScrollView>
+
+      <View style={[styles.startFooter, { paddingBottom: insets.bottom + 12 }]}>
+        <TouchableOpacity style={styles.startBtn} onPress={startGame}>
+          <LinearGradient
+            colors={["#0066cc", "#00aaff"]}
+            style={styles.startBtnGradient}
+          >
+            <Text style={styles.startBtnText}>{t("games.geographyQuiz.start.startBtn")}</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -1131,9 +1142,12 @@ const styles = StyleSheet.create({
   diffTextActive: {
     color: C.gold,
   },
+  startFooter: {
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    backgroundColor: C.bg,
+  },
   startBtn: {
-    marginHorizontal: 20,
-    marginTop: 10,
     borderRadius: 16,
     overflow: "hidden",
     height: 60,
@@ -1149,9 +1163,14 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     letterSpacing: 1,
   },
+  linksRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 8,
+    marginTop: 16,
+  },
   dbBtn: {
     alignSelf: "center",
-    marginTop: 16,
     padding: 10,
   },
   dbBtnText: {
@@ -1683,7 +1702,7 @@ const styles = StyleSheet.create({
   backBtnStart: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     paddingRight: 2,
     height: 40,
     borderRadius: 12,
@@ -1693,6 +1712,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: C.border,
     zIndex: 100,
+    flexDirection: "row",
   },
 
   // Boost styles

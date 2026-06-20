@@ -451,6 +451,7 @@ export default function VoltMatch() {
   } | null>(null);
   const [scorePops, setScorePops] = useState<number[]>([]);
   const [totalMs, setTotalMs] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Result state
   const [resultScore, setResultScore] = useState(0);
@@ -824,6 +825,27 @@ export default function VoltMatch() {
     setTimeout(() => setRevealActive(false), 1500);
   }, [revealUsedThisGame, revealActive, revealCount, consumeBoost]);
 
+  const togglePause = useCallback(() => {
+    if (isPaused) {
+      setIsPaused(false);
+      canTapRef.current = true;
+      setCanTap(true);
+      startTimer(tLeft);
+      totalTimerRef.current = setInterval(() => {
+        totalMsRef.current = Date.now() - startTsRef.current;
+        setTotalMs(totalMsRef.current);
+      }, 500);
+    } else {
+      setIsPaused(true);
+      canTapRef.current = false;
+      setCanTap(false);
+      if (timerRef.current) clearInterval(timerRef.current);
+      if (totalTimerRef.current) clearInterval(totalTimerRef.current);
+      timerBarAnim.stopAnimation();
+      startTsRef.current = Date.now() - totalMsRef.current;
+    }
+  }, [isPaused, tLeft, startTimer]);
+
   const continueRound = useCallback(() => {
     setRoundOverlay(null);
     if (roundNumRef.current >= TOTAL_ROUNDS) {
@@ -853,13 +875,16 @@ export default function VoltMatch() {
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" color={GOLD} size={20} />
+          <Text style={{ color: GOLD, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={[
             ss.scroll,
-            { paddingTop: insets.top, paddingBottom: insets.bottom + 10 },
+            { paddingTop: insets.top, paddingBottom: 16 },
           ]}
           showsVerticalScrollIndicator={false}
         >
@@ -984,7 +1009,10 @@ export default function VoltMatch() {
             </Text>
           </View>
 
-          {/* Start button */}
+        </ScrollView>
+
+        {/* Sticky start button */}
+        <View style={[ss.footer, { paddingBottom: insets.bottom + 12 }]}>
           <TouchableOpacity
             style={ss.startBtn}
             onPress={startGame}
@@ -998,9 +1026,7 @@ export default function VoltMatch() {
             />
             <Text style={ss.startBtnText}>{t("games.voltMatch.start.startBtn")}</Text>
           </TouchableOpacity>
-
-          <View style={{ height: 40 }} />
-        </ScrollView>
+        </View>
       </View>
     );
   }
@@ -1167,6 +1193,13 @@ export default function VoltMatch() {
       <SafeAreaView style={{ flex: 1 }} edges={["top", "bottom"]}>
         {/* ── Top bar ── */}
         <View style={gs.topbar}>
+          <TouchableOpacity
+            style={gs.pauseBtn}
+            onPress={togglePause}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="pause" size={18} color={GOLD} />
+          </TouchableOpacity>
           <View style={gs.tbBox}>
             <Text style={gs.tbLabel}>{t("games.voltMatch.game.score")}</Text>
             <Text style={gs.tbValue}>{score}</Text>
@@ -1231,9 +1264,16 @@ export default function VoltMatch() {
             </Text>
           </View>
           <View style={{ alignItems: "flex-end", gap: 3 }}>
-            <Text style={[gs.tsTimer, timerUrgent && { color: RED }]}>
-              {tLeft.toFixed(1)}
-            </Text>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+              <Ionicons
+                name="time-outline"
+                size={16}
+                color={timerUrgent ? RED : GOLD}
+              />
+              <Text style={[gs.tsTimer, timerUrgent && { color: RED }]}>
+                {tLeft.toFixed(1)}
+              </Text>
+            </View>
             <Text style={gs.tsCombo}>{t("games.voltMatch.game.combo")} ×{Math.min(combo, 6)}</Text>
           </View>
         </View>
@@ -1361,6 +1401,27 @@ export default function VoltMatch() {
           )}
         </View>
       </Modal>
+
+      {/* ── Pause overlay modal ── */}
+      <Modal visible={isPaused} transparent animationType="fade">
+        <View style={gs.overlayBg}>
+          <Text style={gs.overlayEmoji}>⏸️</Text>
+          <Text style={gs.overlayTitle}>{t("games.voltMatch.overlay.paused")}</Text>
+          <TouchableOpacity
+            style={gs.overlayBtn}
+            onPress={togglePause}
+            activeOpacity={0.85}
+          >
+            <LinearGradient
+              colors={[GOLD, "#fb9c38"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={[StyleSheet.absoluteFill, { borderRadius: 12 }]}
+            />
+            <Text style={gs.overlayBtnText}>{t("games.voltMatch.overlay.resume")}</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -1370,7 +1431,7 @@ const ss = StyleSheet.create({
   backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -1380,10 +1441,18 @@ const ss = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 100,
+    flexDirection: "row",
   },
   scroll: {
     paddingHorizontal: 20,
     alignItems: "center",
+  },
+  footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: BG,
+    borderTopWidth: 1,
+    borderTopColor: EDGE,
   },
   heroEmoji: {
     fontSize: 60,
@@ -1740,6 +1809,17 @@ const gs = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: EDGE,
     gap: 6,
+  },
+  pauseBtn: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    backgroundColor: "rgba(245,200,66,0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(245,200,66,0.3)",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 4,
   },
   tbBox: {
     flex: 1,

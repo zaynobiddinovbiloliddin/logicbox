@@ -463,6 +463,7 @@ export default function NotificationScreen() {
                       handleTabPress(tab.id as "news" | "notifications", index)
                     }
                     activeOpacity={0.7}
+                    hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                   >
                     <Text style={styles.tabEmoji}>{tab.emoji}</Text>
                     <Text
@@ -633,6 +634,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    minHeight: 44,
     paddingVertical: 9,
     gap: 6,
     borderRadius: 10,

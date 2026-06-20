@@ -463,9 +463,13 @@ export default function RedBallGame() {
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" size={20} color={COLORS.accent} />
+          <Text style={{ color: COLORS.accent, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <ScrollView
+          style={{ flex: 1 }}
           contentContainerStyle={[
             styles.start_scrollContent,
             { paddingTop: insets.top },
@@ -601,7 +605,10 @@ export default function RedBallGame() {
             ))}
           </View>
 
-          {/* Play button */}
+        </ScrollView>
+
+        {/* Sticky play button */}
+        <View style={[styles.start_footer, { paddingBottom: insets.bottom + 12 }]}>
           <TouchableOpacity
             style={styles.start_playBtn}
             onPress={startGame}
@@ -609,7 +616,7 @@ export default function RedBallGame() {
           >
             <Text style={styles.start_playBtnText}>{t("games.redBall.start.playBtn")}</Text>
           </TouchableOpacity>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     );
   }
@@ -963,6 +970,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.bg,
   },
+  start_footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: COLORS.bg,
+  },
   safeArea: {
     flex: 1,
   },
@@ -992,7 +1004,7 @@ const styles = StyleSheet.create({
   start_backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -1002,6 +1014,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 20,
+    flexDirection: "row",
   },
   start_scrollContent: {
     paddingHorizontal: 20,

@@ -4,8 +4,8 @@ import { useBoostsInventory } from "@/store/boosts-inventory";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
-import { useEffect, useRef, useState } from "react";
+import { router, useFocusEffect } from "expo-router";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -23,22 +23,25 @@ export default function HomeHeader() {
   const [onlineUsersCount, setOnlineUsersCount] = useState<number>(0);
   const [unreadCount, setUnreadCount] = useState<number>(0);
 
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const [statsData, countData] = await Promise.all([
-          UsersModule.getStats(),
-          UsersModule.getUnreadNotificationsCount(),
-        ]);
-        setTotalUsers((statsData.total || 0) + 3000);
-        setOnlineUsersCount((statsData.online || 0) + 98);
-        setUnreadCount(countData.count);
-      } catch (error) {
-        console.error("Failed to fetch user stats/notifications:", error);
-      }
-    };
-    fetchStats();
+  const fetchStats = useCallback(async () => {
+    try {
+      const [statsData, countData] = await Promise.all([
+        UsersModule.getStats(),
+        UsersModule.getUnreadNotificationsCount(),
+      ]);
+      setTotalUsers((statsData.total || 0) + 3000);
+      setOnlineUsersCount((statsData.online || 0) + 98);
+      setUnreadCount(countData.count);
+    } catch (error) {
+      console.error("Failed to fetch user stats/notifications:", error);
+    }
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchStats();
+    }, [fetchStats]),
+  );
 
   const spinAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {

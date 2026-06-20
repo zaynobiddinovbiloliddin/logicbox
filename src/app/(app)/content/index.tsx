@@ -74,9 +74,9 @@ export default function QuizTestScreen() {
     return (
       <Wallpaper>
         <View style={styles.resultRoot}>
-          <ThemedText type="title">{t("content.quiz.completed")}</ThemedText>
+          <ThemedText type="title" style={{ color: "#fff" }}>{t("content.quiz.completed")}</ThemedText>
 
-          <ThemedText type="title" style={styles.scoreText}>
+          <ThemedText type="title" style={[styles.scoreText, { color: "#fff" }]}>
             {t("content.quiz.score")}: {score} / {quizBank.length}
           </ThemedText>
 
@@ -91,7 +91,7 @@ export default function QuizTestScreen() {
   return (
     <Wallpaper>
       <View style={styles.root}>
-        <ThemedText type="title">
+        <ThemedText type="title" style={{ color: "#fff" }}>
           {t("content.quiz.title")} ({index + 1}/10)
         </ThemedText>
 

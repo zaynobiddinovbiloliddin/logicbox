@@ -699,13 +699,16 @@ export default function MathQuiz() {
           onPress={() => router.back()}
         >
           <Ionicons name="chevron-back" size={22} color={C.accent1} />
+          <Text style={{ color: C.accent1, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={[
             styles.startContent,
-            { paddingTop: insets.top },
+            { paddingTop: insets.top, paddingBottom: 16 },
           ]}
           showsVerticalScrollIndicator={false}
         >
@@ -805,12 +808,13 @@ export default function MathQuiz() {
             ))}
           </View>
 
+        </ScrollView>
+
+        <View style={[styles.startFooter, { paddingBottom: insets.bottom + 12 }]}>
           <TouchableOpacity style={styles.startBtn} onPress={startGame}>
             <Text style={styles.startBtnText}>{t("games.mathQuiz.start.startBtn")}</Text>
           </TouchableOpacity>
-
-          <View style={{ height: 40 }} />
-        </ScrollView>
+        </View>
       </View>
     );
   }
@@ -1054,7 +1058,10 @@ export default function MathQuiz() {
     return (
       <ScrollView
         style={styles.container}
-        contentContainerStyle={styles.resultContent}
+        contentContainerStyle={[
+          styles.resultContent,
+          { paddingTop: insets.top + 40 },
+        ]}
         showsVerticalScrollIndicator={false}
       >
         <StatusBar barStyle="light-content" backgroundColor={C.bg} />
@@ -1158,13 +1165,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: C.bg,
   },
+  startFooter: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: C.bg,
+  },
 
   // ── Start ────────────────────────────────────────────────────────────────────
   backBtn: {
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 42,
+    paddingHorizontal: 10,
     height: 42,
     borderRadius: 12,
     paddingRight: 2,
@@ -1173,6 +1185,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: `${C.accent1}33`,
+    flexDirection: "row",
   },
   startContent: {
     alignItems: "center",

@@ -765,6 +765,9 @@ export default function OneSecondGame() {
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={22} color={C.acc} />
+            <Text style={{ color: C.acc, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+              {t("common.back")}
+            </Text>
           </TouchableOpacity>
 
           <ScrollView
@@ -1296,7 +1299,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 42,
+    paddingHorizontal: 10,
     height: 42,
     borderRadius: 12,
     paddingRight: 2,
@@ -1305,6 +1308,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: `${C.acc}33`,
+    flexDirection: "row",
   },
   startScrollContent: {
     alignItems: "center",

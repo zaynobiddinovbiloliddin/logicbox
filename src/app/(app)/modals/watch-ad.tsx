@@ -416,6 +416,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingHorizontal: 20,
+    paddingTop: 18,
     paddingBottom: 24,
   },
   ctaButton: {

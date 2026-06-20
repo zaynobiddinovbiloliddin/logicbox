@@ -727,13 +727,16 @@ export default function UdarTiming() {
             activeOpacity={0.8}
           >
             <Ionicons name="chevron-back" size={22} color="#f0c040" />
+            <Text style={{ color: "#f0c040", fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+              {t("common.back")}
+            </Text>
           </TouchableOpacity>
 
           <ScrollView
             style={{ flex: 1 }}
             contentContainerStyle={[
               styles.startNew_scroll,
-              { paddingTop: insets.top + 64 },
+              { paddingTop: insets.top + 64, paddingBottom: 16 },
             ]}
             showsVerticalScrollIndicator={false}
           >
@@ -846,7 +849,14 @@ export default function UdarTiming() {
               </Text>
             </View>
 
-            {/* Start button */}
+          </ScrollView>
+
+          <View
+            style={[
+              styles.startNew_footer,
+              { paddingBottom: insets.bottom + 12 },
+            ]}
+          >
             <TouchableOpacity
               style={styles.startNew_startBtn}
               onPress={startGame}
@@ -854,9 +864,7 @@ export default function UdarTiming() {
             >
               <Text style={styles.startNew_startBtnText}>{t("games.udarTiming.start.startBtn")}</Text>
             </TouchableOpacity>
-
-            <View style={{ height: 40 }} />
-          </ScrollView>
+          </View>
         </View>
       </Modal>
 
@@ -1661,7 +1669,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 16,
     zIndex: 10,
-    width: 42,
+    paddingHorizontal: 10,
     height: 42,
     borderRadius: 12,
     paddingRight: 2,
@@ -1670,6 +1678,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: "rgba(240,192,64,0.2)",
+    flexDirection: "row",
   },
   startNew_scroll: {
     alignItems: "center",
@@ -1820,6 +1829,11 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     letterSpacing: 4,
     color: "#f0c040",
+  },
+  startNew_footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: "#080808",
   },
   startNew_startBtn: {
     width: "100%",

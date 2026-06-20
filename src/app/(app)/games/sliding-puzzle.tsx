@@ -505,6 +505,9 @@ export default function SlidingPuzzle() {
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" color={COLORS.accent} size={20} />
+          <Text style={{ color: COLORS.accent, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <ScrollView
@@ -979,7 +982,7 @@ const sp_styles = StyleSheet.create({
   backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -989,6 +992,7 @@ const sp_styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 100,
+    flexDirection: "row",
   },
   scrollContent: {
     paddingHorizontal: 20,

@@ -703,13 +703,16 @@ export default function VoltMemory() {
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" color={GOLD} size={20} />
+          <Text style={{ color: GOLD, fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+            {t("common.back")}
+          </Text>
         </TouchableOpacity>
 
         <ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={[
             ss.scroll,
-            { paddingTop: insets.top, paddingBottom: insets.bottom + 10 },
+            { paddingTop: insets.top, paddingBottom: 16 },
           ]}
           showsVerticalScrollIndicator={false}
         >
@@ -836,6 +839,10 @@ export default function VoltMemory() {
             <Text style={ss.diffDesc}>{t("games.voltMemory.start.diffDesc")}</Text>
           </View>
 
+        </ScrollView>
+
+        {/* Sticky start button */}
+        <View style={[ss.footer, { paddingBottom: insets.bottom + 12 }]}>
           <TouchableOpacity
             style={ss.startBtn}
             onPress={startGame}
@@ -849,9 +856,7 @@ export default function VoltMemory() {
             />
             <Text style={ss.startBtnText}>{t("games.voltMemory.start.startBtn")}</Text>
           </TouchableOpacity>
-
-          <View style={{ height: 40 }} />
-        </ScrollView>
+        </View>
       </View>
     );
   }
@@ -1188,11 +1193,18 @@ export default function VoltMemory() {
 
 // ─── Start Screen Styles ──────────────────────────────────────────────────────
 const ss = StyleSheet.create({
+  footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    backgroundColor: BG,
+    borderTopWidth: 1,
+    borderTopColor: EDGE,
+  },
   backBtn: {
     position: "absolute",
     left: 16,
     zIndex: 100,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -1201,6 +1213,7 @@ const ss = StyleSheet.create({
     borderColor: "rgba(245,200,66,0.3)",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
   },
   scroll: { paddingHorizontal: 20, alignItems: "center" },
   heroEmoji: { fontSize: 60, marginBottom: 10, textAlign: "center" },

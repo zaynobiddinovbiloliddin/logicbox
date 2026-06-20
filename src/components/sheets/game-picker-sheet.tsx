@@ -270,7 +270,9 @@ export default function GamePickerSheet({
                       >
                         {isCompleted
                           ? t("components.gamePickerSheet.completed")
-                          : gameMeta.tag}
+                          : t(`tabs.games.tags.${gameMeta.tagKey}`, {
+                              defaultValue: gameMeta.tag,
+                            })}
                       </Text>
                     </View>
                     {needsReclam && (

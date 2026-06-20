@@ -27,13 +27,33 @@ export default function EditProfileScreen() {
 
   const handleSave = async () => {
     if (!user) return;
+    const trimmedName = name.trim();
+    const trimmedPhone = phoneNumber.trim();
+
+    if (!trimmedName) {
+      Alert.alert(
+        t("content.editProfile.errorTitle"),
+        t("content.editProfile.nameRequired"),
+      );
+      return;
+    }
+    if (trimmedPhone && trimmedPhone.length < 5) {
+      Alert.alert(
+        t("content.editProfile.errorTitle"),
+        t("content.editProfile.phoneInvalid"),
+      );
+      return;
+    }
+
     setLoading(true);
     try {
-      await UsersModule.editProfile(user.id.toString(), {
-        name: name.trim(),
-        phoneNumber: phoneNumber.trim(),
-        age: age ? Number(age) : null,
-      });
+      const payload: { name: string; phoneNumber?: string; age?: number } = {
+        name: trimmedName,
+      };
+      if (trimmedPhone) payload.phoneNumber = trimmedPhone;
+      if (age) payload.age = Number(age);
+
+      await UsersModule.editProfile(user.id.toString(), payload);
       await useAuthStore.getState().fetchMe();
       router.back();
     } catch (error: any) {

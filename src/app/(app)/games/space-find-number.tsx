@@ -786,6 +786,9 @@ export default function SpaceFindNumber() {
             activeOpacity={0.7}
           >
             <Ionicons name="chevron-back" size={20} color="#00ffe0" />
+            <Text style={{ color: "#00ffe0", fontSize: 12, fontWeight: "700", marginLeft: 4 }}>
+              {t("common.back")}
+            </Text>
           </TouchableOpacity>
 
           <ScrollView
@@ -1440,7 +1443,7 @@ const styles = StyleSheet.create({
   start_backBtn: {
     position: "absolute",
     left: 16,
-    width: 40,
+    paddingHorizontal: 10,
     height: 40,
     borderRadius: 12,
     paddingRight: 2,
@@ -1450,6 +1453,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 20,
+    flexDirection: "row",
   },
   start_scrollContent: {
     paddingHorizontal: 20,

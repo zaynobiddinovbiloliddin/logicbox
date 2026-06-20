@@ -10,6 +10,7 @@ export interface Game {
   to: string;
   route: Href;
   tag: string;
+  tagKey: string;
   withReclam?: boolean;
   reclamSeen?: boolean;
 }
@@ -24,6 +25,7 @@ export const games: Game[] = [
     to: "#C77DFF",
     route: "/games/barain-traing" as Href,
     tag: "🔢 Математика",
+    tagKey: "math",
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ export const games: Game[] = [
     to: "#4D96FF",
     route: "/games/geography-quiz" as Href,
     tag: "🌍 География",
+    tagKey: "geography",
   },
   {
     id: 16,
@@ -44,6 +47,7 @@ export const games: Game[] = [
     to: "#4D96FF",
     route: "/games/sliding-puzzle" as Href,
     tag: "🧩 Пазл",
+    tagKey: "puzzle",
   },
   {
     id: 3,
@@ -54,6 +58,7 @@ export const games: Game[] = [
     to: "#38bdf8",
     route: "/games/find-letter" as Href,
     tag: "🔤 Язык",
+    tagKey: "language",
   },
   {
     id: 4,
@@ -64,6 +69,7 @@ export const games: Game[] = [
     to: "#FF6B6B",
     route: "/games/space-find-number" as Href,
     tag: "🚀 Космос",
+    tagKey: "space",
   },
   {
     id: 5,
@@ -74,6 +80,7 @@ export const games: Game[] = [
     to: "#FFD93D",
     route: "/games/stroop-color" as Href,
     tag: "🎨 Внимание",
+    tagKey: "attention",
   },
   {
     id: 6,
@@ -84,6 +91,7 @@ export const games: Game[] = [
     to: "#6BCB77",
     route: "/games/udar-timing" as Href,
     tag: "⏱️ Тайминг",
+    tagKey: "timing",
   },
   {
     id: 7,
@@ -94,6 +102,7 @@ export const games: Game[] = [
     to: "#C77DFF",
     route: "/games/one-second" as Href,
     tag: "⌛ Скорость",
+    tagKey: "speed",
   },
   {
     id: 9,
@@ -104,6 +113,7 @@ export const games: Game[] = [
     to: "#fbbf24",
     route: "/games/red-ball" as Href,
     tag: "🔴 Реакция",
+    tagKey: "reaction",
   },
   {
     id: 10,
@@ -114,6 +124,7 @@ export const games: Game[] = [
     to: "#00b3ff",
     route: "/games/shadow-game" as Href,
     tag: "👁️ Диққат",
+    tagKey: "logic",
   },
   {
     id: 11,
@@ -124,6 +135,7 @@ export const games: Game[] = [
     to: "#ff4f7b",
     route: "/games/math-quiz" as Href,
     tag: "🔢 Математика",
+    tagKey: "math",
   },
   {
     id: 12,
@@ -134,6 +146,7 @@ export const games: Game[] = [
     to: "#00cfff",
     route: "/games/racing" as Href,
     tag: "🏎️ Гонка",
+    tagKey: "racing",
   },
   {
     id: 13,
@@ -144,6 +157,7 @@ export const games: Game[] = [
     to: "#fb9c38",
     route: "/games/volt-match" as Href,
     tag: "⚡ Скорость",
+    tagKey: "speed",
   },
   {
     id: 14,
@@ -154,6 +168,7 @@ export const games: Game[] = [
     to: "#c084fc",
     route: "/games/volt-memory" as Href,
     tag: "🧠 Память",
+    tagKey: "memory",
   },
   {
     id: 15,
@@ -164,6 +179,7 @@ export const games: Game[] = [
     to: "#7c3aed",
     route: "/games/volt-numbers" as Href,
     tag: "⚡ Скорость",
+    tagKey: "speed",
   },
 ];
 
